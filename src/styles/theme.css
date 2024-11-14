@@ -6,8 +6,9 @@
 
     --font-family-mono: monospace;
     --font-family-sans: system-ui, sans-serif;
-    --font-family-serif: serif;
-    --font-family-default: var(--font-family-sans);
+    --font-family-serif: Georgia, serif;
+    --font-family-display: "DM Serif Display", Georgia, serif;
+    --font-family-default: var(--font-family-serif);
 
     --font-weight-default: 400;
     --font-weight-heading: 600;

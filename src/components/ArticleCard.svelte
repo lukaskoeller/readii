@@ -1,31 +1,34 @@
 <script lang="ts">
   import { formatDistanceToNow, format } from "date-fns";
-
+  import { RSSNode } from "../core";
+  
   let { item }: { item: Element } = $props();
-  const title = item.querySelector("title")?.innerHTML;
-
-  const publishedAtStr = item.getElementsByTagName("pubDate")[0].innerHTML;
-  const publishedAt = new Date(publishedAtStr);
-  const dateToNow = formatDistanceToNow(publishedAt);
-  const htmlDatetime = format(publishedAt, "yyyy-MM-dd");
-
-  const creator = item
-    .getElementsByTagName("dc:creator")[0]
-    .innerHTML.replace("<![CDATA[", "")
-    .replace("]]>", "");
-
-  const urlStr = item.querySelector("link")?.innerHTML;
-  const url = urlStr ? new URL(urlStr) : null;
-  const articleUrl = url ? url.href : null;
-  const baseUrl = url ? url.origin : null;
+  const { title, publishedAt, author, link } = new RSSNode(item);
+  const dateToNow = publishedAt ? formatDistanceToNow(publishedAt) : null;
+  const htmlDatetime = publishedAt ? format(publishedAt, "yyyy-MM-dd") : null;
 </script>
 
-<article>
-  <h1>{title}</h1>
+<article class="article">
+  <h1 class="heading">{title}</h1>
   <time datetime={htmlDatetime}>{dateToNow}</time>
-  <address>
-    By <a href={baseUrl} rel="author noopener noreferrer">{creator}</a>
-  </address>
+  {#if author}
+    <address>
+      by <a href={link} rel="author noopener noreferrer">{author}</a>
+    </address>
+  {/if}
   <!-- {@html item.getElementsByTagName("content:encoded")[0].innerHTML.replace("<![CDATA[", "").replace("]]>", "")} -->
-  <a href={articleUrl} target="_blank" rel="noopener noreferrer"> Visit </a>
+  <a href={link} target="_blank" rel="noopener noreferrer"> Visit </a>
 </article>
+
+<style>
+  .article {
+    background-color: var(--color-surface-base);
+    padding: var(--spacing-base);
+    border-radius: var(--border-radius-large);
+    border: 2px solid var(--color-border-subtle);
+  }
+
+  .heading {
+    font-size: var(--font-size-large);
+  }
+</style>

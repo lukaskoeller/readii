@@ -1,75 +1,25 @@
 <script lang="ts">
-  import rssFile from "./assets/cssreflex.xml?raw";
+  import rssFile from "./assets/leaverou.xml?raw";
   import ArticleCard from "./components/ArticleCard.svelte";
+  import Header from "./components/Header.svelte";
+  import { RSSParser } from "./core";
 
-  const data = new DOMParser().parseFromString(rssFile, "text/xml");
-  const items = data.querySelectorAll("item");
-  console.log(items);
+  const feed = new RSSParser(rssFile).feed;
 
-  class OPMLParser {
-    url?: string;
-    rawFile?: string;
-
-    constructor(input: string) {
-      try {
-        const url = new URL(input);
-        this.url = url.toString();
-      } catch {
-        this.rawFile = input;
-      }
-    }
-
-    async parse() {
-      if (!this.rawFile) {
-        if (this.url) {
-          const response = await fetch(this.url, {
-            mode: "cors",
-            headers: {
-              "Content-Type": "text/xml",
-            },
-          });
-          const text = await response.text();
-          this.rawFile = text;
-          console.log("response", {
-            response,
-            text,
-          });
-        } else {
-          throw new Error(
-            "Expected either a `url` or a `rawFile` to be defined. Make sure to pass it when creating an `OPMLParser` instance."
-          );
-        }
-      }
-      
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(this.rawFile, "text/xml");
-      const outlines = doc.querySelectorAll("outline");
-      const feeds = Array.from(outlines).map((outline) => {
-        return {
-          title: outline.getAttribute("title"),
-          xmlUrl: outline.getAttribute("xmlUrl"),
-          htmlUrl: outline.getAttribute("htmlUrl"),
-        };
-      });
-      return feeds;
-    }
-  }
-
-  const opml = new OPMLParser("https://nerdy.dev/subscriptions.opml");
-  console.log(opml.parse());
+  // const opml = new OPMLParser("https://nerdy.dev/subscriptions.opml");
 </script>
 
-<header>
-  <h1>readii</h1>
-  <div>
-    <button>Import</button>
+<Header />
+<main class="main">
+  <div class="articles nc-ram-grid">
+    {#each feed as data}
+      <ArticleCard item={data} />
+    {/each}
   </div>
-</header>
-<main>
-  {#each [...items] as data}
-    <ArticleCard item={data} />
-  {/each}
 </main>
 
 <style>
+  .main {
+    padding: var(--spacing-near);
+  }
 </style>

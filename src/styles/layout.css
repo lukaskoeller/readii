@@ -1,0 +1,21 @@
+@layer layout {
+    :where(.nc-ram-grid) {
+        --_nc-ram-grid-gap-row: var(--nc-ram-grid-gap-row, var(--_nc-ram-grid-gap));
+        --_nc-ram-grid-gap-column: var(
+          --nc-ram-grid-gap-column,
+          var(--_nc-ram-grid-gap)
+        );
+        --_nc-ram-grid-gap: var(--nc-ram-grid-gap, var(--spacing-near));
+        --_nc-ram-grid-min-width: var(--nc-ram-grid-min-width, 40ch);
+        --_nc-ram-grid-repeat-count: var(--nc-ram-grid-repeat-count, auto-fit);
+      
+        display: grid;
+        row-gap: var(--_nc-ram-grid-gap-row);
+        column-gap: var(--_nc-ram-grid-gap-column);
+        grid-template-columns: repeat(
+          var(--_nc-ram-grid-repeat-count),
+          minmax(min(var(--_nc-ram-grid-min-width), 100%), 1fr)
+        );
+      }
+      
+}

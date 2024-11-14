@@ -1,7 +1,28 @@
-@layer theme, colors, reset, base;
+@layer theme, colors, reset, base, layout;
 
 @import "./styles/theme.css";
 @import "./styles/colors.css";
 @import "./styles/media.css";
 @import "./styles/reset.css";
 @import "./styles/base.css";
+@import "./styles/layout.css";
+
+/* dm-serif-display-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/dm-serif-display-v15-latin-regular.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+:root {
+  /* --h-brand-primary: 83;  */
+  --h-brand-primary: 70;
+  --l-border-light: .9;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-family-display);
+}

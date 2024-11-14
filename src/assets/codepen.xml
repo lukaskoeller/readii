@@ -1,0 +1,1590 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[CodePen Spark Feed]]></title><description><![CDATA[The latest, and greatest from CodePen.]]></description><link>https://codepen.io</link><generator>RSS for Node</generator><lastBuildDate>Sat, 09 Nov 2024 13:40:10 GMT</lastBuildDate><atom:link href="https://codepen.io/spark/feed" rel="self" type="application/rss+xml"/><copyright><![CDATA[©2024 CodePen]]></copyright><language><![CDATA[en]]></language><item><title><![CDATA[Color Fields, tsParticles Seasons, and The Craft of UI]]></title><description><![CDATA[<p>This week's CodePen community highlights include an interactive JavaScript color field from Dillo, a slideshow of the seasons featuring tsParticles from tofjadesign, and the debut of Jhey Tompkins' newsletter, "The Craft of UI".</p>
+<p>Plus, Ana Tudor refines an SVG dithering effect, and Tom Miller takes GSAP ScrollTrigger and TextPlugin for a spin.</p>
+            <h3>
+              <a href="https://css-tip.com/3d-parallax-effect/">3D parallax effect on hover</a>
+            </h3>
+            <p>
+              <a href="https://css-tip.com/3d-parallax-effect/">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/3d-parallax-hover.png" />
+              </a>
+            </p>
+            <p>
+              Temani Afif iterates on a <a href="https://codepen.io/t_afif/pen/qBJyXNy">fun hover effect</a> with an even stronger 3D illusion this time. Crafted with "No extra element (only the &lt;img> tag), No pseudo-element, Less than 15 CSS declarations".
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/THD7E4DFTTTTTT3EQKTC5TTTTTT6B4V4KATTTTTTVT7TE7YTTTTTTYSGQQMHCKP2CRL6K7LV53LCOKLYPTBNAMP7CMHT">AWS observability: Top tools and guides</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/THD7E4DFTTTTTT3EQKTC5TTTTTT6B4V4KATTTTTTVT7TE7YTTTTTTYSGQQMHCKP2CRL6K7LV53LCOKLYPTBNAMP7CMHT">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/AWS_Marketplace_Nov42024.png" />
+              </a>
+            </p>
+            <p>
+              For every application or workload, monitoring and observability is critical for reliability and delivering better customer experiences. Browse free technical guidance for AWS observability use cases and access top observability platforms using your AWS account.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/mandynicole/pen/BaXROMQ">SVG Morph Filter</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/mandynicole/pen/BaXROMQ">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/svg-morph-filter.png" />
+              </a>
+            </p>
+            <p>
+              "[feBlend = feGaussianBlur + feColorMatrix] an SVG filter to blend a blur with an alpha channel to create a soft morphing effect between contained elements." from mandynicole.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://craftofui.substack.com/p/building-a-drawer">The Craft of UI on Substack</a>
+            </h3>
+            <p>
+              <a href="https://craftofui.substack.com/p/building-a-drawer">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/craft_of_ui.png" />
+              </a>
+            </p>
+            <p>
+              CodePen community champion Jhey Tompkins just launched a newsletter. The debut article, "Building a Drawer: The Versatility of Popover", digs into the details of Jhey's Pen <a href="https://codepen.io/jh3y/pen/LYwdMKN">just a drawer™</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/THSYVCDFTTTTTT4RPEVC5TTTTTTPT6YLKATTTTTT5TU3E7YTTTTTTYI457QMPR4H2RTMEMZPV7ZI5MLH53AUPI4BF3AT">The fastest way to build AI apps</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/THSYVCDFTTTTTT4RPEVC5TTTTTTPT6YLKATTTTTT5TU3E7YTTTTTTYI457QMPR4H2RTMEMZPV7ZI5MLH53AUPI4BF3AT">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/600_Writer_Oct2824.jpg" />
+              </a>
+            </p>
+            <p>
+              Writer is the full-stack generative AI platform for enterprises. Quickly build and deploy AI apps with Writer AI Studio, a suite of developer tools fully integrated with our LLMs, graph-based RAG, and AI guardrails. Start building with AI Studio.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/tofjadesign/pen/dyxKvpr">seasons slideshow</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/tofjadesign/pen/dyxKvpr">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/seasons-slideshow.png" />
+              </a>
+            </p>
+            <p>
+              tofjadesign celebrates the changing seasons with this animated slideshow, decorated with 
+falling <a href="https://particles.js.org/">tsParticles</a> leaves.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/foretoo/pen/ExqQNwm">3-axis sphere packing</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/foretoo/pen/ExqQNwm">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/three-axis-sphere-packing.png" />
+              </a>
+            </p>
+            <p>
+              Sergey Borovikov packs four thousand spheres into a Three.js cube that's animated to show how it all fits together from every angle.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/Dillo/pen/KKORmvE">Color Fields</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/Dillo/pen/KKORmvE">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/color-fields.png" />
+              </a>
+            </p>
+            <p>
+              "I already wrote several Pens with colored fields. They all had in common that the coloring is very slow, and the user has almost no control over the result. This Pen tries to solve these issues." From Dillon.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/eYOJGd">#CodePenChallenge: Tricks and Treats</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/eYOJGd">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/cpc-tricks-treats.png" />
+              </a>
+            </p>
+            <p>
+              The Halloween challenge wrapped up with some tricks & treats! Check out our collection from week 4 (if you dare!) including Pens by <a href="https://codepen.io/cbolson/pen/rNXvPBR">Chris Bolson</a>, <a href="https://codepen.io/tofjadesign/pen/poMVZJv">marcello</a>, <a href="https://codepen.io/shivani0805/pen/yLmvwMb">Shivani</a>, and <a href="https://codepen.io/zhaqyy/pen/RwzePye">Zharqyy</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/thebabydino/pen/WNVzBRY">Simple dithering backgrounds</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/thebabydino/pen/WNVzBRY">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/simple-dithering-backgrounds.png" />
+              </a>
+            </p>
+            <p>
+              Ana Tudor remakes one of her <a href="https://codepen.io/thebabydino/pen/gOYxjLz">classic Pens</a> with this new "SVG filter magic version". "In the future, we should be able to simplify things even further and eliminate the need for a pseudo by using the <code>filter()</code> function."
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/creativeocean/pen/wvVXKRv">GSAP ScrollTrigger + TextPlugin</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/creativeocean/pen/wvVXKRv">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/gsap-scrolltrigger-text.png" />
+              </a>
+            </p>
+            <p>
+              Take ScrollTrigger and GSAP's TextPlugin for a spin in this Pen by Tom Miller, based on <a href="https://scenery.io/scenes/text-sleep-repeat-WcMTh0V9DbP">Text Sleep Repeat</a> by Scene Group.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/jkantner/pen/OJKZxpv">Toolbars With Sliding Selection</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/jkantner/pen/OJKZxpv">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/toolbars-with-sliding-selection.png" />
+              </a>
+            </p>
+            <p>
+              "Drawing toolbar concept where an indicator of the current tool inches into place. Plus, tooltips fly in and out. Design based on a <a href="https://dribbble.com/shots/23395019-XR-Finger-Toolbar-Vertical">Dribbble shot by Oleg Frolov</a>." From Jon Kantner.
+            </p>
+
+            <hr />]]></description><link>https://codepen.io/spark/413</link><guid isPermaLink="true">https://codepen.io/spark/413</guid></item><item><title><![CDATA[CSS Shimmer, Matter.js Gravity, and a Scroll Snap Slider]]></title><description><![CDATA[<p>This week's CodePen community highlights include a slick input shimmer with CSS from Jhey Tompkins, a playful use of Matter.js gravity for a set of navigation links from natszafraniec, and a fantastic photo slider using scroll snap events from mobalti.</p>
+<p>Plus, we have our collection of Pens from week three of the Halloween #CodePenChallenge, and #mathtober and #weirdweboctober continue with Pens from Sophia Wood and Tom Hinton. </p>
+            <h3>
+              <a href="https://codepen.io/collection/dbxZNp">#CodePenChallenge: Halloween Movies</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/dbxZNp">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/cpc-halloween-movies.png" />
+              </a>
+            </p>
+            <p>
+              For the 3rd week of the Halloween challenge, we went to the movies! Check out our collection from week three, including Pens by <a href="https://codepen.io/matt-cannon/pen/mdNBymz">Matt Cannon</a>, <a href="https://codepen.io/josetxu/pen/oNKGraL">Josetxu</a>, <a href="https://codepen.io/lauramaror/pen/rNXpeKG">Laura Martinez</a>, and <a href="https://codepen.io/kuperl/pen/RwXLbYW">kuperl</a>. It's not too late to join the party! Week 4 <a href="https://codepen.io/challenges/2024/october/4">starts today</a> 🎃
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/T6DLY6IFTTTTTT3KXE2C5TTTTTTGQ5EYKATTTTTTT4D367YTTTTTTYI457QMPR4H2RTMEMZPV7ZI5MLH53AUPI4BF3AT">The fastest way to build AI apps</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/T6DLY6IFTTTTTT3KXE2C5TTTTTTGQ5EYKATTTTTTT4D367YTTTTTTYI457QMPR4H2RTMEMZPV7ZI5MLH53AUPI4BF3AT">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/600_Writer_Oct2824.jpg" />
+              </a>
+            </p>
+            <p>
+              Writer is the full-stack generative AI platform for enterprises. Quickly build and deploy AI apps with Writer AI Studio, a suite of developer tools fully integrated with our LLMs, graph-based RAG, and AI guardrails. Start building with AI Studio.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/jh3y/pen/RwXLbpb">CSS Shimmer Placeholder</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/jh3y/pen/RwXLbpb">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/css-shimmer-placeholder.png" />
+              </a>
+            </p>
+            <p>
+              Jhey Tompkins brings that icy silver shimmer to an input element in this interactive demo. Try adjusting the config settings to customize the look.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/natszafraniec/pen/yLmoKMw">Matter.js responsive navigation links</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/natszafraniec/pen/yLmoKMw">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/matterjs-responsive-nav-links.png" />
+              </a>
+            </p>
+            <p>
+              Navigation links fall in a jumbled pile in this whimsical experiment with Matter.js gravity from natszafraniec.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/TCDINDIFTTTTTTTD4YDC5TTTTTTQQZV6KATTTTTTE4VEA7YTTTTTTSLFPQLNOEZU53FHEILLGHQFWSL45JLNL7I2KMCT">Launch fast, scale seamlessly with Google Cloud</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/TCDINDIFTTTTTTTD4YDC5TTTTTTQQZV6KATTTTTTE4VEA7YTTTTTTSLFPQLNOEZU53FHEILLGHQFWSL45JLNL7I2KMCT">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/3.png" />
+              </a>
+            </p>
+            <p>
+              Level up your startup with Google Cloud! Get credits (up to $350k for AI startups), experts, training, & a thriving community. Focus on innovation, not infrastructure. Apply for the Google for Startups Cloud Program!
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/schwiiiii/pen/wvVqLmX">1Bit Color Scheme Using Dithering</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/schwiiiii/pen/wvVqLmX">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/1bit-color-scheme.png" />
+              </a>
+            </p>
+            <p>
+              "Using background images to create repeating dither patterns similar to those used in pixel art. This allows for multiple shades to be created from just 2 colors." From Brett Schwickerath.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/thebabydino/pen/jOgLJOK">Quick Double Progress</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/thebabydino/pen/jOgLJOK">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/quick-double-progress.png" />
+              </a>
+            </p>
+            <p>
+              Ana Tudor answers a question on the <a href="https://www.reddit.com/r/css/comments/1g8qpon/comment/lt0pxnt/">CSS subreddit</a> with this brilliant CSS solution for a progress bar with two marked checkpoints.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/chasingafterdear/pen/yLmomBL">Star Hover</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/chasingafterdear/pen/yLmomBL">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/star-hover.png" />
+              </a>
+            </p>
+            <p>
+              chasingafterdear brings that little something special to a button hover effect with pop-out stars ✨
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/fractalkitty/pen/zYgEOVb">dodecicosacron</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/fractalkitty/pen/zYgEOVb">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/dodecicosacron.png" />
+              </a>
+            </p>
+            <p>
+              #Mathtober2024 continues with this animation of venerable <a href="https://en.wikipedia.org/wiki/Great_dodecicosacron">dodecicosacron</a> by Sophia Wood.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/2Mogs/pen/WNVppNo">The Rainbow is Watching</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/2Mogs/pen/WNVppNo">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/rainbow-is-watching.png" />
+              </a>
+            </p>
+            <p>
+              When you stare into the rainbow, the rainbow stares back at you in this "particle system with attract / repel points to influence the flow of the particles" from Nick Watton.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/TomHinton/pen/NWQrweM">#weirdweboctober: Lists</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/TomHinton/pen/NWQrweM">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/weird-web-october-lists.png" />
+              </a>
+            </p>
+            <p>
+              Tom Hinton's mimics what a todo list starts looking like at around 4:30 pm on Friday with this trippy vertex shader, created for the <a href="https://weirdweboctober.website/">Weird Web October</a> prompt "Lists".
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/mobalti/pen/XWvaYZx">Slider with Scroll Snap Events</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/mobalti/pen/XWvaYZx">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/scroll-snap-slider-mobalti.png" />
+              </a>
+            </p>
+            <p>
+              "A slider component using Scroll Snap Events, built with Open Props" from mobalti, who recommends Adam Argyle's post on the <a href="https://developer.chrome.com/blog/scroll-snap-events">Chrome for Developers blog</a> for more info on how scroll snap points work.
+            </p>
+
+            <hr />]]></description><link>https://codepen.io/spark/412</link><guid isPermaLink="true">https://codepen.io/spark/412</guid></item><item><title><![CDATA[Clay Characters, React Dark Mode, and a Star Maker]]></title><description><![CDATA[<p>This week's CodePen community highlights include a CSS illustration tutorial on making clay characters from Alvaro Montoro, a split-screen dark mode toggle in React from yoann-b, and a dazzling JavaScript star maker from Nick Watton.</p>
+<p>Plus, Stranger in the Q brings a creepy creature to your browser, and <a href="https://fractalkitty.com/2024/09/10/mathober-2024/">#mathtober</a> continues.</p>
+            <h3>
+              <a href="https://codepen.io/ksenia-k/pen/RwXVMMY">Lightweight Water Distortion Effect</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/ksenia-k/pen/RwXVMMY">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/water-distortion-effect.png" />
+              </a>
+            </p>
+            <p>
+              Ksenia Kondrashova crafts a super-realistic water shader effect in this interactive Pen. Open up the controls to swap in your own image to distort and play with the shader parameters.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/TFDLL4ZFTTTTTTFZX6TN5TTTTTTVG5TDKATTTTTTY43EL7YTTTTTTYI457QMPR4H2RTMEMZPV7ZI5MLH53AUPI4BF3AT">The fastest way to build AI apps</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/TFDLL4ZFTTTTTTFZX6TN5TTTTTTVG5TDKATTTTTTY43EL7YTTTTTTYI457QMPR4H2RTMEMZPV7ZI5MLH53AUPI4BF3AT">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/600x600_Writer.jpg" />
+              </a>
+            </p>
+            <p>
+              Writer is the full-stack generative AI platform for enterprises. Quickly build and deploy AI apps with Writer AI Studio, a suite of developer tools fully integrated with our LLMs, graph-based RAG, and AI guardrails. Start building with AI Studio.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://www.youtube.com/watch?v=QxDf6VkqP4g">Drawing with CSS: Clay Character</a>
+            </h3>
+            <p>
+              <a href="https://www.youtube.com/watch?v=QxDf6VkqP4g">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/css-clay-character.png" />
+              </a>
+            </p>
+            <p>
+              Watch Alvaro Montoro code this cute clay character from scratch on YouTube, then dig into the code in <a href="https://codepen.io/alvaromontoro/pen/ZEgezbN">the Pen</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/VYoVaE">#CodePenChallenge: Halloween Costumes</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/VYoVaE">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/cpc-halloween-costumes.png" />
+              </a>
+            </p>
+            <p>
+              The Halloween party goes on! Check out the collection from week two of the October #CodePenChallenge, including Pens by <a href="https://codepen.io/calm/pen/BaXRBjw">calm</a>, <a href="https://codepen.io/jtmorehead/pen/RwXgvNN">Jennifer Morehead</a>, <a href="https://codepen.io/josetxu/pen/jOgwYwr">Josetxu</a>, and <a href="https://codepen.io/kitjenson/pen/LYwLGPm">Kit Jenson</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/T6DOWDZFTTTTTTD3FV4N5TTTTTTD4STFKATTTTTTT3TTB7YTTTTTTNJJK2CFLLSWP7ADPL4KGTYWVR3M53LMVYBCVQME">Enable real-time, event-driven architectures</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/T6DOWDZFTTTTTTD3FV4N5TTTTTTD4STFKATTTTTTT3TTB7YTTTTTTNJJK2CFLLSWP7ADPL4KGTYWVR3M53LMVYBCVQME">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/carbon-newsletter-3b.png" />
+              </a>
+            </p>
+            <p>
+              Hazelcast offers a unique unified architecture, reducing the number of separate software components in your architecture to speed up app development and deployment. Experience rapid, resilient data management and processing for real-time and AI apps – start your free trial.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/ivorjetski/pen/eYqWNYb">CSS Bubble - v1</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/ivorjetski/pen/eYqWNYb">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/css-bubble-evans.png" />
+              </a>
+            </p>
+            <p>
+              Ben Evans shares an elegant study in pure CSS gradient iridescence with this pearl-like bubble.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/aragakey/pen/dyxWBzZ">Flower of Hearts - CSS Doodle</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/aragakey/pen/dyxWBzZ">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/flower-of-hearts.png" />
+              </a>
+            </p>
+            <p>
+              Hearts gather around a stem to form a flower in this infinitely changing animated demonstration of the <a href="https://css-doodle.com/">css-doodle web component</a> from aragakey.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/2Mogs/pen/mdNmobp">Star maker - moiré</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/2Mogs/pen/mdNmobp">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/star-moire.png" />
+              </a>
+            </p>
+            <p>
+              "Working on a method to dynamically draw stars with "n" points. Here playing with scale, and discovering a beautiful moiré pattern when you have lots of points." From Nick Watton.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/Ma5a/pen/ExqWGGM">range slider hamster</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/Ma5a/pen/ExqWGGM">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/range-slider-hamster.png" />
+              </a>
+            </p>
+            <p>
+              Another fun one from the pixel pet shop of Masahito Leo Takeuchi! "[Y]ou can adjust hamster speed with the range input, but hamster gets tired if speed is too high for too long."
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/strangerintheq/pen/poMwpvy">thing</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/strangerintheq/pen/poMwpvy">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/thing-strangerintheq.png" />
+              </a>
+            </p>
+            <p>
+              A sticky-footed creepy-crawly <em>thing</em> pursues your cursor across a landscape of noise in this Three.js scene from Stranger in the Q.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/yoann-b/pen/PoMjwXZ">React Dark Mode</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/yoann-b/pen/PoMjwXZ">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/react-dark-mode-yoannb.png" />
+              </a>
+            </p>
+            <p>
+              yoann-b shares a slick split-screen transition effect for a light to dark mode toggle. See how it was made in a timelapse <a href="https://www.youtube.com/shorts/SwZ1LgTgIVU">coding session on YouTube</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/fractalkitty/pen/XWvpLMg">cyclic hexagon</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/fractalkitty/pen/XWvpLMg">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/cyclic-hexagon.png" />
+              </a>
+            </p>
+            <p>
+              The <a href="https://fractalkitty.com/2024/09/10/mathober-2024/">#mathtober</a> magic continues with this animated blueprint of a cyclic hexagon from Sophia Wood.
+            </p>
+
+            <hr />]]></description><link>https://codepen.io/spark/411</link><guid isPermaLink="true">https://codepen.io/spark/411</guid></item><item><title><![CDATA[Fragile Code, Plastic Icons, and GLSL Ghosts]]></title><description><![CDATA[<p>This week's CodePen community highlights include a very delicate piece of perfect code from Jhey Tompkins and a fragile fractal from Matthias Hurrle. Julia Miocene crafts plastic social icons in CSS, and we have a pair of ghostly visitors: a GLSL ghostly blob from Lea Rosema, and a rad little CSS & SVG glitch ghost from Konstantin Denerz.</p>
+<p>Plus, the annual Halloween #CodePenChallenge is off to a smashing start 🎃 Check out our collection from <a href="https://codepen.io/collection/eJqzgk">week one</a>, and join the party this week with a <a href="https://codepen.io/challenges/2024/october/2">Halloween costume</a>!</a>
+            <h3>
+              <a href="https://codepen.io/konstantindenerz/pen/dyxONQb">Boo! 👻 (CSS, SVG)</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/konstantindenerz/pen/dyxONQb">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/boo-css-svg.png" />
+              </a>
+            </p>
+            <p>
+              Konstantin Denerz gets into the <em>spirit</em> of Halloween with this ghostly glitch animation, inspired by a <a href="https://x.com/FigmaTuts/status/1844045203382169715">FigmaTuts tutorial</a>. "With the help of #SVG, I also animated the clip-path. ✨"
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/T6IWSOICTTTTTTTBIU7CKTTTTTT33LXEKYTTTTTT6DIXW7ETTTTTTYBLQWSC4M3WKHU6WM4PKHMNC5DBQ7CFKOLPQ7YT">Try the easiest File API on the internet</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/T6IWSOICTTTTTTTBIU7CKTTTTTT33LXEKYTTTTTT6DIXW7ETTTTTTYBLQWSC4M3WKHU6WM4PKHMNC5DBQ7CFKOLPQ7YT">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/600x600.png" />
+              </a>
+            </p>
+            <p>
+              Add file uploads and retrieval to your app in minutes with Pinata's File API. No more wasting time on complex configurations—just quick, seamless integration so you can focus on building. Get fast, secure, and scalable file management without the hassle. Try Pinata today!
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://css-tip.com/puzzle-shape/">A puzzle of images</a>
+            </h3>
+            <p>
+              <a href="https://css-tip.com/puzzle-shape/">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/puzzle-images.png" />
+              </a>
+            </p>
+            <p>
+              Temani Afif takes a CSS-powered jigsaw to an image gallery and it all fits together beautifully. "Single element (Works with &lt;img>). Optimized with CSS variables.
+Powered by CSS mask."
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/jh3y/pen/mdNrrKX">If it works, don't touch it ⚠️</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/jh3y/pen/mdNrrKX">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/works-dont-touch.png" />
+              </a>
+            </p>
+            <p>
+              Jhey Tompkins with an object lesson in what can go wrong when you decide to mess with code that's working fine! Go ahead and touch it I guess, but don't say I didn't warn ya.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/TFDWW3IFTTTTTTH2I6FC5TTTTTTTRNEKKATTTTTTYDETK7YTTTTTTYSGQQMHCKP2CRL6K7LV53LCOKLYPTBNAMP7CMHT">AWS observability: Top tools and guides</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/TFDWW3IFTTTTTTH2I6FC5TTTTTTTRNEKKATTTTTTYDETK7YTTTTTTYSGQQMHCKP2CRL6K7LV53LCOKLYPTBNAMP7CMHT">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/AWS_Marketplace_Q3-2024_Seller-Prime_Program_MPObservability_FINAL_600x600.png" />
+              </a>
+            </p>
+            <p>
+              For every application or workload, monitoring and observability is critical for reliability and delivering better customer experiences. Browse free technical guidance for AWS observability use cases and access top observability platforms using your AWS account.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/eJqzgk">#CodePenChallenge: Halloween Pumpkins</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/eJqzgk">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/cpc-halloween-pumpkins.png" />
+              </a>
+            </p>
+            <p>
+              The annual Halloween #CodePenChallenge is off to a smashing start! Check out our collection from week one, including Pens by <a href="https://codepen.io/dustindwayne/pen/BaXLoBK">dustindwayne</a>, <a href="https://codepen.io/cbolson/pen/YzmGWMW">Chris Bolson</a>, <a href="https://codepen.io/matt-cannon/pen/poMEGzz">Matt Cannon</a>, and <a href="https://codepen.io/jpm23456/pen/xxvERdP">John Mills</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/ksenia-k/pen/ExqgveK">Simple Three.js matcap demo</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/ksenia-k/pen/ExqgveK">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/threejs-matcap-demo.png" />
+              </a>
+            </p>
+            <p>
+              Ksenia Kondrashova shares a lovely demonstration of material capture in Three.js. Click one of the marbles to see a new fabric, and use the controls to play with the noise amplitude.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/atzedent/pen/KKOaNRP">Fragile Fractal</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/atzedent/pen/KKOaNRP">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/fragile-fractal.png" />
+              </a>
+            </p>
+            <p>
+              Matthias Hurrle answers the #WCCChallenge prompt "blue" with this infinitely explorable, ice-blue fractal WebGL world.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://www.youtube.com/watch?v=kB7koj4Z17g">Sunday CSS #11: Plastic CSS Icons</a>
+            </h3>
+            <p>
+              <a href="https://www.youtube.com/watch?v=kB7koj4Z17g">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/plastic-icons.png" />
+              </a>
+            </p>
+            <p>
+              Watch Julia Miocene code a set of 3D, plastic-y social icons in this video tutorial, part of Julia's terrific YouTube series, "Sunday CSS".
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/TomHinton/pen/BaXLaZp">#weirdweboctober: Food</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/TomHinton/pen/BaXLaZp">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/weirdweboctober-food.png" />
+              </a>
+            </p>
+            <p>
+              Tom Hinton takes crop circles in a trippy direction with this farm-inspired Three.js scene, crafted for the <a href="https://weirdweboctober.website/">Weird Web October</a> prompt "food".
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/learosema/pen/oNrmRKY">Bumpy Ghostly Goo</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/learosema/pen/oNrmRKY">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/bumpy-ghostly-goo.png" />
+              </a>
+            </p>
+            <p>
+              Lea Rosema creates a haunting GLSL glow effect with depth-based lighting. You can see a more realistic (and less spooky) alternative version on <a href="https://learosema.github.io/hello-webgl/raymarching/">GitHub</a>, too.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/cbolson/pen/wvVayqp">Multi-line styling using box-decoration-break</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/cbolson/pen/wvVayqp">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/box-decoration-break.png" />
+              </a>
+            </p>
+            <p>
+              Chris Bolson showcases the potential of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break">box-decoration-break</a> CSS property, which is <a href="https://web.dev/blog/web-platform-09-2024">getting a little update in Chrome 130</a>. "This is a single block of text that spans various lines. Each line adopts the background styling as if it were a separate element."
+            </p>
+
+            <hr />]]></description><link>https://codepen.io/spark/410</link><guid isPermaLink="true">https://codepen.io/spark/410</guid></item><item><title><![CDATA[Scroll Driven Animations, a CSS Music Video, and 'Tober Time]]></title><description><![CDATA[<p>This week's CodePen community highlights include a slick scroll-driven photo stack from Paul Noble, a pure CSS music video from Ben Evans, and the kickoff of two October coding celebrations: <a href="https://fractalkitty.com/2024/09/10/mathober-2024/">Mathtober</a> and <a href="https://octothorp.es/~/weirdweboctober">Weird Web October</a>!</p>
+<p>Plus, Marco Biedermann lays out an appealing menu of alternative dark colors, and Natalia Davydova shares an adorable set of Halloween icons in HTML & CSS.</p>
+            <h3>
+              <a href="https://codepen.io/ivorjetski/pen/jOgEyPO">CSS Music Video</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/ivorjetski/pen/jOgEyPO">
+                <img src="https://assets.codepen.io/t-1/css-music-video.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Ben Evans is back with another jaw-dropping feat of pure CSS magic. "Devolution - The FIRST responsive music video? No Images - Pure Code. Only HTML, CSS and the teeny-tiniest amount of JavaScript required to play sound."
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/T6ZBSBSCTTTTTTDSGSJNKTTTTTTZOZG3KYTTTTTT4TDON7ETTTTTTLS353TN4BZZG3MFEASFPM7IEOQUVJPHLN4UCK7T">Technical guidance for cloud use cases</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/T6ZBSBSCTTTTTTDSGSJNKTTTTTTZOZG3KYTTTTTT4TDON7ETTTTTTLS353TN4BZZG3MFEASFPM7IEOQUVJPHLN4UCK7T">
+                <img src="https://assets.codepen.io/652/AWS_Marketplace_Q3-2024_Seller-Prime_BuilderLP_ROI_Newsletter_FINAL_09092024_600x600.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Learn from expert guidance on top AWS use cases and access tools from across the AWS Partner community with your AWS account. You’ll be able to easily demo and add generative AI, security, observability, or data analytics capabilities to your AWS applications.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/Ma5a/pen/zYgrqrL">hug sad bunnies</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/Ma5a/pen/zYgrqrL">
+                <img src="https://assets.codepen.io/t-1/hug-sad-bunnies.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              "This is a simple game where you walk around the forest to hug sad bunnies. Navigate by clicking or touching the screen. Arrows indicate where the closest sad bunnies are." From Masahito Leo Takeuchi.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/paulnoble/pen/gOVPedz">Scroll-driven animated card stack with scroll snap events</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/paulnoble/pen/gOVPedz">
+                <img src="https://assets.codepen.io/t-1/scroll-driven-stack.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Paul Noble combines CSS scroll snapping & scroll timeline for a slick card stack "with a non linear animation timeline", inspired by a design prototype by <a href="https://x.com/nasm423/status/1795133452016054401">Nate Smith</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/TCZNGXICTTTTTTHOQZSCKTTTTTTQDRXWKYTTTTTTLDCXA7ETTTTTT2LFZ3JIPNZ627KMW2B4Z3HFEJBZKHMMCWDMVEBE">Transform Your DevOps with Kubernetes</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/TCZNGXICTTTTTTHOQZSCKTTTTTTQDRXWKYTTTTTTLDCXA7ETTTTTT2LFZ3JIPNZ627KMW2B4Z3HFEJBZKHMMCWDMVEBE">
+                <img src="https://assets.codepen.io/t-1/Ad2_CloudNativeDevOps_1200x1200.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Supercharge your cloud DevOps with Kubernetes and optimize your infrastructure like a pro. Learn to orchestrate containers, automate workflows, and scale seamlessly. Download Cloud Native DevOps with Kubernetes and elevate your cloud operations today!
+            </p>
+
+            <hr />
+            <h3>
+              <a href="">#CodePenChallenge: Todo List</a>
+            </h3>
+            <p>
+              <a href="">
+                <img src="https://assets.codepen.io/t-1/cpc-todo-list.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              The last item on September's "JavaScript Classics" challenge list was a todo list ✅ Check out how the community checked off the challenge in our collection, including Pens by <a href="https://codepen.io/matt-cannon/pen/PoMoaoE">Matt Cannon</a>, <a href="https://codepen.io/shivani0805/pen/NWQPBQN">shivani0805</a>, <a href="https://codepen.io/CORACK/pen/OJKVYLb">CORACK</a>, and <a href="https://codepen.io/tommyho/pen/LYwYQXz">Tommy Ho</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/jkantner/pen/VwoaqoG">Neumorphic Sound Recorder</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/jkantner/pen/VwoaqoG">
+                <img src="https://assets.codepen.io/t-1/neumorphic-sound-recorder.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Jon Kantner brings us "A conceptual sound recorder interface based on a <a href="https://dribbble.com/shots/10157305-Neumorphic-TB-1">Dribbble shot by Chrish Dunne</a>, and the look is supposed to resemble Teenage Engineering products."
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/marcobiedermann/pen/ExqKeoW">Alternatives to Using Pure Black</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/marcobiedermann/pen/ExqKeoW">
+                <img src="https://assets.codepen.io/t-1/alternatives-pure-black.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Marco Biedermann presents a menu of 20+ alternatives to just plain old #000000 for all of your deep dark background and accent needs. Stick this one in your favorite design resources <a href="https://blog.codepen.io/documentation/collections/">collection</a>!
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/fractalkitty/pen/oNKjZqJ">tangent</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/fractalkitty/pen/oNKjZqJ">
+                <img src="https://assets.codepen.io/t-1/nature-sophia-wood.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Sophia Wood inaugurates #mathtober2024 with this terrific tangent. "inscribe yourself here / and be surrounded by time / tangent to being".
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/pavlovsk/pen/ExqPqNW">Dropdown Strike</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/pavlovsk/pen/ExqPqNW">
+                <img src="https://assets.codepen.io/t-1/dropdown-strikes.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              "Negative and positive charts (ul & li) come together and make a scene". Mustafa Enes contributes to the weirdness of Weird Web October with this cautionary tale about hitting the links in stormy weather.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/MenSeb/pen/RwXrpOz">Kosmos Eye</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/MenSeb/pen/RwXrpOz">
+                <img src="https://assets.codepen.io/t-1/kosmos-eye.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Men Seb combines CSS & JS animation for a mysterious rotating eye with the sun at its center. Click the multi-color button at the bottom of the Pen to select your favorite color palette for the eye 👁️
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/nat-davydova/pen/zYeRgMq">Halloween Icons set (Pure HTML/CSS )</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/nat-davydova/pen/zYeRgMq">
+                <img src="https://assets.codepen.io/t-1/halloween-icon-set.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Decorate your front-end space for Halloween with these cute & clever CSS icons from Natalia Davydova.
+            </p>
+
+            <hr />]]></description><link>https://codepen.io/spark/409</link><guid isPermaLink="true">https://codepen.io/spark/409</guid></item><item><title><![CDATA[CSS Custom Properties, Cute Data, and Typography Magic]]></title><description><![CDATA[<p>This week's CodePen community highlights include tutorials on CSS custom properties from Ryan Mulligan and Will Boyd, a "cute" d3.js take on data clustering from Ksenia Kondrashova, and a wave of beautiful typography from Ana Tudor.</p>
+<p>Plus, Adam Argyle shares a great use case for the interpolate-size feature in CSS, and Wakana Y.K. builds a working clock from Three.js sea glass.</p>
+            <h3>
+              <a href="https://ryanmulligan.dev/blog/css-property-new-style/">CSS @property and the New Style</a>
+            </h3>
+            <p>
+              <a href="https://ryanmulligan.dev/blog/css-property-new-style/">
+                <img src="https://assets.codepen.io/t-1/shiny-call-to-action-mulligan.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Ryan Mulligan breaks down how to make that gleaming button animation you see everywhere with CSS @property, which unlocks "the ability to explicitly define a syntax, initial value, and inheritance for CSS custom properties".
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/T6SYJIICTTTTTT3SGSDCKTTTTTT4L5C6KYTTTTTTCTJKA7ETTTTTT2P2CRP6BWB42KAWCYP2Q7PHERPH2RSIEW7MKMYT">Build better products – faster!</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/T6SYJIICTTTTTT3SGSDCKTTTTTT4L5C6KYTTTTTTCTJKA7ETTTTTT2P2CRP6BWB42KAWCYP2Q7PHERPH2RSIEW7MKMYT">
+                <img src="https://assets.codepen.io/652/monday_sep302024.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Taking a product over the finish line sometimes feels like pulling teeth—ouch! monday dev empowers teams to move from ideation to delivery faster—and thankfully, without the usual hiccups. It’s a single platform to plan, execute, and manage every initiative. Try it out yourself.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/cbolson/pen/GRbzyGJ">Slanted Grid Gallery</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/cbolson/pen/GRbzyGJ">
+                <img src="https://assets.codepen.io/t-1/slanted-grid-gallery.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Chris Bolson shares a sharp gallery design concept enhanced with clip-path. Hover over any image to see how it folds out to full size.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/thebabydino/pen/mdoPoJz">No text duplication stroke shadow</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/thebabydino/pen/mdoPoJz">
+                <img src="https://assets.codepen.io/652/no-dup-text-shadow.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Ana Tudor turns a single line of text into a work of type art in this virtuoso demo of SVG filters and CSS mathematics.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/THZYHASCTTTTTT4AVGRNKTTTTTTQETX7KYTTTTTTPTWGC7ETTTTTT5P2KRIMVWZY52JICJ3LZHKIVRLYQ3IUPEQMCABT">AI Apps Made Easy with DataStax Langflow</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/THZYHASCTTTTTT4AVGRNKTTTTTTQETX7KYTTTTTTPTWGC7ETTTTTT5P2KRIMVWZY52JICJ3LZHKIVRLYQ3IUPEQMCABT">
+                <img src="https://assets.codepen.io/652/D-1200x1200-Langflow+Signup+Campaign.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Building GenAI apps can be hard. What if there's an easy-to-use visual IDE you can easily drag-and-drop app components, immediately test and deploy? Enter DataStax Langflow. Experience the simplicity of low-code RAG development and test your app within minutes. Let's build!
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/wakana-k/pen/oNrVwjY">Sea Glass Clock</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/wakana-k/pen/oNrVwjY">
+                <img src="https://assets.codepen.io/t-1/sea-glass-clock.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Wakana Y.K. perfectly recreates the hazy transparency of sand-polished sea glass for this gorgeous working Three.js clock.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/michellebarker/pen/PorvQXz">Gradient background composition exercise</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/michellebarker/pen/PorvQXz">
+                <img src="https://assets.codepen.io/t-1/gradient-background-composition-exercise.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Michelle Barker explores "how much can you vary a composition just by changing a few custom properties?" with this experiment in CSS variables and gradients.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codersblock.com/blog/making-orbit-animations-with-css-custom-properties/">Making Orbit Animations with CSS Custom Properties</a>
+            </h3>
+            <p>
+              <a href="https://codersblock.com/blog/making-orbit-animations-with-css-custom-properties/">
+                <img src="https://assets.codepen.io/t-1/multiple-wobbly.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Will Boyd shows us how to animate CSS custom properties, "a powerful way to approach CSS animations that would otherwise be tedious or impractical to implement."
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://nerdy.dev/interpolate-size">CSS interpolate-size to the rescue</a>
+            </h3>
+            <p>
+              <a href="https://nerdy.dev/interpolate-size">
+                <img src="https://assets.codepen.io/t-1/css-interpolate-size.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              In this quick tutorial, Adam Argyle demonstrates how the new <a href="https://developer.chrome.com/docs/css-ui/animate-to-height-auto">interpolate-size feature</a> in CSS combines with :has() to hide a password field until a valid username is provided.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/ksenia-k/pen/BagqGyB">Cute Data Clustering</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/ksenia-k/pen/BagqGyB">
+                <img src="https://assets.codepen.io/t-1/cute-data-filter.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Ksenia Kondrashova creates a genuinely cute data clustering animation with d3.js (d3-force). Hover over the sample to watch groups hop out and sort, and open up the controls panel up top to check out the effect with different group counts.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/TomHinton/pen/dyBBvBe">sentiment rings true</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/TomHinton/pen/dyBBvBe">
+                <img src="https://assets.codepen.io/t-1/sentiment-rings-true.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Tom Hinton divides the screen into 4 squares that fill with undulating waves of color in this pyschedelic Three.js scene.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/atzedent/pen/WNqqJxY">The Recursive Tetrahedron</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/atzedent/pen/WNqqJxY">
+                <img src="https://assets.codepen.io/t-1/recursive-tetrahedron.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Matthias Hurrle crafts a beautiful beaded tetrahedron on the &lt;canvas>. "Try it yourself. Just change the function call inside hue to one of the three: length, box, and shape, and see which one you like best. Have fun with it!"
+            </p>
+
+            <hr />]]></description><link>https://codepen.io/spark/408</link><guid isPermaLink="true">https://codepen.io/spark/408</guid></item><item><title><![CDATA[Illuminated Text, Fading Perspective, and Styled Progress]]></title><description><![CDATA[<p>This week's CodePen community highlights include an Apple-inspired glowing text effect from RAFA3L, a demonstration of CSS perspective & transforms from Juxtopposed, and a native progress element with an animated tooltip from Temani Afif.</p>
+<p>Plus, we have a study of light in CSS animation from Mustafa Enes, and a new interactive animal pal from Masahito Leo Takeuchi.</p>
+            <h3>
+              <a href="https://codepen.io/RAFA3L/pen/YzomKrR">Text Illumination</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/RAFA3L/pen/YzomKrR">
+                <img src="https://assets.codepen.io/t-1/text-illumination.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              RAFA3L draws inspiration from the luxurious glow on the iPhone 16 announcement page for this luminous SVG text filter.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/T6SYJIICTTTTTT46QZDCKTTTTTT4E5C6KYTTTTTTCTJKA7ETTTTTT2P2CRP6BWB42KAWCYP2Q7PHERPH2RSIEW7MKMYT">Build better products – faster!</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/T6SYJIICTTTTTT46QZDCKTTTTTT4E5C6KYTTTTTTCTJKA7ETTTTTT2P2CRP6BWB42KAWCYP2Q7PHERPH2RSIEW7MKMYT">
+                <img src="https://assets.codepen.io/t-1/Newsletter_accelerate_600_600+%281%29.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Taking a product over the finish line sometimes feels like pulling teeth—ouch! monday dev empowers teams to move from ideation to delivery faster—and thankfully, without the usual hiccups. It’s a single platform to plan, execute, and manage every initiative. Try it out yourself.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/pgkvQr">#CodePenChallenge: Quiz</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/pgkvQr">
+                <img src="https://assets.codepen.io/t-1/cpc-quiz.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              In the third week of our JavaScript Classics challenge, we quizzed ourselves on making a quiz! Check out our collection from week 3, including Pens by <a href="https://codepen.io/matt-cannon/pen/ZEdgmZq">Matt Cannon</a>, <a href="https://codepen.io/tofjadesign/pen/XWLvXaJ">tofjadesign</a>, <a href="https://codepen.io/C1areC0des/pen/bGPPpGb">C1areC0des</a>, and <a href="https://codepen.io/alexandrevacassin/pen/KKOPdZv">Alexandre Vacassin</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/creativeocean/pen/WNqWmPP">A beautiful mess (v2b)</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/creativeocean/pen/WNqWmPP">
+                <img src="https://assets.codepen.io/t-1/beautiful-mess-v2b.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Tom Miller crafted three lovely GSAP/Canvas animations, including this scroll-tethered iteration, and auto-animating renditions <a href="https://codepen.io/creativeocean/pen/vYqMaKg">v1</a> and <a href="https://codepen.io/creativeocean/pen/wvLZNyg">v2</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/TCSOXUSCTTTTTT6R3DZNKTTTTTTK5SCMKYTTTTTTN34RO7ETTTTTTB7MQKANP5PZCKAUWLBZVQHIEBDB2676EA4YF34T">Make Your Cloud Spend Predictable</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/TCSOXUSCTTTTTT6R3DZNKTTTTTTK5SCMKYTTTTTTN34RO7ETTTTTTB7MQKANP5PZCKAUWLBZVQHIEBDB2676EA4YF34T">
+                <img src="https://assets.codepen.io/t-1/DoiT+-+Anomaly+Detection+Ebook_1x1-4.jpg?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Take control of your cloud budget with this free guide from DoiT, an AWS Premier Tier Partner. Learn how to detect and resolve unexpected cloud cost spikes before they impact your bottom line. Download now and take charge of your cloud budget!
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/pavlovsk/pen/MWMdVxd">Photonwork</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/pavlovsk/pen/MWMdVxd">
+                <img src="https://assets.codepen.io/t-1/photonwork.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Mustafa Enes shares a study of hard and soft light and edges in CSS animation. See how the light source's distance and the shape of its "planet" change the way the light moves along the surface.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/Juxtopposed/pen/GRbLbRr">Perspective Fading Scroller</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/Juxtopposed/pen/GRbLbRr">
+                <img src="https://assets.codepen.io/t-1/perspective-fading-scroller.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Emoji curve and fade away as they scroll past in this fun demonstration of CSS perspective & transforms, plus GSAP ScrollTrigger from Juxtopposed.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://css-tip.com/progress-with-tooltip/">Progress element with a tooltip</a>
+            </h3>
+            <p>
+              <a href="https://css-tip.com/progress-with-tooltip/">
+                <img src="https://assets.codepen.io/t-1/progress-element-tooltip-ii.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Temani Afif adds an animated tooltip to the "native progress element showing the percentage of progress". Chrome only for now, but hopefully other browsers are making progress 😉
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/michaelsboost/pen/bGbZJKj">Character Party</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/michaelsboost/pen/bGbZJKj">
+                <img src="https://assets.codepen.io/t-1/character-party.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              "Character Party is a tool for generating unique character ideas by combining various moods, job titles, and categories." From Michael Schwartz.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/jkantner/pen/yLddYEQ">Recording Toggle</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/jkantner/pen/yLddYEQ">
+                <img src="https://assets.codepen.io/t-1/recording-toggle.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              The toggle thumb acts as a recording indicator, complete with an animation that moves along with the recording time in this clever toggle switch concept from Jon Kantner.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/GMartigny/pen/qBzwjwm">Pine trees</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/GMartigny/pen/qBzwjwm">
+                <img src="https://assets.codepen.io/t-1/pine-trees.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Guillaume Martigny takes us on a flight above a dense forest of evergreen trees in this pencil.js-powered Pen.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/Ma5a/pen/rNERVMQ">window scroll monkey</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/Ma5a/pen/rNERVMQ">
+                <img src="https://assets.codepen.io/t-1/window-monkey.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Another browser buddy from the JavaScript menagerie of Masahito Leo Takeuchi! This little monkey follows you as you scroll down the page. 
+"don't go too fast - monkey needs time to catch up!"
+            </p>
+
+            <hr />]]></description><link>https://codepen.io/spark/407</link><guid isPermaLink="true">https://codepen.io/spark/407</guid></item><item><title><![CDATA[Our Favorite Collections]]></title><description><![CDATA[<p>This week, we're pleased to present our all-time favorite CodePen Collections. We've got an wonderful selection of curated picks from community luminaries like Sarah Drasner, David Khourshid, and Mustafa Enes.</p>
+            <h3>
+              <a href="https://codepen.io/collection/nMgKxJ">Useful Pens for Everyday Front End Development</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/nMgKxJ">
+                <img src="https://assets.codepen.io/t-1/useful-pens-everyday-front-end-development.png" />
+              </a>
+            </p>
+            <p>
+              Since 2015, Sarah Drasner's been curating a spectacular selection of "techniques that will be useful in practice in everyday dev", like <a href="https://codepen.io/andrewrock/">andrewrock</a>'s "CSS centering: Place items".
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/TCINJNDCTTTTTTHPASVCKTTTTTTFRACLKYTTTTTTKDK2E7ETTTTTT5PVVYBIEWIB5KA642BBVQKWVKIIPM3COWSL2WBE">Databricks on AWS</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/TCINJNDCTTTTTTHPASVCKTTTTTTFRACLKYTTTTTTKDK2E7ETTTTTT5PVVYBIEWIB5KA642BBVQKWVKIIPM3COWSL2WBE">
+                <img src="https://assets.codepen.io/t-1/AWS_Marketplace_Q3_2024_Seller-Prime_Databricks+_ROI_LinkedIn+Banner_1200x627_Final.jpeg" />
+              </a>
+            </p>
+            <p>
+              In this Amazon Web Services (AWS) article and companion video, discover how Databricks creates a comprehensive and unified experience to help alleviate these roadblocks. Databricks is available to try for free in AWS Marketplace using your AWS Account.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/DBNjgM">Polygon Animations</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/DBNjgM">
+                <img src="https://assets.codepen.io/t-1/polygon-animations.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              GRAY GHOST brings us a beautiful collection filled with hundreds of Pens from "people who are inspired by polygon art and have the desire to make it move", like <a href="https://codepen.io/lisilinhart">Lisi</a> did with "Polybird".
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/DRMKdB">PetitePatterns (Pure SVG)</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/DRMKdB">
+                <img src="https://assets.codepen.io/t-1/petite-patterns.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Bence Szabo gathers up all of the Pens from his personal passion project "generative patterns & textures made purely in SVG using mostly filters with as little code as possible." Check out the collection description for video and text tutorials on how they were made.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/DNzQqY">CSS Variables</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/DNzQqY">
+                <img src="https://assets.codepen.io/t-1/css-variables.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              David Khourshid showcases the awesome power of CSS variables in this wide-ranging collection of Pens that put them to good use, including a monumental pure CSS Stargate from <a href="https://codepen.io/dark_mefody">Nikita Dubko</a>
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/YyroQq">Grids, Cards, and Blog Layouts</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/YyroQq">
+                <img src="https://assets.codepen.io/t-1/grids-cards-blog-layouts.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Hannah Luebbering assembles a collection of dozens of Pens demonstrating practical, modern layouts, like this subtly glowing profile card from <a href="https://codepen.io/havardob">Håvard Brynjulfsen</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/aMPYMo">Toggles</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/aMPYMo">
+                <img src="https://assets.codepen.io/t-1/toggles.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Alvaro Montoro built a toggle for every kind of toggling situation you could ever get into, and he's compiled them all in this jaw-dropping collection loaded with more than 100 toggle-powered Pens.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/DJRwWY">A Space Odyssey</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/DJRwWY">
+                <img src="https://assets.codepen.io/t-1/space-odyssey.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Mustafa Enes takes us on a tour deep into space with this gorgeous collection of Pens featuring "Planets, galaxies, solar systems etc.". The journey kicks off with <a href="https://codepen.io/learosema">Lea Rosema</a>'s "Perlin Noise Nebula".
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/nRmeQX">Drops, liquids, rain, snow, water, waves, etc.</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/nRmeQX">
+                <img src="https://assets.codepen.io/t-1/drops-liquids-rain-snow-water-waves-etc.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Pen remix master cathbailh has an amazing eye for talent on CodePen, and in this collection they dig into the life aquatic. Dive in with 
+"Underwater Background #2" from <a href="https://codepen.io/wakana-k">Wakana Y.K.</a>, and when you come back to the surface check out the rest of Bailh's <a href="https://codepen.io/cathbailh/collections/">legendary collections</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/VYgLdw">ThreeJS Rooms</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/VYgLdw">
+                <img src="https://assets.codepen.io/t-1/dioramas.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Ricardo Oliva Alonso is a master of Three.js miniature, and this concise collection of his diorama-like rooms is a joy. As your tour the collection, make sure to rotate the rooms to explore from every angle and see every little detail.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/BNGozm">Great Gradients</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/BNGozm">
+                <img src="https://assets.codepen.io/t-1/great-gradients.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Eric Karkovack rounds up a lovely selection of noteworthy gradient work from the CodePen community, including this luminous "Complex Gradient" by <a href="https://codepen.io/kylewetton">Kyle Wetton</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/AGZywR">WebGL</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/AGZywR">
+                <img src="https://assets.codepen.io/t-1/webgl-levron.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Take a deep dive into the WebGL world of creative developer Kevin Levron with dozens of interactive Pens in Kevin's inimitable style, including this shimmering bokeh background and an all-time community favorite "<a href="https://codepen.io/soju22/pen/wvyBorP">Neon Cursor</a>".
+            </p>
+
+            <hr />]]></description><link>https://codepen.io/spark/406</link><guid isPermaLink="true">https://codepen.io/spark/406</guid></item><item><title><![CDATA[GSAP Art, Mini-Games, and Hypnotic Keyframes]]></title><description><![CDATA[<p>This week's CodePen community highlights include a GSAP-powered piece of interactive art from Shunya Koide, a gleefully goofy mini-game from Grant Jenkins, and creative takes on Rock, Paper, Scissors in the #CodePenChallenge.</p>
+<p>Plus, Daniel Muñoz mesmerizes us with an infinite pendulum animation, and ghaste brings us an animated kaleidoscope of color with @keyframes, gradients, and a little dash of Pug.</p>
+            <h3>
+              <a href="https://codepen.io/shunyadezain/pen/qBzJzQg">GSAP GRID</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/shunyadezain/pen/qBzJzQg">
+                <img src="https://assets.codepen.io/t-1/gsap-grid.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Drag and drop the animated image squares to create your own work of GSAP powered art in this fun interactive Pen from Shunya Koide.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/T6SYJIICTTTTTT4HQZDCKTTTTTT455C6KYTTTTTTCTJKA7ETTTTTT2P2CRP6BWB42KAWCYP2Q7PHERPH2RSIEW7MKMYT">Build better products – faster!</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/T6SYJIICTTTTTT4HQZDCKTTTTTT455C6KYTTTTTTCTJKA7ETTTTTT2P2CRP6BWB42KAWCYP2Q7PHERPH2RSIEW7MKMYT">
+                <img src="https://assets.codepen.io/t-1/Newsletter_strategy_600_600+%281%29.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Taking a product over the finish line sometimes feels like pulling teeth—ouch! monday dev empowers teams to move from ideation to delivery faster—and thankfully, without the usual hiccups. It’s a single platform to plan, execute, and manage every initiative. Try it out yourself.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/hexagoncircle/pen/LYKJPjm">CSS border ripple effect</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/hexagoncircle/pen/LYKJPjm">
+                <img src="https://assets.codepen.io/t-1/css-border-ripple.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              The liquid-y edges go from a touch of wave to so many ripples in this trio of CSS animated buttons from a Ryan Mulligan.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/stoumann/pen/oNrPmVP">And The Oscar Goes To...</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/stoumann/pen/oNrPmVP">
+                <img src="https://assets.codepen.io/t-1/oscar-timeline.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Mads Stoumann takes us through 20 years of Best Picture Oscar winners with this stylish grid timeline. Check it out at different widths to see how the timeline weaves around the movie posters.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/TFINRMZCTTTTTTTLMS5NKTTTTTTQSYOXKYTTTTTTAD42P7ETTTTTTABN2Q7DCWL6P2S6VBPDCRLMWIPN52QWCW4Y23WE">The Professional Network For A.I. Agents</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/TFINRMZCTTTTTTTLMS5NKTTTTTTQSYOXKYTTTTTTAD42P7ETTTTTTABN2Q7DCWL6P2S6VBPDCRLMWIPN52QWCW4Y23WE">
+                <img src="https://assets.codepen.io/t-1/agent_ai.jpg?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Agent.ai is the go-to marketplace and network for A.I enthusiasts and experts. Hire AI agents to automate tedious tasks, gain deep insights, and drive better results. Don't just keep up with the competition—outsmart them. Leave the boring stuff to the robots 🤖.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/collection/dbBzqa">#CodePenChallenge: Rock, Paper, Scissors</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/collection/dbBzqa">
+                <img src="https://assets.codepen.io/t-1/cpc-rps.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              September's "JavaScript Classics" challenge kicked off with a game of rock, paper, scissors. Play through our collection from week one, including Pens by <a href="https://codepen.io/creativeocean/pen/OJeagyY">Tom Miller</a>, <a href="https://codepen.io/ComputerK/pen/dyBgBmr">Archer Hosford</a>, <a href="https://codepen.io/fchaussin/pen/rNEqgdL">Freask'O</a>, and <a href="https://codepen.io/qub3r-001/pen/xxoQzgV">qub3r-001</a>.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/daniel-mu-oz/pen/NWZBoxK">Hypnotic Pendulums - css</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/daniel-mu-oz/pen/NWZBoxK">
+                <img src="https://assets.codepen.io/t-1/hypnotic-pendulums.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Daniel Muñoz blends @property, perspective-origin, and transforms to craft a mesmerizing @keyframes animation of a set of infinitely-swinging pendulums. Don't stare too long!
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/grantjenkins/pen/NWZzEVL">Critter Cannon (Game)</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/grantjenkins/pen/NWZzEVL">
+                <img src="https://assets.codepen.io/t-1/critter-cannon.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Grant Jenkins shares a charmingly goofy JavaScript mini-game that lets you blast a critter out of a cannon and watch it fly. How far can you go?
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/pavlovsk/pen/jOjKEJq">Geocentric Universe</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/pavlovsk/pen/jOjKEJq">
+                <img src="https://assets.codepen.io/t-1/geocentric-universe.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              "A single day in Ptolemy's earth-centered model of the universe, in loop, all done in pure CSS." A beautiful exploration of an alternate reality from Mustafa Enes.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/TFTEXJSCTTTTTT6WMDFNKTTTTTTZUNN2KYTTTTTTOD3K57ETTTTTTWSU27KDEKPWK2A6YI3M2QPU4YJUQJVCONL32QAE">Save Big with the Nike.com Sale</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/TFTEXJSCTTTTTT6WMDFNKTTTTTTZUNN2KYTTTTTTOD3K57ETTTTTTWSU27KDEKPWK2A6YI3M2QPU4YJUQJVCONL32QAE">
+                <img src="https://assets.codepen.io/t-1/Spark_Nike.jpg?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              Score an Extra 25% Off Select Nike Shoes and Apparel—Shop Now, Limited Time Only!
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/BlogFire/pen/mdZaypP">House of Dreams</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/BlogFire/pen/mdZaypP">
+                <img src="https://assets.codepen.io/t-1/house-of-dreams.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              "A fun little Pen based on a plaque seen in Mennetou-sur-Cher in the Loire et Cher" From Chris Smith.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/ghaste/pen/ExBGjpy">Kaleidoscope of Colors</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/ghaste/pen/ExBGjpy">
+                <img src="https://assets.codepen.io/t-1/kaleidoscope-of-colors.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              ghaste plays with gradients, @keyframes, and a little dash of Pug to produce a kaleidoscopic vision.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/RAFA3L/pen/BagqMGE">The Hour Hand</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/RAFA3L/pen/BagqMGE">
+                <img src="https://assets.codepen.io/t-1/the-hour-hand.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              RAFA3L shares a gorgeous minimal clock that displays a scene that matches the hour at the center. Turn the hour hand to preview hours in the past or future.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/BlackStar1991/pen/NWZEQXv">Infinite Stairway</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/BlackStar1991/pen/NWZEQXv">
+                <img src="https://assets.codepen.io/t-1/infinite-stairway.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              A color-changing ball bounces down a staircase
+— forever — in this pure CSS animation from Andry Zirka.
+            </p>
+
+            <hr />]]></description><link>https://codepen.io/spark/405</link><guid isPermaLink="true">https://codepen.io/spark/405</guid></item><item><title><![CDATA[Green Eggs and Jam]]></title><description><![CDATA[
+            <h3>
+              <a href="https://codepen.io/petebarr/pen/BaymYWg">The Jam - Swissted</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/petebarr/pen/BaymYWg">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/09-03-24-thejam.gif" />
+              </a>
+            </p>
+            <p>
+              Pete Barr:
+
+<blockquote>Swissted is a project by Mike Joyce where he redesigned old punk, hardcore, and indie rock show flyers into Swiss modern posters. This is an attempt to bring The Jam poster to life with animation.</blockquote>
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://srv.buysellads.com/ads/long/x/T6GGHIICTTTTTTTHKUDCKTTTTTT6WQC6KYTTTTTTPTXKA7ETTTTTTNIP22P6YJZ6CRPCK2DFK7IF4IIV22BCWRJNVEBE">Better Bug Reports, Automatically</a>
+            </h3>
+            <p>
+              <a href="https://srv.buysellads.com/ads/long/x/T6GGHIICTTTTTTTHKUDCKTTTTTT6WQC6KYTTTTTTPTXKA7ETTTTTTNIP22P6YJZ6CRPCK2DFK7IF4IIV22BCWRJNVEBE">
+                <img src="https://assets.codepen.io/t-1/jam_screenshot.png?width=440&quality=90&format=auto" />
+              </a>
+            </p>
+            <p>
+              So many bug reports are essentially a screenshot or video screen recording demonstrating the bug. That visual can be extremely helpful, but it might be missing crucial details. With Jam.dev, no worries, it'll all captured.<br />
+A Jam contains the console logs, the network traffic, and your custom metadata. Plus you can connect it to logging providers to see backend events at that time, get AI advice on fixing the issue, and it can be home to team conversation.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/pjkarlik/pen/dyzGxRE">Ladybugs in the Meadow</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/pjkarlik/pen/dyzGxRE">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/ladybugs.png" />
+              </a>
+            </p>
+            <p>
+              Beautiful custom shaders by byt3_m3chanic that draw this surreal scene of the ladybugs marchings through a cobblestone path in a windy forest lit by these coordinated-seeming specs of floating light.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/josetxu/pen/dyvVNre">Stick Bug</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/josetxu/pen/dyvVNre">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/stickbug.png" />
+              </a>
+            </p>
+            <p>
+              It almost looks like Josetxu's rendering of this stick bug is literally a bug sitting on your screen. From the body to the shadow, it all looks very real, but when the antennae jiggle it takes you aback a bit.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/shunyadezain/pen/MWypjVW">Vintage VW Bug</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/shunyadezain/pen/MWypjVW">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/vwbug.png" />
+              </a>
+            </p>
+            <p>
+              Shunya Koide has another entry in the near-photorealism with CSS category. The shadows, glare, and relfections on this classic VW Bug look tremendous. Somehow the dull blue is the perfect color here, echoed nicely in the rims.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/winkerVSbecks/pen/NazWxg">Meta Balls Debug</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/winkerVSbecks/pen/NazWxg">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/metaballsdebug.gif" />
+              </a>
+            </p>
+            <p>
+              Meta Balls, also sometimes called the "gooey effect" or "blobs" are when two elements that look like they have tight well-defined independent edges sort of morph into each other when they get close. Varun Vachhar has done it here on canvas with vector math, which ultimately shows the path trajectories for you.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/jscottsmith/pen/VLzMLo">Colorful Console Logs</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/jscottsmith/pen/VLzMLo">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/logs.png" />
+              </a>
+            </p>
+            <p>
+              There is a little trickery with the <code>console.log()</code> command that lets you output the message with a bit of CSS applied, allowing for a bit of flair in the typically otherwise boring console. Thanks J Scott Smith!
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/asraven/pen/eJREQv">MacBook with Scrolling Screenshot Animation</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/asraven/pen/eJREQv">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/scrolling-screenshot.gif" />
+              </a>
+            </p>
+            <p>
+              You're able to chuck in any image into Alex Raven's CSS-generated MacBook replica, and hovering over it will scroll the image from top to bottom. We can't be sure but it has this "I really needed this effect so I built it myself" feel to it.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/inclushe/pen/BaeQdxM">SVG Filter - Dithering Video</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/inclushe/pen/BaeQdxM">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/redblue.png" />
+              </a>
+            </p>
+            <p>
+              Inclushe takes perfectly normal color video and gives it this single-tone dotty dithered effect. SVG filters always seem to be doing incredible things, it's impressive they even work on video.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/mknadler/pen/gwdYEg">Virtual Ant Farm</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/mknadler/pen/gwdYEg">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/antfarm.png" />
+              </a>
+            </p>
+            <p>
+              There are are sorts of little rules that govern the many-thousand ants on this canvas. Miriam Nadler applies them randomly making them move in different directions and potentially flip the state of the background.
+            </p>
+
+            <hr />
+            <h3>
+              <a href="https://codepen.io/mandymichael/pen/bWqyMN">Layered Fonts in CSS using Rig Shaded</a>
+            </h3>
+            <p>
+              <a href="https://codepen.io/mandymichael/pen/bWqyMN">
+                <img src="https://production-codepen-email-assets.codepenassets.com/cdn-cgi/image/width=600,quality=90,format=auto/codepen-spark/magic.png" />
+              </a>
+            </p>
+            <p>
+              The Pen is by Mandy Michael and the font is by Jamie Clark. There is a ton going on here using multiple versions of the font all on top of each other to add more and more effects, all of which are optional.
+            </p>
+
+            <hr />]]></description><link>https://codepen.io/spark/404</link><guid isPermaLink="true">https://codepen.io/spark/404</guid></item></channel></rss>
