@@ -1,3 +1,22 @@
+const cleanFromCDATA = (str: string | null | undefined) => {
+  if (!str) {
+    return null;
+  }
+  return str.replace("<![CDATA[", "").replace("]]>", "");
+};
+
+const processHTMLString = (str: string | null | undefined) => {
+  let rawHTML = cleanFromCDATA(str);
+  if (!rawHTML) {
+    return null;
+  }
+
+  const dom = new DOMParser().parseFromString(rawHTML, "text/html");
+  const validHTMLString = dom.body.innerText;
+  
+  return validHTMLString;
+};
+
 export class RSSParser {
   private dom: Document;
   feed: Element[];
@@ -9,9 +28,9 @@ export class RSSParser {
     this.author = null;
 
     if (this.dom.querySelector("item")) {
-        this.feed = Array.from(this.dom.querySelectorAll("item"));
+      this.feed = Array.from(this.dom.querySelectorAll("item"));
     } else if (this.dom.querySelector("entry")) {
-        this.feed = Array.from(this.dom.querySelectorAll("entry"));
+      this.feed = Array.from(this.dom.querySelectorAll("entry"));
     }
 
     if (this.dom.querySelector("author")) {
@@ -40,16 +59,27 @@ export class RSSNode {
   }
 
   public get author(): string | null {
-    return (
-      this.node
-        .getElementsByTagName("dc:creator")?.[0]
-        ?.innerHTML.replace("<![CDATA[", "")
-        .replace("]]>", "") ?? null
-    );
+    const author =
+      this.node.getElementsByTagName("dc:creator")?.[0]?.innerHTML ?? null;
+    return cleanFromCDATA(author) ?? null;
   }
 
-  public get description(): string | null {
-    return this.node.querySelector("description")?.innerHTML ?? null;
+  /**
+   * Unparsed HTML markup that holds the content of the article.
+   */
+  public get content(): string | null {
+    const content = this.node.querySelector("content")?.innerHTML;
+    if (content) return processHTMLString(content);
+
+    const contentEncoded =
+      this.node.querySelector("content:encoded")?.innerHTML;
+    if (contentEncoded) return processHTMLString(contentEncoded);
+
+    const description = this.node.querySelector("description")?.innerHTML;
+    if (description && description.length > 300)
+      return processHTMLString(description);
+
+    return null;
   }
 
   public get publishedAt(): Date | null {
