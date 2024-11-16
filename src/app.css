@@ -13,14 +13,15 @@
   font-family: "DM Serif Display";
   font-style: normal;
   font-weight: 400;
-  src: url("./assets/dm-serif-display-v15-latin-regular.woff2")
-    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("./assets/dm-serif-display-v15-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 :root {
-  /* --h-brand-primary: 83;  */
-  --h-brand-primary: 70;
-  --l-border-light: .9;
+  --font-family-mono: monospace;
+  --font-family-sans: system-ui, sans-serif;
+  --font-family-serif: Georgia, serif;
+  --font-family-display: "DM Serif Display", Georgia, serif;
+  --font-family-default: var(--font-family-serif);
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
