@@ -17,6 +17,13 @@ const processHTMLString = (str: string | null | undefined) => {
   return validHTMLString;
 };
 
+const getDate = (str: string | null | undefined) => {
+  const date = new Date(String(str));
+  const isValid = date.toString() !== "Invalid Date";
+
+  return isValid ? date : null;
+}
+
 export class RSSParser {
   private dom: Document;
   feed: Element[];
