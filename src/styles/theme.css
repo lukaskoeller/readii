@@ -1,4 +1,4 @@
-/** http://localhost:3002/colors?styles=%7B%0A++%22fontFamilyMono%22%3A+%22monospace%22%2C%0A++%22fontFamilySans%22%3A+%22system-ui%2C+sans-serif%22%2C%0A++%22fontFamilySerif%22%3A+%22serif%22%2C%0A++%22fontFamilyDefault%22%3A+%22sans%22%2C%0A++%22fontSizeScale%22%3A+1.25%2C%0A++%22useCustomFontSizes%22%3A+false%2C%0A++%22fontSizeSmallest%22%3A+0.75%2C%0A++%22fontSizeSmall%22%3A+0.875%2C%0A++%22fontSizeBase%22%3A+1%2C%0A++%22fontSizeLarge%22%3A+1.25%2C%0A++%22fontSizeLargest%22%3A+1.5%2C%0A++%22fontSizeDisplay%22%3A+2.25%2C%0A++%22fontSizeUnit%22%3A+%22rem%22%2C%0A++%22lineHeightLarge%22%3A+3.4%2C%0A++%22lineHeightBase%22%3A+3%2C%0A++%22lineHeightSmall%22%3A+2.4%2C%0A++%22trackingTight%22%3A+-0.04%2C%0A++%22trackingStandard%22%3A+0%2C%0A++%22trackingWide%22%3A+0.06%2C%0A++%22fontWeightHeading%22%3A+600%2C%0A++%22fontWeightDefault%22%3A+400%2C%0A++%22fontWeightActive%22%3A+600%2C%0A++%22fontWeightStrong%22%3A+600%2C%0A++%22measureLarge%22%3A+88%2C%0A++%22measureBase%22%3A+72%2C%0A++%22measureSmall%22%3A+44%2C%0A++%22spacingTiny%22%3A+0.125%2C%0A++%22spacingNearest%22%3A+0.25%2C%0A++%22spacingNear%22%3A+0.5%2C%0A++%22spacingBase%22%3A+1%2C%0A++%22spacingFar%22%3A+2%2C%0A++%22spacingFarthest%22%3A+4%2C%0A++%22spacingScale%22%3A+2%2C%0A++%22borderRadiusNone%22%3A+0%2C%0A++%22borderWidthThin%22%3A+1%2C%0A++%22borderWidthMedium%22%3A+2%2C%0A++%22borderWidthThick%22%3A+4%2C%0A++%22borderWidthScale%22%3A+2%2C%0A++%22borderRadiusSmall%22%3A+2%2C%0A++%22borderRadiusMedium%22%3A+4%2C%0A++%22borderRadiusLarge%22%3A+8%2C%0A++%22borderRadiusScale%22%3A+2%2C%0A++%22shadowConfigDistanceBase%22%3A+0.8%2C%0A++%22shadowConfigDistanceScaleFactor%22%3A+1.3%2C%0A++%22shadowConfigBlurScaleFactor%22%3A+2%2C%0A++%22shadowConfigStartTransparency%22%3A+0.3%2C%0A++%22shadowConfigTransparencyScale%22%3A+0.85%2C%0A++%22shadowConfigSpreadMax%22%3A+-4%2C%0A++%22shadowConfigXOffsetFactor%22%3A+0.3%2C%0A++%22lightShadowColorLightness%22%3A+80%2C%0A++%22darkShadowColorLightness%22%3A+30%2C%0A++%22lightShadowColorChroma%22%3A+0.03%2C%0A++%22darkShadowColorChroma%22%3A+0.05%2C%0A++%22lightnessMax%22%3A+1%2C%0A++%22lightnessMin%22%3A+0%2C%0A++%22neutralChromaScale%22%3A+0.2%2C%0A++%22transparencyWeaker%22%3A+0%2C%0A++%22primaryHue%22%3A+83%2C%0A++%22primaryLightness%22%3A+72%2C%0A++%22primaryLightnessDark%22%3A+72%2C%0A++%22primaryChroma%22%3A+0.2%2C%0A++%22secondaryHue%22%3A+83%2C%0A++%22secondaryLightness%22%3A+80%2C%0A++%22secondaryLightnessDark%22%3A+80%2C%0A++%22secondaryChroma%22%3A+0.09%2C%0A++%22useSecondaryColorForFG%22%3A+false%2C%0A++%22useSecondaryColorForBG%22%3A+false%2C%0A++%22useSecondaryColorForBorders%22%3A+false%2C%0A++%22lightNeutralChromaFG%22%3A+0.03%2C%0A++%22lightNeutralChromaBG%22%3A+0.03%2C%0A++%22lightNeutralChromaBorder%22%3A+0.03%2C%0A++%22lightNeutralTextLightness%22%3A+28%2C%0A++%22lightNeutralSurfaceLightness%22%3A+99%2C%0A++%22lightNeutralBorderLightness%22%3A+87%2C%0A++%22lightTextLightnessScaleFactor%22%3A+0.1%2C%0A++%22lightSurfaceLightnessScaleFactor%22%3A+0.02%2C%0A++%22lightBorderLightnessScaleFactor%22%3A+0.1%2C%0A++%22darkNeutralChromaFG%22%3A+0.05%2C%0A++%22darkNeutralChromaBG%22%3A+0.05%2C%0A++%22darkNeutralChromaBorder%22%3A+0.05%2C%0A++%22darkNeutralTextLightness%22%3A+88%2C%0A++%22darkNeutralSurfaceLightness%22%3A+15%2C%0A++%22darkNeutralBorderLightness%22%3A+30%2C%0A++%22darkTextLightnessScaleFactor%22%3A+0.12%2C%0A++%22darkSurfaceLightnessScaleFactor%22%3A+0.06%2C%0A++%22darkBorderLightnessScaleFactor%22%3A+0.12%0A%7D */
+/** http://localhost:3002/colors?styles=%7B%0A++%22fontFamilyMono%22%3A+%22monospace%22%2C%0A++%22fontFamilySans%22%3A+%22system-ui%2C+sans-serif%22%2C%0A++%22fontFamilySerif%22%3A+%22serif%22%2C%0A++%22fontFamilyDefault%22%3A+%22sans%22%2C%0A++%22fontSizeScale%22%3A+1.25%2C%0A++%22useCustomFontSizes%22%3A+false%2C%0A++%22fontSizeSmallest%22%3A+0.75%2C%0A++%22fontSizeSmall%22%3A+0.875%2C%0A++%22fontSizeBase%22%3A+1%2C%0A++%22fontSizeLarge%22%3A+1.25%2C%0A++%22fontSizeLargest%22%3A+1.5%2C%0A++%22fontSizeDisplay%22%3A+2.25%2C%0A++%22fontSizeUnit%22%3A+%22rem%22%2C%0A++%22lineHeightLarge%22%3A+3.4%2C%0A++%22lineHeightBase%22%3A+3%2C%0A++%22lineHeightSmall%22%3A+2.4%2C%0A++%22trackingTight%22%3A+-0.04%2C%0A++%22trackingStandard%22%3A+0%2C%0A++%22trackingWide%22%3A+0.06%2C%0A++%22fontWeightHeading%22%3A+600%2C%0A++%22fontWeightDefault%22%3A+400%2C%0A++%22fontWeightActive%22%3A+600%2C%0A++%22fontWeightStrong%22%3A+600%2C%0A++%22measureLarge%22%3A+88%2C%0A++%22measureBase%22%3A+72%2C%0A++%22measureSmall%22%3A+44%2C%0A++%22spacingTiny%22%3A+0.125%2C%0A++%22spacingNearest%22%3A+0.25%2C%0A++%22spacingNear%22%3A+0.5%2C%0A++%22spacingBase%22%3A+1%2C%0A++%22spacingFar%22%3A+2%2C%0A++%22spacingFarthest%22%3A+4%2C%0A++%22spacingScale%22%3A+2%2C%0A++%22borderRadiusNone%22%3A+0%2C%0A++%22borderWidthThin%22%3A+1%2C%0A++%22borderWidthMedium%22%3A+2%2C%0A++%22borderWidthThick%22%3A+4%2C%0A++%22borderWidthScale%22%3A+2%2C%0A++%22borderRadiusSmall%22%3A+2%2C%0A++%22borderRadiusMedium%22%3A+4%2C%0A++%22borderRadiusLarge%22%3A+8%2C%0A++%22borderRadiusScale%22%3A+2%2C%0A++%22shadowConfigDistanceBase%22%3A+0.8%2C%0A++%22shadowConfigDistanceScaleFactor%22%3A+1.3%2C%0A++%22shadowConfigBlurScaleFactor%22%3A+2%2C%0A++%22shadowConfigStartTransparency%22%3A+0.3%2C%0A++%22shadowConfigTransparencyScale%22%3A+0.85%2C%0A++%22shadowConfigSpreadMax%22%3A+-4%2C%0A++%22shadowConfigXOffsetFactor%22%3A+0.3%2C%0A++%22lightShadowColorLightness%22%3A+80%2C%0A++%22darkShadowColorLightness%22%3A+30%2C%0A++%22lightShadowColorChroma%22%3A+0.03%2C%0A++%22darkShadowColorChroma%22%3A+0.05%2C%0A++%22lightnessMax%22%3A+1%2C%0A++%22lightnessMin%22%3A+0%2C%0A++%22neutralChromaScale%22%3A+0.2%2C%0A++%22transparencyWeaker%22%3A+0%2C%0A++%22primaryHue%22%3A+83%2C%0A++%22primaryLightness%22%3A+72%2C%0A++%22primaryLightnessDark%22%3A+72%2C%0A++%22primaryChroma%22%3A+0.3%2C%0A++%22secondaryHue%22%3A+83%2C%0A++%22secondaryLightness%22%3A+80%2C%0A++%22secondaryLightnessDark%22%3A+80%2C%0A++%22secondaryChroma%22%3A+0.09%2C%0A++%22useSecondaryColorForFG%22%3A+false%2C%0A++%22useSecondaryColorForBG%22%3A+false%2C%0A++%22useSecondaryColorForBorders%22%3A+false%2C%0A++%22lightNeutralChromaFG%22%3A+0.03%2C%0A++%22lightNeutralChromaBG%22%3A+0.014%2C%0A++%22lightNeutralChromaBorder%22%3A+0.03%2C%0A++%22lightNeutralTextLightness%22%3A+30%2C%0A++%22lightNeutralSurfaceLightness%22%3A+100%2C%0A++%22lightNeutralBorderLightness%22%3A+87%2C%0A++%22lightTextLightnessScaleFactor%22%3A+0.2%2C%0A++%22lightSurfaceLightnessScaleFactor%22%3A+0.03%2C%0A++%22lightBorderLightnessScaleFactor%22%3A+0.1%2C%0A++%22darkNeutralChromaFG%22%3A+0.03%2C%0A++%22darkNeutralChromaBG%22%3A+0.026%2C%0A++%22darkNeutralChromaBorder%22%3A+0.05%2C%0A++%22darkNeutralTextLightness%22%3A+95%2C%0A++%22darkNeutralSurfaceLightness%22%3A+14%2C%0A++%22darkNeutralBorderLightness%22%3A+30%2C%0A++%22darkTextLightnessScaleFactor%22%3A+0.2%2C%0A++%22darkSurfaceLightnessScaleFactor%22%3A+0.075%2C%0A++%22darkBorderLightnessScaleFactor%22%3A+0.12%0A%7D */
 
 @layer theme {
   :root {
@@ -6,9 +6,8 @@
 
     --font-family-mono: monospace;
     --font-family-sans: system-ui, sans-serif;
-    --font-family-serif: Georgia, serif;
-    --font-family-display: "DM Serif Display", Georgia, serif;
-    --font-family-default: var(--font-family-serif);
+    --font-family-serif: serif;
+    --font-family-default: var(--font-family-sans);
 
     --font-weight-default: 400;
     --font-weight-heading: 600;
@@ -127,7 +126,7 @@
     );
     --neutral-chroma-scale: 0.2;
     --transparency-weaker: 0;
-    --c-brand-primary: 0.2;
+    --c-brand-primary: 0.3;
     --h-brand-primary: 83;
     --color-brand-primary-neutral-chroma: calc(
       var(--c-brand-primary) * var(--neutral-chroma-scale)
@@ -337,10 +336,10 @@
         calc(var(--transparency-weaker) * 10%),
       transparent
     );
-    --l-text-light: 0.28;
+    --l-text-light: 0.3;
     --c-text-light: 0.03;
     --h-text-light: var(--h-brand-primary);
-    --scale-text-light: 0.1;
+    --scale-text-light: 0.2;
     --color-text-neutral-chroma-light: calc(
       var(--c-text-light) * var(--neutral-chroma-scale)
     );
@@ -367,8 +366,8 @@
       var(--color-text-base-light) calc(var(--transparency-weaker) * 10%),
       transparent
     );
-    --l-text-dark: 0.88;
-    --c-text-dark: 0.05;
+    --l-text-dark: 0.95;
+    --c-text-dark: 0.03;
     --h-text-dark: var(--h-brand-primary);
     --color-text-neutral-chroma-dark: calc(
       var(--c-text-dark) * var(--neutral-chroma-scale)
@@ -383,12 +382,12 @@
     --color-text-muted-dark: color-mix(
       in oklch,
       var(--color-text-base-dark),
-      var(--color-text-contrast-dark) 12%
+      var(--color-text-contrast-dark) 20%
     );
     --color-text-subtle-dark: color-mix(
       in oklch,
       var(--color-text-base-dark),
-      var(--color-text-contrast-dark) 24%
+      var(--color-text-contrast-dark) 40%
     );
     --color-text-on-emphasis-dark: var(--color-text-contrast-dark);
     --color-text-hover-dark: color-mix(
@@ -396,10 +395,10 @@
       var(--color-text-base-dark) calc(var(--transparency-weaker) * 10%),
       transparent
     );
-    --l-surface-light: 0.99;
-    --c-surface-light: 0.03;
+    --l-surface-light: 1;
+    --c-surface-light: 0.014;
     --h-surface-light: var(--h-brand-primary);
-    --scale-surface-light: 0.02;
+    --scale-surface-light: 0.03;
     --color-surface-neutral-chroma-light: calc(
       var(--c-surface-light) * var(--neutral-chroma-scale)
     );
@@ -423,8 +422,8 @@
         calc(var(--scale-surface-light) * 2 * 100%)
     );
     --color-surface-emphasis-light: var(--color-surface-contrast-light);
-    --l-surface-dark: 0.15;
-    --c-surface-dark: 0.05;
+    --l-surface-dark: 0.14;
+    --c-surface-dark: 0.026;
     --h-surface-dark: var(--h-brand-primary);
     --color-surface-neutral-chroma-dark: calc(
       var(--c-surface-dark) * var(--neutral-chroma-scale)
@@ -439,12 +438,12 @@
     --color-surface-muted-dark: color-mix(
       in oklch,
       var(--color-surface-base-dark),
-      var(--color-surface-contrast-dark) 6%
+      var(--color-surface-contrast-dark) 7.5%
     );
     --color-surface-subtle-dark: color-mix(
       in oklch,
       var(--color-surface-base-dark),
-      var(--color-surface-contrast-dark) 12%
+      var(--color-surface-contrast-dark) 15%
     );
     --color-surface-emphasis-dark: var(--color-surface-contrast-dark);
     --l-border-light: 0.87;
@@ -507,7 +506,7 @@
       var(--color-border-base-dark) calc(var(--transparency-weaker) * 10%),
       transparent
     );
-    --c-status-success: 0.2;
+    --c-status-success: 0.3;
     --h-status-success: 142;
     --color-status-success-neutral-chroma: calc(
       var(--c-status-success) * var(--neutral-chroma-scale)
@@ -614,7 +613,7 @@
         calc(var(--transparency-weaker) * 10%),
       transparent
     );
-    --c-status-warning: 0.2;
+    --c-status-warning: 0.3;
     --h-status-warning: 97;
     --color-status-warning-neutral-chroma: calc(
       var(--c-status-warning) * var(--neutral-chroma-scale)
@@ -721,7 +720,7 @@
         calc(var(--transparency-weaker) * 10%),
       transparent
     );
-    --c-status-danger: 0.2;
+    --c-status-danger: 0.3;
     --h-status-danger: 32;
     --color-status-danger-neutral-chroma: calc(
       var(--c-status-danger) * var(--neutral-chroma-scale)
@@ -824,7 +823,7 @@
         calc(var(--transparency-weaker) * 10%),
       transparent
     );
-    --c-status-info: 0.2;
+    --c-status-info: 0.3;
     --h-status-info: 245;
     --color-status-info-neutral-chroma: calc(
       var(--c-status-info) * var(--neutral-chroma-scale)
