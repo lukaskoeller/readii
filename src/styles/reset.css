@@ -52,7 +52,7 @@
     :where(body) {
         font-weight: var(--font-weight-default);
         color: var(--color-text-base);
-        background-color: var(--color-surface-subtle);
+        background-color: var(--color-surface-base);
         font-family: var(--font-family-default);
         line-height: var(--line-height-base);
         font-style: normal;
