@@ -1,10 +1,25 @@
 <script lang="ts">
   import rssFile from "./assets/leaverou.xml?raw";
+  import rssFile2 from "./assets/cssreflex.xml?raw";
   import ArticleCard from "./components/ArticleCard.svelte";
   import Header from "./components/Header.svelte";
-  import { RSSParser } from "./core";
+  import { RSSNode, RSSParser } from "./core";
 
-  const feed = new RSSParser(rssFile).feed;
+  const rawFeed = new RSSParser(rssFile).feed;
+  const rawFeed2 = new RSSParser(rssFile2).feed;
+  const feed: RSSNode[] = $state([]);
+
+  for (const element of [...rawFeed, ...rawFeed2]) {
+    const item = new RSSNode(element);
+    feed.push(item);
+  }
+
+  feed.sort((a, b) => {
+    if (a.publishedAt && b.publishedAt) {
+      return b.publishedAt.getTime() - a.publishedAt.getTime();
+    }
+    return 0;
+  });
 
   // const opml = new OPMLParser("https://nerdy.dev/subscriptions.opml");
 </script>

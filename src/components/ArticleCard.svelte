@@ -12,8 +12,8 @@
   let card: HTMLButtonElement;
   let cardHeading: HTMLHeadingElement;
 
-  let { item }: { item: Element } = $props();
-  const { title, publishedAt, author, link, content } = new RSSNode(item);
+  let { item }: { item: RSSNode } = $props();
+  const { title, publishedAt, author, link, content } = item;
   const dateToNow = publishedAt ? formatDistanceToNow(publishedAt) : null;
   const htmlDatetime = publishedAt ? format(publishedAt, "yyyy-MM-dd") : null;
 </script>
