@@ -12,39 +12,50 @@
   let card: HTMLButtonElement;
   let cardHeading: HTMLHeadingElement;
 
-  let { item, idx }: { item: Element; idx: number } = $props();
+  let { item }: { item: Element } = $props();
   const { title, publishedAt, author, link, content } = new RSSNode(item);
   const dateToNow = publishedAt ? formatDistanceToNow(publishedAt) : null;
   const htmlDatetime = publishedAt ? format(publishedAt, "yyyy-MM-dd") : null;
 </script>
 
+{#snippet closeBtn()}
+  <button
+    class="close"
+    onclick={() => {
+      dialogArticle.style.viewTransitionName = VT_ARTICLE_NAME;
+      document.startViewTransition(() => {
+        dialog.style.viewTransitionName = "";
+        dialogHeading.style.viewTransitionName = "";
+        dialogArticle.style.viewTransitionName = "";
+        dialog.close();
+        card.style.viewTransitionName = VT_CARD_NAME;
+        cardHeading.style.viewTransitionName = VT_HEADING_NAME;
+      });
+    }}>Close</button
+  >
+{/snippet}
+
+{#snippet dateAndAuthor()}
+  {#if dateToNow}
+    <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
+  {/if}
+  {#if author}
+    <address class="address">
+      <a href={link} target="_blank" rel="noopener noreferrer">{author}</a>
+    </address>
+  {/if}
+{/snippet}
+
 <dialog bind:this={dialog} class="dialog">
   <article class="nc-flow article" bind:this={dialogArticle}>
-    <button
-      class="close"
-      onclick={() => {
-        dialogArticle.style.viewTransitionName = VT_ARTICLE_NAME;
-        document.startViewTransition(() => {
-          dialog.style.viewTransitionName = "";
-          dialogHeading.style.viewTransitionName = "";
-          dialogArticle.style.viewTransitionName = "";
-          dialog.close();
-          card.style.viewTransitionName = VT_CARD_NAME;
-          cardHeading.style.viewTransitionName = VT_HEADING_NAME;
-        });
-      }}>Close</button
-    >
+    {@render closeBtn()}
     <h2 class="heading" bind:this={dialogHeading}>{title}</h2>
-    {#if dateToNow}
-      <time datetime={htmlDatetime}>{dateToNow}</time>
-    {/if}
-    {#if author}
-      <address>
-        by {author}
-      </address>
-    {/if}
+    {@render dateAndAuthor()}
     {@html content}
   </article>
+  <footer class="article-footer">
+    {@render closeBtn()}
+  </footer>
 </dialog>
 <button
   bind:this={card}
@@ -73,23 +84,20 @@
   class="card"
 >
   <h1 class="heading" bind:this={cardHeading}>{title}</h1>
-  {#if dateToNow}
-    <time datetime={htmlDatetime}>{dateToNow}</time>
-  {/if}
-  {#if author}
-    <address>
-      by {author}
-    </address>
-  {/if}
+  {@render dateAndAuthor()}
 </button>
 
 <style>
   @custom-media --md-n-above (width >= 768px);
 
-  .card {
-    background-color: var(--color-surface-base);
+  .card,
+  .dialog {
+    background-color: var(--color-surface-muted);
     padding: var(--spacing-base);
     border-radius: var(--border-radius-large);
+  }
+
+  .card {
     /* border: 2px solid var(--color-border-subtle); */
     text-decoration: none;
     text-align: start;
@@ -101,14 +109,11 @@
   }
 
   .dialog {
-    border-radius: var(--border-radius-large);
     inline-size: min(100%, 80ch);
     block-size: 100vh;
     max-inline-size: 100%;
     margin-inline: auto;
     margin-block-start: var(--spacing-base);
-    background-color: var(--color-surface-base);
-    padding: var(--spacing-base);
     position: fixed;
     inset: 0;
     inset-block-start: auto;
@@ -135,10 +140,21 @@
     overflow-wrap: break-word;
   }
 
+  .time {
+    display: block;
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+    margin-block-start: var(--spacing-near);
+  }
+
   .close {
     display: block;
     margin-inline: auto;
     text-transform: uppercase;
+  }
+
+  .article-footer {
+    margin-block: var(--spacing-far);
   }
 
   ::view-transition-old(card),
@@ -178,7 +194,7 @@
   }
 
   ::view-transition-group(*) {
-    animation-duration: 0.5s;
+    animation-duration: 0.4s;
   }
 
   ::view-transition-old(article) {
