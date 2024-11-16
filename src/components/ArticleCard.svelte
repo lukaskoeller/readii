@@ -143,7 +143,8 @@
   .time {
     display: block;
     font-size: var(--font-size-small);
-    color: var(--color-text-muted);
+    /* color: var(--color-text-muted); */
+    color: var(--color-brand-secondary-emphasis);
     margin-block-start: var(--spacing-near);
   }
 
