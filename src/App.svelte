@@ -12,7 +12,7 @@
 <Header />
 <main class="main">
   <div class="articles nc-ram-grid">
-    {#each feed as data}
+    {#each feed.slice(0, 40) as data}
       <ArticleCard item={data} />
     {/each}
   </div>
@@ -21,5 +21,10 @@
 <style>
   .main {
     padding: var(--spacing-near);
+  }
+
+  .articles {
+    --nc-ram-grid-gap: var(--spacing-base);
+    --nc-ram-grid-min-width: 28ch;
   }
 </style>
