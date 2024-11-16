@@ -90,10 +90,14 @@ export class RSSNode {
   }
 
   public get publishedAt(): Date | null {
-    const publishedAtStr =
-      this.node.getElementsByTagName("pubDate")?.[0]?.innerHTML;
-    const publishedAt = new Date(publishedAtStr);
-    const isValidDate = publishedAt.toString() !== "Invalid Date";
-    return isValidDate ? publishedAt : null;
+    
+    const pubDate =
+    getDate(this.node.getElementsByTagName("pubDate")?.[0]?.innerHTML);
+    if (pubDate) return pubDate;
+
+    const updated = getDate(this.node.getElementsByTagName("updated")?.[0]?.innerHTML);
+    if (updated) return updated;
+
+    return null;
   }
 }
