@@ -1,6 +1,7 @@
 <script lang="ts">
   import { formatDistanceToNow, format } from "date-fns";
   import { RSSNode } from "../core";
+  import AiSummarizer from "./AISummarizer.svelte";
 
   const VT_CARD_NAME = "card";
   const VT_HEADING_NAME = "heading";
@@ -50,6 +51,9 @@
   <article class="nc-flow article" bind:this={dialogArticle}>
     {@render closeBtn()}
     <h2 class="heading" bind:this={dialogHeading}>{title}</h2>
+    {#if content}
+      <AiSummarizer text={content} />
+    {/if}
     {@render dateAndAuthor()}
     {@html content}
   </article>
