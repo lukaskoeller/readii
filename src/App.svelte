@@ -1,15 +1,18 @@
 <script lang="ts">
   import rssFile from "./assets/leaverou.xml?raw";
   import rssFile2 from "./assets/cssreflex.xml?raw";
+  import rssFile3 from "./assets/echojs.xml?raw";
   import ArticleCard from "./components/ArticleCard.svelte";
   import Header from "./components/Header.svelte";
   import { RSSNode, RSSParser } from "./core";
+  import AiSummarizer from "./components/AISummarizer.svelte";
 
   const rawFeed = new RSSParser(rssFile).feed;
   const rawFeed2 = new RSSParser(rssFile2).feed;
+  const rawFeed3 = new RSSParser(rssFile3).feed;
   const feed: RSSNode[] = $state([]);
 
-  for (const element of [...rawFeed, ...rawFeed2]) {
+  for (const element of [...rawFeed, ...rawFeed2, ...rawFeed3]) {
     const item = new RSSNode(element);
     feed.push(item);
   }
