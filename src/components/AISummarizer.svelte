@@ -47,7 +47,7 @@
 </script>
 
 <div class="card">
-  <h2>AI Summarizer</h2>
+  <strong>tl;dr</strong>
   <div>
     {#if summarizerStatus === "loading"}
       <p>Loading AI Summarizer…</p>
