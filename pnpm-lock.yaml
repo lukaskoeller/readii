@@ -18,6 +18,9 @@ importers:
       '@tsconfig/svelte':
         specifier: ^5.0.4
         version: 5.0.4
+      '@types/dom-chromium-ai':
+        specifier: ^0.0.2
+        version: 0.0.2
       browserslist:
         specifier: ^4.24.2
         version: 4.24.2
@@ -309,6 +312,9 @@ packages:
 
   '@tsconfig/svelte@5.0.4':
     resolution: {integrity: sha512-BV9NplVgLmSi4mwKzD8BD/NQ8erOY/nUE/GpgWe2ckx+wIQF5RyRirn/QsSSCPeulVpc3RA/iJt6DpfTIZps0Q==}
+
+  '@types/dom-chromium-ai@0.0.2':
+    resolution: {integrity: sha512-5TyjYquxp5sJeNncqoQMzUvBbxZkd2s+KrzKaCwM7cSoHcG2+kpMuK8Ve04bGGWey6nL7+HQqeh9/sWDmcN6eQ==}
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
@@ -749,6 +755,8 @@ snapshots:
       - supports-color
 
   '@tsconfig/svelte@5.0.4': {}
+
+  '@types/dom-chromium-ai@0.0.2': {}
 
   '@types/estree@1.0.6': {}
 
