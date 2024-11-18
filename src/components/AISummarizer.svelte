@@ -1,4 +1,6 @@
 <script lang="ts">
+  import TurndownService from "turndown";
+
     let { text }: { text: string } = $props();
 
   const SUMMARIZER_CONFIG: {
@@ -15,8 +17,11 @@
   let summarizerStatus: "readily" | "downloading" | "unavailable" | "loading" =
     $state("loading");
   let downloadProgress: number = $state(0);
+  let tokenLength: number = 0;
 
   const initAISummarizer = async () => {
+    console.log("Initializing AI Summarizer…");
+    
     const canSummarize = await ai.summarizer.capabilities();
     if (canSummarize && canSummarize.available !== "no") {
       if (canSummarize.available === "readily") {
@@ -44,6 +49,20 @@
 
   // Initialize the AI summarizer.
   initAISummarizer();
+
+  const summarizeText = async (text: string) => {
+    try {
+      tokenLength = Math.round(text.length / 4);
+      const turndownService = new TurndownService()
+      const markdown = turndownService.turndown(text);
+      const summary = await (summarizer as AISummarizer).summarize(markdown);
+      summarizer?.destroy();
+      return summary
+    } catch (error) {
+      summarizer?.destroy();
+      throw new Error("Failed to summarize text.", { cause: error })
+    }
+  };
 </script>
 
 <div class="card">
@@ -54,8 +73,8 @@
     {:else if summarizerStatus === "readily"}
       {#await summarizer}
         <p>Initializing AI Summarizer…</p>
-      {:then summarizer}
-        {#await (summarizer as AISummarizer).summarize(text)}
+      {:then}
+        {#await summarizeText(text)}
           <p>Summarizing text…</p>
         {:then summary}
           <p>{summary}</p>
