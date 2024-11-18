@@ -14,6 +14,7 @@
   let cardHeading: HTMLHeadingElement;
 
   let { item }: { item: RSSNode } = $props();
+  let isDialogOpen = $state(false);
   const { title, publishedAt, author, link, content } = item;
   const dateToNow = publishedAt ? formatDistanceToNow(publishedAt) : null;
   const htmlDatetime = publishedAt ? format(publishedAt, "yyyy-MM-dd") : null;
@@ -29,6 +30,7 @@
         dialogHeading.style.viewTransitionName = "";
         dialogArticle.style.viewTransitionName = "";
         dialog.close();
+        isDialogOpen = false;
         card.style.viewTransitionName = VT_CARD_NAME;
         cardHeading.style.viewTransitionName = VT_HEADING_NAME;
       });
@@ -51,7 +53,7 @@
   <article class="nc-flow article" bind:this={dialogArticle}>
     {@render closeBtn()}
     <h2 class="heading" bind:this={dialogHeading}>{title}</h2>
-    {#if content}
+    {#if content && isDialogOpen}
       <AiSummarizer text={content} />
     {/if}
     {@render dateAndAuthor()}
@@ -80,6 +82,7 @@
       cardHeading.style.viewTransitionName = "";
       cardHeading.style.viewTransitionName = "";
       dialog.showModal();
+      isDialogOpen = true;
       dialog.style.viewTransitionName = VT_CARD_NAME;
       dialogHeading.style.viewTransitionName = VT_HEADING_NAME;
       dialogArticle.style.viewTransitionName = VT_ARTICLE_NAME;
