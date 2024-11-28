@@ -43,6 +43,17 @@
   >
 {/snippet}
 
+{#snippet dataAndAuthor()}
+  {#if dateToNow}
+    <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
+  {/if}
+  <address class="address">
+    <a class="author-link" href={link} target="_blank" rel="noopener noreferrer"
+      >{author} Sample Author</a
+    >
+  </address>
+{/snippet}
+
 <dialog bind:this={dialog} class="dialog">
   <header>
     {@render closeBtn()}
@@ -50,12 +61,7 @@
   <article class="nc-flow article" bind:this={dialogArticle}>
     <h2 class="heading" bind:this={dialogHeading}>{title}</h2>
     <div class="dialog-meta" bind:this={dialogMeta}>
-      {#if dateToNow}
-        <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
-      {/if}
-        <address class="address">
-          <a class="author-link" href={link} target="_blank" rel="noopener noreferrer">{author} Sample Author</a>
-        </address>
+      {@render dataAndAuthor()}
     </div>
     {#if content && isDialogOpen}
       <AiSummarizer text={content} />
@@ -101,12 +107,7 @@
 >
   <h1 class="heading" bind:this={cardHeading}>{title}</h1>
   <div class="card-meta" bind:this={cardMeta}>
-    {#if dateToNow}
-      <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
-    {/if}
-      <address class="address">
-        <a class="author-link" href={link} target="_blank" rel="noopener noreferrer">{author} Sample Author</a>
-      </address>
+    {@render dataAndAuthor()}
   </div>
 </button>
 
@@ -165,7 +166,8 @@
     margin-inline: auto;
   }
 
-  .card-meta, .dialog-meta {
+  .card-meta,
+  .dialog-meta {
     display: flex;
     gap: var(--spacing-base);
   }
@@ -178,7 +180,8 @@
     margin-block-start: var(--spacing-base);
   }
 
-  .time, .author-link {
+  .time,
+  .author-link {
     display: block;
     font-family: var(--font-family-sans);
     font-weight: var(--font-weight-strong);
