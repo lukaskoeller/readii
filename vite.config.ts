@@ -8,6 +8,9 @@ export default defineConfig({
   plugins: [
     svelte(),
   ],
+  build: {
+    sourcemap: true, // @todo remove when on production
+  },
   css: {
     transformer: 'lightningcss',
     lightningcss: {
