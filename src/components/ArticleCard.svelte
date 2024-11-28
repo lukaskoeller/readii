@@ -1,6 +1,6 @@
 <script lang="ts">
   import { formatDistanceToNow, format } from "date-fns";
-  import { RSSNode } from "../core";
+  import { RSSItem } from "../core";
   import AiSummarizer from "./AISummarizer.svelte";
 
   const VT_CARD_NAME = "card";
@@ -13,7 +13,7 @@
   let card: HTMLButtonElement;
   let cardHeading: HTMLHeadingElement;
 
-  let { item }: { item: RSSNode } = $props();
+  let { item }: { item: RSSItem } = $props();
   let isDialogOpen = $state(false);
   const { title, publishedAt, author, link, content } = item;
   const dateToNow = publishedAt ? formatDistanceToNow(publishedAt) : null;
