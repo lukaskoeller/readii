@@ -1,4 +1,4 @@
-@layer theme, colors, reset, base, layout;
+@layer theme, colors, reset, base, layout, components;
 
 @import "./styles/theme.css";
 @import "./styles/colors.css";
@@ -22,6 +22,16 @@
   --font-family-serif: Georgia, serif;
   --font-family-display: "DM Serif Display", Georgia, serif;
   --font-family-default: var(--font-family-serif);
+
+  --shadow-color: light-dark(var(--color-text-subtle), black);
+  --shadow-elevation-medium: 0px 0.5px 0.6px
+      color-mix(in oklch, var(--shadow-color), transparent 64%),
+    0px 1.6px 1.8px -0.8px color-mix(in oklch, var(--shadow-color), transparent
+          64%),
+    0px 4px 4.5px -1.7px color-mix(in oklch, var(--shadow-color), transparent
+          64%),
+    0px 9.9px 11.1px -2.5px color-mix(in oklch, var(--shadow-color), transparent
+          64%);
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -33,5 +43,36 @@ button {
   font-weight: var(--font-weight-strong);
   background-color: var(--color-brand-primary-base);
   padding-inline: var(--spacing-base);
+  padding-block: var(--spacing-near);
   border-radius: var(--border-radius-medium);
+}
+
+.nc-input-label,
+.nc-hint {
+  font-family: var(--font-family-sans);
+}
+
+.nc-input-field {
+  display: grid;
+  gap: var(--spacing-near);
+}
+
+.nc-input-label {
+  font-weight: var(--font-weight-strong);
+}
+
+.nc-hint {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.nc-input {
+  background-color: var(--color-surface-subtle);
+  box-shadow: inset 0px 1px 0px 0px color-mix(in oklch, white, transparent 96%),
+    0px 0px 2px 0px var(--color-surface-base);
+  border-radius: var(--border-radius-medium);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-largest);
+  padding-block: var(--spacing-near);
+  padding-inline: var(--spacing-near);
 }
