@@ -34,6 +34,16 @@
           64%);
 }
 
+body {
+  font-weight: var(--font-weight-default);
+  color: var(--color-text-base);
+  background-color: var(--color-surface-base);
+  font-family: var(--font-family-default);
+  line-height: var(--line-height-base);
+  font-style: normal;
+  font-size: 1rem;
+}
+
 /* body {
   background: linear-gradient(
       color-mix(in oklch, var(--color-surface-base), transparent 10%),
