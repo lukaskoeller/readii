@@ -30,9 +30,9 @@
         }
     }
 
-    :where(:focus-visible, :focus) {
-        outline: var(--border-width-medium) solid var(--color-brand-primary-base);
-        outline-offset: 1ch;
+    :where(:focus-visible) {
+        outline: var(--border-width-medium) solid var(--color-brand-primary-emphasis);
+        outline-offset: 0.4ch;
     }
 
     :where(:focus:not(:focus-visible)) {
