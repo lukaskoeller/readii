@@ -52,8 +52,13 @@
 </main>
 
 <style>
+  @custom-media --md-n-above (width >= 768px);
   .main {
     padding: var(--spacing-near);
+
+    @media (--md-n-above) {
+      padding: var(--spacing-far);
+    }
   }
 
   .articles {
