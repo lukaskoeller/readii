@@ -51,10 +51,12 @@ export class RSSFeed {
       this.rawFeed = Array.from(this.dom.querySelectorAll("entry"));
     }
 
-    if (this.dom.querySelector("author")) {
-      this.author = this.dom.querySelector("author")?.textContent ?? null;
-    } else if (this.dom.querySelector("title")) {
-      this.author = this.dom.querySelector("title")?.textContent ?? null;
+    const author = this.dom.querySelector("author");
+    const title = this.dom.querySelector("title");
+    if (author) {
+      this.author = author?.textContent ?? null;
+    } else if (title) {
+      this.author = title?.textContent ?? null;
     }
 
     this.feed = this.rawFeed.map((node) => {
@@ -72,7 +74,7 @@ export class RSSItem {
   content: string | null;
   publishedAt: string | null;
 
-  constructor(node: Element, author?: string) {
+  constructor(node: Element, author?: string | null) {
     this.title = null;
     this.link = null;
     this.author = null;
@@ -100,7 +102,7 @@ export class RSSItem {
     const description = node.querySelector("description")?.innerHTML;
     if (description && description.length > 300)
       this.content = processHTMLString(description);
-    
+
     const pubDate = getDate(
       node.getElementsByTagName("pubDate")?.[0]?.innerHTML
     );
@@ -110,5 +112,10 @@ export class RSSItem {
       node.getElementsByTagName("updated")?.[0]?.innerHTML
     );
     if (updated) this.publishedAt = updated;
+
+    const lastBuildDate = getDate(
+      node.getElementsByTagName("lastBuildDate")?.[0]?.innerHTML
+    );
+    if (lastBuildDate) this.publishedAt = lastBuildDate;
   }
 }
