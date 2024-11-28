@@ -26,6 +26,7 @@
 {#snippet closeBtn()}
   <button
     class="close"
+    aria-label="Close dialog"
     onclick={() => {
       dialogArticle.style.viewTransitionName = VT_ARTICLE_NAME;
       document.startViewTransition(() => {
@@ -39,8 +40,24 @@
         cardHeading.style.viewTransitionName = VT_HEADING_NAME;
         cardMeta.style.viewTransitionName = VT_META_NAME;
       });
-    }}>Close</button
+    }}
   >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-x"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="inherit" /><path
+        d="M18 6l-12 12"
+      /><path d="M6 6l12 12" /></svg
+    >
+  </button>
 {/snippet}
 
 {#snippet dataAndAuthor()}
@@ -48,16 +65,19 @@
     <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
   {/if}
   {#if author}
-  <address class="address">
-    <a class="author-link" href={link} target="_blank" rel="noopener noreferrer"
-      >{author}</a
-    >
-  </address>
+    <address class="address">
+      <a
+        class="author-link"
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer">{author}</a
+      >
+    </address>
   {/if}
 {/snippet}
 
 <dialog bind:this={dialog} class="dialog">
-  <header>
+  <header class="dialog-header">
     {@render closeBtn()}
   </header>
   <article class="nc-flow article" bind:this={dialogArticle}>
@@ -70,9 +90,6 @@
     {/if}
     {@html content}
   </article>
-  <footer class="article-footer">
-    {@render closeBtn()}
-  </footer>
 </dialog>
 <button
   bind:this={card}
@@ -123,10 +140,18 @@
     border-radius: var(--border-radius-large);
   }
 
+  .dialog-header {
+    display: flex;
+    justify-content: end;
+    position: sticky;
+    top: 0;
+  }
+
   .card {
     /* border: 2px solid var(--color-border-subtle); */
     text-decoration: none;
     text-align: start;
+    display: grid;
   }
 
   .heading {
@@ -172,14 +197,11 @@
   .dialog-meta {
     display: flex;
     gap: var(--spacing-base);
+    margin-block-start: var(--spacing-base);
   }
 
   .card-meta {
-    margin-block-start: var(--spacing-base);
-  }
-
-  .dialog-meta {
-    margin-block-start: var(--spacing-base);
+    align-self: end;
   }
 
   .time,
@@ -195,9 +217,8 @@
   }
 
   .close {
-    display: block;
-    margin-inline: auto;
-    text-transform: uppercase;
+    padding: var(--spacing-near);
+    border-radius: 100%;
   }
 
   .article-footer {
