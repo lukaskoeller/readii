@@ -5,10 +5,13 @@
     "background": {
       "service_worker": "background.js"
     },
-    "permissions": [],
+    "permissions": [
+      "storage"
+    ],
     "version": "1.0",
     "action": {
       "default_icon": "readii-icon.png"
-    }
+    },
+    "host_permissions": ["https://*/*"]
   }
   
