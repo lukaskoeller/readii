@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title><![CDATA[Adam Argyle]]></title>
+        <description><![CDATA[RSS Feed for Adam Argyle: Web design & development tips & tricks: CSS, JS, HTML, Design, & UX.]]></description>
+        <link>https://nerdy.dev</link>
+        <image>
+            <url>https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/rss-icon.png</url>
+            <title>Adam Argyle</title>
+            <link>https://nerdy.dev</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Wed, 20 Nov 2024 20:23:12 GMT</lastBuildDate>
+        <atom:link href="https://nerdy.dev/rss.xml" rel="self" type="application/rss+xml"/>
+        <copyright><![CDATA[2024 Adam Argyle]]></copyright>
+        <language><![CDATA[en]]></language>
+        <webMaster><![CDATA[adam.is@nerdy.dev (Adam Argyle)]]></webMaster>
+        <ttl>60</ttl>
+        <category><![CDATA[CSS]]></category>
+        <category><![CDATA[HTML]]></category>
+        <category><![CDATA[JavaScript]]></category>
+        <category><![CDATA[Front-End]]></category>
+        <category><![CDATA[Design]]></category>
+        <icon>https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/rss-icon.png</icon>
+        <logo>https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/skull-card.png</logo>
+        <item>
+            <title><![CDATA[Gradient Tool Now Exporting Custom Properties]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/gradient-style-custom-props.png" alt="screenshot of the gradient editor export code box, shows custom properties inside. one for sdr and one for hdr." height="1426" width="3184" />
+        <p>Small update for <a href="https://gradient.style">gradient.style</a>, the provided CSS for your creation is <strong>now custom properties</strong> and not classes.</p>
+<p><a href="https://gradient.style/#type=radial&space=lch&interpolation=shorter&radial_shape=circle&radial_position=%7B%22x%22%3A0%2C%22y%22%3A0%7D&radial_named_position=top+left&radial_size=farthest-corner&stops=%7B%22kind%22%3A%22stop%22%2C%22color%22%3A%22color%28display-p3+25%25+25%25+100%25%29%22%2C%22auto%22%3A0%2C%22position1%22%3A0%2C%22position2%22%3A0%7D&stops=%7B%22kind%22%3A%22hint%22%2C%22auto%22%3A50%2C%22percentage%22%3A50%7D&stops=%7B%22kind%22%3A%22stop%22%2C%22color%22%3A%22color%28display-p3+100%25+85%25+30%25%29%22%2C%22auto%22%3A100%2C%22position1%22%3A100%2C%22position2%22%3A100%7D">Check it out‽</a></p>
+]]></description>
+            <link>https://nerdy.dev/gradient-tool-now-exporting-custom-properties?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/gradient-tool-now-exporting-custom-properties?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <category><![CDATA[css]]></category>
+            <dc:creator><![CDATA[atom@argyleink]]></dc:creator>
+            <pubDate>Wed, 20 Nov 2024 20:20:59 GMT</pubDate>
+            <enclosure url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/gradient-style-custom-props.png" length="0" type="image/png"/>
+            <media:thumbnail url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/gradient-style-custom-props.png"/>
+        </item>
+        <item>
+            <title><![CDATA[November games we're playin]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/plucky-squire.avif" alt="Text emphasized alt text example" height="698" width="1240" />
+        <p>Super exciting set of games here! Been really fun going through each with the fam. Windblown may be a bit violent, but we&#39;ve been playing <a href="https://store.steampowered.com/app/588650/Dead_Cells/">Dead Cells</a>, <a href="https://store.steampowered.com/app/1145350/Hades_II/">Hades II</a> and <a href="https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/">Cult of the Lamb</a>… so we&#39;re ok with it when it&#39;s in good taste.</p>
+
+        <h2>
+          Oddada
+          <a name="oddada" href="#oddada">#</a>
+        </h2>
+       <p>Get this game and get a bunch of cool instruments and effects that you use in a 6 part level to create a song. The song gets stashed on a cassette tape, which you get to design and put in a carrying case.</p>
+<p>The songs guide you really well, there&#39;s tons of creative possibilities. Everyone in the fam has made a song, and each wants to make another. Very fun, 15-20m <strong>creative time making a song through a random but guided experience with strange but familiar instruments.</strong></p>
+<p><img 
+            loading="lazy" 
+            src="https://res.cloudinary.com/dnpmdb8r8/image/upload/f_auto,c_limit,q_auto,w_auto/w_700/argyleink/oddada.jpg" 
+            alt="" 
+            title="Title " 
+            decoding="async"
+            width="686" 
+            height="386"
+          /></p>
+<p><a href="https://www.youtube.com/watch?v=Ns2yFf6Pj0Q">Trailer</a> · 
+<a href="https://store.steampowered.com/app/1627870/ODDADA/">Steam Page</a></p>
+
+        <h2>
+          Plucky Squire
+          <a name="plucky-squire" href="#plucky-squire">#</a>
+        </h2>
+       <p>Be the hero <strong>in the book,</strong> and help him transcend the page and enter the kid&#39;s desk where it&#39;s being written. At first the game feels like Zelda on Super Nintendo, side scrolling to different map areas, but cleverly doing it like it&#39;s a page turn. <strong>But then things break that 2D barrier.</strong></p>
+<p>Not only is the art cute, the story telling and narration spectacular, but it&#39;s just rad to <strong>jump off the page</strong> as the hero. The game has you cleverly rewrite the story, bring things from the real world into the book, and even play a Guitar Hero style battle or 2.</p>
+<p>A very cool family story time experience.</p>
+<p><img 
+            loading="lazy" 
+            src="https://res.cloudinary.com/dnpmdb8r8/image/upload/f_auto,c_limit,q_auto,w_auto/w_800/argyleink/plucky-squire.avif" 
+            alt="" 
+            title="Title " 
+            decoding="async"
+            width="1240" 
+            height="698"
+          /></p>
+<p><a href="https://www.youtube.com/watch?v=Sxv072ksoMU">Trailer</a> · 
+<a href="https://store.steampowered.com/app/1627570/The_Plucky_Squire/">Steam Page</a></p>
+
+        <h2>
+          Windblown
+          <a name="windblown" href="#windblown">#</a>
+        </h2>
+       <p>From the creators of <a href="https://store.steampowered.com/app/588650/Dead_Cells/">Dead Cells</a>, a rapid paced <a href="https://en.wikipedia.org/wiki/Metroidvania">metroidvania</a> type dungeon crawler I loved, comes <strong>a 3D crawler that feels like a blend of Hades II and Dead Cells</strong>.</p>
+<p><img 
+            loading="lazy" 
+            src="https://res.cloudinary.com/dnpmdb8r8/image/upload/f_auto,c_limit,q_auto,w_auto/w_700/argyleink/windblown.jpg" 
+            alt="" 
+            title="Title " 
+            decoding="async"
+            width="686" 
+            height="386"
+          /></p>
+<p><a href="https://www.youtube.com/watch?v=shPyfu6aP58">Trailer</a> · 
+<a href="https://store.steampowered.com/app/1911610/Windblown/">Steam Page</a></p>
+
+        <h2>
+          Tiny Glade
+          <a name="tiny-glade" href="#tiny-glade">#</a>
+        </h2>
+       <p>Cozy up in this specialized design tool for building castles and cottages. We&#39;ve spent hours in here already, just dreaming and molding the land to the perfect abode. </p>
+<p>The design tools are entirely custom made, and it shows as the game is often described as cozy. How could design tools feel cozy when they sometimes they feel like a battle?! This game nails it, and <strong>makes me wish there was a web design tool that got the same cozy reputation…</strong> somehow.</p>
+<p><img 
+            loading="lazy" 
+            src="https://res.cloudinary.com/dnpmdb8r8/image/upload/f_auto,c_limit,q_auto,w_auto/w_800/argyleink/tiny-glade.jpg" 
+            alt="" 
+            title="Title " 
+            decoding="async"
+            width="616" 
+            height="353"
+          /></p>
+<p><a href="https://www.youtube.com/watch?v=9HxPwQ4tjFc">Trailer</a> · 
+<a href="https://store.steampowered.com/app/2198150/Tiny_Glade/">Steam Page</a></p>
+
+        <h2>
+          Driftwood
+          <a name="driftwood" href="#driftwood">#</a>
+        </h2>
+       <p>My buddy suggested this game to me because I love the <a href="https://store.steampowered.com/app/1190170/OlliOlli_World/">OlliOlli</a> series, aka <strong>it&#39;s good for hitting that zen vibe when nailing something super technical</strong>. Well…</p>
+<p>I played this game with my kids and it immediately turned into a comedy. Within 20m my kids were cry laughing from watching my sloth ragdoll after I biff on the skateboard. Not exactly the gift my friend was suggesting, but a gift nonetheless.</p>
+<p><img 
+            loading="lazy" 
+            src="https://res.cloudinary.com/dnpmdb8r8/image/upload/f_auto,c_limit,q_auto,w_auto/w_460/argyleink/driftwood.jpg" 
+            alt="" 
+            title="Title " 
+            decoding="async"
+            width="460" 
+            height="215"
+          /></p>
+<p><a href="https://www.youtube.com/watch?v=-d5FxsiFXiI">Trailer</a> · 
+<a href="https://store.steampowered.com/app/2223700/Driftwood/">Steam Page</a></p>
+
+        <h2>
+          Hidden In Plain Sight
+          <a name="hidden-in-plain-sight" href="#hidden-in-plain-sight">#</a>
+        </h2>
+       <p>This is an oldie but goodie, a coop game that always results in a fun time. The premise is, <strong>you need to become invisible in the crowd of CPU characters</strong>. There&#39;s a few different mini games that involve this strategy, but they always pit you against the other players, where some are hiding and some are seeking.</p>
+<p>I&#39;ve got the kids playin it with their friends and the funniest phrase gets yelled out while they&#39;re playing: </p>
+<p><q>I found myself!</q></p>
+<p>They yell this because at the start of each level, there&#39;s like 50+ random characters on the screen, and no one knows which one is them at first. You have to find yourself, stay hidden like a computer moving dork, and the others are hunting for your human movements. <strong>Very silly to role play like a random computer character.</strong></p>
+<p><img 
+            loading="lazy" 
+            src="https://res.cloudinary.com/dnpmdb8r8/image/upload/f_auto,c_limit,q_auto,w_auto/w_460/argyleink/hidden-in-plain-sight.jpg" 
+            alt="" 
+            title="Title " 
+            decoding="async"
+            width="460" 
+            height="215"
+          /></p>
+<p><a href="https://www.youtube.com/watch?v=9T9pd0T24Ts">Trailer</a> · 
+<a href="https://store.steampowered.com/app/303590/Hidden_in_Plain_Sight/">Steam Page</a></p>
+]]></description>
+            <link>https://nerdy.dev/november-2024-games?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/november-2024-games?utm_source=rss</guid>
+            <category><![CDATA[blog]]></category>
+            <dc:creator><![CDATA[dad@pops]]></dc:creator>
+            <pubDate>Sun, 17 Nov 2024 05:20:55 GMT</pubDate>
+            <enclosure url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/plucky-squire.avif" length="0" type="false"/>
+            <media:thumbnail url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/plucky-squire.avif"/>
+        </item>
+        <item>
+            <title><![CDATA[Have a dialog]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/have-a-dialog.png" alt="Screenshot of one of the dialogs open" height="1050" width="2118" />
+        <script type="module">
+  import "https://cdn.jsdelivr.net/npm/baseline-status@1.0.4/baseline-status.min.js";
+</script>
+
+<p><strong>3 free</strong>, semi-fancy, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">dialog</a> examples for you and 1 dialog that can open and close without JS. They use CSS transitions for interruptible user experience and <a href="https://open-props.style/">Open Props</a> for the values.</p>
+<p><baseline-status featureId="dialog"></baseline-status> 
+<baseline-status featureId="transition-behavior"></baseline-status> 
+<baseline-status featureId="starting-style"></baseline-status> 
+<baseline-status featureId="nesting"></baseline-status> 
+<baseline-status featureId="has"></baseline-status> </p>
+
+        <h2>
+          Push it real good
+          <a name="push-it-real-good" href="#push-it-real-good">#</a>
+        </h2>
+       <p>Scale back the page, dim the background to set the mood, and slide in the modal contents:</p>
+<p>
+          <iframe 
+            class="codepen-embed" 
+            scrolling="no" 
+            title="null" 
+            src="https://codepen.io/argyleink/embed/preview/xxvaxag?default-tab=result&editable=true&theme-id=43079" 
+            frameborder="no" 
+            loading="lazy" 
+            allowtransparency="true" 
+            allowfullscreen="true"
+          >
+            See the Pen <a href="https://codepen.io/argyleink/embed/preview/xxvaxag">
+            Hot text-emphasis</a> by Adam Argyle (<a href="https://codepen.io/argyleink">@argyleink</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+          </iframe>
+        </p>
+
+        <h2>
+          Flyout panel
+          <a name="flyout-panel" href="#flyout-panel">#</a>
+        </h2>
+       <p>Classic fly out from the side, but is elegantly inset, and implements light-dismiss and an adaptive light/dark mouse visual over the <code>::backdrop</code>:</p>
+<p>
+          <iframe 
+            class="codepen-embed" 
+            scrolling="no" 
+            title="null" 
+            src="https://codepen.io/argyleink/embed/preview/jOgxGmX?default-tab=result&editable=true&theme-id=43079" 
+            frameborder="no" 
+            loading="lazy" 
+            allowtransparency="true" 
+            allowfullscreen="true"
+          >
+            See the Pen <a href="https://codepen.io/argyleink/embed/preview/jOgxGmX">
+            Hot text-emphasis</a> by Adam Argyle (<a href="https://codepen.io/argyleink">@argyleink</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+          </iframe>
+        </p>
+
+        <h2>
+          Cart page pusher
+          <a name="cart-page-pusher" href="#cart-page-pusher">#</a>
+        </h2>
+       <p>Another classic, this one pushes the whole page out of the way (which kind of makes sense for showing what <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert">inert</a> is doing), and reveals a sidenav that wants to have a good total at the bottom.</p>
+<p>
+          <iframe 
+            class="codepen-embed" 
+            scrolling="no" 
+            title="null" 
+            src="https://codepen.io/argyleink/embed/preview/OJKGXRY?default-tab=result&editable=true&theme-id=43079" 
+            frameborder="no" 
+            loading="lazy" 
+            allowtransparency="true" 
+            allowfullscreen="true"
+          >
+            See the Pen <a href="https://codepen.io/argyleink/embed/preview/OJKGXRY">
+            Hot text-emphasis</a> by Adam Argyle (<a href="https://codepen.io/argyleink">@argyleink</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+          </iframe>
+        </p>
+
+        <h2>
+          Commando
+          <a name="commando" href="#commando">#</a>
+        </h2>
+       <p>This one isn&#39;t fancy, it&#39;s just rad dialog stuff. There are basic commands moving into HTML called <a href="https://open-ui.org/components/invokers.explainer/">invoker commands</a>. <small>available in <a href="https://www.google.com/chrome/canary/">Canary</a></small></p>
+<p>So eventually we&#39;ll be able to create a dialog with a close button like this:</p>
+<pre><code class="language-html"><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="0"><code><span class="line"><span style="color:var(--shiki-foreground)">&#x3C;</span><span style="color:var(--shiki-token-string-expression)">dialog</span><span style="color:var(--shiki-token-function)"> id</span><span style="color:var(--shiki-foreground)">=</span><span style="color:var(--shiki-token-string-expression)">"dialog"</span><span style="color:var(--shiki-foreground)">></span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  &#x3C;</span><span style="color:var(--shiki-token-string-expression)">p</span><span style="color:var(--shiki-foreground)">>Hi, I'm a dialog.&#x3C;/</span><span style="color:var(--shiki-token-string-expression)">p</span><span style="color:var(--shiki-foreground)">></span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  &#x3C;</span><span style="color:var(--shiki-token-string-expression)">button</span><span style="color:var(--shiki-token-function)"> commandfor</span><span style="color:var(--shiki-foreground)">=</span><span style="color:var(--shiki-token-string-expression)">"dialog"</span><span style="color:var(--shiki-token-function)"> command</span><span style="color:var(--shiki-foreground)">=</span><span style="color:var(--shiki-token-string-expression)">"close"</span><span style="color:var(--shiki-foreground)">></span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">    Ok</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  &#x3C;/</span><span style="color:var(--shiki-token-string-expression)">button</span><span style="color:var(--shiki-foreground)">></span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">&#x3C;/</span><span style="color:var(--shiki-token-string-expression)">dialog</span><span style="color:var(--shiki-foreground)">></span></span></code></pre>
+</code></pre>
+<p>An open button:</p>
+<pre><code class="language-html"><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="0"><code><span class="line"><span style="color:var(--shiki-foreground)">&#x3C;</span><span style="color:var(--shiki-token-string-expression)">button</span><span style="color:var(--shiki-token-function)"> commandfor</span><span style="color:var(--shiki-foreground)">=</span><span style="color:var(--shiki-token-string-expression)">"dialog"</span><span style="color:var(--shiki-token-function)"> command</span><span style="color:var(--shiki-foreground)">=</span><span style="color:var(--shiki-token-string-expression)">"show-modal"</span><span style="color:var(--shiki-foreground)">></span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  Open Dialog</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">&#x3C;/</span><span style="color:var(--shiki-token-string-expression)">button</span><span style="color:var(--shiki-foreground)">> </span></span></code></pre>
+</code></pre>
+<p>No js. Try it:</p>
+<p>
+          <iframe 
+            class="codepen-embed" 
+            scrolling="no" 
+            title="null" 
+            src="https://codepen.io/argyleink/embed/preview/xxowmGG?default-tab=result&editable=true&theme-id=43079" 
+            frameborder="no" 
+            loading="lazy" 
+            allowtransparency="true" 
+            allowfullscreen="true"
+          >
+            See the Pen <a href="https://codepen.io/argyleink/embed/preview/xxowmGG">
+            Hot text-emphasis</a> by Adam Argyle (<a href="https://codepen.io/argyleink">@argyleink</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+          </iframe>
+        </p>
+<p>Here&#39;s a <a href="https://codepen.io/collection/wkKogp">Dialog Codepen Collection</a> and if you&#39;d like a good explainer of all the CSS checkout the <a href="/pop-n-lock-dialog-mini-web-machine">Pop n&#39; Lock Machine</a> 👋</p>
+]]></description>
+            <link>https://nerdy.dev/have-a-dialog?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/have-a-dialog?utm_source=rss</guid>
+            <category><![CDATA[blog]]></category>
+            <category><![CDATA[css]]></category>
+            <category><![CDATA[html]]></category>
+            <dc:creator><![CDATA[atom@argyleink]]></dc:creator>
+            <pubDate>Thu, 14 Nov 2024 05:23:42 GMT</pubDate>
+            <enclosure url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/have-a-dialog.png" length="0" type="image/png"/>
+            <media:thumbnail url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/have-a-dialog.png"/>
+        </item>
+        <item>
+            <title><![CDATA[I Put A Workshop On Chrome Developers Youtube]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/beijing-workshop.jpg" alt="Me pointing at a title saying Practical UI/UX Workshop" height="720" width="1280" />
+        <p><strong>UI Workshop</strong>  </p>
+<p>Sprinkle scroll driven animations, view transitions, popovers and container queries onto an ecommerce home page with me! </p>
+<p><a href="https://www.youtube.com/watch?v=oXSFwix7eR8">Video</a> · <a href="https://github.com/google/io-connect-2024-ui-workshop">Code</a>  </p>
+]]></description>
+            <link>https://nerdy.dev/i-put-a-workshop-on-chrome-developers-youtube?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/i-put-a-workshop-on-chrome-developers-youtube?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <category><![CDATA[css]]></category>
+            <category><![CDATA[html]]></category>
+            <category><![CDATA[js]]></category>
+            <category><![CDATA[talks]]></category>
+            <dc:creator><![CDATA[devrel@google]]></dc:creator>
+            <pubDate>Wed, 13 Nov 2024 20:58:49 GMT</pubDate>
+            <enclosure url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/beijing-workshop.jpg" length="0" type="image/jpeg"/>
+            <media:thumbnail url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/beijing-workshop.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[A CSS Logo Hatches!]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/css-logos.png" alt="The 3 CSS logo variants next to each other, primary, light and dark." height="1399" width="3715" />
+        <p>With <a href="https://github.com/CSS-Next/css-next/issues/105#issuecomment-2471590502"><strong>400</strong> votes</a>, <code>rebeccapurple</code> is the community chosen logo color for CSS! This puts a bow on the concept we&#39;ve been working on with the community 💜</p>
+<style>article > p > img {
+  border-radius: 0;
+}</style>
+
+<p><img 
+            loading="lazy" 
+            src="https://res.cloudinary.com/dnpmdb8r8/image/upload/f_auto,c_limit,q_auto,w_auto/w_600/argyleink/csslogo.png" 
+            alt="" 
+            title="Title " 
+            decoding="async"
+            width="300" 
+            height="300"
+          /></p>
+
+        <h2>
+          New repo
+          <a name="new-repo" href="#new-repo">#</a>
+        </h2>
+       <p>Checkout the <a href="https://github.com/CSS-Next/logo.css">shiny new repo</a> that will hold the logo, alt formats, and eventually <a href="https://github.com/CSS-Next/logo.css/issues/11">variants for CSS4, CSS5, and beyond</a>.</p>
+<p><a href="https://github.com/CSS-Next/logo.css">github.com/CSS-Next/logo.css</a></p>
+
+        <h2>
+          Big thanks
+          <a name="big-thanks" href="#big-thanks">#</a>
+        </h2>
+       <p>Thanks for everyone who provided feedback, votes, and kept this on track and moving forward. </p>
+<p>Especially thankful to <a href="https://github.com/orgs/CSS-Next/people">the CSS Next members</a>, they&#39;ve been patient and awesome.</p>
+]]></description>
+            <link>https://nerdy.dev/a-community-css-logo?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/a-community-css-logo?utm_source=rss</guid>
+            <category><![CDATA[blog]]></category>
+            <category><![CDATA[css]]></category>
+            <category><![CDATA[git]]></category>
+            <dc:creator><![CDATA[devrel@google]]></dc:creator>
+            <pubDate>Tue, 12 Nov 2024 21:14:31 GMT</pubDate>
+            <enclosure url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/css-logos.png" length="0" type="image/png"/>
+            <media:thumbnail url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/css-logos.png"/>
+        </item>
+        <item>
+            <title><![CDATA[Author Page At Chrome Developers Blog]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/chrome-developer-author.png" alt="Screenshot of the author page" height="1442" width="2556" />
+        <p>I&#39;ve got <a href="https://developer.chrome.com/authors/adam-argyle">an author page</a> over on <a href="https://developer.chrome.com">developer.chrome.com</a>!</p>
+]]></description>
+            <link>https://nerdy.dev/author-page-at-chrome-developers-blog?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/author-page-at-chrome-developers-blog?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <dc:creator><![CDATA[devrel@google]]></dc:creator>
+            <pubDate>Tue, 12 Nov 2024 16:02:49 GMT</pubDate>
+            <enclosure url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/chrome-developer-author.png" length="0" type="image/png"/>
+            <media:thumbnail url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/chrome-developer-author.png"/>
+        </item>
+        <item>
+            <title><![CDATA[New Feature Grouped List Timeline]]></title>
+            <description><![CDATA[<p><strong>New Feature</strong> just dropped!</p>
+<ul>
+<li>The big flat list of posts is <strong>now grouped</strong></li>
+<li>On desktop there&#39;s a new timeline nav component on the left so you can quick <strong>jump around</strong></li>
+<li>Tag style update</li>
+<li>Alignment fixes in cards</li>
+<li>Scroll animations added to new list group dividers</li>
+<li>View Transitions added to the timeline nav</li>
+</ul>
+]]></description>
+            <link>https://nerdy.dev/new-feature-grouped-list-timeline?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/new-feature-grouped-list-timeline?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <dc:creator><![CDATA[Web Master@admin]]></dc:creator>
+            <pubDate>Mon, 11 Nov 2024 23:11:18 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Matching Aspects]]></title>
+            <description><![CDATA[<pre><code class="language-css"><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="0"><code><span class="line"><span style="color:var(--shiki-token-function)">.card</span><span style="color:var(--shiki-foreground)"> {</span></span>
+<span class="line"><span style="color:var(--shiki-token-constant)">  aspect-ratio</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-constant)"> 4/3</span><span style="color:var(--shiki-foreground)">;</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  </span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  @</span><span style="color:var(--shiki-token-constant)">media</span><span style="color:var(--shiki-foreground)"> (</span><span style="color:var(--shiki-token-constant)">orientation</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-constant)"> portrait</span><span style="color:var(--shiki-foreground)">) {</span></span>
+<span class="line"><span style="color:var(--shiki-token-constant)">    aspect-ratio</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-constant)"> 3/4</span><span style="color:var(--shiki-foreground)">;</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  }</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span></code></pre>
+</code></pre>
+]]></description>
+            <link>https://nerdy.dev/matching-aspects?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/matching-aspects?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <category><![CDATA[css]]></category>
+            <dc:creator><![CDATA[atom@argyleink]]></dc:creator>
+            <pubDate>Sat, 09 Nov 2024 06:39:18 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[A keyframe combo trick]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/sda-keyframe-combo.png" alt="A css keyframe trick with scroll driven animation" height="1280" width="3292" />
+        <p>I want a page load animation that seamlessly combines with a scroll driven animation. I went through multiple versions to find the solution; but you dear reader, you don&#39;t have to suffer that.</p>
+<p>Here&#39;s the desired result, a slow scale up animation on page load that a scroll driven animation can seamlessly modify during scroll:</p>
+<p><video 
+            src=https://res.cloudinary.com/dnpmdb8r8/video/upload/f_auto,w_auto,q_auto/f_auto,q_auto/argyleink/sda-tba.mp4 
+            width="1540" 
+            height="866"
+            alt=" "
+            poster="https://res.cloudinary.com/dnpmdb8r8/video/upload/so_0.5,f_auto,w_auto,q_auto/f_auto,q_auto/argyleink/sda-tba.jpg"
+            controls 
+            loop
+            muted 
+            playsinline 
+            allowFullScreen
+          /></p>
+<p>Try the solution:</p>
+<p>
+          <iframe 
+            class="codepen-embed" 
+            scrolling="no" 
+            title="null" 
+            src="https://codepen.io/argyleink/embed/preview/QWeZYZg?default-tab=result&editable=true&theme-id=43079" 
+            frameborder="no" 
+            loading="lazy" 
+            allowtransparency="true" 
+            allowfullscreen="true"
+          >
+            See the Pen <a href="https://codepen.io/argyleink/embed/preview/QWeZYZg">
+            Hot text-emphasis</a> by Adam Argyle (<a href="https://codepen.io/argyleink">@argyleink</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+          </iframe>
+        </p>
+
+        <h2>
+          The Problem
+          <a name="the-problem" href="#the-problem">#</a>
+        </h2>
+       <ol>
+<li>Page load animation = a <strong>time based animation</strong> (<abbr title="time based animation">TBA</abbr>).</li>
+<li>Scroll animation = a <strong>scroll driven animation</strong> (<abbr title="scroll driven animation">SDA</abbr>).</li>
+</ol>
+<p>These compete to progress an animation AND in this case to modify the same <code>scale</code> property. They compete unless…</p>
+<picture>
+  <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f609/512.webp" type="image/webp">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f609/512.gif" alt="😉" width="100" height="100">
+</picture>
+
+
+        <h2>
+          The Solution
+          <a name="the-solution" href="#the-solution">#</a>
+        </h2>
+       <p>The element has <strong>both keyframe animations</strong> assigned, but <strong>one is listed first</strong> and the <abbr title="time based animation">TBA</abbr> <strong>only specifies the <code>from</code> keyframes</strong>.</p>
+<pre><code class="language-css"><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="0"><code><span class="line"><span style="color:var(--shiki-token-string-expression)">h1</span><span style="color:var(--shiki-foreground)"> {</span></span>
+<span class="line"><span style="color:var(--shiki-token-constant)">  animation</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-constant)"> spin linear both</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-constant)"> enter 5</span><span style="color:var(--shiki-token-keyword)">s</span><span style="color:var(--shiki-token-constant)"> ease</span><span style="color:var(--shiki-foreground)">;</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span></code></pre>
+</code></pre>
+<p>Next, we change only one of the keyframe animations to <abbr title="scroll driven animation">SDA</abbr>:</p>
+<pre><code class="language-css"><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="0"><code><span class="line"><span style="color:var(--shiki-token-string-expression)">h1</span><span style="color:var(--shiki-foreground)"> {</span></span>
+<span class="line"><span style="color:var(--shiki-token-constant)">  animation</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-constant)"> spin linear both</span><span style="color:var(--shiki-token-punctuation)">,</span><span style="color:var(--shiki-token-constant)"> enter 5</span><span style="color:var(--shiki-token-keyword)">s</span><span style="color:var(--shiki-token-constant)"> ease</span><span style="color:var(--shiki-foreground)">;</span></span>
+<span class="line"><span style="color:var(--shiki-token-constant)">  animation-timeline</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-constant)"> scroll(</span><span style="color:var(--shiki-foreground)">), </span><span style="color:var(--shiki-token-constant)">auto</span><span style="color:var(--shiki-foreground)">; 👈</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span></code></pre>
+</code></pre>
+<p>The <abbr title="scroll driven animation">SDA</abbr> is listed first for a <strong>lesser composite order</strong> than the <abbr title="time based animation">TBA</abbr>. Then <code>animation-timeline</code> follows this order and specifies the first set of keyframes should be driven by <code>scroll()</code> and the other <code>auto</code>. </p>
+<p>Woh right?</p>
+<p>With that in place, here&#39;s trick #2:<br>The <abbr title="time based animation">TBA</abbr> should only specify where it should animate <code>from</code>, while the <abbr title="scroll driven animation">SDA</abbr> should only specify where <code>to</code>.</p>
+<pre><code class="language-css"><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="0"><code><span class="line"><span style="color:var(--shiki-token-keyword)">@keyframes</span><span style="color:var(--shiki-foreground)"> enter {</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  from {</span></span>
+<span class="line"><span style="color:var(--shiki-token-constant)">    scale</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-constant)"> 0.01</span><span style="color:var(--shiki-foreground)">;</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  }</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--shiki-token-keyword)">@keyframes</span><span style="color:var(--shiki-foreground)"> spin {</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  to {</span></span>
+<span class="line"><span style="color:var(--shiki-token-constant)">    scale</span><span style="color:var(--shiki-token-keyword)">:</span><span style="color:var(--shiki-token-constant)"> 0.01</span><span style="color:var(--shiki-foreground)">;</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  }</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span></code></pre>
+</code></pre>
+<p>Now, the slow playing scale-in page load <abbr title="time based animation">TBA</abbr> can run while the <abbr title="scroll driven animation">SDA</abbr> can blend with it on scroll.</p>
+<p><strong>Victory.</strong></p>
+]]></description>
+            <link>https://nerdy.dev/combining-onload-keyframes-with-scroll-driven-animation?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/combining-onload-keyframes-with-scroll-driven-animation?utm_source=rss</guid>
+            <category><![CDATA[blog]]></category>
+            <category><![CDATA[css]]></category>
+            <dc:creator><![CDATA[atom@argyleink]]></dc:creator>
+            <pubDate>Thu, 07 Nov 2024 20:22:11 GMT</pubDate>
+            <enclosure url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/sda-keyframe-combo.png" length="0" type="image/png"/>
+            <media:thumbnail url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/sda-keyframe-combo.png"/>
+        </item>
+        <item>
+            <title><![CDATA[Donut Inertness]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/inert-donut.png" alt="some title" height="1024" width="1024" />
+        <p>Just as <a href="https://developer.chrome.com/docs/css-ui/at-scope"><code>@scope</code></a> brought selector <a href="https://www.stubbornella.org/2011/10/08/scope-donuts/">donut scoping</a> to CSS (thanks <a href="https://bsky.app/profile/nicolesullivan.bsky.social">Nicole</a>!), so does <a href="https://github.com/w3c/csswg-drafts/issues/10711"><code>interactivity: inert;</code></a> bring <strong>donut inertness</strong>.</p>
+<p><a href="https://codepen.io/argyleink/pen/YzmJXvP">Try it on Codepen</a> 🤘🏻💀<br>
+<small>use <a href="https://www.google.com/chrome/canary/">Canary</a> with <a href="chrome://flags/#enable-experimental-web-platform-features">web experiments enabled</a></small></p>
+]]></description>
+            <link>https://nerdy.dev/donut-inertness?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/donut-inertness?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <category><![CDATA[css]]></category>
+            <dc:creator><![CDATA[devrel@google]]></dc:creator>
+            <pubDate>Wed, 06 Nov 2024 16:16:23 GMT</pubDate>
+            <enclosure url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/inert-donut.png" length="0" type="image/png"/>
+            <media:thumbnail url="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/inert-donut.png"/>
+        </item>
+    </channel>
+</rss>
