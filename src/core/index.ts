@@ -12,32 +12,43 @@ const processHTMLString = (str: string | null | undefined) => {
   }
 
   const dom = new DOMParser().parseFromString(rawHTML, "text/html");
-  const validHTMLString = dom.body.innerText;
-  
+  const validHTMLString = dom.body.innerHTML;
+
   return validHTMLString;
 };
 
+/**
+ * @returns Returns either an ISO 8601 formatted date string
+ * or null if the input string is invalid.
+ */
 const getDate = (str: string | null | undefined) => {
-  const date = new Date(String(str));
-  const isValid = date.toString() !== "Invalid Date";
+  try {
+    const date = new Date(String(str));
+    const isValid = date.toString() !== "Invalid Date";
 
-  return isValid ? date : null;
-}
+    return isValid ? date.toISOString() : null;
+  } catch (error) {
+    console.warn(`Invalid date string "${str}" provided.`, error);
+    return null;
+  }
+};
 
-export class RSSParser {
+export class RSSFeed {
   private dom: Document;
-  feed: Element[];
+  private rawFeed: Element[];
+  public feed: RSSItem[];
   author: string | null;
 
   constructor(rawXML: string) {
     this.dom = new DOMParser().parseFromString(rawXML, "text/xml");
+    this.rawFeed = [];
     this.feed = [];
     this.author = null;
 
     if (this.dom.querySelector("item")) {
-      this.feed = Array.from(this.dom.querySelectorAll("item"));
+      this.rawFeed = Array.from(this.dom.querySelectorAll("item"));
     } else if (this.dom.querySelector("entry")) {
-      this.feed = Array.from(this.dom.querySelectorAll("entry"));
+      this.rawFeed = Array.from(this.dom.querySelectorAll("entry"));
     }
 
     if (this.dom.querySelector("author")) {
@@ -45,59 +56,58 @@ export class RSSParser {
     } else if (this.dom.querySelector("title")) {
       this.author = this.dom.querySelector("title")?.textContent ?? null;
     }
+
+    this.feed = this.rawFeed.map((node) => {
+      const rssItem = new RSSItem(node);
+
+      return rssItem;
+    });
   }
 }
 
-export class RSSNode {
-  private node: Element;
+export class RSSItem {
+  title: string | null;
+  link: string | null;
+  author: string | null;
+  content: string | null;
+  publishedAt: string | null;
 
   constructor(node: Element) {
-    this.node = node;
-  }
+    this.title = null;
+    this.link = null;
+    this.author = null;
+    this.publishedAt = null;
+    /**
+     * Unparsed HTML markup that holds the content of the article.
+     */
+    this.content = null;
 
-  public get title(): string | null {
-    return this.node.querySelector("title")?.innerHTML ?? null;
-  }
+    const title = node.querySelector("title")?.innerHTML;
+    if (title) this.title = cleanFromCDATA(title) ?? null;
 
-  public get link(): string | null {
-    const linkStr = this.node.querySelector("link")?.getAttribute("href");
+    const linkStr = node.querySelector("link")?.getAttribute("href");
     const link = linkStr ? new URL(linkStr) : null;
-    return link ? link.href : null;
-  }
+    if (link) this.link = link.href;
 
-  public get author(): string | null {
-    const author =
-      this.node.getElementsByTagName("dc:creator")?.[0]?.innerHTML ?? null;
-    return cleanFromCDATA(author) ?? null;
-  }
+    const author: string | null =
+      node.getElementsByTagName("dc:creator")?.[0]?.innerHTML ?? null;
+    if (author) cleanFromCDATA(author) ?? null;
 
-  /**
-   * Unparsed HTML markup that holds the content of the article.
-   */
-  public get content(): string | null {
-    const content = this.node.querySelector("content")?.innerHTML;
-    if (content) return processHTMLString(content);
+    const content = node.querySelector("content")?.innerHTML;
+    if (content) this.content = processHTMLString(content);
 
-    const contentEncoded =
-      this.node.querySelector("content:encoded")?.innerHTML;
-    if (contentEncoded) return processHTMLString(contentEncoded);
-
-    const description = this.node.querySelector("description")?.innerHTML;
+    const description = node.querySelector("description")?.innerHTML;
     if (description && description.length > 300)
-      return processHTMLString(description);
-
-    return null;
-  }
-
-  public get publishedAt(): Date | null {
+      this.content = processHTMLString(description);
     
-    const pubDate =
-    getDate(this.node.getElementsByTagName("pubDate")?.[0]?.innerHTML);
-    if (pubDate) return pubDate;
+    const pubDate = getDate(
+      node.getElementsByTagName("pubDate")?.[0]?.innerHTML
+    );
+    if (pubDate) this.publishedAt = pubDate;
 
-    const updated = getDate(this.node.getElementsByTagName("updated")?.[0]?.innerHTML);
-    if (updated) return updated;
-
-    return null;
+    const updated = getDate(
+      node.getElementsByTagName("updated")?.[0]?.innerHTML
+    );
+    if (updated) this.publishedAt = updated;
   }
 }
