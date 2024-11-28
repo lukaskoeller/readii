@@ -32,8 +32,6 @@
   }
 
   initFeed();
-
-  // const opml = new OPMLParser("https://nerdy.dev/subscriptions.opml");
 </script>
 
 <Header />

@@ -47,11 +47,13 @@
   {#if dateToNow}
     <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
   {/if}
+  {#if author}
   <address class="address">
     <a class="author-link" href={link} target="_blank" rel="noopener noreferrer"
-      >{author} Sample Author</a
+      >{author}</a
     >
   </address>
+  {/if}
 {/snippet}
 
 <dialog bind:this={dialog} class="dialog">

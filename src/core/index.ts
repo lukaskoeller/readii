@@ -58,7 +58,7 @@ export class RSSFeed {
     }
 
     this.feed = this.rawFeed.map((node) => {
-      const rssItem = new RSSItem(node);
+      const rssItem = new RSSItem(node, this.author);
 
       return rssItem;
     });
@@ -72,11 +72,12 @@ export class RSSItem {
   content: string | null;
   publishedAt: string | null;
 
-  constructor(node: Element) {
+  constructor(node: Element, author?: string) {
     this.title = null;
     this.link = null;
     this.author = null;
     this.publishedAt = null;
+    this.author = author ?? null;
     /**
      * Unparsed HTML markup that holds the content of the article.
      */
@@ -89,9 +90,9 @@ export class RSSItem {
     const link = linkStr ? new URL(linkStr) : null;
     if (link) this.link = link.href;
 
-    const author: string | null =
+    const articleAuthor: string | null =
       node.getElementsByTagName("dc:creator")?.[0]?.innerHTML ?? null;
-    if (author) cleanFromCDATA(author) ?? null;
+    if (articleAuthor) this.author = cleanFromCDATA(articleAuthor) ?? null;
 
     const content = node.querySelector("content")?.innerHTML;
     if (content) this.content = processHTMLString(content);
