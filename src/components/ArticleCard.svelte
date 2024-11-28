@@ -6,12 +6,15 @@
   const VT_CARD_NAME = "card";
   const VT_HEADING_NAME = "heading";
   const VT_ARTICLE_NAME = "article";
+  const VT_META_NAME = "meta";
 
   let dialog: HTMLDialogElement;
   let dialogHeading: HTMLHeadingElement;
+  let dialogMeta: HTMLDivElement;
   let dialogArticle: HTMLElement;
   let card: HTMLButtonElement;
   let cardHeading: HTMLHeadingElement;
+  let cardMeta: HTMLDivElement;
 
   let { item }: { item: RSSItem } = $props();
   let isDialogOpen = $state(false);
@@ -28,35 +31,35 @@
       document.startViewTransition(() => {
         dialog.style.viewTransitionName = "";
         dialogHeading.style.viewTransitionName = "";
+        dialogMeta.style.viewTransitionName = "";
         dialogArticle.style.viewTransitionName = "";
         dialog.close();
         isDialogOpen = false;
         card.style.viewTransitionName = VT_CARD_NAME;
         cardHeading.style.viewTransitionName = VT_HEADING_NAME;
+        cardMeta.style.viewTransitionName = VT_META_NAME;
       });
     }}>Close</button
   >
 {/snippet}
 
-{#snippet dateAndAuthor()}
-  {#if dateToNow}
-    <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
-  {/if}
-  {#if author}
-    <address class="address">
-      <a href={link} target="_blank" rel="noopener noreferrer">{author}</a>
-    </address>
-  {/if}
-{/snippet}
-
 <dialog bind:this={dialog} class="dialog">
-  <article class="nc-flow article" bind:this={dialogArticle}>
+  <header>
     {@render closeBtn()}
+  </header>
+  <article class="nc-flow article" bind:this={dialogArticle}>
     <h2 class="heading" bind:this={dialogHeading}>{title}</h2>
+    <div class="dialog-meta" bind:this={dialogMeta}>
+      {#if dateToNow}
+        <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
+      {/if}
+        <address class="address">
+          <a class="author-link" href={link} target="_blank" rel="noopener noreferrer">{author} Sample Author</a>
+        </address>
+    </div>
     {#if content && isDialogOpen}
       <AiSummarizer text={content} />
     {/if}
-    {@render dateAndAuthor()}
     {@html content}
   </article>
   <footer class="article-footer">
@@ -72,26 +75,39 @@
     const priorHeading = document.querySelector(
       `[style*="view-transition-name: ${VT_HEADING_NAME}"]`
     ) as HTMLHeadElement | null;
+    const priorMeta = document.querySelector(
+      `[style*="view-transition-name: ${VT_META_NAME}"]`
+    ) as HTMLHeadElement | null;
     if (priorCard) priorCard.style.viewTransitionName = "";
     if (priorHeading) priorHeading.style.viewTransitionName = "";
+    if (priorMeta) priorMeta.style.viewTransitionName = "";
 
     card.style.viewTransitionName = VT_CARD_NAME;
     cardHeading.style.viewTransitionName = VT_HEADING_NAME;
+    cardMeta.style.viewTransitionName = VT_META_NAME;
     document.startViewTransition(() => {
       card.style.viewTransitionName = "";
       cardHeading.style.viewTransitionName = "";
-      cardHeading.style.viewTransitionName = "";
+      cardMeta.style.viewTransitionName = "";
       dialog.showModal();
       isDialogOpen = true;
       dialog.style.viewTransitionName = VT_CARD_NAME;
       dialogHeading.style.viewTransitionName = VT_HEADING_NAME;
+      dialogMeta.style.viewTransitionName = VT_META_NAME;
       dialogArticle.style.viewTransitionName = VT_ARTICLE_NAME;
     });
   }}
   class="card"
 >
   <h1 class="heading" bind:this={cardHeading}>{title}</h1>
-  {@render dateAndAuthor()}
+  <div class="card-meta" bind:this={cardMeta}>
+    {#if dateToNow}
+      <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
+    {/if}
+      <address class="address">
+        <a class="author-link" href={link} target="_blank" rel="noopener noreferrer">{author} Sample Author</a>
+      </address>
+  </div>
 </button>
 
 <style>
@@ -116,10 +132,10 @@
   }
 
   .dialog {
-    inline-size: min(100%, 80ch);
+    inline-size: min(100%, 160ch);
+    margin-inline: auto;
     block-size: 100vh;
     max-inline-size: 100%;
-    margin-inline: auto;
     margin-block-start: var(--spacing-base);
     position: fixed;
     inset: 0;
@@ -145,14 +161,32 @@
   .article {
     min-inline-size: 0;
     overflow-wrap: break-word;
+    inline-size: min(100%, 80ch);
+    margin-inline: auto;
   }
 
-  .time {
+  .card-meta, .dialog-meta {
+    display: flex;
+    gap: var(--spacing-base);
+  }
+
+  .card-meta {
+    margin-block-start: var(--spacing-base);
+  }
+
+  .dialog-meta {
+    margin-block-start: var(--spacing-base);
+  }
+
+  .time, .author-link {
     display: block;
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-strong);
     font-size: var(--font-size-small);
-    /* color: var(--color-text-muted); */
-    color: var(--color-brand-secondary-emphasis);
-    margin-block-start: var(--spacing-near);
+    font-style: normal;
+    text-decoration: none;
+    /* color: var(--color-brand-secondary-emphasis); */
+    color: var(--color-text-subtle);
   }
 
   .close {
@@ -173,6 +207,11 @@
 
   ::view-transition-old(heading),
   ::view-transition-new(heading) {
+    inline-size: auto;
+  }
+
+  ::view-transition-old(meta),
+  ::view-transition-new(meta) {
     inline-size: auto;
   }
 
