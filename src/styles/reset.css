@@ -49,15 +49,6 @@
         block-size: 100%;
     }
 
-    :where(body) {
-        font-weight: var(--font-weight-default);
-        color: var(--color-text-base);
-        background-color: var(--color-surface-base);
-        font-family: var(--font-family-default);
-        line-height: var(--line-height-base);
-        font-style: normal;
-    }
-
     /* Remove default margin in favour of better control in authored CSS */
     :where(body, h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
         margin: 0;
