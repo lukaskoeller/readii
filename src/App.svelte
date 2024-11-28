@@ -4,17 +4,19 @@
   import { RSSItem, RSSFeed } from "./core";
   import nerdyXml from "./assets/nerdy.xml?raw";
 
-  let feed: RSSItem[] = $state([...new RSSFeed(nerdyXml).feed]);
+  // let feed: RSSItem[] = $state([...new RSSFeed(nerdyXml).feed]);
+  let feed: RSSItem[] = $state([]);
 
   const getFeeds = async () => {
-    const results: Record<string, RSSFeed> = await chrome.storage.local.get(null);
-    
+    const results: Record<string, RSSFeed> =
+      await chrome.storage.local.get(null);
+
     const allFeeds = Object.values(results).flatMap((rssFeed: RSSFeed) => {
-      return rssFeed.feed
+      return rssFeed.feed;
     });
-    
-    feed = [...feed, ...allFeeds];
-  }
+
+    feed = allFeeds;
+  };
 
   const sortFeed = () => {
     feed.sort((a, b) => {
@@ -24,12 +26,18 @@
       }
       return 0;
     });
-  }
+  };
 
   const initFeed = async () => {
     await getFeeds();
     sortFeed();
-  }
+  };
+
+  chrome.storage.onChanged.addListener(() => {
+    console.log("storage changed");
+    
+    initFeed();
+  });
 
   initFeed();
 </script>
@@ -50,6 +58,6 @@
 
   .articles {
     --nc-ram-grid-gap: var(--spacing-base);
-    --nc-ram-grid-min-width: 28ch;
+    --nc-ram-grid-min-width: 40ch;
   }
 </style>
