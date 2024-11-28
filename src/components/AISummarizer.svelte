@@ -98,6 +98,6 @@
   .card {
     padding: var(--spacing-near);
     border-radius: var(--border-radius-medium);
-    background-color: var(--color-brand-primary-base);
+    background-color: var(--color-brand-secondary-base);
   }
 </style>
