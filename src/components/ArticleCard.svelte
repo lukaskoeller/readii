@@ -76,7 +76,7 @@
   {/if}
 {/snippet}
 
-<dialog bind:this={dialog} class="dialog">
+<dialog bind:this={dialog} class="dialog card">
   <header class="dialog-header">
     {@render closeBtn()}
   </header>
@@ -122,7 +122,7 @@
       dialogArticle.style.viewTransitionName = VT_ARTICLE_NAME;
     });
   }}
-  class="card"
+  class="card article-card"
 >
   <h1 class="heading" bind:this={cardHeading}>{title}</h1>
   <div class="card-meta" bind:this={cardMeta}>
@@ -133,13 +133,6 @@
 <style>
   @custom-media --md-n-above (width >= 768px);
 
-  .card,
-  .dialog {
-    background-color: var(--color-surface-muted);
-    padding: var(--spacing-base);
-    border-radius: var(--border-radius-large);
-  }
-
   .dialog-header {
     display: flex;
     justify-content: end;
@@ -147,7 +140,7 @@
     top: 0;
   }
 
-  .card {
+  .article-card {
     /* border: 2px solid var(--color-border-subtle); */
     text-decoration: none;
     text-align: start;
