@@ -2,9 +2,7 @@
   import ArticleCard from "./components/ArticleCard.svelte";
   import Header from "./components/Header.svelte";
   import { RSSItem, RSSFeed } from "./core";
-  import nerdyXml from "./assets/nerdy.xml?raw";
 
-  // let feed: RSSItem[] = $state([...new RSSFeed(nerdyXml).feed]);
   let feed: RSSItem[] = $state([]);
 
   const getFeeds = async () => {
@@ -44,6 +42,7 @@
 
 <Header />
 <main class="main">
+  
   <div class="articles nc-ram-grid">
     {#each feed.slice(0, 40) as data}
       <ArticleCard item={data} />
