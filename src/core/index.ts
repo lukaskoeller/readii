@@ -99,6 +99,9 @@ export class RSSItem {
     const content = node.querySelector("content")?.innerHTML;
     if (content) this.content = processHTMLString(content);
 
+    const contentEncoded = node.getElementsByTagName("content:encoded")?.[0]?.innerHTML;
+    if (contentEncoded) this.content = processHTMLString(contentEncoded);
+
     const description = node.querySelector("description")?.innerHTML;
     if (description && description.length > 300)
       this.content = processHTMLString(description);
