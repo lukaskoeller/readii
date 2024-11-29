@@ -94,3 +94,9 @@ button {
   padding-block: var(--spacing-near);
   padding-inline: var(--spacing-near);
 }
+
+.card {
+  background-color: var(--color-surface-muted);
+  padding: var(--spacing-base);
+  border-radius: var(--border-radius-large);
+}
