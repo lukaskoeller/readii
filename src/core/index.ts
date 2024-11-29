@@ -1,3 +1,12 @@
+export const addFeedToStorage = async (url: string) => {
+  const response = await fetch(url);
+  const rawText = await response.text();
+  const rssItem = new RSSFeed(rawText);
+
+  // Add RSS Feed to Storage
+  await chrome.storage.local.set({ [url]: rssItem });
+};
+
 const cleanFromCDATA = (str: string | null | undefined) => {
   if (!str) {
     return null;
@@ -34,32 +43,60 @@ const getDate = (str: string | null | undefined) => {
 };
 
 export class RSSFeed {
-  private dom: Document;
-  private rawFeed: Element[];
   public feed: RSSItem[];
   author: string | null;
+  link: string | null;
+  image: {
+    url: string | null;
+    title: string | null;
+    link: string | null;
+  };
 
   constructor(rawXML: string) {
-    this.dom = new DOMParser().parseFromString(rawXML, "text/xml");
-    this.rawFeed = [];
+    let rawFeed: Element[] = [];
+    const dom = new DOMParser().parseFromString(rawXML, "text/xml");
     this.feed = [];
     this.author = null;
+    this.link = null;
+    this.image = {
+      url: null,
+      title: null,
+      link: null,
+    };
 
-    if (this.dom.querySelector("item")) {
-      this.rawFeed = Array.from(this.dom.querySelectorAll("item"));
-    } else if (this.dom.querySelector("entry")) {
-      this.rawFeed = Array.from(this.dom.querySelectorAll("entry"));
+    if (dom.querySelector("item")) {
+      rawFeed = Array.from(dom.querySelectorAll("item"));
+    } else if (dom.querySelector("entry")) {
+      rawFeed = Array.from(dom.querySelectorAll("entry"));
     }
 
-    const author = this.dom.querySelector("author");
-    const title = this.dom.querySelector("title");
+    const author = dom.querySelector("author");
+    const title = dom.querySelector("title");
     if (author) {
       this.author = author?.textContent ?? null;
     } else if (title) {
       this.author = title?.textContent ?? null;
     }
 
-    this.feed = this.rawFeed.map((node) => {
+    const link = dom.querySelector("link");
+    if (link) {
+      this.link = link?.textContent ?? null;
+    }
+
+    const image = dom.querySelector("image");
+    if (image) {
+      const url = image.querySelector("url");
+      const title = image.querySelector("title");
+      const link = image.querySelector("link");
+
+      this.image = {
+        url: url?.textContent ?? null,
+        title: title?.textContent ?? null,
+        link: link?.textContent ?? null,
+      };
+    }
+
+    this.feed = rawFeed.map((node) => {
       const rssItem = new RSSItem(node, this.author);
 
       return rssItem;
@@ -99,7 +136,8 @@ export class RSSItem {
     const content = node.querySelector("content")?.innerHTML;
     if (content) this.content = processHTMLString(content);
 
-    const contentEncoded = node.getElementsByTagName("content:encoded")?.[0]?.innerHTML;
+    const contentEncoded =
+      node.getElementsByTagName("content:encoded")?.[0]?.innerHTML;
     if (contentEncoded) this.content = processHTMLString(contentEncoded);
 
     const description = node.querySelector("description")?.innerHTML;
