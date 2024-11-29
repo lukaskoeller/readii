@@ -1,5 +1,6 @@
 <script lang="ts">
   import ArticleCard from "./components/ArticleCard.svelte";
+  import ControlCenter from "./components/ControlCenter.svelte";
   import Header from "./components/Header.svelte";
   import { RSSItem, RSSFeed } from "./core";
 
@@ -42,7 +43,7 @@
 
 <Header />
 <main class="main">
-  
+  <ControlCenter />
   <div class="articles nc-ram-grid">
     {#each feed.slice(0, 40) as data}
       <ArticleCard item={data} />
