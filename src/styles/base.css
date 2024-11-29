@@ -82,7 +82,7 @@
         --p-y-details: 0.75lh;
 
         inline-size: 100%;
-        background-color: var(--color-surface-subtle);
+        background-color: var(--color-surface-muted);
         border-radius: var(--border-radius-medium);
         border: var(--border-width-thin) solid var(--color-border-base);
 
