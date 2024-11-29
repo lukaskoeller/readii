@@ -1,61 +1,34 @@
-<script lang="ts">
-  import { RSSFeed } from "../core";
-
-  let formEl: HTMLFormElement;
-
-  const onSubmit = async (event: SubmitEvent) => {
-    event.preventDefault();
-    const formData = new FormData(formEl);
-    const url = formData.get("url") as string;
-
-    const response = await fetch(url);
-    const rawText = await response.text();
-    const rssItem = new RSSFeed(rawText);
-
-    // Add RSS Feed to Storage
-    await chrome.storage.local.set({ [url]: rssItem })
-  };
+<script>
+  import AddButton from "./AddButton.svelte";
 </script>
 
-<header>
-  <h1>readii</h1>
-  <div>
-    <button class="import-button" popovertarget="import-button"
-      >Add RSS Feed</button
+<header class="header">
+  <div class="logo">
+    <svg
+      width="64"
+      height="40"
+      viewBox="0 0 64 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
     >
-    <div class="import-popup" id="import-button" popover onsubmit={onSubmit}>
-      <form class="form" bind:this={formEl}>
-        <!-- COMPONENT-START: nc-input-field -->
-        <div class="nc-input-field">
-          <label for="nc-input" class="label">
-            <div>
-              <div class="nc-input-label">URL</div>
-              <span class="nc-hint"
-                >Insert the URL of RSS Feed you would like to subscribe to</span
-              >
-            </div>
-          </label>
-          <input
-            id="url"
-            name="url"
-            class="nc-input"
-            aria-required="true"
-            autocomplete=""
-            type="url"
-            required
-          />
-        </div>
-        <!-- COMPONENT-END: nc-input-field -->
-        <button class="submit-button" type="submit">Add</button>
-      </form>
-    </div>
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M25.6 17.01V6.57569C25.6 2.94404 28.4654 0 32 0C35.5346 0 38.4 2.94404 38.4 6.57569V16.973L45.5759 9.60018C48.0752 7.03221 52.1275 7.03221 54.6268 9.60018C57.1262 12.1682 57.1262 16.3316 54.6268 18.8996L46.8902 26.8486H57.6C61.1346 26.8486 64 29.7927 64 33.4243C64 37.056 61.1346 40 57.6 40H6.4C2.86538 40 0 37.056 0 33.4243C0 29.7927 2.86538 26.8486 6.4 26.8486H17.0738L9.33702 18.8994C6.83766 16.3314 6.83766 12.1679 9.33702 9.59995C11.8364 7.03198 15.8886 7.03198 18.388 9.59995L25.6 17.01Z"
+        fill="#FFAE00"
+      />
+    </svg>
+    <span class="logo-word">readii</span>
+  </div>
+  <div>
+    <AddButton />
   </div>
 </header>
 
 <style>
   @custom-media --md-n-above (width >= 768px);
 
-  header {
+  .header {
     display: flex;
     justify-content: space-between;
     padding: var(--spacing-near);
@@ -67,35 +40,19 @@
     }
   }
 
-  .import-button {
-    anchor-name: --import-button;
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-near);
+
+    @media (--md-n-above) {
+      gap: var(--spacing-base);
+    }
   }
 
-  .import-popup {
-    position: absolute;
-    position-anchor: --import-button;
-    position-area: end span-start;
-
-    margin-block-start: var(--spacing-near);
-    inline-size: min(48ch, 100%);
-    background-color: var(--color-surface-muted);
-    padding: var(--spacing-base);
-    border-radius: var(--border-radius-large);
-    box-shadow: var(--shadow-elevation-medium);
-  }
-
-  .form {
-    display: grid;
-    gap: var(--spacing-base);
-  }
-
-  .label {
-    display: grid;
-    gap: var(--spacing-nearest);
-  }
-
-  .submit-button {
-    justify-self: end;
-    padding-inline: var(--spacing-far);
+  .logo-word {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-default);
+    font-size: var(--font-size-display);
   }
 </style>
