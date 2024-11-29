@@ -49,4 +49,24 @@
       margin-block-end: auto;
     }
   }
+
+  :where(.nc-cluster) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-base);
+    align-items: flex-start;
+
+    &.-centered {
+      align-items: center;
+    }
+
+    &.-nowrap {
+      flex-wrap: nowrap;
+    }
+
+    &.-between {
+      justify-content: space-between;
+    }
+  }
 }
