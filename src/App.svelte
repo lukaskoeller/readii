@@ -1,7 +1,9 @@
 <script lang="ts">
   import ArticleCard from "./components/ArticleCard.svelte";
   import ControlCenter from "./components/ControlCenter.svelte";
+  import Footer from "./components/Footer.svelte";
   import Header from "./components/Header.svelte";
+  import Onboarding from "./components/Onboarding.svelte";
   import { RSSItem, RSSFeed } from "./core";
 
   let feed: RSSItem[] = $state([]);
@@ -33,8 +35,6 @@
   };
 
   chrome.storage.onChanged.addListener(() => {
-    console.log("storage changed");
-    
     initFeed();
   });
 
@@ -43,18 +43,26 @@
 
 <Header />
 <main class="main">
-  <ControlCenter />
+  <!-- <ControlCenter /> -->
+  <Onboarding />
   <div class="articles nc-ram-grid">
-    {#each feed.slice(0, 40) as data}
+    {#each feed as data}
       <ArticleCard item={data} />
     {/each}
   </div>
 </main>
+<Footer />
 
 <style>
+  @custom-media --sm-n-above (width >= 480px);
   @custom-media --md-n-above (width >= 768px);
   .main {
+    min-block-size: 90vh;
     padding: var(--spacing-near);
+
+    @media (--sm-n-above) {
+      padding: var(--spacing-base);
+    }
 
     @media (--md-n-above) {
       padding: var(--spacing-far);
