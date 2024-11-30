@@ -50,8 +50,11 @@
 
   .dashboard {
     display: grid;
-    grid-template-columns: min(44ch, 100%) 3fr;
     gap: var(--spacing-far);
+
+    @media (--md-n-above) {
+      grid-template-columns: min(44ch, 100%) 3fr;
+    }
   }
 
   .articles {
