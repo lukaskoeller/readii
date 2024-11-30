@@ -33,12 +33,12 @@
           <Chip
             title="Adam Argyle"
             src="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/rss-icon.png"
-            onclick={() => feedHandler.addFeed("https://nerdy.dev/rss.xml")}
+            onclick={() => feedHandler.add("https://nerdy.dev/rss.xml")}
           />
           <Chip
             title="Anthony Fu"
             src="https://antfu.me/avatar.png"
-            onclick={() => feedHandler.addFeed("https://antfu.me/feed.xml")}
+            onclick={() => feedHandler.add("https://antfu.me/feed.xml")}
           />
         </div>
       {/snippet}
