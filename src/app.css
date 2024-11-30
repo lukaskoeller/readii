@@ -133,6 +133,10 @@ button {
   padding-inline: var(--spacing-near);
 }
 
+.is-empty:not(:only-child) {
+  display: none;
+}
+
 .stack {
   display: grid;
   gap: var(--spacing-base);
