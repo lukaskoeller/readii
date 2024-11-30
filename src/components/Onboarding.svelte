@@ -1,5 +1,5 @@
 <script>
-  import { addFeedToStorage } from "../core";
+  import { feedHandler } from "../core/hooks.svelte";
   import AddFeedForm from "./AddFeedForm.svelte";
   import Chip from "./Chip.svelte";
   import Details from "./Details.svelte";
@@ -27,18 +27,18 @@
         <Chip title="Adam Argyle" />
       </div>
     </details>
-    <Details name="suggestions" title="Tech (5)" id="tech">
+    <Details name="suggestions" title="Tech (2)" id="tech">
       {#snippet content()}
-        <div class="nc-cluster cluster">
+        <div class="nc-cluster">
           <Chip
             title="Adam Argyle"
             src="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/rss-icon.png"
-            onclick={() => addFeedToStorage("https://nerdy.dev/rss.xml")}
+            onclick={() => feedHandler.addFeed("https://nerdy.dev/rss.xml")}
           />
           <Chip
             title="Anthony Fu"
             src="https://antfu.me/avatar.png"
-            onclick={() => addFeedToStorage("https://antfu.me/feed.xml")}
+            onclick={() => feedHandler.addFeed("https://antfu.me/feed.xml")}
           />
         </div>
       {/snippet}
@@ -115,9 +115,5 @@
 
   .h3 {
     margin-block-end: var(--spacing-near);
-  }
-
-  .cluster {
-    gap: var(--spacing-near);
   }
 </style>
