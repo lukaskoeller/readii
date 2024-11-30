@@ -69,6 +69,12 @@
     }
   }
 
+  .dashboard {
+    display: grid;
+    grid-template-columns: min(44ch, 100%) 3fr;
+    gap: var(--spacing-far);
+  }
+
   .articles {
     --nc-ram-grid-gap: var(--spacing-base);
     --nc-ram-grid-min-width: 40ch;
