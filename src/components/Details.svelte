@@ -6,12 +6,13 @@
     id?: string;
     title: string;
     content: Snippet;
+    open?: boolean;
   };
 
-  let { name, id, title, content }: SuggestionDetailsProps = $props();
+  let { name, id, title, content, open }: SuggestionDetailsProps = $props();
 </script>
 
-<details {name} {id}>
+<details {name} {id} {open}>
   <summary>{title}</summary>
   <div>{@render content()}</div>
 </details>
