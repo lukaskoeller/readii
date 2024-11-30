@@ -120,7 +120,7 @@ export class RSSItem {
     const linkHref = linkHrefStr ? new URL(linkHrefStr) : null;
     if (linkHref) this.link = linkHref.href;
 
-    const linkStr = node.querySelector("link")?.innerText;
+    const linkStr = node.querySelector("link")?.innerHTML;
     const link = linkStr ? new URL(linkStr) : null;
     if (link) this.link = link.href;
 
