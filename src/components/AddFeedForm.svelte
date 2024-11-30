@@ -7,7 +7,7 @@
     event.preventDefault();
     const formData = new FormData(formEl);
     const url = formData.get("url") as string;
-    await feedHandler.addFeed(url);
+    await feedHandler.add(url);
     formEl.reset();
   };
 </script>
