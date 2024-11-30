@@ -10,10 +10,10 @@
     onclick?: () => void;
   };
 
-  let props: ChipProps = $props();
+  let { onclick, title, src }: ChipProps = $props();
 </script>
 
-{#snippet body({ src, title }: ChipProps)}
+{#snippet body()}
   {#if src}
     <img class="img" {src} alt={title} />
   {/if}
@@ -21,12 +21,12 @@
 {/snippet}
 
 {#if onclick}
-  <button type="button" class="chip" onclick={props.onclick}>
-    {@render body(props)}
+  <button type="button" class="chip" onclick={onclick}>
+    {@render body()}
   </button>
 {:else}
   <div class="chip">
-    {@render body(props)}
+    {@render body()}
   </div>
 {/if}
 
