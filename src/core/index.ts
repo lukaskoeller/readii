@@ -116,7 +116,11 @@ export class RSSItem {
     const title = node.querySelector("title")?.innerHTML;
     if (title) this.title = cleanFromCDATA(title) ?? null;
 
-    const linkStr = node.querySelector("link")?.getAttribute("href");
+    const linkHrefStr = node.querySelector("link")?.getAttribute("href");
+    const linkHref = linkHrefStr ? new URL(linkHrefStr) : null;
+    if (linkHref) this.link = linkHref.href;
+
+    const linkStr = node.querySelector("link")?.innerText;
     const link = linkStr ? new URL(linkStr) : null;
     if (link) this.link = link.href;
 
