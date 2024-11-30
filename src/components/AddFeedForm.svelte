@@ -8,6 +8,7 @@
     const formData = new FormData(formEl);
     const url = formData.get("url") as string;
     await feedHandler.addFeed(url);
+    formEl.reset();
   };
 </script>
 
