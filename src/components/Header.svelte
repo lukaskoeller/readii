@@ -1,11 +1,15 @@
 <script>
+  import { feedHandler } from "../core/hooks.svelte";
   import AddButton from "./AddButton.svelte";
   import Logo from "./Logo.svelte";
 </script>
 
 <header class="header">
   <Logo />
-  <div>
+  <div class="actions">
+    <button data-variant="secondary" onclick={feedHandler.refresh}
+      >Refresh</button
+    >
     <AddButton />
   </div>
 </header>
@@ -23,5 +27,10 @@
       padding-inline: var(--spacing-far);
       padding-block-start: var(--spacing-base);
     }
+  }
+
+  .actions {
+    display: flex;
+    gap: var(--spacing-near);
   }
 </style>
