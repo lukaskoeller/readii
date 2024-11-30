@@ -214,10 +214,6 @@
     border-radius: 100%;
   }
 
-  .article-footer {
-    margin-block: var(--spacing-far);
-  }
-
   ::view-transition-old(card),
   ::view-transition-new(card) {
     block-size: 100%;
