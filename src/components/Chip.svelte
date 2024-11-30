@@ -60,6 +60,9 @@
     font-size: var(--font-size-smallest);
     font-weight: var(--font-weight-strong);
     margin-inline-end: var(--margin);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 
     &:only-child {
       margin-inline-start: var(--margin);
