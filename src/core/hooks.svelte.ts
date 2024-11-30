@@ -1,12 +1,15 @@
+import { intervalToDuration } from "date-fns";
 import { RSSFeed, type RSSItem } from ".";
 
-export type TSubscription = {
-  key: string;
+export type TSubscriptionKey = string;
+
+export type TAuthor = {
+  key: TSubscriptionKey;
   name: RSSFeed["author"];
   image: RSSFeed["image"];
 };
 
-export type TSubscriptions = Record<string, RSSFeed>;
+export type TSubscriptions = Record<TSubscriptionKey, RSSFeed>;
 
 export type TFeed = RSSItem[];
 
@@ -22,14 +25,14 @@ const getFeed = (subscriptions: TSubscriptions): TFeed => {
 };
 
 const getAuthors = (subscriptions: TSubscriptions) => {
-  const allSubscriptions: TSubscription[] = Object.entries(subscriptions).map(
+  const authors: TAuthor[] = Object.entries(subscriptions).map(
     ([key, rssFeed]) => ({
       key,
       name: rssFeed.author,
       image: rssFeed.image,
     })
   );
-  return allSubscriptions.sort((a, b) =>
+  return authors.sort((a, b) =>
     (a.name ?? "").localeCompare(b.name ?? "")
   );
 };
@@ -86,7 +89,7 @@ export const addFeedToStorage = async (url: string) => {
 
 export class FeedHandler {
   feed: RSSItem[] = $state([]);
-  authors: TSubscription[] = $state([]);
+  authors: TAuthor[] = $state([]);
   isLoading: boolean = $state(false);
   isError: boolean = $state(false);
   error: Error | null = $state(null);
@@ -111,6 +114,14 @@ export class FeedHandler {
 
   constructor() {
     this.getData();
+    const lastUpdated = localStorage.getItem("lastUpdated");
+    const durationSinceLastUpdate = lastUpdated
+      ? intervalToDuration({ start: new Date(lastUpdated), end: new Date() }).hours ?? 0
+      : 0;
+    
+    if (lastUpdated === null || durationSinceLastUpdate >= 24) {
+      this.refresh();
+    }
     /** Listens for changes in the storage and updates the state. */
     chrome.storage.onChanged.addListener(() => {
       this.getData();
@@ -126,11 +137,21 @@ export class FeedHandler {
       URLs.map((url) => fetchFeed(url))
     );
     const items = Object.fromEntries(URLs.map((key, index) => [key, feeds[index]]));
-    await chrome.storage.local.set(items);
+    try {
+      await chrome.storage.local.set(items);
+      localStorage.setItem("lastUpdated", new Date().toISOString());
+    } catch (error) {
+      console.error("Failed to refresh feed.", error);
+      // @todo Add error handling.
+    }
   };
 
   addFeed = async (url: string) => {
     await addFeedToStorage(url);
+  };
+
+  removeSubscriptions = async (keys: TSubscriptionKey[]) => {
+    await chrome.storage.local.remove(keys);
   };
 }
 
