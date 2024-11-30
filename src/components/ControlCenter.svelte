@@ -1,36 +1,18 @@
 <script lang="ts" module>
-  import type { RSSFeed } from "../core";
-  let subscriptions: TSubscription[] = $state([]);
-  let noSubscriptions = $derived(subscriptions.length);
+  import { feedHandler } from "../core/hooks.svelte";
+  import Chip from "./Chip.svelte";
 
-  export type TSubscription = {
-    key: string;
-    name: string | null;
-  };
-
-  const getSubscriptions = async () => {
-    const results: Record<string, RSSFeed> =
-      await chrome.storage.local.get(null);
-
-    const allSubscriptions: TSubscription[] = Object.entries(results).map(
-      ([key, rssFeed]) => ({
-        key,
-        name: rssFeed.author,
-      })
-    );
-
-    subscriptions = allSubscriptions;
-  };
-
-  getSubscriptions();
+  let noSubscriptions = $derived(feedHandler.authors.length);
 </script>
 
 <div class="control-center">
-  <details>
+  <details open>
     <summary>RSS Feeds ({noSubscriptions})</summary>
-    <div class="stack">
-      {#each subscriptions as subscription}
-        <div>{subscription.name}</div>
+    <div class="nc-cluster">
+      {#each feedHandler.authors as author}
+        {#if author.name}
+          <Chip title={author.name} src={author.image.url} />
+        {/if}
       {/each}
     </div>
   </details>
@@ -41,17 +23,8 @@
 
   .control-center {
     display: flex;
-    gap: var(--spacing-near);
+    flex-direction: column;
+    gap: var(--spacing-base);
     font-family: var(--font-family-sans);
-
-    @media (--md-n-above) {
-      gap: var(--spacing-base);
-    }
-  }
-
-  .stack {
-    display: flex;
-    gap: var(--spacing-near);
-    flex-wrap: wrap;
   }
 </style>
