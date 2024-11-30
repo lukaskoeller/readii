@@ -19,7 +19,11 @@
 
   let { item }: { item: RSSItem } = $props();
   let isDialogOpen = $state(false);
+
   const { title, publishedAt, author, link, content } = item;
+  const isExternal = Boolean(!content && link);
+  console.log(author, isExternal);
+
   const dateToNow = publishedAt ? formatDistanceToNow(publishedAt) : null;
   const htmlDatetime = publishedAt ? format(publishedAt, "yyyy-MM-dd") : null;
 </script>
@@ -43,75 +47,111 @@
   />
 {/snippet}
 
-{#snippet dataAndAuthor()}
-  {#if dateToNow}
-    <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
-  {/if}
-  {#if author}
-    <address class="address">
-      <a
-        class="author-link"
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer">{author}</a
-      >
-    </address>
-  {/if}
-{/snippet}
-
-<dialog bind:this={dialog} class="dialog card article-dialog">
-  <header class="dialog-header">
-    {@render closeBtn()}
-  </header>
-  <article class="nc-flow article" bind:this={dialogArticle}>
-    <h2 class="heading" bind:this={dialogHeading}>{title}</h2>
-    <div class="dialog-meta" bind:this={dialogMeta}>
-      {@render dataAndAuthor()}
-    </div>
-    {#if content && isDialogOpen}
-      <AiSummarizer text={content} />
-    {/if}
-    {@html content}
-  </article>
-</dialog>
-<button
-  bind:this={card}
-  onclick={() => {
-    const priorCard = document.querySelector(
-      `[style*="view-transition-name: ${VT_CARD_NAME}"]`
-    ) as HTMLButtonElement | null;
-    const priorHeading = document.querySelector(
-      `[style*="view-transition-name: ${VT_HEADING_NAME}"]`
-    ) as HTMLHeadElement | null;
-    const priorMeta = document.querySelector(
-      `[style*="view-transition-name: ${VT_META_NAME}"]`
-    ) as HTMLHeadElement | null;
-    if (priorCard) priorCard.style.viewTransitionName = "";
-    if (priorHeading) priorHeading.style.viewTransitionName = "";
-    if (priorMeta) priorMeta.style.viewTransitionName = "";
-
-    card.style.viewTransitionName = VT_CARD_NAME;
-    cardHeading.style.viewTransitionName = VT_HEADING_NAME;
-    cardMeta.style.viewTransitionName = VT_META_NAME;
-    document.startViewTransition(() => {
-      card.style.viewTransitionName = "";
-      cardHeading.style.viewTransitionName = "";
-      cardMeta.style.viewTransitionName = "";
-      dialog.showModal();
-      isDialogOpen = true;
-      dialog.style.viewTransitionName = VT_CARD_NAME;
-      dialogHeading.style.viewTransitionName = VT_HEADING_NAME;
-      dialogMeta.style.viewTransitionName = VT_META_NAME;
-      dialogArticle.style.viewTransitionName = VT_ARTICLE_NAME;
-    });
-  }}
-  class="card article-card"
->
+{#snippet cardBody()}
   <h1 class="heading" bind:this={cardHeading}>{title}</h1>
   <div class="card-meta" bind:this={cardMeta}>
     {@render dataAndAuthor()}
   </div>
-</button>
+{/snippet}
+
+{#snippet dataAndAuthor()}
+  <span class="nc-cluster -base">
+    {#if dateToNow}
+      <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
+    {/if}
+    {#if author}
+      <address class="address">
+        <a
+          class="author-link"
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer">{author}</a
+        >
+      </address>
+    {/if}
+  </span>
+  {#if isExternal}
+    <div class="external-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-external-link"
+        ><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
+          d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"
+        /><path d="M11 13l9 -9" /><path d="M15 4h5v5" /></svg
+      >
+    </div>
+  {/if}
+{/snippet}
+
+{#if isExternal}
+  <a
+    class="card article-card"
+    target="_blank"
+    rel="noopener noreferrer"
+    href={link}
+  >
+    {@render cardBody()}
+  </a>
+{:else}
+  <dialog bind:this={dialog} class="dialog card article-dialog">
+    <header class="dialog-header">
+      {@render closeBtn()}
+    </header>
+    <article class="nc-flow article" bind:this={dialogArticle}>
+      <h2 class="heading" bind:this={dialogHeading}>{title}</h2>
+      <div class="dialog-meta" bind:this={dialogMeta}>
+        {@render dataAndAuthor()}
+      </div>
+      {#if content && isDialogOpen}
+        <AiSummarizer text={content} />
+      {/if}
+      {@html content}
+    </article>
+  </dialog>
+  <button
+    bind:this={card}
+    onclick={() => {
+      const priorCard = document.querySelector(
+        `[style*="view-transition-name: ${VT_CARD_NAME}"]`
+      ) as HTMLButtonElement | null;
+      const priorHeading = document.querySelector(
+        `[style*="view-transition-name: ${VT_HEADING_NAME}"]`
+      ) as HTMLHeadElement | null;
+      const priorMeta = document.querySelector(
+        `[style*="view-transition-name: ${VT_META_NAME}"]`
+      ) as HTMLHeadElement | null;
+      if (priorCard) priorCard.style.viewTransitionName = "";
+      if (priorHeading) priorHeading.style.viewTransitionName = "";
+      if (priorMeta) priorMeta.style.viewTransitionName = "";
+
+      card.style.viewTransitionName = VT_CARD_NAME;
+      cardHeading.style.viewTransitionName = VT_HEADING_NAME;
+      cardMeta.style.viewTransitionName = VT_META_NAME;
+      document.startViewTransition(() => {
+        card.style.viewTransitionName = "";
+        cardHeading.style.viewTransitionName = "";
+        cardMeta.style.viewTransitionName = "";
+        dialog.showModal();
+        isDialogOpen = true;
+        dialog.style.viewTransitionName = VT_CARD_NAME;
+        dialogHeading.style.viewTransitionName = VT_HEADING_NAME;
+        dialogMeta.style.viewTransitionName = VT_META_NAME;
+        dialogArticle.style.viewTransitionName = VT_ARTICLE_NAME;
+      });
+    }}
+    class="card article-card"
+  >
+    {@render cardBody()}
+  </button>
+{/if}
 
 <style>
   @custom-media --md-n-above (width >= 768px);
@@ -151,12 +191,20 @@
   .card-meta,
   .dialog-meta {
     display: flex;
+    align-items: center;
     gap: var(--spacing-base);
     margin-block-start: var(--spacing-base);
+    /* color: var(--color-brand-secondary-emphasis); */
+    color: var(--color-text-subtle);
   }
 
   .card-meta {
     align-self: end;
+    justify-content: space-between;
+  }
+
+  .external-icon {
+    inline-size: 1rem;
   }
 
   .time,
@@ -167,8 +215,6 @@
     font-size: var(--font-size-small);
     font-style: normal;
     text-decoration: none;
-    /* color: var(--color-brand-secondary-emphasis); */
-    color: var(--color-text-subtle);
   }
 
   ::view-transition-old(card),
