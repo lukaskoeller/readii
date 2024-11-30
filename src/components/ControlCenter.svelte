@@ -57,10 +57,10 @@
 </dialog>
 <div class="control-center">
   <details class="details" open>
-    <summary>
+    <summary class="summary">
       <span>RSS Feeds ({noSubscriptions})</span>
       <button
-        data-variant="text"
+        data-variant="secondary"
         data-size="sm"
         onclick={() => {
           dialog.showModal();
@@ -91,6 +91,13 @@
 
   .details {
     border: 0;
+  }
+
+  .summary {
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .field {
