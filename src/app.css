@@ -63,6 +63,10 @@ button {
   padding-inline: var(--spacing-base);
   padding-block: var(--spacing-near);
   border-radius: var(--border-radius-medium);
+
+  &[data-variant="secondary"] {
+    background-color: var(--color-surface-subtle);
+  }
 }
 
 .nc-input-label,
