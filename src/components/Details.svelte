@@ -13,13 +13,5 @@
 
 <details {name} {id}>
   <summary>{title}</summary>
-  <div class="stack">{@render content()}</div>
+  <div>{@render content()}</div>
 </details>
-
-<style>
-  .stack {
-    display: flex;
-    gap: var(--spacing-near);
-    flex-wrap: wrap;
-  }
-</style>
