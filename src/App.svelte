@@ -4,7 +4,7 @@
   import Footer from "./components/Footer.svelte";
   import Header from "./components/Header.svelte";
   import Onboarding from "./components/Onboarding.svelte";
-  import { feedHandler } from "./core/hooks.svelte";
+  import { feedHandler, onboardingHandler } from "./core/hooks.svelte";
 
   const isEmpty = $derived(
     !feedHandler.isLoading && feedHandler.feed.length === 0
@@ -18,7 +18,7 @@
       <ControlCenter />
     </aside>
     <main>
-      {#if !isEmpty}
+      {#if !isEmpty && !onboardingHandler.isOnboarding}
         <div class="articles nc-ram-grid">
           {#each feedHandler.feed as data}
             <ArticleCard item={data} />

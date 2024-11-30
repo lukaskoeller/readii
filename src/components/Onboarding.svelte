@@ -1,8 +1,19 @@
-<script>
-  import { feedHandler } from "../core/hooks.svelte";
+<script lang="ts">
+  import { feedHandler, onboardingHandler } from "../core/hooks.svelte";
   import AddFeedForm from "./AddFeedForm.svelte";
   import Chip from "./Chip.svelte";
   import Details from "./Details.svelte";
+
+  const noSubscriptions = $derived(feedHandler.authors.length);
+  const isEmpty = $derived(
+    !feedHandler.isLoading && feedHandler.feed.length === 0
+  );
+
+  $effect(() => {
+    if (isEmpty) {
+      onboardingHandler.isOnboarding = true;
+    }
+  });
 </script>
 
 <section class="container">
@@ -13,21 +24,15 @@
       adding their RSS feed to your personal feed.
     </h2>
   </header>
-  <div class="import">
-    <h3 class="h3">Import your own</h3>
-    <div class="card">
-      <AddFeedForm />
-    </div>
-  </div>
   <div class="suggestions">
     <h3 class="h3">Choose from the list</h3>
-    <details name="suggestions" id="top" open>
+    <details name="suggestions" id="top">
       <summary>Generic (12)</summary>
       <div>
         <Chip title="Adam Argyle" />
       </div>
     </details>
-    <Details name="suggestions" title="Tech (2)" id="tech">
+    <Details name="suggestions" title="Tech (2)" id="tech" open>
       {#snippet content()}
         <div class="nc-cluster">
           <Chip
@@ -60,6 +65,33 @@
       <div>Badges with Authors</div>
     </details>
   </div>
+  <div class="import">
+    <h3 class="h3">Import your own</h3>
+    <div class="stack">
+      <div class="card">
+        <AddFeedForm />
+      </div>
+      <div class="card stack">
+        {#if noSubscriptions === 0}
+          <p>
+            Add a feed to your list by choosing from the list or add the URL in
+            the input.
+          </p>
+        {:else}
+          <p>
+            You selected {noSubscriptions} feed{noSubscriptions > 1 ? "s" : ""} to
+            start with.
+          </p>
+        {/if}
+        <button
+          type="button"
+          onclick={() => {
+            onboardingHandler.isOnboarding = false;
+          }}>Start reading</button
+        >
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -74,14 +106,14 @@
     gap: var(--spacing-far);
     grid-template:
       "header" auto
-      "import" auto
       "suggestions" auto
+      "import" auto
       / 1fr;
 
     @media (--md-n-above) {
       grid-template:
         "header header" auto
-        "import suggestions" auto
+        "suggestions import" auto
         / 1fr 1fr;
       gap: var(--spacing-far);
       row-gap: var(--spacing-farthest);

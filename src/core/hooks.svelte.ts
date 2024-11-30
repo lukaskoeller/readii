@@ -176,3 +176,11 @@ export class FeedHandler {
 }
 
 export const feedHandler = new FeedHandler();
+
+export type TOnboardingHandler = {
+  isOnboarding: boolean;
+};
+
+export const onboardingHandler: TOnboardingHandler = $state({
+  isOnboarding: false,
+});
