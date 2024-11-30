@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { addFeedToStorage, RSSFeed } from "../core";
+  import { feedHandler } from "../core/hooks.svelte";
 
   let formEl: HTMLFormElement;
 
@@ -7,7 +7,7 @@
     event.preventDefault();
     const formData = new FormData(formEl);
     const url = formData.get("url") as string;
-    await addFeedToStorage(url);
+    await feedHandler.addFeed(url);
   };
 </script>
 
