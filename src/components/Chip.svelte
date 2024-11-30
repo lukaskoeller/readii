@@ -2,7 +2,7 @@
   type ChipProps = {
     title: string;
     /** URL to an img shown as avatar */
-    src?: string;
+    src?: string | null;
     /**
      * If `onclick` is provided, the `<Chip>`
      * is rendered as a `<button>`.
@@ -21,13 +21,13 @@
 {/snippet}
 
 {#if onclick}
-  <div class="chip">
-    {@render body(props)}
-  </div>
-{:else}
   <button type="button" class="chip" onclick={props.onclick}>
     {@render body(props)}
   </button>
+{:else}
+  <div class="chip">
+    {@render body(props)}
+  </div>
 {/if}
 
 <style>
