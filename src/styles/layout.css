@@ -68,5 +68,9 @@
     &.-between {
       justify-content: space-between;
     }
+
+    &.-base {
+      gap: var(--spacing-base);
+    }
   }
 }
