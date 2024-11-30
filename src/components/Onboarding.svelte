@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="suggestions">
-    <h3 class="h3">Choose one from the list</h3>
+    <h3 class="h3">Choose from the list</h3>
     <details name="suggestions" id="top" open>
       <summary>Generic (12)</summary>
       <div>
