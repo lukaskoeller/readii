@@ -1,12 +1,3 @@
-export const addFeedToStorage = async (url: string) => {
-  const response = await fetch(url);
-  const rawText = await response.text();
-  const rssItem = new RSSFeed(rawText);
-
-  // Add RSS Feed to Storage
-  await chrome.storage.local.set({ [url]: rssItem });
-};
-
 const cleanFromCDATA = (str: string | null | undefined) => {
   if (!str) {
     return null;
