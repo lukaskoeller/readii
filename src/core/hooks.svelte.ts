@@ -32,9 +32,7 @@ const getAuthors = (subscriptions: TSubscriptions) => {
       image: rssFeed.image,
     })
   );
-  return authors.sort((a, b) =>
-    (a.name ?? "").localeCompare(b.name ?? "")
-  );
+  return authors.sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
 };
 
 const sortFeedByPublishedAt = (a: RSSItem, b: RSSItem) => {
@@ -76,18 +74,36 @@ export const sortFeed = (
   return feed;
 };
 
-const fetchFeed = async (url: string) => {
+const fetchRSSFeed = async (url: string | string[]) => {
+  if (Array.isArray(url)) {
+    const rawTexts = await Promise.all(
+      url.map((url) => fetch(url).then((response) => response.text()))
+    );
+    const rssItems = rawTexts.map((rawText) => new RSSFeed(rawText));
+    return rssItems;
+  }
+
   const response = await fetch(url);
   const rawText = await response.text();
   const rssItem = new RSSFeed(rawText);
-
   return rssItem;
 };
 
-export const addFeedToStorage = async (url: string) => {
-  const rssItem = await fetchFeed(url);
-  // Add RSS Feed to Storage
-  await chrome.storage.local.set({ [url]: rssItem });
+export const addToStorage = async (url: string | string[]) => {
+  if (Array.isArray(url)) {
+    const URLs = url;
+    const feeds = await Promise.all(URLs.map((url) => fetchRSSFeed(url)));
+    const subscriptions = Object.fromEntries(
+      URLs.map((key, index) => [key, feeds[index]])
+    );
+    // Add RSS Feed to Storage
+    await chrome.storage.local.set(subscriptions);
+  } else {
+    const rssItem = await fetchRSSFeed(url);
+    const subscription = { [url]: rssItem };
+    // Add RSS Feed to Storage
+    await chrome.storage.local.set(subscription);
+  }
 };
 
 export class FeedHandler {
@@ -119,9 +135,10 @@ export class FeedHandler {
     this.getData();
     const lastUpdated = localStorage.getItem("lastUpdated");
     const durationSinceLastUpdate = lastUpdated
-      ? intervalToDuration({ start: new Date(lastUpdated), end: new Date() }).hours ?? 0
+      ? intervalToDuration({ start: new Date(lastUpdated), end: new Date() })
+          .hours ?? 0
       : 0;
-    
+
     if (lastUpdated === null || durationSinceLastUpdate >= 24) {
       this.refresh();
     }
@@ -136,10 +153,10 @@ export class FeedHandler {
    */
   refresh = async () => {
     const URLs = this.authors.map((author) => author.key);
-    const feeds = await Promise.all(
-      URLs.map((url) => fetchFeed(url))
+    const feeds = await Promise.all(URLs.map((url) => fetchRSSFeed(url)));
+    const items = Object.fromEntries(
+      URLs.map((key, index) => [key, feeds[index]])
     );
-    const items = Object.fromEntries(URLs.map((key, index) => [key, feeds[index]]));
     try {
       await chrome.storage.local.set(items);
       localStorage.setItem("lastUpdated", new Date().toISOString());
@@ -149,11 +166,11 @@ export class FeedHandler {
     }
   };
 
-  addFeed = async (url: string) => {
-    await addFeedToStorage(url);
+  add = async (url: string | string[]) => {
+    await addToStorage(url);
   };
 
-  removeSubscriptions = async (keys: TSubscriptionKey[]) => {
+  remove = async (keys: TSubscriptionKey | TSubscriptionKey[]) => {
     await chrome.storage.local.remove(keys);
   };
 }
