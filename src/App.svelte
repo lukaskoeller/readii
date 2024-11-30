@@ -5,28 +5,37 @@
   import Header from "./components/Header.svelte";
   import Onboarding from "./components/Onboarding.svelte";
   import { feedHandler } from "./core/hooks.svelte";
+
+  const isEmpty = $derived(
+    !feedHandler.isLoading && feedHandler.feed.length === 0
+  );
 </script>
 
 <Header />
-<main class="main">
-  <Onboarding />
+<div class="wrapper">
   <div class="dashboard">
     <aside>
       <ControlCenter />
     </aside>
-    <div class="articles nc-ram-grid">
-      {#each feedHandler.feed as data}
-        <ArticleCard item={data} />
-      {/each}
-    </div>
+    <main>
+      {#if !isEmpty}
+        <div class="articles nc-ram-grid">
+          {#each feedHandler.feed as data}
+            <ArticleCard item={data} />
+          {/each}
+        </div>
+      {:else}
+        <Onboarding />
+      {/if}
+    </main>
   </div>
-</main>
+</div>
 <Footer />
 
 <style>
   @custom-media --sm-n-above (width >= 480px);
   @custom-media --md-n-above (width >= 768px);
-  .main {
+  .wrapper {
     min-block-size: 90vh;
     padding: var(--spacing-near);
 
