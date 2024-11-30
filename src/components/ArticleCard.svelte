@@ -2,6 +2,7 @@
   import { formatDistanceToNow, format } from "date-fns";
   import { RSSItem } from "../core";
   import AiSummarizer from "./AISummarizer.svelte";
+  import CloseIconButton from "./CloseIconButton.svelte";
 
   const VT_CARD_NAME = "card";
   const VT_HEADING_NAME = "heading";
@@ -24,9 +25,7 @@
 </script>
 
 {#snippet closeBtn()}
-  <button
-    class="close"
-    aria-label="Close dialog"
+  <CloseIconButton
     onclick={() => {
       dialogArticle.style.viewTransitionName = VT_ARTICLE_NAME;
       document.startViewTransition(() => {
@@ -41,23 +40,7 @@
         cardMeta.style.viewTransitionName = VT_META_NAME;
       });
     }}
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="icon icon-tabler icons-tabler-outline icon-tabler-x"
-      ><path stroke="none" d="M0 0h24v24H0z" fill="inherit" /><path
-        d="M18 6l-12 12"
-      /><path d="M6 6l12 12" /></svg
-    >
-  </button>
+  />
 {/snippet}
 
 {#snippet dataAndAuthor()}
@@ -76,7 +59,7 @@
   {/if}
 {/snippet}
 
-<dialog bind:this={dialog} class="dialog card">
+<dialog bind:this={dialog} class="dialog card article-dialog">
   <header class="dialog-header">
     {@render closeBtn()}
   </header>
@@ -152,31 +135,10 @@
     max-inline-size: 100%;
   }
 
-  .dialog {
+  .article-dialog {
     inline-size: min(100%, 160ch);
-    margin-inline: auto;
     block-size: 100vh;
-    max-inline-size: 100%;
     margin-block-start: var(--spacing-base);
-    position: fixed;
-    inset: 0;
-    inset-block-start: auto;
-    display: grid;
-    align-content: start;
-    overscroll-behavior: contain;
-
-    @media (--md-n-above) {
-      inset-block-end: auto;
-    }
-
-    &::backdrop {
-      backdrop-filter: blur(12px);
-    }
-
-    &:not([open]) {
-      pointer-events: none;
-      opacity: 0;
-    }
   }
 
   .article {
@@ -207,11 +169,6 @@
     text-decoration: none;
     /* color: var(--color-brand-secondary-emphasis); */
     color: var(--color-text-subtle);
-  }
-
-  .close {
-    padding: var(--spacing-near);
-    border-radius: 100%;
   }
 
   ::view-transition-old(card),
