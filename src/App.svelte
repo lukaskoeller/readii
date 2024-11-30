@@ -4,51 +4,21 @@
   import Footer from "./components/Footer.svelte";
   import Header from "./components/Header.svelte";
   import Onboarding from "./components/Onboarding.svelte";
-  import { RSSItem, RSSFeed } from "./core";
-
-  let feed: RSSItem[] = $state([]);
-
-  const getFeeds = async () => {
-    const results: Record<string, RSSFeed> =
-      await chrome.storage.local.get(null);
-
-    const allFeeds = Object.values(results).flatMap((rssFeed: RSSFeed) => {
-      return rssFeed.feed;
-    });
-
-    feed = allFeeds;
-  };
-
-  const sortFeed = () => {
-    feed.sort((a, b) => {
-      if (a.publishedAt && b.publishedAt) {
-        if (a.publishedAt < b.publishedAt) return -1;
-        else if (a.publishedAt > b.publishedAt) return 1;
-      }
-      return 0;
-    });
-  };
-
-  const initFeed = async () => {
-    await getFeeds();
-    sortFeed();
-  };
-
-  chrome.storage.onChanged.addListener(() => {
-    initFeed();
-  });
-
-  initFeed();
+  import { feedHandler } from "./core/hooks.svelte";
 </script>
 
 <Header />
 <main class="main">
-  <!-- <ControlCenter /> -->
   <Onboarding />
-  <div class="articles nc-ram-grid">
-    {#each feed as data}
-      <ArticleCard item={data} />
-    {/each}
+  <div class="dashboard">
+    <aside>
+      <ControlCenter />
+    </aside>
+    <div class="articles nc-ram-grid">
+      {#each feedHandler.feed as data}
+        <ArticleCard item={data} />
+      {/each}
+    </div>
   </div>
 </main>
 <Footer />
