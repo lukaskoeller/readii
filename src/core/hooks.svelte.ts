@@ -39,9 +39,12 @@ const getAuthors = (subscriptions: TSubscriptions) => {
 
 const sortFeedByPublishedAt = (a: RSSItem, b: RSSItem) => {
   if (a.publishedAt && b.publishedAt) {
-    if (a.publishedAt < b.publishedAt) return -1;
-    else if (a.publishedAt > b.publishedAt) return 1;
+    if (a.publishedAt > b.publishedAt) return -1;
+    else if (a.publishedAt < b.publishedAt) return 1;
   }
+
+  if (a.publishedAt && !b.publishedAt) return -1;
+  if (!a.publishedAt && b.publishedAt) return 1;
 
   return 0;
 };

@@ -22,7 +22,6 @@
 
   const { title, publishedAt, author, link, content } = item;
   const isExternal = Boolean(!content && link);
-  console.log(author, isExternal);
 
   const dateToNow = publishedAt ? formatDistanceToNow(publishedAt) : null;
   const htmlDatetime = publishedAt ? format(publishedAt, "yyyy-MM-dd") : null;
