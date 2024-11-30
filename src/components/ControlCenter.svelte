@@ -13,8 +13,9 @@
     const formData = new FormData(form);
     const keys = formData.getAll("authorKey") as string[];
     try {
-      await feedHandler.removeSubscriptions(keys);
+      await feedHandler.remove(keys);
       form.reset();
+      dialog.close();
     } catch (error) {
       console.error(error);
       // @todo: Show error message
@@ -29,6 +30,7 @@
   </header>
   <form onsubmit={onSubmit} id="edit-feeds">
     <div class="stack dialog-body">
+      <p class="is-empty">There are no feeds.</p>
       {#each feedHandler.authors as author}
         {#if author.name}
           <div class="field">
@@ -104,5 +106,11 @@
     display: flex;
     gap: var(--spacing-near);
     align-items: center;
+  }
+
+  .dialog-body:has(:only-child) {
+    block-size: 100%;
+    display: grid;
+    place-items: center;
   }
 </style>
