@@ -35,20 +35,22 @@ const getDate = (str: string | null | undefined) => {
 
 export class RSSFeed {
   public feed: RSSItem[];
-  author: string | null;
-  link: string | null;
+  publisher: string | null;
+  rssUrl: string;
+  url: string | null;
   image: {
     url: string | null;
     title: string | null;
     link: string | null;
   };
 
-  constructor(rawXML: string) {
+  constructor(rawXML: string, rssUrl: string) {
     let rawFeed: Element[] = [];
     const dom = new DOMParser().parseFromString(rawXML, "text/xml");
     this.feed = [];
-    this.author = null;
-    this.link = null;
+    this.publisher = null;
+    this.rssUrl = rssUrl;
+    this.url = null;
     this.image = {
       url: null,
       title: null,
@@ -64,14 +66,14 @@ export class RSSFeed {
     const author = dom.querySelector("author");
     const title = dom.querySelector("title");
     if (author) {
-      this.author = author?.textContent ?? null;
+      this.publisher = author?.textContent ?? null;
     } else if (title) {
-      this.author = title?.textContent ?? null;
+      this.publisher = title?.textContent ?? null;
     }
 
     const link = dom.querySelector("link");
     if (link) {
-      this.link = link?.textContent ?? null;
+      this.url = link?.textContent ?? null;
     }
 
     const image = dom.querySelector("image");
@@ -88,7 +90,7 @@ export class RSSFeed {
     }
 
     this.feed = rawFeed.map((node) => {
-      const rssItem = new RSSItem(node, this.author);
+      const rssItem = new RSSItem(node, this.publisher);
 
       return rssItem;
     });
@@ -99,15 +101,16 @@ export class RSSItem {
   title: string | null;
   link: string | null;
   author: string | null;
+  publisher: RSSFeed["publisher"];
   content: string | null;
   publishedAt: string | null;
 
-  constructor(node: Element, author?: string | null) {
+  constructor(node: Element, publisher: RSSFeed["publisher"]) {
     this.title = null;
     this.link = null;
-    this.author = null;
     this.publishedAt = null;
-    this.author = author ?? null;
+    this.publisher = publisher;
+    this.author = publisher ?? null;
     /**
      * Unparsed HTML markup that holds the content of the article.
      */
