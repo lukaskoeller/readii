@@ -98,5 +98,6 @@
     border-radius: var(--border-radius-medium);
     background-color: var(--color-brand-secondary-base);
     box-shadow: 0px 2px 0px 0px var(--color-brand-secondary-emphasis);
+    margin-block: var(--spacing-base);
   }
 </style>
