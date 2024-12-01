@@ -5,7 +5,7 @@ export type TSubscriptionKey = string;
 
 export type TAuthor = {
   key: TSubscriptionKey;
-  name: RSSFeed["author"];
+  name: RSSFeed["publisher"];
   image: RSSFeed["image"];
 };
 
@@ -28,7 +28,7 @@ const getAuthors = (subscriptions: TSubscriptions) => {
   const authors: TAuthor[] = Object.entries(subscriptions).map(
     ([key, rssFeed]) => ({
       key,
-      name: rssFeed.author,
+      name: rssFeed.publisher,
       image: rssFeed.image,
     })
   );
@@ -79,13 +79,13 @@ const fetchRSSFeed = async (url: string | string[]) => {
     const rawTexts = await Promise.all(
       url.map((url) => fetch(url).then((response) => response.text()))
     );
-    const rssItems = rawTexts.map((rawText) => new RSSFeed(rawText));
+    const rssItems = rawTexts.map((rawText, idx) => new RSSFeed(rawText, url[idx]));
     return rssItems;
   }
 
   const response = await fetch(url);
   const rawText = await response.text();
-  const rssItem = new RSSFeed(rawText);
+  const rssItem = new RSSFeed(rawText, url);
   return rssItem;
 };
 
