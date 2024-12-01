@@ -14,6 +14,142 @@
       onboardingHandler.isOnboarding = true;
     }
   });
+
+  const SUGGESTED_FEEDS = [
+    {
+      category: "Web Development",
+      id: "web-development",
+      items: [
+        {
+          title: "Adam Argyle",
+          src: "https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/rss-icon.png",
+          onclick: () => feedHandler.add("https://nerdy.dev/rss.xml"),
+        },
+        {
+          title: "Anthony Fu",
+          src: "https://antfu.me/avatar.png",
+          onclick: () => feedHandler.add("https://antfu.me/feed.xml"),
+        },
+        {
+          title: "Codrops",
+          src: null,
+          onclick: () => feedHandler.add("http://feeds.feedburner.com/Codrops"),
+        },
+        {
+          title: "Lea Verou",
+          src: null,
+          onclick: () =>
+            feedHandler.add("http://feeds.feedburner.com/leaverou"),
+        },
+        {
+          title: "Bram.us",
+          src: null,
+          onclick: () => feedHandler.add("https://www.bram.us/feed/"),
+        },
+        {
+          title: "Ahmad Shadeed",
+          src: null,
+          onclick: () => feedHandler.add("https://ishadeed.com/feed.xml"),
+        },
+        {
+          title: "Figma Blog",
+          src: null,
+          onclick: () =>
+            feedHandler.add("https://www.figma.com/blog/feed/atom.xml"),
+        },
+        {
+          title: "Josh Comeau's blog",
+          src: null,
+          onclick: () => feedHandler.add("https://www.joshwcomeau.com/rss.xml"),
+        },
+        {
+          title: "web.dev",
+          src: null,
+          onclick: () =>
+            feedHandler.add("https://web.dev/static/blog/feed.xml"),
+        },
+      ],
+    },
+    {
+      category: "Sports",
+      id: "sports",
+      items: [
+        {
+          title: "kicker",
+          src: "https://mediadb.kicker.de/content/img/kicker-logo_171x60.png",
+          onclick: () =>
+            feedHandler.add("https://newsfeed.kicker.de/news/aktuell"),
+        },
+        {
+          title: "Yahoo Sports",
+          src: "http://l.yimg.com/rz/d/yahoo_sports_en-US_s_f_p_182x21_sports.gif",
+          onclick: () =>
+            feedHandler.add("https://sports.yahoo.com/general/news/rss/"),
+        },
+        {
+          title: "ESPN",
+          src: "https://a.espncdn.com/i/espn/teamlogos/lrg/trans/espn_dotcom_black.gif",
+          onclick: () => feedHandler.add("https://www.espn.com/espn/rss/news"),
+        },
+      ],
+    },
+    {
+      category: "Economics",
+      id: "economics",
+      items: [
+        {
+          title: "Business Insider",
+          src: null,
+          onclick: () =>
+            feedHandler.add(
+              "https://www.businessinsider.de/feed/businessinsider-alle-artikel"
+            ),
+        },
+        {
+          title: "Handelsblatt",
+          src: null,
+          onclick: () =>
+            feedHandler.add(
+              "https://www.handelsblatt.com/contentexport/feed/schlagzeilen"
+            ),
+        },
+      ],
+    },
+    {
+      category: "Games",
+      id: "games",
+      items: [
+        {
+          title: "IGN Articles",
+          src: "https://s3.amazonaws.com/o.assets.images.ign.com/kraken/IGN-Logo-RSS.png",
+          onclick: () =>
+            feedHandler.add("https://www.ign.com/rss/articles/feed?tags=games"),
+        },
+        {
+          title: "Kotaku",
+          src: null,
+          onclick: () => feedHandler.add("https://kotaku.com/rss"),
+        },
+        {
+          title: "Gamestar",
+          src: "https://www.gamestar.de/images/gslogo100x60.jpg",
+          onclick: () =>
+            feedHandler.add("https://www.gamestar.de/news/rss/news.rss"),
+        },
+      ],
+    },
+    {
+      category: "Fashion & Beauty",
+      id: "fashionbeauty",
+      items: [
+        {
+          title: "Allure",
+          src: null,
+          onclick: () => feedHandler.add("https://www.allure.com/feed/rss"),
+        },
+      ],
+    },
+  ] as const;
 </script>
 
 <section class="container">
@@ -26,44 +162,17 @@
   </header>
   <div class="suggestions">
     <h3 class="h3">Choose from the list</h3>
-    <details name="suggestions" id="top">
-      <summary>Generic (12)</summary>
-      <div>
-        <Chip title="Adam Argyle" />
-      </div>
-    </details>
-    <Details name="suggestions" title="Tech (2)" id="tech" open>
-      {#snippet content()}
-        <div class="nc-cluster">
-          <Chip
-            title="Adam Argyle"
-            src="https://res.cloudinary.com/dnpmdb8r8/image/upload/argyleink/rss-icon.png"
-            onclick={() => feedHandler.add("https://nerdy.dev/rss.xml")}
-          />
-          <Chip
-            title="Anthony Fu"
-            src="https://antfu.me/avatar.png"
-            onclick={() => feedHandler.add("https://antfu.me/feed.xml")}
-          />
-        </div>
-      {/snippet}
-    </Details>
-    <details name="suggestions" id="politics">
-      <summary>Politics (5)</summary>
-      <div>Badges with Authors</div>
-    </details>
-    <details name="suggestions" id="economics">
-      <summary>Economics (4)</summary>
-      <div>Badges with Authors</div>
-    </details>
-    <details name="suggestions" id="games">
-      <summary>Games (7)</summary>
-      <div>Badges with Authors</div>
-    </details>
-    <details name="suggestions" id="fashionbeauty">
-      <summary>Fashion & Beauty (13)</summary>
-      <div>Badges with Authors</div>
-    </details>
+    {#each SUGGESTED_FEEDS as { category, id, items }}
+      <Details name="suggestions" title={`${category} (${items.length})`} {id}>
+        {#snippet content()}
+          <div class="nc-cluster">
+            {#each items as { title, src, onclick }}
+              <Chip {title} {src} {onclick} />
+            {/each}
+          </div>
+        {/snippet}
+      </Details>
+    {/each}
   </div>
   <div class="import">
     <h3 class="h3">Import your own</h3>
