@@ -20,12 +20,38 @@
   let { item }: { item: RSSItem } = $props();
   let isDialogOpen = $state(false);
 
-  const { title, publishedAt, author, link, content } = item;
+  const { title, publishedAt, author, publisher, link, content } = item;
   const isExternal = Boolean(!content && link);
 
   const dateToNow = publishedAt ? formatDistanceToNow(publishedAt) : null;
   const htmlDatetime = publishedAt ? format(publishedAt, "yyyy-MM-dd") : null;
+
+  type TMetaDataArgs = {
+    dateToNow: typeof dateToNow;
+    htmlDatetime: typeof htmlDatetime;
+  } & Pick<RSSItem, "publisher"> &
+    Partial<Pick<RSSItem, "author" | "link">>;
 </script>
+
+{#snippet externalLinkIcon()}
+  <span class="external-icon">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-external-link"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
+        d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"
+      /><path d="M11 13l9 -9" /><path d="M15 4h5v5" />
+    </svg>
+  </span>
+{/snippet}
 
 {#snippet closeBtn()}
   <CloseIconButton
@@ -46,47 +72,47 @@
   />
 {/snippet}
 
-{#snippet cardBody()}
+{#snippet cardBody(args: TMetaDataArgs)}
   <h1 class="heading" bind:this={cardHeading}>{title}</h1>
   <div class="card-meta" bind:this={cardMeta}>
-    {@render dataAndAuthor()}
+    {@render metaData(args)}
   </div>
 {/snippet}
 
-{#snippet dataAndAuthor()}
+{#snippet metaData({
+  dateToNow,
+  htmlDatetime,
+  author,
+  link,
+  publisher,
+}: TMetaDataArgs)}
   <span class="nc-cluster -base">
     {#if dateToNow}
       <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
     {/if}
-    {#if author}
+    {#if publisher}
       <address class="address">
-        <a
-          class="author-link"
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer">{author}</a
-        >
+        {publisher}
       </address>
+    {/if}
+    {#if author}
+      <span>
+        {author}
+      </span>
+    {/if}
+    {#if link}
+      <a
+        class="publisher-link"
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        go to article {@render externalLinkIcon()}
+      </a>
     {/if}
   </span>
   {#if isExternal}
-    <div class="external-icon">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-external-link"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
-          d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"
-        /><path d="M11 13l9 -9" /><path d="M15 4h5v5" /></svg
-      >
-    </div>
+    {@render externalLinkIcon()}
   {/if}
 {/snippet}
 
@@ -97,7 +123,11 @@
     rel="noopener noreferrer"
     href={link}
   >
-    {@render cardBody()}
+    {@render cardBody({
+      dateToNow,
+      htmlDatetime,
+      publisher,
+    })}
   </a>
 {:else}
   <dialog bind:this={dialog} class="dialog card article-dialog">
@@ -107,7 +137,13 @@
     <article class="nc-flow article" bind:this={dialogArticle}>
       <h2 class="heading" bind:this={dialogHeading}>{title}</h2>
       <div class="dialog-meta" bind:this={dialogMeta}>
-        {@render dataAndAuthor()}
+        {@render metaData({
+          dateToNow,
+          htmlDatetime,
+          author,
+          link,
+          publisher,
+        })}
       </div>
       {#if content && isDialogOpen}
         <AiSummarizer text={content} />
@@ -148,7 +184,11 @@
     }}
     class="card article-card"
   >
-    {@render cardBody()}
+    {@render cardBody({
+      dateToNow,
+      htmlDatetime,
+      publisher,
+    })}
   </button>
 {/if}
 
@@ -190,10 +230,15 @@
   .card-meta,
   .dialog-meta {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: var(--spacing-base);
     margin-block-start: var(--spacing-base);
     /* color: var(--color-brand-secondary-emphasis); */
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-strong);
+    font-size: var(--font-size-small);
+    font-style: normal;
     color: var(--color-text-subtle);
   }
 
@@ -202,13 +247,20 @@
     justify-content: space-between;
   }
 
+  .address {
+    font-style: normal;
+  }
+
   .external-icon {
+    display: inline-block;
     inline-size: 1rem;
   }
 
   .time,
-  .author-link {
-    display: block;
+  .publisher-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-near);
     font-family: var(--font-family-sans);
     font-weight: var(--font-weight-strong);
     font-size: var(--font-size-small);
