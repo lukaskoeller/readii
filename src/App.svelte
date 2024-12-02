@@ -20,7 +20,7 @@
     <main>
       {#if !isEmpty && !onboardingHandler.isOnboarding}
         <div class="articles nc-ram-grid">
-          {#each feedHandler.feed as data}
+          {#each feedHandler.feed as data (data.link)}
             <ArticleCard item={data} />
           {/each}
         </div>
