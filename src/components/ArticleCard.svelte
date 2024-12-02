@@ -216,8 +216,8 @@
 
   .article-dialog {
     inline-size: min(100%, 160ch);
-    block-size: 100vh;
     margin-block-start: var(--spacing-base);
+    block-size: calc(100vh - var(--spacing-base));
   }
 
   .article {
