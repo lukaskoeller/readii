@@ -86,7 +86,7 @@
   link,
   publisher,
 }: TMetaDataArgs)}
-  <span class="nc-cluster -base">
+  <span class="nc-cluster -base meta-cluster">
     {#if dateToNow}
       <time class="time" datetime={htmlDatetime}>{dateToNow}</time>
     {/if}
@@ -245,10 +245,19 @@
   .card-meta {
     align-self: end;
     justify-content: space-between;
+    min-inline-size: 0;
+  }
+
+  .meta-cluster {
+    min-inline-size: 0;
+    row-gap: var(--spacing-near);
   }
 
   .address {
     font-style: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .external-icon {
