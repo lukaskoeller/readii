@@ -1,3 +1,5 @@
+import sanitizeHtml from "sanitize-html";
+
 const cleanFromCDATA = (str: string | null | undefined) => {
   if (!str) {
     return null;
@@ -6,12 +8,13 @@ const cleanFromCDATA = (str: string | null | undefined) => {
 };
 
 const processHTMLString = (str: string | null | undefined) => {
-  let rawHTML = cleanFromCDATA(str);
+  const rawHTML = cleanFromCDATA(str);
   if (!rawHTML) {
     return null;
   }
+  const sanitizedHTML = sanitizeHtml(rawHTML);
 
-  const dom = new DOMParser().parseFromString(rawHTML, "text/html");
+  const dom = new DOMParser().parseFromString(sanitizedHTML, "text/html");
   const validHTMLString = dom.body.innerHTML;
 
   return validHTMLString;
