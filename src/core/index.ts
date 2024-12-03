@@ -100,6 +100,8 @@ export class RSSFeed {
   }
 }
 
+const MIN_CONTENT_LENGTH = 900;
+
 export class RSSItem {
   title: string | null;
   link: string | null;
@@ -135,14 +137,16 @@ export class RSSItem {
     if (articleAuthor) this.author = cleanFromCDATA(articleAuthor) ?? null;
 
     const content = node.querySelector("content")?.textContent;
-    if (content) this.content = processHTMLString(content);
+    if (content && content.length > MIN_CONTENT_LENGTH)
+      this.content = processHTMLString(content);
 
     const contentEncoded =
       node.getElementsByTagName("content:encoded")?.[0]?.textContent;
-    if (contentEncoded) this.content = processHTMLString(contentEncoded);
+    if (contentEncoded && contentEncoded.length > MIN_CONTENT_LENGTH)
+      this.content = processHTMLString(contentEncoded);
 
     const description = node.querySelector("description")?.textContent;
-    if (description && description.length > 300)
+    if (description && description.length > MIN_CONTENT_LENGTH)
       this.content = processHTMLString(description);
 
     const pubDate = getDate(
