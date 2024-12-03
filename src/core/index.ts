@@ -119,44 +119,44 @@ export class RSSItem {
      */
     this.content = null;
 
-    const title = node.querySelector("title")?.innerHTML;
+    const title = node.querySelector("title")?.textContent;
     if (title) this.title = cleanFromCDATA(title) ?? null;
 
     const linkHrefStr = node.querySelector("link")?.getAttribute("href");
     const linkHref = linkHrefStr ? new URL(linkHrefStr) : null;
     if (linkHref) this.link = linkHref.href;
 
-    const linkStr = node.querySelector("link")?.innerHTML;
+    const linkStr = node.querySelector("link")?.textContent;
     const link = linkStr ? new URL(cleanFromCDATA(linkStr) as string) : null;
     if (link) this.link = link.href;
 
     const articleAuthor: string | null =
-      node.getElementsByTagName("dc:creator")?.[0]?.innerHTML ?? null;
+      node.getElementsByTagName("dc:creator")?.[0]?.textContent ?? null;
     if (articleAuthor) this.author = cleanFromCDATA(articleAuthor) ?? null;
 
-    const content = node.querySelector("content")?.innerHTML;
+    const content = node.querySelector("content")?.textContent;
     if (content) this.content = processHTMLString(content);
 
     const contentEncoded =
-      node.getElementsByTagName("content:encoded")?.[0]?.innerHTML;
+      node.getElementsByTagName("content:encoded")?.[0]?.textContent;
     if (contentEncoded) this.content = processHTMLString(contentEncoded);
 
-    const description = node.querySelector("description")?.innerHTML;
+    const description = node.querySelector("description")?.textContent;
     if (description && description.length > 300)
       this.content = processHTMLString(description);
 
     const pubDate = getDate(
-      node.getElementsByTagName("pubDate")?.[0]?.innerHTML
+      node.getElementsByTagName("pubDate")?.[0]?.textContent
     );
     if (pubDate) this.publishedAt = pubDate;
 
     const updated = getDate(
-      node.getElementsByTagName("updated")?.[0]?.innerHTML
+      node.getElementsByTagName("updated")?.[0]?.textContent
     );
     if (updated) this.publishedAt = updated;
 
     const lastBuildDate = getDate(
-      node.getElementsByTagName("lastBuildDate")?.[0]?.innerHTML
+      node.getElementsByTagName("lastBuildDate")?.[0]?.textContent
     );
     if (lastBuildDate) this.publishedAt = lastBuildDate;
   }
