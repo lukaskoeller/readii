@@ -37,6 +37,7 @@
 
     display: inline-flex;
     align-items: center;
+    min-inline-size: 0;
     gap: var(--spacing-near);
     padding: var(--padding);
     block-size: var(--size);
