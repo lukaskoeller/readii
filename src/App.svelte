@@ -14,7 +14,7 @@
 <Header />
 <div class="wrapper">
   <div class="dashboard">
-    <aside>
+    <aside class="aside">
       <ControlCenter />
     </aside>
     <main>
@@ -55,6 +55,10 @@
     @media (--md-n-above) {
       grid-template-columns: min(44ch, 100%) 3fr;
     }
+  }
+
+  .aside {
+    min-inline-size: 0;
   }
 
   .articles {
