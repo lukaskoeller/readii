@@ -18,8 +18,6 @@
   let tokenLength: number = 0;
 
   const initAISummarizer = async () => {
-    console.log("Initializing AI Summarizer…");
-
     const canSummarize = await ai.summarizer.capabilities();
     if (canSummarize && canSummarize.available !== "no") {
       if (canSummarize.available === "readily") {
