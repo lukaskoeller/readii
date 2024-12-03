@@ -31,10 +31,15 @@
           onclick: () => feedHandler.add("https://antfu.me/feed.xml"),
         },
         {
+          title: "Codrops",
+          src: null,
+          onclick: () => feedHandler.add("https://feeds.feedburner.com/Codrops"),
+        },
+        {
           title: "Lea Verou",
           src: null,
           onclick: () =>
-            feedHandler.add("http://feeds.feedburner.com/leaverou"),
+            feedHandler.add("https://feeds.feedburner.com/leaverou"),
         },
         {
           title: "Bram.us",
