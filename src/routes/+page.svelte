@@ -1,7 +1,10 @@
 <script lang="ts">
-	import { Articles } from "$lib/articles.schema";
+	import { ArticlesMutation, type TArticle } from '$lib/articles.mutations';
+	import { PGQuery } from '$lib/query.svelte';
 
-	const articleHandler = new Articles();
+	const articleMutation = new ArticlesMutation();
+	const articlesQuery = new PGQuery<TArticle>('SELECT * FROM articles;');
+	const articles = $derived(articlesQuery.result);
 
 	const handleSubmit = async (event: SubmitEvent) => {
 		event.preventDefault();
@@ -10,7 +13,7 @@
 		const content = formData.get('content') as string;
 		const author = formData.get('author') as string;
 		const article = { title, content, author };
-		await articleHandler.create(article);
+		await articleMutation.create(article);
 		console.log(article);
 	};
 </script>
@@ -23,14 +26,14 @@
 	<input type="text" name="author" placeholder="Author" />
 	<button type="submit">Submit</button>
 </form>
-{#await articleHandler.read()}
+{#if articles.isPending}
 	Loading articles…
-{:then articles} 
-	<pre style="white-space: pre;">{JSON.stringify(articles, null, 2)}</pre>
-{:catch error}
-	<p>Something went wrong</p>
-	<p>{error}</p>
-{/await}
+{:else if articles.isError}
+	<p>Error: {articles.error.message}</p>
+{:else}
+	<pre style="white-space: pre;">{JSON.stringify(articles.data, null, 2)}</pre>
+{/if}
+
 
 <style>
 	.form {
