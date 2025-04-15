@@ -1,18 +1,19 @@
 import type { ClientInit } from '@sveltejs/kit';
 import { db } from '$lib/db/index.svelte';
-import PGWorker from '$lib/pglite-worker?worker';
+import pgWorkerURL from '$lib/pglite-worker?url';
 import { PGliteWorker } from '@electric-sql/pglite/worker';
+import { live } from '@electric-sql/pglite/live';
 
-export const init: ClientInit = () => {
+export const init: ClientInit = async () => {
 	try {
-		const pgWorker = new PGWorker({
-			type: 'module'
+		const database = await PGliteWorker.create(new Worker(pgWorkerURL, { type: 'module' }), {
+			extensions: {
+				live
+			}
 		});
-	
-		const database = new PGliteWorker(pgWorker);
-		
+
 		db.resolve(database);
 	} catch (error) {
-		db.reject(new Error("Error initializing database", { cause: error }));
+		db.reject(new Error('Error initializing database', { cause: error }));
 	}
 };
