@@ -1,11 +1,18 @@
 import { db } from './db/index.svelte';
 
-export class Articles {
+export type TArticle = {
+	id: number;
+	title: string;
+	content: string;
+	author: string;
+}
+
+export class ArticlesMutation {
 	constructor() {
 		this.getClient();
 	}
 
-	async getClient() {
+	private async getClient() {
 		console.log('Creating Articles table…');
 		const client = await db.promise;
 		try {
@@ -39,16 +46,5 @@ export class Articles {
 		}
 	}
 
-	async read(id?: number) {
-		const client = await this.getClient();
-		if (id) {
-			return await client.query(`
-                SELECT * FROM articles WHERE id = ${id};
-            `);
-		} else {
-			return await client.query(`
-                SELECT * FROM articles;
-            `);
-		}
-	}
+	// SELECT * FROM articles WHERE id = ($1);
 }
