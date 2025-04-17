@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArticlesMutation, type TArticle } from '$lib/articles.mutations';
+	import { ArticlesMutation, type TArticle } from '$lib/articles.svelte';
 	import { PGQuery } from '$lib/query.svelte';
 
 	const articleMutation = new ArticlesMutation();

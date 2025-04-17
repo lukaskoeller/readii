@@ -39,15 +39,10 @@ export class PGQuery<TResponseTData extends Record<string, unknown>> {
 
 	constructor(query: string, params?: unknown[] | undefined | null) {
 		const getResults = async () => {
-			console.log('getResults');
-
 			try {
 				const client = await db.promise;
 				this.result.status = 'pending';
-				console.log('pending', client);
 				await client.live.query<TResponseTData>(query, params, (results) => {
-					console.log('success', results);
-
 					this.result = {
 						status: 'success',
 						isPending: false,
@@ -58,7 +53,6 @@ export class PGQuery<TResponseTData extends Record<string, unknown>> {
 					};
 				});
 			} catch (err) {
-				console.log('error', err);
 				this.result = {
 					status: 'error',
 					isPending: false,
