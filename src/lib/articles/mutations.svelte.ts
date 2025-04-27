@@ -1,11 +1,13 @@
-import { db } from './db/index.svelte';
+import { SQL_CREATE_TABLES } from '$lib/core/constants';
+import { db } from '../db/index.svelte';
 
 export type TArticle = {
 	id: number;
 	title: string;
 	content: string;
 	author: string;
-}
+	publishedAt: string;
+};
 
 export class ArticlesMutation {
 	constructor() {
@@ -17,27 +19,16 @@ export class ArticlesMutation {
 	private async getClient() {
 		const client = await db.promise;
 		try {
-			console.log(this.tableExists);
-			
-			console.time("CREATE TABLE IF");
+			console.time('CREATE TABLE IF');
 			if (!this.tableExists) {
-				await client.exec(`
-					CREATE TABLE IF NOT EXISTS articles (
-						id SERIAL PRIMARY KEY,
-						title TEXT NOT NULL,
-						content TEXT NOT NULL,
-						author TEXT
-					);
-				`);
+				await client.exec(SQL_CREATE_TABLES);
 				this.tableExists = true;
-				// publisher_id INT,
-				// FOREIGN KEY (publisher_id) REFERENCES publishers(id)
 			}
-			console.timeEnd("CREATE TABLE IF");
+			console.timeEnd('CREATE TABLE IF');
 		} catch (error) {
-			throw new Error("Failed to create articles table", { cause: error });
+			throw new Error('Failed to create articles table', { cause: error });
 		}
-		
+
 		return client;
 	}
 

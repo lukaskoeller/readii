@@ -8,6 +8,8 @@ worker({
     // Create and return a PGlite instance
     console.log("INIT PG LITE WORKER");
     
-    return new PGlite(PUBLIC_DATABASE_URL)
+    return new PGlite(PUBLIC_DATABASE_URL, {
+      // relaxedDurability: true, @todo Activate for alpha
+    })
   },
 })

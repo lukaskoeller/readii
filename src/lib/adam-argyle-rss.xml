@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title><![CDATA[Adam Argyle]]></title>
+        <description><![CDATA[RSS Feed for Adam Argyle: Web design & development tips & tricks: CSS, JS, HTML, Design, & UX.]]></description>
+        <link>https://nerdy.dev</link>
+        <image>
+            <url>https://nerdy.dev/rss-icon.png</url>
+            <title>Adam Argyle</title>
+            <link>https://nerdy.dev</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Thu, 17 Apr 2025 23:03:36 GMT</lastBuildDate>
+        <atom:link href="https://nerdy.dev/rss.xml" rel="self" type="application/rss+xml"/>
+        <copyright><![CDATA[2025 Adam Argyle]]></copyright>
+        <language><![CDATA[en]]></language>
+        <webMaster><![CDATA[adam.is@nerdy.dev (Adam Argyle)]]></webMaster>
+        <ttl>60</ttl>
+        <category><![CDATA[CSS]]></category>
+        <category><![CDATA[HTML]]></category>
+        <category><![CDATA[JavaScript]]></category>
+        <category><![CDATA[Front-End]]></category>
+        <category><![CDATA[Design]]></category>
+        <icon>https://nerdy.dev/rss-icon.png</icon>
+        <logo>https://nerdy.dev/skull-card.png</logo>
+        <item>
+            <title><![CDATA[Bye Cloudinary]]></title>
+            <description><![CDATA[<p>Cloudinary removed sitewide.</p>
+<p>All processing now done at build time with custom scripts.</p>
+]]></description>
+            <link>https://nerdy.dev/bye-cloudinary?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/bye-cloudinary?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <dc:creator><![CDATA[Web Master@admin]]></dc:creator>
+            <pubDate>Sun, 13 Apr 2025 19:17:28 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[G̶o̶o̶g̶l̶e̶r̶… ex-Googler.]]></title>
+            <description><![CDATA[<p>Last night, my role at Google was eliminated. I&#39;m quite sick to my stomach,
+extremely sad, and even more angry. <code>argyle@google.com</code> is no more. Just like
+that.</p>
+<p>There&#39;s not really anything about this that makes sense.</p>
+
+        <h2>
+          Goodbye Google, I guess
+          <a name="goodbye-google,-i-guess" href="#goodbye-google,-i-guess">#</a>
+        </h2>
+       <p>I&#39;m told this comes as a shock to my managers and other Chrome team leaders. I&#39;m
+told it&#39;s not based on merit. I&#39;m told I could find another role.</p>
+<p>But I was also immediately ripped away from my calendar, docs, code, and more.
+Anything nice anyone has to say is immediately met with reality, and reality
+says &quot;don&#39;t let the door hit you on the way out.&quot; If I was really welcome to
+another role, why treat me like a criminal?</p>
+
+        <h2>
+          I can&#39;t believe the timing
+          <a name="i-can&#39;t-believe-the-timing" href="#i-can&#39;t-believe-the-timing">#</a>
+        </h2>
+       <p>I was at a Chrome team building offsite, quite literally having some of the most
+fun and creative innovation with Chrome folks I&#39;ve had in a while; shoulder to
+shoulder with incredible engineers, planning ways to make web developers life&#39;s
+easier while raising the quality level of the web.</p>
+<p><strong>It&#39;s like none of these good moments ever happened.</strong></p>
+<p>Like I was never in any of these rooms. Like I wasn&#39;t assigned to high priority
+features or an owner of meaningful work streams.</p>
+<ul>
+<li>I was supposed to record a Google IO video next week. A talk I was <strong>very</strong>
+very excited to give. Gone. Wasted.</li>
+<li>I was supposed to be on stage at Google IO, gone.</li>
+<li>I was supposed to run a booth right outside the main stage, gone.</li>
+<li>I was supposed to help with the developer keynote, ensuring things matched
+reality and were beautiful. Gone.</li>
+<li>CSS Working Group membership, gone.</li>
+<li>Developer Office Hours, gone.</li>
+<li>Code access to the <a href="https://chrome.dev/carousel/">Carousel Gallery</a>, gone.</li>
+<li>Helping with Overflow 5, or other CSS work at Google, gone.</li>
+<li>Relationships that took me years to cultivate… mostly going to be gone too.</li>
+</ul>
+<p>The list of things I was doing is huge. It&#39;s going to be a while until I can
+resume some of them, and many of them won&#39;t resume at all.</p>
+<p>I feel back stabbed, unappreciated, tossed in the trash. I can&#39;t sleep. I&#39;m
+ashamed. I&#39;m pissed.</p>
+<p>I really was just a fuckin cog in a mega corp.</p>
+<p>Find me on <a href="https://bsky.app/profile/nerdy.dev">Bluesky</a> or email me at
+<a href="mailto:adam.is@nerdy.dev">adam.is@nerdy.dev</a> if you feel compelled
+to reach out.</p>
+<p><small>Sorry if I don&#39;t reply quickly, it&#39;s very overwhelming to read messages
+about this. The topic is quite sore.</small></p>
+]]></description>
+            <link>https://nerdy.dev/ex-googler?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/ex-googler?utm_source=rss</guid>
+            <category><![CDATA[blog]]></category>
+            <dc:creator><![CDATA[atom@argyleink]]></dc:creator>
+            <pubDate>Thu, 10 Apr 2025 22:35:28 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Carousels On Shoptalk]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://nerdy.dev/media/shoptalk-carousels.jpg" alt="some title" height="720" width="1280" />
+        <p>CSS
+<a href="https://drafts.csswg.org/css-overflow-5/#scroll-buttons"><code>::scroll-button()</code></a>,
+<a href="https://drafts.csswg.org/css-overflow-5/#scroll-markers"><code>::scroll-marker</code></a>,
+<a href="https://chrome.dev/carousel-configurator/">Carousel Configurator</a>, and
+<a href="https://chrome.dev/carousel/">Carousel Gallery</a> with
+<a href="https://chriscoyier.net">Chris</a> and <a href="https://daverupert.com">Dave</a> on
+<a href="https://shoptalkshow.com">ShopTalk Show</a>.</p>
+<p><a href="https://www.youtube.com/watch?v=YhN177ixoJk">Watch</a> ·
+<a href="https://shoptalkshow.com/659/">Listen</a> ·
+<a href="https://developer.chrome.com/blog/carousels-with-css">Read</a></p>
+]]></description>
+            <link>https://nerdy.dev/carousels-on-shoptalk?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/carousels-on-shoptalk?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <category><![CDATA[css]]></category>
+            <category><![CDATA[shows]]></category>
+            <dc:creator><![CDATA[devrel@google]]></dc:creator>
+            <pubDate>Mon, 07 Apr 2025 14:21:51 GMT</pubDate>
+            <enclosure url="https://nerdy.dev/media/shoptalk-carousels.jpg" length="0" type="image/jpeg"/>
+            <media:thumbnail url="https://nerdy.dev/media/shoptalk-carousels.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[CSS Can Do That At Smashing Meets]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://nerdy.devmedia/smashing-meets-css.jpg" alt="CSS Can We Do That at Smashing Meets CSS" height="720" width="1280" />
+        <p>Recording is live!</p>
+<p>Watch
+<a href="https://www.youtube.com/watch?v=we2wmGKDyhY&list=PLxQqv_fazRs1VlMEbqC0Jlw6VFd97UpT2&index=3">CSS Can We Do That on YouTube</a>
+via
+<a href="https://smashingconf.com/meets-modern-css/speakers/adam-argyle/">Smashing Meets CSS</a>
+online event.</p>
+]]></description>
+            <link>https://nerdy.dev/css-can-do-that-at-smashing-meets?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/css-can-do-that-at-smashing-meets?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <category><![CDATA[css]]></category>
+            <category><![CDATA[talks]]></category>
+            <dc:creator><![CDATA[atom@argyleink]]></dc:creator>
+            <pubDate>Sat, 05 Apr 2025 18:12:17 GMT</pubDate>
+            <enclosure url="https://nerdy.devmedia/smashing-meets-css.jpg" length="0" type="image/jpeg"/>
+            <media:thumbnail url="https://nerdy.devmedia/smashing-meets-css.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[CSS Mixins are ready for experimentation!]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://nerdy.dev/media/css-mixin-experiment.png" alt="@mixin --box {
+  aspect-ratio: 1;
+  inline-size: 100px;
+  block-size: 100px;
+}
+.box {
+  @apply --box;
+}" height="848" width="1716" />
+        <p>CSS <a href="https://drafts.csswg.org/css-mixins-1/">Mixins</a> and
+<a href="https://developer.chrome.com/blog/delaying-shipping-of-css-functions">Functions</a>
+are both ready for you to hack on 🤯. I think of functions as returning a value
+and mixins as a way to apply a chunk of styles.</p>
+<p>Bramus has a great intro on
+<a href="https://www.bram.us/2025/02/09/css-custom-functions-teaser/"><code>@function</code></a>,
+don&#39;t miss it. But this post is about <code>@mixin</code>, don&#39;t miss
+<a href="https://css.oddbird.net/sasslike/mixins-functions/">the explainer</a>, it is
+packed with valuable information:</p>
+<pre><code class="language-css"><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="0"><code><span class="line"><span style="color:var(--shiki-token-keyword)">@mixin</span><span style="color:var(--shiki-foreground)"> --box {</span></span>
+<span class="line"><span style="color:var(--shiki-token-string-expression)">  aspect-ratio</span><span style="color:var(--shiki-foreground)">: 1;</span></span>
+<span class="line"><span style="color:var(--shiki-token-string-expression)">  inline-size</span><span style="color:var(--shiki-foreground)">: 100px;</span></span>
+<span class="line"><span style="color:var(--shiki-token-string-expression)">  block-size</span><span style="color:var(--shiki-foreground)">: 100px;</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span></code></pre>
+</code></pre>
+<p>and using it:</p>
+<pre><code class="language-css"><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="0"><code><span class="line"><span style="color:var(--shiki-token-function)">.box</span><span style="color:var(--shiki-foreground)"> {</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">  @</span><span style="color:var(--shiki-token-constant)">apply</span><span style="color:var(--shiki-foreground)"> --box;</span></span>
+<span class="line"><span style="color:var(--shiki-foreground)">}</span></span></code></pre>
+</code></pre>
+
+        <h2>
+          Getting started
+          <a name="getting-started" href="#getting-started">#</a>
+        </h2>
+       <p>For CSS Mixins as of writing this, you&#39;ll need
+<a href="https://www.google.com/chrome/canary/">Canary</a> and you&#39;ll need to
+<a href="https://developer.chrome.com/docs/web-platform/chrome-flags#command-line_flags">launch it from the command line</a>
+with this flag <code>CSSMixins</code>:</p>
+<pre><code class="language-sh"><pre class="shiki css-variables" style="background-color:var(--shiki-background);color:var(--shiki-foreground)" tabindex="0"><code><span class="line"><span style="color:var(--shiki-token-function)">open</span><span style="color:var(--shiki-token-string)"> -a</span><span style="color:var(--shiki-token-string-expression)"> "Google Chrome Canary"</span><span style="color:var(--shiki-token-string)"> --args</span><span style="color:var(--shiki-token-string)"> --enable-features=CSSMixins</span></span></code></pre>
+</code></pre>
+
+        <h2>
+          Go make stuff!
+          <a name="go-make-stuff!" href="#go-make-stuff!">#</a>
+        </h2>
+       <p>You have all the latest information now:</p>
+<ul>
+<li>how to enable Canary to understand mixins</li>
+<li>what the basic syntax is like</li>
+<li>links to
+<a href="https://css.oddbird.net/sasslike/mixins-functions/">more advanced examples and documentation</a></li>
+</ul>
+]]></description>
+            <link>https://nerdy.dev/css-mixins-ready-for-experimentation?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/css-mixins-ready-for-experimentation?utm_source=rss</guid>
+            <category><![CDATA[blog]]></category>
+            <category><![CDATA[css]]></category>
+            <dc:creator><![CDATA[devrel@google]]></dc:creator>
+            <pubDate>Wed, 26 Mar 2025 14:43:21 GMT</pubDate>
+            <enclosure url="https://nerdy.dev/media/css-mixin-experiment.png" length="0" type="image/png"/>
+            <media:thumbnail url="https://nerdy.dev/media/css-mixin-experiment.png"/>
+        </item>
+        <item>
+            <title><![CDATA[Customize A Select]]></title>
+            <description><![CDATA[
+          <video style="display: none" src="media/select-hype.mp4" alt="A quick cut style video of a bunch of carousels from the Carousel Gallery" height="1080" width="1920" />
+        <p>Get ready!
+<a href="https://developer.chrome.com/blog/a-customizable-select">The <code>&lt;select&gt;</code> element can now be customized with CSS</a>,
+check out the post on the <a href="https://developer.chrome.com/blog/">Chrome Blog</a>!</p>
+<ul>
+<li>Finally render custom HTML inside an <code>&lt;option&gt;</code></li>
+<li>Works without JS</li>
+<li>Easy to progressively enhance</li>
+</ul>
+]]></description>
+            <link>https://nerdy.dev/customize-a-select?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/customize-a-select?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <category><![CDATA[css]]></category>
+            <dc:creator><![CDATA[devrel@google]]></dc:creator>
+            <pubDate>Mon, 24 Mar 2025 21:22:23 GMT</pubDate>
+            <enclosure url="media/select-hype.mp4" length="0" type="video/mp4"/>
+            <media:thumbnail url="media/select-hype.mp4"/>
+        </item>
+        <item>
+            <title><![CDATA[CSS Carousel In Chrome 135]]></title>
+            <description><![CDATA[
+          <video style="display: none" src="/media/carousel-hype.mp4" alt="A quick cut style video of a bunch of carousels from the Carousel Gallery" height="1080" width="1920" />
+        <p>We just
+<a href="https://developer.chrome.com/blog/carousels-with-css">announced how CSS can make carousels</a>
+on the <a href="https://developer.chrome.com/blog/">Chrome Blog</a>!</p>
+<ul>
+<li>Incredible accessibility</li>
+<li>Works without JS</li>
+<li>Builds upon regular scrollers</li>
+</ul>
+<p><a href="https://chrome.dev/carousel-configurator/"><strong>CSS Carousel Configurator</strong></a>:<br>
+I made this so you can directly see the relationship of a feature you want and
+the related CSS.</p>
+<p><a href="https://chrome.dev/carousel/"><strong>CSS Carousel Gallery</strong></a>:<br> Showcases
+meaningful use cases and exemplifies how to orchestrate many capabilities
+together.</p>
+]]></description>
+            <link>https://nerdy.dev/css-carousel-in-chrome-135?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/css-carousel-in-chrome-135?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <category><![CDATA[css]]></category>
+            <dc:creator><![CDATA[devrel@google]]></dc:creator>
+            <pubDate>Thu, 20 Mar 2025 16:26:21 GMT</pubDate>
+            <enclosure url="/media/carousel-hype.mp4" length="0" type="video/mp4"/>
+            <media:thumbnail url="/media/carousel-hype.mp4"/>
+        </item>
+        <item>
+            <title><![CDATA[Rainbow Shadow Button]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://nerdy.dev/media/rainbow-shadow-button.png" alt="A black button with a rainbow blurred shadow behind it" height="332" width="702" />
+        <p>Add a rainbow shadow effect with
+<a href="https://developer.chrome.com/docs/css-ui/access-colors-spaces#control_interpolation"><code>hue longer</code></a>
+interpolation and a little bit of
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/blur"><code>blur()</code></a>.</p>
+<p>Try it in <a href="https://codepen.io/argyleink/pen/zxYWPxr">this Codepen</a></p>
+]]></description>
+            <link>https://nerdy.dev/rainbow-shadow-button?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/rainbow-shadow-button?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <category><![CDATA[css]]></category>
+            <dc:creator><![CDATA[atom@argyleink]]></dc:creator>
+            <pubDate>Wed, 19 Mar 2025 15:42:28 GMT</pubDate>
+            <enclosure url="https://nerdy.dev/media/rainbow-shadow-button.png" length="0" type="image/png"/>
+            <media:thumbnail url="https://nerdy.dev/media/rainbow-shadow-button.png"/>
+        </item>
+        <item>
+            <title><![CDATA[Google Io 2025]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://nerdy.dev/media/ready-for-io.png" alt="some title" height="1698" width="3024" />
+        <p>Gettin&#39; rrready for <a href="https://io.google/2025/">Google IO</a>!</p>
+]]></description>
+            <link>https://nerdy.dev/google-io-2025?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/google-io-2025?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <dc:creator><![CDATA[devrel@google]]></dc:creator>
+            <pubDate>Mon, 17 Mar 2025 00:28:37 GMT</pubDate>
+            <enclosure url="https://nerdy.dev/media/ready-for-io.png" length="0" type="image/png"/>
+            <media:thumbnail url="https://nerdy.dev/media/ready-for-io.png"/>
+        </item>
+        <item>
+            <title><![CDATA[Smashing Meets CSS 2025]]></title>
+            <description><![CDATA[
+          <img style="display: none" src="https://nerdy.dev/media/smashing-meets-speakers-2025.png" alt="Screenshot of the four speakers from the smashing website" height="928" width="2418" />
+        <p>Join <a href="https://smashingconf.com/meets-modern-css/speakers/adam-argyle">me</a>,
+<a href="https://smashingconf.com/meets-modern-css/speakers/julia-miocene/">Julia</a>,
+<a href="https://smashingconf.com/meets-modern-css/speakers/miriam-suzanne/">Miriam</a> and
+<a href="https://smashingconf.com/meets-modern-css/speakers/geoff-graham">Geoff</a> April
+1st for the virtual event
+<a href="https://smashingconf.com/meets-modern-css"><strong>Smashing Meets CSS</strong></a>.</p>
+]]></description>
+            <link>https://nerdy.dev/smashing-meets-css-2025?utm_source=rss</link>
+            <guid isPermaLink="true">https://nerdy.dev/smashing-meets-css-2025?utm_source=rss</guid>
+            <category><![CDATA[note]]></category>
+            <category><![CDATA[css]]></category>
+            <category><![CDATA[talks]]></category>
+            <dc:creator><![CDATA[atom@argyleink]]></dc:creator>
+            <pubDate>Sun, 16 Mar 2025 20:09:46 GMT</pubDate>
+            <enclosure url="https://nerdy.dev/media/smashing-meets-speakers-2025.png" length="0" type="image/png"/>
+            <media:thumbnail url="https://nerdy.dev/media/smashing-meets-speakers-2025.png"/>
+        </item>
+    </channel>
+</rss>

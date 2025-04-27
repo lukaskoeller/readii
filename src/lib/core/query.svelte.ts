@@ -1,5 +1,5 @@
 import type { Results } from '@electric-sql/pglite';
-import { db } from './db/index.svelte';
+import { db } from '../db/index.svelte';
 
 export type TQueryResult<T> =
 	| {
@@ -27,6 +27,11 @@ export type TQueryResult<T> =
 			error: Error;
 	  };
 
+export type PGQueryArgs = {
+	query: string;
+	params?: unknown[] | undefined | null;
+}
+
 export class PGQuery<TResponseTData extends Record<string, unknown>> {
 	result: TQueryResult<TResponseTData> = $state({
 		status: 'pending',
@@ -37,12 +42,12 @@ export class PGQuery<TResponseTData extends Record<string, unknown>> {
 		error: undefined
 	});
 
-	constructor(query: string, params?: unknown[] | undefined | null) {
+	constructor(args: PGQueryArgs) {
 		const getResults = async () => {
 			try {
 				const client = await db.promise;
 				this.result.status = 'pending';
-				await client.live.query<TResponseTData>(query, params, (results) => {
+				await client.live.query<TResponseTData>(args.query, args.params, (results) => {
 					this.result = {
 						status: 'success',
 						isPending: false,
