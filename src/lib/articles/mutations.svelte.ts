@@ -5,6 +5,7 @@ export type TArticle = {
 	id: number;
 	title: string;
 	content: string;
+	url: string;
 	author: string;
 	publishedAt: string;
 };

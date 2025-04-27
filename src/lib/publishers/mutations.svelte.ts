@@ -20,12 +20,10 @@ export class PublishersMutation {
 	private async getClient() {
 		const client = await db.promise;
 		try {
-			console.time('CREATE TABLE IF');
 			if (!this.tableExists) {
 				await client.exec(SQL_CREATE_TABLES);
 				this.tableExists = true;
 			}
-			console.timeEnd('CREATE TABLE IF');
 		} catch (error) {
 			throw new Error('Failed to create publishers table', { cause: error });
 		}
@@ -38,7 +36,7 @@ export class PublishersMutation {
 		try {
 			await client.exec(`
                 INSERT INTO publishers (url, rss_url, name, icon_url)
-                VALUES ('${publisher.url}', '${publisher.rssUrl}', '${publisher.name}', '${publisher.iconUrl ?? null}');
+                VALUES ('${publisher.url}', '${publisher.rssUrl}', '${publisher.name}', ${publisher.iconUrl ? `'${publisher.iconUrl}'` : 'NULL'});
             `);
 		} catch (error) {
 			throw new Error(`Failed to create new publisher "${publisher.name}"`, { cause: error });

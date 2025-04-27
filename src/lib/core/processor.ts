@@ -109,14 +109,14 @@ const MIN_CONTENT_LENGTH = 900;
 
 export class RSSItem {
   title: string | null;
-  link: string | null;
   author: string | null;
+  url: string | null;
   content: string | null;
   publishedAt: string | null;
 
   constructor(node: Element, publisher: RSSFeed["publisher"]) {
     this.title = null;
-    this.link = null;
+    this.url = null;
     this.publishedAt = null;
     this.author = publisher.name ?? null;
     /**
@@ -129,11 +129,11 @@ export class RSSItem {
 
     const linkHrefStr = node.querySelector("link")?.getAttribute("href");
     const linkHref = linkHrefStr ? new URL(linkHrefStr) : null;
-    if (linkHref) this.link = linkHref.href;
+    if (linkHref) this.url = linkHref.href;
 
     const linkStr = node.querySelector("link")?.textContent;
     const link = linkStr ? new URL(cleanFromCDATA(linkStr) as string) : null;
-    if (link) this.link = link.href;
+    if (link) this.url = link.href;
 
     const articleAuthor: string | null =
       node.getElementsByTagName("dc:creator")?.[0]?.textContent ?? null;
