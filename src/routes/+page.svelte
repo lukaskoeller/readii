@@ -56,14 +56,14 @@
 	<input type="url" name="url" placeholder="URL" value="https://nerdy.dev" />
 	<input type="url" name="rss-url" placeholder="RSS URL" value="https://nerdy.dev/rss.xml" />
 	<input type="url" name="icon-url" placeholder="Icon URL" value="https://nerdy.dev/rss-icon.png" />
-	<button type="submit">Submit Publisher</button>
+	<button class="nc-button -primary" type="submit">Submit Publisher</button>
 </form>
 <hr>
 <form onsubmit={createArticle} class="form">
 	<input type="text" name="title" placeholder="Title" />
 	<textarea name="content" placeholder="Content"></textarea>
 	<input type="text" name="author" placeholder="Author" />
-	<button type="submit">Submit Article</button>
+	<button class="nc-button -primary" type="submit">Submit Article</button>
 </form>
 {#if publishers.isPending}
 	Loading publishers…
