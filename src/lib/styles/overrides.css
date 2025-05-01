@@ -7,8 +7,13 @@
     src: url("../assets/dm-serif-display-v15-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+html {
+    background-color: var(--color-surface-base);
+}
+
 :root {
-    --font-family-serif: "DM Serif Display", serif;
+    --font-family-serif: Georgia, serif;
+    --font-family-heading: "DM Serif Display", serif;
 }
 
 h1,
@@ -17,6 +22,10 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-family-serif);
+    font-family: var(--font-family-heading);
     font-weight: 400;
+}
+
+p {
+    font-family: var(--font-family-serif);
 }
