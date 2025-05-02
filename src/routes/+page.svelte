@@ -1,91 +1,133 @@
 <script lang="ts">
-	import { ArticlesMutation, type TArticle } from '$lib/articles/mutations.svelte';
-	import { articlesQueries } from '$lib/articles/queries';
-	import { PGQuery } from '$lib/core/query.svelte';
-	import { PublishersMutation } from '$lib/publishers/mutations.svelte';
-	import { publishersQueries } from '$lib/publishers/queries';
 	import testXML from '$lib/adam-argyle-rss.xml?url';
 	import { RSSFeed } from '$lib/core/processor';
 	import { onMount } from 'svelte';
 	import { MixtureMutation } from '$lib/core/mutations.svelte';
+	import KpiLink from '$lib/components/KpiLink.svelte';
+	import ListItemLink from '$lib/components/ListItemLink.svelte';
+	import ListCard from '$lib/components/ListCard.svelte';
 
 	const mixtureMutation = new MixtureMutation();
-	const articleMutation = new ArticlesMutation();
-	const publisherMutation = new PublishersMutation();
-	const articlesQuery = new PGQuery<TArticle>(articlesQueries.all);
-	const articles = $derived(articlesQuery.result);
-	const publishersQuery = new PGQuery<TArticle>(publishersQueries.all);
-	const publishers = $derived(publishersQuery.result);
 
 	onMount(() => {
 		const getTestArticles = async () => {
-			const rawXML = (await fetch(testXML).then((res) => res.text()));
-			const feed = new RSSFeed(String(rawXML), "https://nerdy.dev/rss.xml");
-			console.log("CREATE FEED!!!", feed);
-			mixtureMutation.createFeed(feed.feed, feed.publisher)
-		}
+			const rawXML = await fetch(testXML).then((res) => res.text());
+			const feed = new RSSFeed(String(rawXML), 'https://nerdy.dev/rss.xml');
+			console.log('CREATE FEED!!!', feed);
+			mixtureMutation.createFeed(feed.feed, feed.publisher);
+		};
 		getTestArticles();
-	})
-
-	const createArticle = async (event: SubmitEvent) => {
-		event.preventDefault();
-		const formData = new FormData(event.target as HTMLFormElement);
-		const title = formData.get('title') as string;
-		const content = formData.get('content') as string;
-		const author = formData.get('author') as string;
-		const article = { title, content, author };
-		await articleMutation.create(article);
-	};
-
-	const createAuthor = async (event: SubmitEvent) => {
-		event.preventDefault();
-		const formData = new FormData(event.target as HTMLFormElement);
-		const name = formData.get('name') as string;
-		const url = formData.get('url') as string;
-		const rssUrl = formData.get('rss-url') as string;
-		const iconUrl = formData.get('icon-url') as string;
-		const publisher = { name, url, rssUrl, iconUrl };
-		await mixtureMutation.createFeed(null, publisher);
-	}
+	});
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-<form onsubmit={createAuthor} class="form">
-	<input type="text" name="name" placeholder="Name" value="Adam Argyle" />
-	<input type="url" name="url" placeholder="URL" value="https://nerdy.dev" />
-	<input type="url" name="rss-url" placeholder="RSS URL" value="https://nerdy.dev/rss.xml" />
-	<input type="url" name="icon-url" placeholder="Icon URL" value="https://nerdy.dev/rss-icon.png" />
-	<button class="nc-button -primary" type="submit">Submit Publisher</button>
-</form>
-<hr>
-<form onsubmit={createArticle} class="form">
-	<input type="text" name="title" placeholder="Title" />
-	<textarea name="content" placeholder="Content"></textarea>
-	<input type="text" name="author" placeholder="Author" />
-	<button class="nc-button -primary" type="submit">Submit Article</button>
-</form>
-{#if publishers.isPending}
-	Loading publishers…
-{:else if publishers.isError}
-	<p>Error: {publishers.error.message}</p>
-{:else}
-	<pre style="white-space: pre;">{JSON.stringify(publishers.data, null, 2)}</pre>
-{/if}
-<hr />
-{#if articles.isPending}
-	Loading articles…
-{:else if articles.isError}
-	<p>Error: {articles.error.message}</p>
-{:else}
-	<pre style="white-space: pre;">{JSON.stringify(articles.data, null, 2)}</pre>
-{/if}
-
+<div class="nc-stack -far">
+	<section class="nc-stack -near welcome">
+		<h1>Moin, Lukas</h1>
+		<p>Liebe ist tatsächlich ein Geschenk</p>
+	</section>
+	<section class="quick-buttons">
+		<KpiLink
+			href="/articles?filter=unread"
+			count={13}
+			label="Unread"
+			ariaLabel="Go to unread articles"
+		>
+			{#snippet icon()}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="icon icon-tabler icons-tabler-outline icon-tabler-notification"
+					><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
+						d="M10 6h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"
+					/><path d="M17 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg
+				>
+			{/snippet}
+		</KpiLink>
+		<KpiLink
+			href="/articles?filter=starred"
+			count={7}
+			label="Starred"
+			ariaLabel="See starred articles"
+		>
+			{#snippet icon()}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="icon icon-tabler icons-tabler-outline icon-tabler-star"
+					><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
+						d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
+					/></svg
+				>
+			{/snippet}
+		</KpiLink>
+		<KpiLink
+			href="/articles?filter=read"
+			count={11}
+			label="Read Later"
+			ariaLabel="See read later articles"
+		>
+			{#snippet icon()}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="icon icon-tabler icons-tabler-outline icon-tabler-clock"
+					><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
+						d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"
+					/><path d="M12 7v5l3 3" /></svg
+				>
+			{/snippet}
+		</KpiLink>
+	</section>
+	<section class="categories nc-stack -base">
+		<h2>Your categories</h2>
+		<ListCard className="categories-list">
+			<ListItemLink href="/articles?filter=unread&category=technology" label="Technology" />
+			<ListItemLink href="/articles?filter=unread&category=design" label="Design" />
+			<ListItemLink href="/articles?filter=unread&category=business" label="Business" />
+			<ListItemLink href="/articles?filter=unread&category=startups" label="Startups" />
+		</ListCard>
+	</section>
+</div>
 
 <style>
-	.form {
+	.welcome {
+		margin-block-start: var(--spacing-far);
+		margin-block-end: var(--spacing-base);
+	}
+
+	.quick-buttons {
+		inline-size: 100%;
 		display: grid;
-		gap: 1em;
-		inline-size: min(48ch, 100%);
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-near);
+	}
+
+	.categories {
+		inline-size: 100%;
+	}
+
+	.categories-list {
+		align-items: stretch;
 	}
 </style>
