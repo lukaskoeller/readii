@@ -20,12 +20,12 @@
 	});
 </script>
 
-<div class="nc-stack -far">
+<div class="nc-stack -far main-stack">
 	<section class="nc-stack -near welcome">
 		<h1>Moin, Lukas</h1>
 		<p>Liebe ist tatsächlich ein Geschenk</p>
 	</section>
-	<section class="quick-buttons">
+	<section class="quick-button two-grid">
 		<KpiLink
 			href="/articles?filter=unread"
 			count={13}
@@ -108,19 +108,31 @@
 			<ListItemLink href="/articles?filter=unread&category=startups" label="Startups" />
 		</ListCard>
 	</section>
+	<section class="more nc-stack -base">
+		<h2>More</h2>
+		<div class="nc-stack -near actions">
+			<a href="/search" type="button" class="nc-button -muted">Add Feed</a>
+		</div>
+	</section>
 </div>
 
 <style>
+	.main-stack {
+		align-items: stretch;
+	}
 	.welcome {
 		margin-block-start: var(--spacing-far);
 		margin-block-end: var(--spacing-base);
 	}
 
-	.quick-buttons {
-		inline-size: 100%;
+	.two-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: var(--spacing-near);
+	}
+
+	.quick-buttons {
+		inline-size: 100%;
 	}
 
 	.categories {
@@ -128,6 +140,11 @@
 	}
 
 	.categories-list {
+		align-items: stretch;
+	}
+
+	.actions {
+		inline-size: 100%;
 		align-items: stretch;
 	}
 </style>

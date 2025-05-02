@@ -118,7 +118,7 @@
 	}
 	.header {
 		inline-size: 100%;
-		position: fixed;
+		position: sticky;
 		bottom: 0;
 	}
 
