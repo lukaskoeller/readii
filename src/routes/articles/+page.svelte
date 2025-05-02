@@ -5,10 +5,6 @@
 
 	const articlesQuery = new PGQuery<TArticle>(articlesQueries.all);
 	const articles = $derived(articlesQuery.result);
-    
-    $effect(() => {
-        console.log(articles.data?.rows);
-    });
 </script>
 
 <section class="nc-stack">
@@ -18,7 +14,7 @@
             <a href={`/articles/${article.id}`} class="nc-card card">
                 <h2 class="heading">{article.title}</h2>
                 <div class="meta">
-                    <small>Author: {article.author}</small>
+                    <small style="font-size: var(--font-size-smallest); font-weight: bold">Author: {article.author}</small>
                 </div>
             </a>
         {/each}
