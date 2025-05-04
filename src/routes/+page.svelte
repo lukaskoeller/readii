@@ -11,10 +11,11 @@
 
 	onMount(() => {
 		const getTestArticles = async () => {
-			const rawXML = await fetch(testXML).then((res) => res.text());
-			const feed = new RSSFeed(String(rawXML), 'https://nerdy.dev/rss.xml');
-			console.log('CREATE FEED!!!', feed);
-			mixtureMutation.createFeed(feed.feed, feed.publisher);
+			const url = "http://rachelandrew.co.uk/feed/"; 
+			const feed = await new RSSFeed().init(`https://corsproxy.io/?url=${url}`);
+			console.log("FEED", feed);
+			
+			// mixtureMutation.createFeed(feed.feed, feed.publisher);
 		};
 		getTestArticles();
 	});
@@ -25,7 +26,7 @@
 		<h1>Moin, Lukas</h1>
 		<p>Liebe ist tatsächlich ein Geschenk</p>
 	</section>
-	<section class="quick-button two-grid">
+	<section class="two-grid">
 		<KpiLink
 			href="/articles?filter=unread"
 			count={13}
@@ -99,7 +100,7 @@
 			{/snippet}
 		</KpiLink>
 	</section>
-	<section class="categories nc-stack -base">
+	<section class="nc-stack -base">
 		<h2>Your categories</h2>
 		<ListCard className="categories-list">
 			<ListItemLink href="/articles?filter=unread&category=technology" label="Technology" />
@@ -129,14 +130,6 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: var(--spacing-near);
-	}
-
-	.quick-buttons {
-		inline-size: 100%;
-	}
-
-	.categories {
-		inline-size: 100%;
 	}
 
 	.categories-list {
