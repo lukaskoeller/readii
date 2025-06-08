@@ -1,0 +1,406 @@
+@layer base {
+    :where(dt) {
+        font-weight: var(--font-weight-active);
+        color: var(--color-text-base);
+    }
+
+    :where(dd) {
+        font-weight: var(--font-weight-default);
+        color: var(--color-text-base);
+
+        &:not(:last-of-type) {
+            padding-block-end: 0.5lh;
+            border-bottom: var(--border-width-thin) solid var(--color-border-muted);
+        }
+    }
+
+    :where(dl:not([class]), .nc-description-list) {
+        display: grid;
+        grid-template-columns: 0.25fr 0.75fr;
+        inline-size: 100%;
+        max-inline-size: 100%;
+        align-items: flex-start;
+        word-break: break-word;
+        container: description-list / inline-size;
+        row-gap: 0.5lh;
+    }
+
+    :where(dd, dt) {
+        grid-column: 1 / span 2;
+        max-inline-size: var(--measure-base);
+    }
+
+    @container description-list (min-width: 30rem) {
+        :where(dt) {
+            grid-column: 1 / 1;
+            padding-inline-end: 2ch;
+            padding-block-end: 0;
+            min-block-size: 100%;
+
+            &:not(:last-of-type) {
+                padding-block-end: 0.5lh;
+                border-bottom: var(--border-width-thin) solid var(--color-border-muted);
+            }
+        }
+
+        :where(dd) {
+            grid-column: 2 / 2;
+            min-block-size: 100%;
+        }
+    }
+
+    :where(small) {
+        font-size: var(--font-size-small);
+    }
+
+    :where(figure) {
+        border-radius: var(--border-radius-medium);
+
+        & :where(img, picture) {
+            border-start-start-radius: inherit;
+            border-start-end-radius: inherit;
+        }
+
+        & :where(figcaption) {
+            border-end-start-radius: inherit;
+            border-end-end-radius: inherit;
+        }
+    }
+
+    :where(figcaption) {
+        display: block;
+        font-family: var(--font-family-sans);
+        font-weight: var(--font-weight-default);
+        line-height: var(--line-height-base);
+        color: var(--color-surface-subtle);
+        background-color: var(--color-text-base);
+        padding: 0.3lh 1ch;
+    }
+
+    :where(details) {
+        --p-x-details: 2ch;
+        --p-y-details: 0.75lh;
+
+        inline-size: 100%;
+        background-color: var(--color-surface-muted);
+        border-radius: var(--border-radius-medium);
+        border: var(--border-width-thin) solid var(--color-border-base);
+
+        &>* {
+            padding-inline: var(--p-x-details);
+        }
+
+        &>*:last-child {
+            padding-block-end: var(--p-y-details);
+        }
+
+        &>summary {
+            cursor: pointer;
+            color: var(--color-text-base);
+            inline-size: 100%;
+            font-weight: var(--font-weight-strong);
+            padding-inline: var(--p-x-details);
+            padding-block: var(--p-y-details);
+        }
+    }
+
+    .note,
+    blockquote {
+        padding: 0;
+        padding-inline-start: 2ch;
+        inline-size: 100%;
+        color: var(--color-text-base);
+        position: relative;
+        margin-inline: 0;
+        font-family: var(--font-family-serif);
+        quotes: auto;
+        font-size: var(--font-size-large);
+
+        & p {
+            max-inline-size: var(--measure-base);
+
+            &:first-of-type:before {
+                content: open-quote;
+            }
+
+            &:last-of-type:after {
+                content: close-quote;
+            }
+        }
+
+        & cite {
+            display: block;
+            font-family: var(--font-family-default);
+            margin-block-start: var(--spacing-near);
+            font-size: var(--font-size-base);
+            max-inline-size: max-content;
+            color: color-mix(in oklch,
+                    currentColor calc(var(--transparency-weaker) * 100%),
+                    transparent);
+        }
+
+        & cite:before {
+            content: "—";
+            margin-inline-end: 0.5ch;
+        }
+    }
+
+    cite {
+        font-family: var(--font-family-serif);
+        font-style: normal;
+    }
+
+    :where(hr) {
+        inline-size: 100%;
+        block-size: 0;
+        border-top: var(--border-width-medium) solid var(--color-border-base);
+    }
+
+    :where(h1, h2, h3, h4, h5, h6) {
+        line-height: var(--line-height-small);
+        color: inherit;
+        max-inline-size: 100%;
+        font-weight: var(--font-weight-heading);
+    }
+
+    :where(h1) {
+        font-size: var(--font-size-display);
+    }
+
+    :where(h2) {
+        font-size: var(--font-size-largest);
+    }
+
+    :where(h3) {
+        font-size: var(--font-size-large);
+    }
+
+    :where(h4) {
+        font-size: var(--font-size-base);
+    }
+
+    :where(h5) {
+        font-size: var(--font-size-small);
+    }
+
+    :where(h6) {
+        font-size: var(--font-size-smallest);
+    }
+
+    ::marker {
+        color: var(--color-brand-primary-base);
+    }
+
+    :where(::selection,
+        ::target-text) {
+        background-color: var(--color-brand-primary-base);
+        color: var(--color-surface-base);
+    }
+
+    :where(a, .nc-link) {
+        color: inherit;
+        font-family: var(--font-family-link);
+        text-decoration: underline;
+        text-underline-offset: 0.25lh;
+        text-decoration-thickness: from-font;
+        font-weight: var(--font-weight-default);
+        text-decoration-color: currentColor;
+        cursor: pointer;
+        letter-spacing: var(--tracking-tight);
+
+        &:visited {
+            opacity: 0.72;
+        }
+
+        &:hover {
+            text-decoration-color: var(--color-brand-primary-base);
+        }
+    }
+
+    :where(em, i) {
+        font-family: var(--font-family-serif);
+    }
+
+    :where(strong, b) {
+        font-weight: var(--font-weight-strong);
+    }
+
+    :where(dfn, var) {
+        font-family: var(--font-family-mono);
+        letter-spacing: var(--tracking-tight);
+        font-weight: var(--font-weight-default);
+    }
+
+    :where([aria-disabled="true"], .disabled, :disabled) {
+        color: inherit;
+        opacity: 1;
+        cursor: not-allowed;
+        filter: contrast(0.64) opacity(0.64);
+    }
+
+    :where(del, ins, mark, code, kbd, var) {
+        padding-inline: 0.5ch;
+        border-radius: var(--border-radius-small);
+        line-height: inherit;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+
+    :where(code, kbd, var) {
+        font-family: var(--font-family-mono);
+        letter-spacing: 0;
+        font-weight: var(--font-weight-default);
+        padding-block: 0.125lh;
+        max-inline-size: fit-content;
+        hyphens: none;
+        tab-size: 4;
+        text-align: left;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        font-style: normal;
+    }
+
+    :where(code) {
+        background: var(--color-surface-subtle);
+    }
+
+    :where(var) {
+        background: var(--color-brand-primary-surface);
+        color: var(--color-brand-primary-emphasis);
+    }
+
+    :where(kbd) {
+        background: var(--color-surface-subtle);
+        border: var(--border-width-thin) solid var(--color-border-base);
+        box-shadow: var(--shadow-nearest);
+        font-weight: var(--font-weight-active);
+    }
+
+    :where(pre) {
+        padding: 0.5lh 2ch;
+        inline-size: 100%;
+        overflow-x: auto;
+        color: var(--color-text-base);
+        border: var(--border-width-medium) solid var(--color-border-base);
+        border-radius: var(--border-radius-medium);
+        background: var(--color-surface-subtle);
+        -webkit-overflow-scrolling: touch;
+
+        & code {
+            white-space: pre;
+            border-radius: 0;
+            padding: 0;
+            background: none;
+        }
+    }
+
+    :where(table) {
+        --_nc-table-border-radius: var(--nc-table-border-radius, var(--border-radius-medium));
+        inline-size: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        text-align: left;
+        border: var(--border-width-medium) solid var(--color-border-base);
+        border-radius: var(--_nc-table-border-radius);
+    }
+
+    :where(table > thead th:first-child) {
+        border-start-start-radius: var(--_nc-table-border-radius);
+    }
+
+    :where(table > thead th:last-child) {
+        border-start-end-radius: var(--_nc-table-border-radius);
+    }
+
+    :where(table > tfoot th:first-child) {
+        border-end-start-radius: var(--_nc-table-border-radius);
+    }
+
+    :where(table > tfoot th:last-child) {
+        border-end-end-radius: var(--_nc-table-border-radius);
+    }
+
+    :where(td, th) {
+        padding: 0.4lh 1ch;
+        line-height: var(--line-height-small);
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+    }
+
+    :where(td) {
+        border-block-end: var(--border-width-thin) solid var(--color-border-muted);
+    }
+
+    :where(thead th) {
+        border-block-end: var(--border-width-thin) solid var(--color-border-muted);
+    }
+
+    :where(tfoot th) {
+        border-block-start: var(--border-width-thin) solid var(--color-border-muted);
+    }
+
+    :where(th) {
+        font-weight: var(--font-weight-active);
+        color: var(--color-text-muted);
+        background-color: var(--color-surface-subtle);
+    }
+
+    :where(tbody tr:hover) {
+        background: var(--color-brand-primary-hover);
+    }
+
+    :where(caption) {
+        color: var(--color-text-base);
+    }
+
+    :where(tr:has(td) th) {
+        border-block-end: var(--border-width-thin) solid var(--color-border-muted);
+        border-inline-end: var(--border-width-thin) solid var(--color-border-muted);
+    }
+
+    :where(tr:last-child:has(td) th) {
+        border-block-end: none;
+    }
+
+    :where(tr:last-child > td) {
+        border: none;
+    }
+
+    :where(tbody tr:nth-child(even) > td) {
+        background-color: var(--color-surface-muted);
+    }
+
+    :target {
+        scroll-margin-block-start: 2ex;
+    }
+
+    :where(del) {
+        color: var(--color-status-danger-text);
+        text-decoration-color: var(--color-status-danger-text);
+        background: var(--color-status-danger-surface);
+    }
+
+    :where(ins) {
+        color: var(--color-status-success-text);
+        text-decoration-color: var(--color-status-success-text);
+        background: var(--color-status-success-surface);
+    }
+
+    :where(mark) {
+        color: var(--color-brand-primary-emphasis);
+        background: var(--color-brand-primary-surface);
+    }
+
+    :where(ul, ol) {
+        padding-inline-start: 2ch;
+    }
+
+    :where(li + li) {
+        margin-top: 0.5lh;
+    }
+
+    :where(li > :is(ul, ol)) {
+        margin-top: 0.5lh;
+    }
+}

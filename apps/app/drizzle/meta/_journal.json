@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1748808793736,
+      "tag": "0000_smooth_blue_blade",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1749073280782,
+      "tag": "0001_modern_warhawk",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1749160006960,
+      "tag": "0002_chemical_rick_jones",
+      "breakpoints": true
+    }
+  ]
+}

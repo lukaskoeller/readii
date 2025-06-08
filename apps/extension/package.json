@@ -1,0 +1,31 @@
+{
+  "name": "@readii/extension",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@tsconfig/svelte": "^5.0.4",
+    "@types/chrome": "^0.0.287",
+    "@types/dom-chromium-ai": "^0.0.4",
+    "@types/sanitize-html": "^2.13.0",
+    "browserslist": "^4.24.2",
+    "lightningcss": "^1.28.1",
+    "svelte": "^5.1.11",
+    "svelte-check": "^4.0.5",
+    "tslib": "^2.8.1",
+    "typescript": "~5.6.3",
+    "vite": "^5.4.10"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "sanitize-html": "^2.13.1"
+  },
+  "packageManager": "pnpm@10.6.2+sha512.47870716bea1572b53df34ad8647b42962bc790ce2bf4562ba0f643237d7302a3d6a8ecef9e4bdfc01d23af1969aa90485d4cebb0b9638fa5ef1daef656f6c1b"
+}

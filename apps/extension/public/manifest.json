@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "readii",
+  "description": "Simple and clever RSS and News Reader",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": ["storage"],
+  "version": "1.0",
+  "action": {
+    "default_icon": "readii-icon.png"
+  },
+  "host_permissions": ["https://*/*"]
+}

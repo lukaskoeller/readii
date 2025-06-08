@@ -1,0 +1,605 @@
+/* http://localhost:3002/colors?styles=%7B%0A++%22fontFamilyMono%22%3A+%22monospace%22%2C%0A++%22fontFamilySans%22%3A+%22system-ui%2C+sans-serif%22%2C%0A++%22fontFamilySerif%22%3A+%22serif%22%2C%0A++%22fontFamilyDefault%22%3A+%22sans%22%2C%0A++%22fontSizeScale%22%3A+1.25%2C%0A++%22useCustomFontSizes%22%3A+false%2C%0A++%22fontSizeSmallest%22%3A+0.75%2C%0A++%22fontSizeSmall%22%3A+0.875%2C%0A++%22fontSizeBase%22%3A+1%2C%0A++%22fontSizeMedium%22%3A+1.125%2C%0A++%22fontSizeLarge%22%3A+1.25%2C%0A++%22fontSizeLargest%22%3A+1.5%2C%0A++%22fontSizeDisplay%22%3A+2.25%2C%0A++%22fontSizeUnit%22%3A+%22rem%22%2C%0A++%22lineHeightLarge%22%3A+1.85%2C%0A++%22lineHeightBase%22%3A+1.55%2C%0A++%22lineHeightSmall%22%3A+1.1%2C%0A++%22trackingTight%22%3A+-0.02%2C%0A++%22trackingStandard%22%3A+0%2C%0A++%22trackingWide%22%3A+0.03%2C%0A++%22fontWeightHeading%22%3A+600%2C%0A++%22fontWeightDefault%22%3A+400%2C%0A++%22fontWeightActive%22%3A+600%2C%0A++%22fontWeightStrong%22%3A+600%2C%0A++%22measureLarge%22%3A+56%2C%0A++%22measureBase%22%3A+44%2C%0A++%22measureSmall%22%3A+28%2C%0A++%22spacingTiny%22%3A+0.125%2C%0A++%22spacingNearest%22%3A+0.25%2C%0A++%22spacingNear%22%3A+0.5%2C%0A++%22spacingBase%22%3A+1%2C%0A++%22spacingFar%22%3A+2%2C%0A++%22spacingFarthest%22%3A+4%2C%0A++%22spacingScale%22%3A+%221.5%22%2C%0A++%22controlSpacingMinimal%22%3A+0.125%2C%0A++%22controlSpacingTiny%22%3A+0.25%2C%0A++%22controlSpacingNearest%22%3A+0.375%2C%0A++%22controlSpacingNear%22%3A+0.5%2C%0A++%22controlSpacingBase%22%3A+0.75%2C%0A++%22controlSpacingFar%22%3A+1%2C%0A++%22controlSpacingFarthest%22%3A+1.5%2C%0A++%22borderRadiusNone%22%3A+0%2C%0A++%22borderWidthThin%22%3A+1%2C%0A++%22borderWidthMedium%22%3A+2%2C%0A++%22borderWidthThick%22%3A+4%2C%0A++%22borderWidthScale%22%3A+2%2C%0A++%22borderRadiusSmall%22%3A+%222%22%2C%0A++%22borderRadiusMedium%22%3A+%224%22%2C%0A++%22borderRadiusLarge%22%3A+%228%22%2C%0A++%22borderRadiusScale%22%3A+%222%22%2C%0A++%22shadowConfigDistanceBase%22%3A+0.75%2C%0A++%22shadowConfigDistanceScaleFactor%22%3A+1.4%2C%0A++%22shadowConfigBlurScaleFactor%22%3A+1.75%2C%0A++%22shadowConfigStartTransparency%22%3A+0.25%2C%0A++%22shadowConfigTransparencyScale%22%3A+0.85%2C%0A++%22shadowConfigSpreadMax%22%3A+-4%2C%0A++%22shadowConfigXOffsetFactor%22%3A+0.25%2C%0A++%22lightShadowColorLightness%22%3A+80%2C%0A++%22darkShadowColorLightness%22%3A+25%2C%0A++%22lightShadowColorChroma%22%3A+0.005%2C%0A++%22darkShadowColorChroma%22%3A+0.005%2C%0A++%22lightnessMax%22%3A+0.99%2C%0A++%22lightnessMin%22%3A+0.03%2C%0A++%22neutralChromaScale%22%3A+0.95%2C%0A++%22transparencyWeaker%22%3A+0.8%2C%0A++%22primaryHue%22%3A+79%2C%0A++%22primaryLightness%22%3A+78%2C%0A++%22primaryLightnessDark%22%3A+78%2C%0A++%22primaryChroma%22%3A+0.22%2C%0A++%22secondaryHue%22%3A+79%2C%0A++%22secondaryLightness%22%3A+78%2C%0A++%22secondaryLightnessDark%22%3A+78%2C%0A++%22secondaryChroma%22%3A+0.04%2C%0A++%22useSecondaryColorForFG%22%3A+false%2C%0A++%22useSecondaryColorForBG%22%3A+false%2C%0A++%22useSecondaryColorForBorders%22%3A+false%2C%0A++%22lightNeutralChromaFG%22%3A+0.01%2C%0A++%22lightNeutralChromaBG%22%3A+0.012%2C%0A++%22lightNeutralChromaBorder%22%3A+0.005%2C%0A++%22lightNeutralTextLightness%22%3A+20%2C%0A++%22lightNeutralSurfaceLightness%22%3A+100%2C%0A++%22lightNeutralBorderLightness%22%3A+92%2C%0A++%22lightTextLightnessScaleFactor%22%3A+1.8%2C%0A++%22lightSurfaceLightnessScaleFactor%22%3A+0.965%2C%0A++%22lightBorderLightnessScaleFactor%22%3A+1.5%2C%0A++%22darkNeutralChromaFG%22%3A+0.005%2C%0A++%22darkNeutralChromaBG%22%3A+0.01%2C%0A++%22darkNeutralChromaBorder%22%3A+0.005%2C%0A++%22darkNeutralTextLightness%22%3A+93%2C%0A++%22darkNeutralSurfaceLightness%22%3A+16%2C%0A++%22darkNeutralBorderLightness%22%3A+25%2C%0A++%22darkTextLightnessScaleFactor%22%3A+0.84%2C%0A++%22darkSurfaceLightnessScaleFactor%22%3A+1.3%2C%0A++%22darkBorderLightnessScaleFactor%22%3A+0.985%2C%0A++%22controlHeightBase%22%3A+2.5%2C%0A++%22controlHeightSmall%22%3A+2%0A%7D */
+:root {
+	/* Typography */
+
+	--font-family-mono: monospace;
+	--font-family-sans: system-ui, sans-serif;
+	--font-family-serif: serif;
+	--font-family-default: var(--font-family-sans);
+
+	--font-weight-default: 400;
+	--font-weight-heading: 600;
+	--font-weight-active: 600;
+	--font-weight-strong: 600;
+
+	--line-height-large: 1.85;
+	--line-height-base: 1.55;
+	--line-height-small: 1.1;
+
+	--tracking-base: normal;
+	--tracking-tight: -0.02em;
+	--tracking-wide: 0.03em;
+
+	--measure-large: 56em;
+	--measure-base: 44em;
+	--measure-small: 28em;
+
+	--font-size-smallest: max(0.75rem, 12px);
+	--font-size-small: max(0.875rem, 14px);
+	--font-size-base: 1rem;
+	--font-size-medium: 1.125rem;
+	--font-size-large: 1.25rem;
+	--font-size-largest: 1.5rem;
+	--font-size-display: 2.25rem;
+
+	/* Transparency */
+	--transparency-weaker: 0.8;
+
+	/* Spacing */
+
+	--spacing-tiny: 0.125rem;
+	--spacing-nearest: 0.25rem;
+	--spacing-near: 0.5rem;
+	--spacing-base: 1rem;
+	--spacing-far: 2rem;
+	--spacing-farthest: 4rem;
+
+	--spacing-tiny: 0.125rem;
+	--spacing-nearest: 0.25rem;
+	--spacing-near: 0.5rem;
+	--spacing-base: 1rem;
+	--spacing-far: 2rem;
+	--spacing-farthest: 4rem;
+
+	/* Borders */
+
+	--border-width-thin: 1px;
+	--border-width-medium: 2px;
+	--border-width-thick: 4px;
+
+	--border-radius-none: 0px;
+	--border-radius-small: 2px;
+	--border-radius-medium: 4px;
+	--border-radius-large: 8px;
+	--border-radius-round: 1e5px;
+
+	/* UI Density Elements */
+
+	--control-height-base: 2.5em;
+	--control-height-small: 2em;
+
+	--control-spacing-minimal: 0.125em;
+	--control-spacing-tiny: 0.25em;
+	--control-spacing-nearest: 0.375em;
+	--control-spacing-near: 0.5em;
+	--control-spacing-base: 0.75em;
+	--control-spacing-far: 1em;
+	--control-spacing-farthest: 1.5em;
+
+	/* SHADOWS */
+
+	--shadow-inset:
+		inset 0.19px 0.75px 1.31px 0px color-mix(in oklch, var(--shadow-color), transparent 75%),
+		inset 0.26px 1.05px 1.84px -4px color-mix(in oklch, var(--shadow-color), transparent 78.75%);
+
+	--shadow-nearest:
+		0.19px 0.75px 1.31px 0px color-mix(in oklch, var(--shadow-color), transparent 75%),
+		0.26px 1.05px 1.84px -4px color-mix(in oklch, var(--shadow-color), transparent 78.75%);
+	--shadow-near:
+		0.19px 0.75px 1.31px 0px color-mix(in oklch, var(--shadow-color), transparent 75%),
+		0.26px 1.05px 1.84px -1.33px color-mix(in oklch, var(--shadow-color), transparent 78.75%),
+		0.37px 1.47px 2.57px -2.67px color-mix(in oklch, var(--shadow-color), transparent 81.94%),
+		0.52px 2.06px 3.61px -4px color-mix(in oklch, var(--shadow-color), transparent 84.65%);
+	--shadow-medium:
+		0.19px 0.75px 1.31px 0px color-mix(in oklch, var(--shadow-color), transparent 75%),
+		0.26px 1.05px 1.84px -0.8px color-mix(in oklch, var(--shadow-color), transparent 78.75%),
+		0.37px 1.47px 2.57px -1.6px color-mix(in oklch, var(--shadow-color), transparent 81.94%),
+		0.52px 2.06px 3.61px -2.4px color-mix(in oklch, var(--shadow-color), transparent 84.65%),
+		0.72px 2.88px 5.04px -3.2px color-mix(in oklch, var(--shadow-color), transparent 86.95%),
+		1.01px 4.03px 7.05px -4px color-mix(in oklch, var(--shadow-color), transparent 88.91%);
+	--shadow-far:
+		0.19px 0.75px 1.31px 0px color-mix(in oklch, var(--shadow-color), transparent 75%),
+		0.26px 1.05px 1.84px -0.5px color-mix(in oklch, var(--shadow-color), transparent 78.75%),
+		0.37px 1.47px 2.57px -1px color-mix(in oklch, var(--shadow-color), transparent 81.94%),
+		0.52px 2.06px 3.61px -1.5px color-mix(in oklch, var(--shadow-color), transparent 84.65%),
+		0.72px 2.88px 5.04px -2px color-mix(in oklch, var(--shadow-color), transparent 86.95%),
+		1.01px 4.03px 7.05px -2.5px color-mix(in oklch, var(--shadow-color), transparent 88.91%),
+		1.41px 5.65px 9.89px -3px color-mix(in oklch, var(--shadow-color), transparent 90.57%),
+		1.98px 7.91px 13.84px -3.5px color-mix(in oklch, var(--shadow-color), transparent 91.99%),
+		2.77px 11.07px 19.37px -4px color-mix(in oklch, var(--shadow-color), transparent 93.19%);
+	/* Light Theme */
+
+	--shadow-color-light: oklch(80% 0.005 79);
+	--shadow-color-light-lch: 80% 0.005 79;
+
+	/* Dark Theme */
+
+	--shadow-color-dark: oklch(25% 0.005 79);
+	--shadow-color-dark-lch: 25% 0.005 79;
+
+	--lightness-max: 0.99;
+	--lightness-min: 0.03;
+	--lightness-diff: calc(var(--lightness-max) - var(--lightness-min));
+	--lightness-contrast-cutoff: calc(var(--lightness-min) + var(--lightness-diff) * 0.5 + 0.05);
+	--neutral-chroma-scale: 0.95;
+	--transparency-weaker: 0.8;
+	--c-brand-primary: 0.22;
+	--h-brand-primary: 79;
+	--l-brand-primary-light: 0.78;
+	--color-brand-primary-base-light: oklch(
+		var(--l-brand-primary-light) var(--c-brand-primary) var(--h-brand-primary)
+	);
+	--color-brand-primary-emphasis-light: oklch(
+		calc(var(--l-brand-primary-light) * 0.85) calc(var(--c-brand-primary) * 1.1)
+			var(--h-brand-primary)
+	);
+	--color-brand-primary-surface-light: oklch(
+		calc(var(--lightness-max) - 0.1 + var(--l-brand-primary-light) / 10)
+			calc(var(--c-brand-primary) * 0.25) var(--h-brand-primary)
+	);
+	--color-brand-primary-contrast-lightness-light: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(
+						max((var(--l-brand-primary-light) - var(--lightness-contrast-cutoff)) * 1000000, 0),
+						1
+					)
+			)
+	);
+	--color-brand-primary-contrast-light: oklch(
+		var(--color-brand-primary-contrast-lightness-light) calc(var(--c-brand-primary) * 0.25)
+			var(--h-brand-primary)
+	);
+	--color-brand-primary-hover-light: oklch(
+		var(--l-brand-primary-light) var(--c-brand-primary) var(--h-brand-primary) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--l-brand-primary-dark: 0.78;
+	--color-brand-primary-base-dark: oklch(
+		var(--l-brand-primary-dark) var(--c-brand-primary) var(--h-brand-primary)
+	);
+	--color-brand-primary-emphasis-dark: oklch(
+		calc(var(--l-brand-primary-dark) * 1.25) calc(var(--c-brand-primary) * 1.1)
+			var(--h-brand-primary)
+	);
+	--color-brand-primary-surface-dark: oklch(
+		calc(var(--lightness-min) + var(--l-brand-primary-dark) / 3) calc(var(--c-brand-primary) * 0.25)
+			var(--h-brand-primary)
+	);
+	--color-brand-primary-contrast-lightness-dark: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(max((var(--l-brand-primary-dark) - var(--lightness-contrast-cutoff)) * 1000000, 0), 1)
+			)
+	);
+	--color-brand-primary-contrast-dark: oklch(
+		var(--color-brand-primary-contrast-lightness-dark) calc(var(--c-brand-primary) * 0.25)
+			var(--h-brand-primary)
+	);
+	--color-brand-primary-hover-dark: oklch(
+		var(--l-brand-primary-dark) var(--c-brand-primary) var(--h-brand-primary) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--c-brand-secondary: 0.04;
+	--h-brand-secondary: 79;
+	--l-brand-secondary-light: 0.78;
+	--color-brand-secondary-base-light: oklch(
+		var(--l-brand-secondary-light) var(--c-brand-secondary) var(--h-brand-secondary)
+	);
+	--color-brand-secondary-emphasis-light: oklch(
+		calc(var(--l-brand-secondary-light) * 0.85) calc(var(--c-brand-secondary) * 1.1)
+			var(--h-brand-secondary)
+	);
+	--color-brand-secondary-surface-light: oklch(
+		calc(var(--lightness-max) - 0.1 + var(--l-brand-secondary-light) / 10)
+			calc(var(--c-brand-secondary) * 0.25) var(--h-brand-secondary)
+	);
+	--color-brand-secondary-contrast-lightness-light: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(
+						max((var(--l-brand-secondary-light) - var(--lightness-contrast-cutoff)) * 1000000, 0),
+						1
+					)
+			)
+	);
+	--color-brand-secondary-contrast-light: oklch(
+		var(--color-brand-secondary-contrast-lightness-light) calc(var(--c-brand-secondary) * 0.25)
+			var(--h-brand-secondary)
+	);
+	--color-brand-secondary-hover-light: oklch(
+		var(--l-brand-secondary-light) var(--c-brand-secondary) var(--h-brand-secondary) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--l-brand-secondary-dark: 0.78;
+	--color-brand-secondary-base-dark: oklch(
+		var(--l-brand-secondary-dark) var(--c-brand-secondary) var(--h-brand-secondary)
+	);
+	--color-brand-secondary-emphasis-dark: oklch(
+		calc(var(--l-brand-secondary-dark) * 1.25) calc(var(--c-brand-secondary) * 1.1)
+			var(--h-brand-secondary)
+	);
+	--color-brand-secondary-surface-dark: oklch(
+		calc(var(--lightness-min) + var(--l-brand-secondary-dark) / 3)
+			calc(var(--c-brand-secondary) * 0.25) var(--h-brand-secondary)
+	);
+	--color-brand-secondary-contrast-lightness-dark: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(
+						max((var(--l-brand-secondary-dark) - var(--lightness-contrast-cutoff)) * 1000000, 0),
+						1
+					)
+			)
+	);
+	--color-brand-secondary-contrast-dark: oklch(
+		var(--color-brand-secondary-contrast-lightness-dark) calc(var(--c-brand-secondary) * 0.25)
+			var(--h-brand-secondary)
+	);
+	--color-brand-secondary-hover-dark: oklch(
+		var(--l-brand-secondary-dark) var(--c-brand-secondary) var(--h-brand-secondary) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--l-text-light: 0.2;
+	--c-text-light: 0.01;
+	--h-text-light: var(--h-brand-primary);
+	--scale-text-light: 1.8;
+	--color-text-base-light: oklch(var(--l-text-light) var(--c-text-light) var(--h-text-light));
+	--color-text-muted-light: oklch(
+		calc(var(--l-text-light) * var(--scale-text-light))
+			calc(var(--c-text-light) * var(--neutral-chroma-scale)) var(--h-text-light)
+	);
+	--color-text-subtle-light: oklch(
+		calc(var(--l-text-light) * var(--scale-text-light) * var(--scale-text-light))
+			calc(var(--c-text-light) * var(--neutral-chroma-scale) * var(--neutral-chroma-scale))
+			var(--h-text-light)
+	);
+	--color-text-on-emphasis-light: oklch(
+		var(--lightness-max) calc(var(--c-text-light) * 0.1) var(--h-text-light)
+	);
+	--color-text-hover-light: oklch(
+		var(--l-text-light) var(--c-text-light) var(--h-text-light) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--l-text-dark: 0.93;
+	--c-text-dark: 0.005;
+	--h-text-dark: var(--h-brand-primary);
+	--scale-text-dark: 0.84;
+	--color-text-base-dark: oklch(var(--l-text-dark) var(--c-text-dark) var(--h-text-dark));
+	--color-text-muted-dark: oklch(
+		calc(var(--l-text-dark) * var(--scale-text-dark))
+			calc(var(--c-text-dark) * var(--neutral-chroma-scale)) var(--h-text-dark)
+	);
+	--color-text-subtle-dark: oklch(
+		calc(var(--l-text-dark) * var(--scale-text-dark) * var(--scale-text-dark))
+			calc(var(--c-text-dark) * var(--neutral-chroma-scale) * var(--neutral-chroma-scale))
+			var(--h-text-dark)
+	);
+	--color-text-on-emphasis-dark: oklch(var(--lightness-min) var(--c-text-dark) var(--h-text-dark));
+	--color-text-hover-dark: oklch(
+		var(--l-text-dark) var(--c-text-dark) var(--h-text-dark) / calc(var(--transparency-weaker) / 10)
+	);
+	--l-surface-light: 1;
+	--c-surface-light: 0.012;
+	--h-surface-light: var(--h-brand-primary);
+	--scale-surface-light: 0.965;
+	--color-surface-base-light: oklch(
+		var(--l-surface-light) var(--c-surface-light) var(--h-surface-light)
+	);
+	--color-surface-muted-light: oklch(
+		calc(var(--l-surface-light) * var(--scale-surface-light))
+			calc(var(--c-surface-light) * var(--neutral-chroma-scale)) var(--h-surface-light)
+	);
+	--color-surface-subtle-light: oklch(
+		calc(var(--l-surface-light) * var(--scale-surface-light) * var(--scale-surface-light))
+			calc(var(--c-surface-light) * var(--neutral-chroma-scale) * var(--neutral-chroma-scale))
+			var(--h-surface-light)
+	);
+	--color-surface-emphasis-light: oklch(
+		var(--lightness-min) var(--c-surface-light) var(--h-surface-light)
+	);
+	--l-surface-dark: 0.16;
+	--c-surface-dark: 0.01;
+	--h-surface-dark: var(--h-brand-primary);
+	--scale-surface-dark: 1.3;
+	--color-surface-base-dark: oklch(
+		var(--l-surface-dark) var(--c-surface-dark) var(--h-surface-dark)
+	);
+	--color-surface-muted-dark: oklch(
+		calc(var(--l-surface-dark) * var(--scale-surface-dark))
+			calc(var(--c-surface-dark) * var(--neutral-chroma-scale)) var(--h-surface-dark)
+	);
+	--color-surface-subtle-dark: oklch(
+		calc(var(--l-surface-dark) * var(--scale-surface-dark) * var(--scale-surface-dark))
+			calc(var(--c-surface-dark) * var(--neutral-chroma-scale) * var(--neutral-chroma-scale))
+			var(--h-surface-dark)
+	);
+	--color-surface-emphasis-dark: oklch(
+		var(--lightness-max) calc(var(--c-surface-dark) * 0.1) var(--h-surface-dark)
+	);
+	--l-border-light: 0.92;
+	--c-border-light: 0.005;
+	--h-border-light: var(--h-brand-primary);
+	--scale-border-light: 1.5;
+	--color-border-base-light: oklch(
+		var(--l-border-light) var(--c-border-light) var(--h-border-light)
+	);
+	--color-border-muted-light: oklch(
+		calc(var(--l-border-light) * var(--scale-border-light))
+			calc(var(--c-border-light) * var(--neutral-chroma-scale)) var(--h-border-light)
+	);
+	--color-border-subtle-light: oklch(
+		calc(var(--l-border-light) * var(--scale-border-light) * var(--scale-border-light))
+			calc(var(--c-border-light) * var(--neutral-chroma-scale) * var(--neutral-chroma-scale))
+			var(--h-border-light)
+	);
+	--color-border-on-emphasis-light: oklch(
+		var(--lightness-max) var(--c-border-light) var(--h-border-light)
+	);
+	--color-border-hover-light: oklch(
+		var(--l-border-light) var(--c-border-light) var(--h-border-light) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--l-border-dark: 0.25;
+	--c-border-dark: 0.005;
+	--scale-border-dark: 0.985;
+	--h-border-dark: var(--h-brand-primary);
+	--color-border-base-dark: oklch(var(--l-border-dark) var(--c-border-dark) var(--h-border-dark));
+	--color-border-muted-dark: oklch(
+		calc(var(--l-border-dark) * var(--scale-border-dark))
+			calc(var(--c-border-dark) * var(--neutral-chroma-scale)) var(--h-border-dark)
+	);
+	--color-border-subtle-dark: oklch(
+		calc(var(--l-border-dark) * var(--scale-border-dark) * var(--scale-border-dark))
+			calc(var(--c-border-dark) * var(--neutral-chroma-scale) * var(--neutral-chroma-scale))
+			var(--h-border-dark)
+	);
+	--color-border-on-emphasis-dark: oklch(
+		var(--lightness-min) var(--c-border-dark) var(--h-border-dark)
+	);
+	--color-border-hover-dark: oklch(
+		var(--l-border-dark) var(--c-border-dark) var(--h-border-dark) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--c-status-success: 0.22;
+	--h-status-success: 142;
+	--l-status-success-light: 0.78;
+	--color-status-success-base-light: oklch(
+		var(--l-status-success-light) var(--c-status-success) var(--h-status-success)
+	);
+	--color-status-success-emphasis-light: oklch(
+		calc(var(--l-status-success-light) * 0.85) calc(var(--c-status-success) * 1.1)
+			var(--h-status-success)
+	);
+	--color-status-success-surface-light: oklch(
+		calc(var(--lightness-max) - 0.1 + var(--l-status-success-light) / 10)
+			calc(var(--c-status-success) * 0.25) var(--h-status-success)
+	);
+	--color-status-success-contrast-lightness-light: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(
+						max((var(--l-status-success-light) - var(--lightness-contrast-cutoff)) * 1000000, 0),
+						1
+					)
+			)
+	);
+	--color-status-success-contrast-light: oklch(
+		var(--color-status-success-contrast-lightness-light) calc(var(--c-status-success) * 0.25)
+			var(--h-status-success)
+	);
+	--color-status-success-hover-light: oklch(
+		var(--l-status-success-light) var(--c-status-success) var(--h-status-success) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--l-status-success-dark: 0.78;
+	--color-status-success-base-dark: oklch(
+		var(--l-status-success-dark) var(--c-status-success) var(--h-status-success)
+	);
+	--color-status-success-emphasis-dark: oklch(
+		calc(var(--l-status-success-dark) * 1.25) calc(var(--c-status-success) * 1.1)
+			var(--h-status-success)
+	);
+	--color-status-success-surface-dark: oklch(
+		calc(var(--lightness-min) + var(--l-status-success-dark) / 3)
+			calc(var(--c-status-success) * 0.25) var(--h-status-success)
+	);
+	--color-status-success-contrast-lightness-dark: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(
+						max((var(--l-status-success-dark) - var(--lightness-contrast-cutoff)) * 1000000, 0),
+						1
+					)
+			)
+	);
+	--color-status-success-contrast-dark: oklch(
+		var(--color-status-success-contrast-lightness-dark) calc(var(--c-status-success) * 0.25)
+			var(--h-status-success)
+	);
+	--color-status-success-hover-dark: oklch(
+		var(--l-status-success-dark) var(--c-status-success) var(--h-status-success) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--c-status-warning: 0.22;
+	--h-status-warning: 97;
+	--l-status-warning-light: 0.78;
+	--color-status-warning-base-light: oklch(
+		var(--l-status-warning-light) var(--c-status-warning) var(--h-status-warning)
+	);
+	--color-status-warning-emphasis-light: oklch(
+		calc(var(--l-status-warning-light) * 0.85) calc(var(--c-status-warning) * 1.1)
+			var(--h-status-warning)
+	);
+	--color-status-warning-surface-light: oklch(
+		calc(var(--lightness-max) - 0.1 + var(--l-status-warning-light) / 10)
+			calc(var(--c-status-warning) * 0.25) var(--h-status-warning)
+	);
+	--color-status-warning-contrast-lightness-light: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(
+						max((var(--l-status-warning-light) - var(--lightness-contrast-cutoff)) * 1000000, 0),
+						1
+					)
+			)
+	);
+	--color-status-warning-contrast-light: oklch(
+		var(--color-status-warning-contrast-lightness-light) calc(var(--c-status-warning) * 0.25)
+			var(--h-status-warning)
+	);
+	--color-status-warning-hover-light: oklch(
+		var(--l-status-warning-light) var(--c-status-warning) var(--h-status-warning) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--l-status-warning-dark: 0.78;
+	--color-status-warning-base-dark: oklch(
+		var(--l-status-warning-dark) var(--c-status-warning) var(--h-status-warning)
+	);
+	--color-status-warning-emphasis-dark: oklch(
+		calc(var(--l-status-warning-dark) * 1.25) calc(var(--c-status-warning) * 1.1)
+			var(--h-status-warning)
+	);
+	--color-status-warning-surface-dark: oklch(
+		calc(var(--lightness-min) + var(--l-status-warning-dark) / 3)
+			calc(var(--c-status-warning) * 0.25) var(--h-status-warning)
+	);
+	--color-status-warning-contrast-lightness-dark: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(
+						max((var(--l-status-warning-dark) - var(--lightness-contrast-cutoff)) * 1000000, 0),
+						1
+					)
+			)
+	);
+	--color-status-warning-contrast-dark: oklch(
+		var(--color-status-warning-contrast-lightness-dark) calc(var(--c-status-warning) * 0.25)
+			var(--h-status-warning)
+	);
+	--color-status-warning-hover-dark: oklch(
+		var(--l-status-warning-dark) var(--c-status-warning) var(--h-status-warning) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--c-status-danger: 0.22;
+	--h-status-danger: 32;
+	--l-status-danger-light: 0.78;
+	--color-status-danger-base-light: oklch(
+		var(--l-status-danger-light) var(--c-status-danger) var(--h-status-danger)
+	);
+	--color-status-danger-emphasis-light: oklch(
+		calc(var(--l-status-danger-light) * 0.85) calc(var(--c-status-danger) * 1.1)
+			var(--h-status-danger)
+	);
+	--color-status-danger-surface-light: oklch(
+		calc(var(--lightness-max) - 0.1 + var(--l-status-danger-light) / 10)
+			calc(var(--c-status-danger) * 0.25) var(--h-status-danger)
+	);
+	--color-status-danger-contrast-lightness-light: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(
+						max((var(--l-status-danger-light) - var(--lightness-contrast-cutoff)) * 1000000, 0),
+						1
+					)
+			)
+	);
+	--color-status-danger-contrast-light: oklch(
+		var(--color-status-danger-contrast-lightness-light) calc(var(--c-status-danger) * 0.25)
+			var(--h-status-danger)
+	);
+	--color-status-danger-hover-light: oklch(
+		var(--l-status-danger-light) var(--c-status-danger) var(--h-status-danger) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--l-status-danger-dark: 0.78;
+	--color-status-danger-base-dark: oklch(
+		var(--l-status-danger-dark) var(--c-status-danger) var(--h-status-danger)
+	);
+	--color-status-danger-emphasis-dark: oklch(
+		calc(var(--l-status-danger-dark) * 1.25) calc(var(--c-status-danger) * 1.1)
+			var(--h-status-danger)
+	);
+	--color-status-danger-surface-dark: oklch(
+		calc(var(--lightness-min) + var(--l-status-danger-dark) / 3) calc(var(--c-status-danger) * 0.25)
+			var(--h-status-danger)
+	);
+	--color-status-danger-contrast-lightness-dark: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(max((var(--l-status-danger-dark) - var(--lightness-contrast-cutoff)) * 1000000, 0), 1)
+			)
+	);
+	--color-status-danger-contrast-dark: oklch(
+		var(--color-status-danger-contrast-lightness-dark) calc(var(--c-status-danger) * 0.25)
+			var(--h-status-danger)
+	);
+	--color-status-danger-hover-dark: oklch(
+		var(--l-status-danger-dark) var(--c-status-danger) var(--h-status-danger) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--c-status-info: 0.22;
+	--h-status-info: 245;
+	--l-status-info-light: 0.78;
+	--color-status-info-base-light: oklch(
+		var(--l-status-info-light) var(--c-status-info) var(--h-status-info)
+	);
+	--color-status-info-emphasis-light: oklch(
+		calc(var(--l-status-info-light) * 0.85) calc(var(--c-status-info) * 1.1) var(--h-status-info)
+	);
+	--color-status-info-surface-light: oklch(
+		calc(var(--lightness-max) - 0.1 + var(--l-status-info-light) / 10)
+			calc(var(--c-status-info) * 0.25) var(--h-status-info)
+	);
+	--color-status-info-contrast-lightness-light: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(max((var(--l-status-info-light) - var(--lightness-contrast-cutoff)) * 1000000, 0), 1)
+			)
+	);
+	--color-status-info-contrast-light: oklch(
+		var(--color-status-info-contrast-lightness-light) calc(var(--c-status-info) * 0.25)
+			var(--h-status-info)
+	);
+	--color-status-info-hover-light: oklch(
+		var(--l-status-info-light) var(--c-status-info) var(--h-status-info) /
+			calc(var(--transparency-weaker) / 10)
+	);
+	--l-status-info-dark: 0.78;
+	--color-status-info-base-dark: oklch(
+		var(--l-status-info-dark) var(--c-status-info) var(--h-status-info)
+	);
+	--color-status-info-emphasis-dark: oklch(
+		calc(var(--l-status-info-dark) * 1.25) calc(var(--c-status-info) * 1.1) var(--h-status-info)
+	);
+	--color-status-info-surface-dark: oklch(
+		calc(var(--lightness-min) + var(--l-status-info-dark) / 3) calc(var(--c-status-info) * 0.25)
+			var(--h-status-info)
+	);
+	--color-status-info-contrast-lightness-dark: calc(
+		var(--lightness-max) -
+			(
+				var(--lightness-diff) *
+					min(max((var(--l-status-info-dark) - var(--lightness-contrast-cutoff)) * 1000000, 0), 1)
+			)
+	);
+	--color-status-info-contrast-dark: oklch(
+		var(--color-status-info-contrast-lightness-dark) calc(var(--c-status-info) * 0.25)
+			var(--h-status-info)
+	);
+	--color-status-info-hover-dark: oklch(
+		var(--l-status-info-dark) var(--c-status-info) var(--h-status-info) /
+			calc(var(--transparency-weaker) / 10)
+	);
+}

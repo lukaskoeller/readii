@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `Channel_link_unique` ON `Channel` (`link`);

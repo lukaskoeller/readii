@@ -1,0 +1,209 @@
+@layer theme, colors, reset, base, layout, components;
+
+@import "./styles/theme.css";
+@import "./styles/colors.css";
+@import "./styles/media.css";
+@import "./styles/reset.css";
+@import "./styles/base.css";
+@import "./styles/layout.css";
+
+/* dm-serif-display-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/dm-serif-display-v15-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@custom-media --md-n-above (width >= 768px);
+
+:root {
+  --font-family-mono: monospace;
+  --font-family-sans: system-ui, sans-serif;
+  --font-family-serif: Georgia, serif;
+  --font-family-display: "DM Serif Display", Georgia, serif;
+  --font-family-default: var(--font-family-serif);
+
+  --shadow-color: light-dark(var(--color-text-subtle), black);
+  --shadow-elevation-medium: 0px 0.5px 0.6px
+      color-mix(in oklch, var(--shadow-color), transparent 64%),
+    0px 1.6px 1.8px -0.8px color-mix(in oklch, var(--shadow-color), transparent
+          64%),
+    0px 4px 4.5px -1.7px color-mix(in oklch, var(--shadow-color), transparent
+          64%),
+    0px 9.9px 11.1px -2.5px color-mix(in oklch, var(--shadow-color), transparent
+          64%);
+
+  /* Overrides */
+  --c-status-danger: 0.2;
+}
+
+body {
+  font-weight: var(--font-weight-default);
+  color: var(--color-text-base);
+  background-color: var(--color-surface-base);
+  font-family: var(--font-family-default);
+  line-height: var(--line-height-base);
+  font-style: normal;
+  font-size: 1rem;
+}
+
+/* body {
+  background: linear-gradient(
+      color-mix(in oklch, var(--color-surface-base), transparent 10%),
+      color-mix(in oklch, var(--color-surface-base), transparent 10%)
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+} */
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-family-display);
+}
+
+input:-internal-autofill-selected {
+  background-color: color-mix(
+    in oklch,
+    var(--color-surface-subtle),
+    black 10%
+  ) !important;
+}
+
+input[type="checkbox"] {
+  inline-size: 1rem;
+  block-size: 1rem;
+}
+
+button {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-strong);
+  background-color: var(--color-brand-primary-base);
+  padding-inline: var(--spacing-base);
+  padding-block: var(--spacing-near);
+  border-radius: var(--border-radius-medium);
+
+  &[data-variant="secondary"] {
+    background-color: var(--color-surface-subtle);
+  }
+
+  &[data-variant="text"] {
+    background-color: unset;
+    color: var(--color-brand-primary-emphasis);
+  }
+
+  &[data-variant="destructive"] {
+    background-color: var(--color-status-danger-base);
+  }
+
+  &[data-size="sm"] {
+    font-size: var(--font-size-small);
+    padding-block: var(--spacing-nearest);
+    padding-inline: var(--spacing-near);
+    text-transform: uppercase;
+  }
+}
+
+.nc-input-label,
+.nc-hint {
+  font-family: var(--font-family-sans);
+}
+
+.nc-input-field {
+  display: grid;
+  gap: var(--spacing-near);
+}
+
+.nc-input-label {
+  font-weight: var(--font-weight-strong);
+}
+
+.nc-hint {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.nc-input {
+  background-color: var(--color-surface-subtle);
+  box-shadow: inset 0px 1px 0px 0px color-mix(in oklch, white, transparent 96%),
+    0px 0px 2px 0px var(--color-surface-base);
+  border-radius: var(--border-radius-medium);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-largest);
+  padding-block: var(--spacing-near);
+  padding-inline: var(--spacing-near);
+}
+
+.is-empty:not(:only-child) {
+  display: none;
+}
+
+.stack {
+  display: grid;
+  gap: var(--spacing-base);
+
+  &.-near {
+    gap: var(--spacing-near);
+  }
+
+  &.-far {
+    gap: var(--spacing-far);
+  }
+}
+
+.card {
+  background-color: var(--color-surface-muted);
+  padding: var(--spacing-base);
+  border-radius: var(--border-radius-large);
+}
+
+.dialog {
+  inline-size: min(100%, 68ch);
+  min-block-size: 40ch;
+  max-block-size: 100vh;
+  margin: auto;
+  margin-block-end: 0;
+  position: fixed;
+  inset: 0;
+  display: grid;
+  align-content: start;
+  overscroll-behavior: contain;
+  box-shadow: var(--shadow-elevation-medium);
+
+  transform-style: preserve-3d;
+  transform-origin: bottom center;
+  transform: perspective(1200px) rotateX(0deg);
+  /* transition: transform 0.3s var(--); */
+
+  @media (--md-n-above) {
+    margin-block-end: auto;
+  }
+
+  &::backdrop {
+    backdrop-filter: blur(12px);
+  }
+
+  &:not([open]) {
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+.dialog-grid {
+  grid-template-rows: auto 1fr auto;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dialog-body {
+  padding-block: var(--spacing-far);
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: end;
+  gap: var(--spacing-near);
+}

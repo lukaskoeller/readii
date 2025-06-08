@@ -1,0 +1,17 @@
+{
+  "name": "readii",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A simply, AI enhanced RSS reader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "web": "pnpm --filter @readii/web dev",
+    "app": "pnpm --filter @readii/app dev",
+    "app:ios": "pnpm --filter @readii/app ios",
+    "extension": "pnpm --filter @readii/extension dev"
+  },
+  "keywords": ["rss", "reader", "feed", "native", "web"],
+  "author": "Lukas Koeller",
+  "packageManager": "pnpm@10.11.1"
+}

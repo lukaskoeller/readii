@@ -1,0 +1,37 @@
+/* dm-serif-display-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "STIX Two Text", serif;
+    font-style: normal;
+    font-weight: 600;
+    src: url("../assets/STIXTwoText-SemiBold.ttf") format("ttf");
+}
+
+html {
+    background-color: var(--color-surface-base);
+}
+
+:root {
+    --font-family-serif: Georgia, serif;
+    --font-family-heading: "DM Serif Text", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+}
+
+p {
+    font-family: var(--font-family-serif);
+}
+
+.nc-card {
+    box-shadow: none;
+    box-shadow: inset 0px -2px 6px -2px var(--color-border-muted);
+    background-color: var(--color-surface-muted);
+}
