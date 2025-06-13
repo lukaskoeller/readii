@@ -89,19 +89,25 @@ const renderNode = (
       );
     case "code":
       return (
-        <ThemedText
-          key={key}
-          style={{
-            fontFamily: "monospace",
-            backgroundColor: colors.colorBackground2,
-            padding: 2,
-          }}
-          accessibilityLabel="code"
-        >
-          {childNodes.map((child: any, i: number) =>
-            renderNode(child, i, { colorBackground2: colors.colorBackground2 })
-          )}
-        </ThemedText>
+        <>
+          {" "}
+          <ThemedText
+            key={key}
+            style={{
+              fontFamily: "monospace",
+              backgroundColor: colors.colorBackground2,
+              padding: 2,
+              borderRadius: Radius.size3,
+            }}
+            accessibilityLabel="code"
+          >
+            {childNodes.map((child: any, i: number) =>
+              renderNode(child, i, {
+                colorBackground2: colors.colorBackground2,
+              })
+            )}
+          </ThemedText>{" "}
+        </>
       );
     case "q":
       return (
@@ -160,7 +166,11 @@ const renderNode = (
       );
     case "ul":
       return (
-        <View key={key} style={{ marginVertical: Spacing.size2 }} accessibilityRole="list">
+        <View
+          key={key}
+          style={{ marginVertical: Spacing.size2 }}
+          accessibilityRole="list"
+        >
           {childNodes.map((child: any, i: number) =>
             renderNode(child, i, { colorBackground2: colors.colorBackground2 })
           )}
@@ -168,7 +178,11 @@ const renderNode = (
       );
     case "ol":
       return (
-        <View key={key} style={{ marginVertical: Spacing.size2 }} accessibilityRole="list">
+        <View
+          key={key}
+          style={{ marginVertical: Spacing.size2 }}
+          accessibilityRole="list"
+        >
           {childNodes
             .filter((c: any) => c.nodeName === "li")
             .map((child: any, i: number) => (
