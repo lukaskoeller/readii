@@ -21,7 +21,7 @@ export default function Article() {
   return (
     <SafeAreaView>
       <ThemedView padding={Spacing.size3} style={styles.flow}>
-        <ScrollView style={{ marginBottom: Spacing.size8 }}>
+        <ScrollView style={{ marginBlockEnd: Spacing.size8, marginBlockStart: Spacing.size3 }}>
           <ThemedView>
             <ThemedText type="title">{data?.title}</ThemedText>
           </ThemedView>
