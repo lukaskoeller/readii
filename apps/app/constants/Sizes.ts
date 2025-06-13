@@ -32,14 +32,14 @@ const BASE_FONT_SIZE = 14;
 export const FontSize = {
     size00: 0.8 * BASE_FONT_SIZE,
     size0: 0.9 * BASE_FONT_SIZE,
-    size1: 1 * BASE_FONT_SIZE,
+    size1: 1.0 * BASE_FONT_SIZE,
     size2: 1.1 * BASE_FONT_SIZE,
     size3: 1.25 * BASE_FONT_SIZE,
     size4: 1.5 * BASE_FONT_SIZE,
-    size5: 2 * BASE_FONT_SIZE,
-    size6: 2.5 * BASE_FONT_SIZE,
-    size7: 3 * BASE_FONT_SIZE,
-    size8: 3.5 * BASE_FONT_SIZE,
+    size5: 1.7 * BASE_FONT_SIZE,
+    size6: 1.9 * BASE_FONT_SIZE,
+    size7: 2.0 * BASE_FONT_SIZE,
+    size8: 2.3 * BASE_FONT_SIZE,
 }
 
 export const FontWeight = {
