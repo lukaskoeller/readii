@@ -1,24 +1,22 @@
+import { HtmlViewer } from "@/components/HtmlView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Spacing } from "@/constants/Sizes";
 import { useItem } from "@/hooks/queries";
-import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { useLocalSearchParams } from "expo-router";
 import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
-  useWindowDimensions,
 } from "react-native";
-import RenderHtml from "react-native-render-html";
+import { parse } from "parse5";
 
 export default function Article() {
-  const { width } = useWindowDimensions();
-  const colorText = useThemeColor({}, "text");
   const { articleId } = useLocalSearchParams();
   const { readItem } = useItem();
   const { data } = useLiveQuery(readItem(Number(articleId)));
+  const contentAst = parse(data?.description || "");
 
   return (
     <SafeAreaView>
@@ -27,11 +25,7 @@ export default function Article() {
           <ThemedView>
             <ThemedText type="title">{data?.title}</ThemedText>
           </ThemedView>
-          <RenderHtml
-            contentWidth={width - Spacing.size3 * 2}
-            source={{ html: `<html><body>${data?.description}</body></html>` }}
-            baseStyle={{ color: colorText }}
-          />
+          <HtmlViewer ast={contentAst} />
         </ScrollView>
       </ThemedView>
     </SafeAreaView>
