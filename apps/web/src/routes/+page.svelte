@@ -1,7 +1,5 @@
 <script lang="ts">
-	import testXML from '$lib/adam-argyle-rss.xml?url';
 	import { RSSFeed } from '$lib/core/processor';
-	import { onMount } from 'svelte';
 	import { MixtureMutation } from '$lib/core/mutations.svelte';
 	import KpiLink from '$lib/components/KpiLink.svelte';
 	import ListItemLink from '$lib/components/ListItemLink.svelte';
@@ -9,22 +7,21 @@
 
 	const mixtureMutation = new MixtureMutation();
 
-	onMount(() => {
-		const getTestArticles = async () => {
-			const url = "http://rachelandrew.co.uk/feed/"; 
-			const feed = await new RSSFeed().init(`https://corsproxy.io/?url=${url}`);
-			console.log("FEED", feed);
-			
-			mixtureMutation.createFeed(feed.feed, feed.publisher);
-		};
-		getTestArticles();
-	});
+	const getTestArticles = async () => {
+		console.log("Adding test articles...");
+		
+		const url = "http://rachelandrew.co.uk/feed/"; 
+		const feed = await new RSSFeed().init(url);
+		console.log("FEED", feed);
+		
+		mixtureMutation.createFeed(feed.feed, feed.publisher);
+	};
 </script>
 
 <div class="nc-stack -far main-stack">
 	<section class="nc-stack -near welcome">
 		<h1>Moin, Lukas</h1>
-		<p>Liebe ist tatsächlich ein Geschenk</p>
+		<p>Liebe ist tatsächlich ein Geschenk.</p>
 	</section>
 	<section class="two-grid">
 		<KpiLink
@@ -112,7 +109,7 @@
 	<section class="more nc-stack -base">
 		<h2>More</h2>
 		<div class="nc-stack -near actions">
-			<a href="/search" type="button" class="nc-button -muted">Add Feed</a>
+			<button onclick={getTestArticles} type="button" class="nc-button -muted">Add Channel</button>
 		</div>
 	</section>
 </div>
@@ -130,10 +127,6 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: var(--spacing-near);
-	}
-
-	.categories-list {
-		align-items: stretch;
 	}
 
 	.actions {

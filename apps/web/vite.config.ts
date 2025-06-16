@@ -11,7 +11,6 @@ export default defineConfig({
 	worker: {
 		format: 'es'
 	},
-	assetsInclude: ['**/*.xml'],
 	css: {
 		transformer: 'lightningcss',
 		lightningcss: {
