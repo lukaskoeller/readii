@@ -1,14 +1,13 @@
-import { type RequestHandler } from '@sveltejs/kit';
+import { error, type RequestHandler } from '@sveltejs/kit';
 
-export const GET: RequestHandler = (args) => {
-	const params = args.params
-	
-	console.log(params);
+export const GET: RequestHandler = async (args) => {
+	const { searchParams } = args.url;
+	const feedUrl = searchParams.get('url');
+	if (!feedUrl) {
+		error(400, 'Missing "url" query parameter');
+	}
+	const response = await fetch(feedUrl);
+	const feedText = await response.text();
 
-	// error(400, 'min and max must be numbers, and min must be less than max');
-	
-
-	return new Response(JSON.stringify({
-		body: params,
-	}));
+	return new Response(feedText);
 };
