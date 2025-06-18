@@ -1,4 +1,4 @@
-import type { TArticle } from '$lib/articles/mutations.svelte';
+import type { TMediaItem } from '$lib/mediaItems/mutations.svelte';
 import { db } from '$lib/db/index.svelte';
 import type { TPublisher } from '$lib/publishers/mutations.svelte';
 import { SQL_CREATE_TABLES } from './constants';
@@ -24,7 +24,7 @@ export class MixtureMutation {
 		return client;
 	}
 
-	async createFeed(articles: Omit<TArticle[], 'id'>, publisher: TPublisher) {
+	async createFeed(articles: Omit<TMediaItem[], 'id'>, publisher: TPublisher) {
 		const client = await this.getClient();
 		try {
 			const checkResult = await client.query<TPublisher>(

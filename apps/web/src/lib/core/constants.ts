@@ -11,9 +11,11 @@ CREATE TABLE IF NOT EXISTS articles (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
     content TEXT,
+    creator TEXT,
+    guid TEXT UNIQUE,
     url TEXT NOT NULL UNIQUE,
     author TEXT,
-    published_at TIMESTAMP,
+    pub_date TIMESTAMP,
     publisher_id INT,
     FOREIGN KEY (publisher_id) REFERENCES publishers(id)
 );

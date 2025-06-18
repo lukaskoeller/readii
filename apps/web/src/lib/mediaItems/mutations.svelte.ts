@@ -1,16 +1,19 @@
 import { SQL_CREATE_TABLES } from '$lib/core/constants';
 import { db } from '../db/index.svelte';
 
-export type TArticle = {
-	id: number;
-	title: string;
+export type TMediaItem = {
 	content: string;
+	creator: string;
+	guid: string;
+	id: number;
+	mediaThumbnail: string | null;
+	pubDate: string;
+	publisherId: number;
+	title: string;
 	url: string;
-	author: string;
-	publishedAt: string;
 };
 
-export class ArticlesMutation {
+export class MediaItemMutation {
 	constructor() {
 		this.getClient();
 	}

@@ -1,16 +1,16 @@
 <script lang="ts">
-	import type { TArticle } from '$lib/articles/mutations.svelte';
-	import { articlesQueries } from '$lib/articles/queries';
+	import type { TMediaItem } from '$lib/mediaItems/mutations.svelte';
+	import { mediaItemQueries } from '$lib/mediaItems/queries';
 	import { PGQuery } from '$lib/core/query.svelte';
 
-	const articlesQuery = new PGQuery<TArticle>(articlesQueries.all);
+	const articlesQuery = new PGQuery<TMediaItem>(mediaItemQueries.all);
 	const articles = $derived(articlesQuery.result);
 </script>
 
 <section class="nc-stack">
     <h1>Articles</h1>
     <div class="nc-stack -near articles">
-        {#each (articles.data?.rows ?? [] as TArticle[]) as article}
+        {#each (articles.data?.rows ?? [] as TMediaItem[]) as article}
             <a href={`/articles/${article.id}`} class="nc-card card">
                 <h2 class="heading">{article.title}</h2>
                 <div class="meta">

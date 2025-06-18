@@ -1,6 +1,6 @@
 import type { PGQueryArgs } from '$lib/core/query.svelte';
 
-export const articlesQueries = {
+export const mediaItemQueries = {
 	all: {
 		query: `SELECT * FROM articles;`,
 		params: null
