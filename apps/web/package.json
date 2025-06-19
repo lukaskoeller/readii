@@ -35,6 +35,7 @@
 	},
 	"dependencies": {
 		"@electric-sql/pglite": "^0.3.3",
-		"@nordcode/ui": "^1.3.2"
+		"@nordcode/ui": "^1.3.2",
+		"zod": "^3.25.65"
 	}
 }

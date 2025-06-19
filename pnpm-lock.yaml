@@ -192,6 +192,9 @@ importers:
       '@nordcode/ui':
         specifier: ^1.3.2
         version: 1.3.2
+      zod:
+        specifier: ^3.25.65
+        version: 3.25.65
     devDependencies:
       '@eslint/compat':
         specifier: ^1.2.5
