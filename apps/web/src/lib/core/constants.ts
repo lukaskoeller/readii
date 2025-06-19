@@ -7,15 +7,14 @@ CREATE TABLE IF NOT EXISTS publishers (
     icon_url TEXT
 );
 
-CREATE TABLE IF NOT EXISTS articles (
+CREATE TABLE IF NOT EXISTS media_items (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
     content TEXT,
     creator TEXT,
-    guid TEXT UNIQUE,
+    media_thumbnail TEXT,
     url TEXT NOT NULL UNIQUE,
-    author TEXT,
-    pub_date TIMESTAMP,
+    published_at TIMESTAMP,
     publisher_id INT,
     FOREIGN KEY (publisher_id) REFERENCES publishers(id)
 );

@@ -4,16 +4,28 @@
 	import KpiLink from '$lib/components/KpiLink.svelte';
 	import ListItemLink from '$lib/components/ListItemLink.svelte';
 	import ListCard from '$lib/components/ListCard.svelte';
+	import { mediaItemBaseSchema, type TMediaItemPayload } from '$lib/mediaItems/schema';
 
 	const mixtureMutation = new MixtureMutation();
 
 	const getTestArticles = async () => {
-		console.log("Adding test articles...");
-		
-		const url = "http://rachelandrew.co.uk/feed/"; 
+		console.log('Adding test articles...');
+
+		const url = 'http://rachelandrew.co.uk/feed/';
 		const feed = await new RSSFeed().init(url);
-		console.log("FEED", feed);
-		
+		console.log('FEED', feed);
+		const mediaItems = feed.feed.map((item): TMediaItemPayload | null => {
+			const payload = {
+				content: item.content,
+				title: item.title,
+				url: item.url,
+				creator: item.creator,
+				mediaThumbnail: item.mediaThumbnail,
+				publishedAt: item.publishedAt
+			}
+			const validation = mediaItemBaseSchema.safeParse(payload);
+			return validation.data ?? null;
+		});
 		mixtureMutation.createFeed(feed.feed, feed.publisher);
 	};
 </script>

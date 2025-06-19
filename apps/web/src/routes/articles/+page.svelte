@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { TMediaItem } from '$lib/mediaItems/mutations.svelte';
 	import { mediaItemQueries } from '$lib/mediaItems/queries';
 	import { PGQuery } from '$lib/core/query.svelte';
+	import type { TMediaItem } from '$lib/mediaItems/schema';
 
 	const articlesQuery = new PGQuery<TMediaItem>(mediaItemQueries.all);
 	const articles = $derived(articlesQuery.result);

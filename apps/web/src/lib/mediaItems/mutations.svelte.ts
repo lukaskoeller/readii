@@ -1,17 +1,6 @@
 import { SQL_CREATE_TABLES } from '$lib/core/constants';
 import { db } from '../db/index.svelte';
-
-export type TMediaItem = {
-	content: string;
-	creator: string;
-	guid: string;
-	id: number;
-	mediaThumbnail: string | null;
-	pubDate: string;
-	publisherId: number;
-	title: string;
-	url: string;
-};
+import type { TMediaItemPayload } from './schema';
 
 export class MediaItemMutation {
 	constructor() {
@@ -36,15 +25,15 @@ export class MediaItemMutation {
 		return client;
 	}
 
-	async create(article: { title: string; content: string; author: string }) {
+	async create(mediaItem: TMediaItemPayload) {
 		const client = await this.getClient();
 		try {
 			await client.exec(`
-				INSERT INTO articles (title, content, author)
-				VALUES ('${article.title}', '${article.content}', '${article.author}');
+				INSERT INTO media_items (title, content, creator)
+				VALUES ('${mediaItem.title}', '${mediaItem.content}', '${mediaItem.creator}');
 			`);
 		} catch (error) {
-			throw new Error(`Failed to create new article "${article.title}"`, { cause: error });
+			throw new Error(`Failed to create new article "${mediaItem.title}"`, { cause: error });
 		}
 	}
 

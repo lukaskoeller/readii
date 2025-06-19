@@ -147,17 +147,19 @@ export class RSSFeed {
 const MIN_CONTENT_LENGTH = 900;
 
 export class RSSItem {
-  title: string | null;
-  author: string | null;
-  url: string | null;
   content: string | null;
+  creator: string | null;
+  mediaThumbnail: string | null;
   publishedAt: string | null;
+  title: string | null;
+  url: string | null;
 
   constructor(node: Element, publisher: RSSFeed["publisher"]) {
     this.title = null;
     this.url = null;
     this.publishedAt = null;
-    this.author = publisher.name ?? null;
+    this.creator = publisher.name ?? null;
+    this.mediaThumbnail = null;
     /**
      * Unparsed HTML markup that holds the content of the article.
      */
@@ -174,9 +176,9 @@ export class RSSItem {
     const link = linkStr ? new URL(cleanFromCDATA(linkStr) as string) : null;
     if (link) this.url = link.href;
 
-    const articleAuthor: string | null =
+    const mediaItemCreator: string | null =
       node.getElementsByTagName("dc:creator")?.[0]?.textContent ?? null;
-    if (articleAuthor) this.author = cleanFromCDATA(articleAuthor) ?? null;
+    if (mediaItemCreator) this.creator = cleanFromCDATA(mediaItemCreator) ?? null;
 
     const content = node.querySelector("content")?.textContent;
     if (content && content.length > MIN_CONTENT_LENGTH)
