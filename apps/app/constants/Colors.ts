@@ -36,8 +36,8 @@ const tintColorDark = colors[4];
 export const Colors = {
   light: {
     primary: colorsPrimary.main,
-    text: colors[11],
-    text2: colors[9],
+    text: colors[12],
+    text2: colors[10],
     border: colors[3],
     background: colors[1],
     background2: colors[0],
