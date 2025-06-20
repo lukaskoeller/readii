@@ -4,42 +4,12 @@ import { ThemedView } from "./ThemedView";
 import { Alert, Linking, StyleProp, TextStyle, View } from "react-native";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
+import { H1_STYLE, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, H6_STYLE } from "@/constants/Styles";
+import { useTextColor } from "@/hooks/useTextColor";
 
-const BOLD_STYLE = { fontWeight: "bold" } as const;
+const BOLD_STYLE = { fontWeight: FontWeight.bold } as const;
 const ITALIC_STYLE = { fontStyle: "italic" } as const;
 const UNDERLINE_STYLE = { textDecorationLine: "underline" } as const;
-const H1_STYLE = {
-  fontSize: FontSize.size8,
-  fontWeight: FontWeight.bold,
-  marginBlock: Spacing.size3,
-} as const;
-const H2_STYLE = {
-  fontSize: FontSize.size7,
-  fontWeight: FontWeight.bold,
-  marginBlock: Spacing.size3,
-  paddingBlock: Spacing.size1,
-  lineHeight: FontSize.size7 * 1.3,
-} as const;
-const H3_STYLE = {
-  fontSize: FontSize.size6,
-  fontWeight: FontWeight.bold,
-  marginBlock: Spacing.size2,
-} as const;
-const H4_STYLE = {
-  fontSize: FontSize.size4,
-  fontWeight: FontWeight.bold,
-  marginBlock: Spacing.size2,
-} as const;
-const H5_STYLE = {
-  fontSize: FontSize.size3,
-  fontWeight: FontWeight.bold,
-  marginBlock: Spacing.size2,
-} as const;
-const H6_STYLE = {
-  fontSize: FontSize.size2,
-  fontWeight: FontWeight.bold,
-  marginBlock: Spacing.size2,
-} as const;
 
 export type HtmlViewerProps = {
   ast: any;
@@ -72,6 +42,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
   colors,
   inheritStyles,
 }) => {
+  const textColor = useTextColor(node.nodeName)
   const url = node.attributes?.href || "";
   const handlePress = useCallback(async () => {
     // Checking if the link is supported for links with custom URL scheme.
@@ -188,16 +159,9 @@ const RenderNode: FC<TRenderNodeProps> = ({
         <>
           {" "}
           <ThemedText
-            style={[
-              inheritStyles,
-              {
-                fontFamily: "monospace",
-                backgroundColor: colors.colorBackground2,
-                padding: 2,
-                borderRadius: Radius.size3,
-              },
-            ]}
+            style={inheritStyles}
             accessibilityLabel="code"
+            type="code"
           >
             {childNodes.map((child: any, i: number) => (
               <RenderNode
@@ -341,15 +305,16 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h1":
       return (
         <ThemedText
-          style={[inheritStyles, H1_STYLE]}
+          style={inheritStyles}
           accessibilityRole="header"
+          type="h1"
         >
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               colors={{ colorBackground2: colors.colorBackground2 }}
-              inheritStyles={H1_STYLE}
+              inheritStyles={{ ...H1_STYLE, color: textColor }}
             />
           ))}
         </ThemedText>
@@ -357,15 +322,16 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h2":
       return (
         <ThemedText
-          style={[inheritStyles, H2_STYLE]}
+          style={inheritStyles}
           accessibilityRole="header"
+          type="h2"
         >
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               colors={{ colorBackground2: colors.colorBackground2 }}
-              inheritStyles={H2_STYLE}
+              inheritStyles={{ ...H2_STYLE, color: textColor }}
             />
           ))}
         </ThemedText>
@@ -373,15 +339,16 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h3":
       return (
         <ThemedText
-          style={[inheritStyles, H3_STYLE]}
+          style={inheritStyles}
           accessibilityRole="header"
+          type="h3"
         >
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               colors={{ colorBackground2: colors.colorBackground2 }}
-              inheritStyles={H3_STYLE}
+              inheritStyles={{ ...H3_STYLE, color: textColor }}
             />
           ))}
         </ThemedText>
@@ -389,15 +356,16 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h4":
       return (
         <ThemedText
-          style={[inheritStyles, H4_STYLE]}
+          style={inheritStyles}
           accessibilityRole="header"
+          type="h4"
         >
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               colors={{ colorBackground2: colors.colorBackground2 }}
-              inheritStyles={H4_STYLE}
+              inheritStyles={{ ...H4_STYLE, color: textColor }}
             />
           ))}
         </ThemedText>
@@ -405,15 +373,16 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h5":
       return (
         <ThemedText
-          style={[inheritStyles, H5_STYLE]}
+          style={inheritStyles}
           accessibilityRole="header"
+          type="h5"
         >
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               colors={{ colorBackground2: colors.colorBackground2 }}
-              inheritStyles={H5_STYLE}
+              inheritStyles={{ ...H5_STYLE, color: textColor }}
             />
           ))}
         </ThemedText>
@@ -421,15 +390,16 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h6":
       return (
         <ThemedText
-          style={[inheritStyles, H6_STYLE]}
+          style={inheritStyles}
           accessibilityRole="header"
+          type="h6"
         >
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               colors={{ colorBackground2: colors.colorBackground2 }}
-              inheritStyles={H6_STYLE}
+              inheritStyles={{ ...H6_STYLE, color: textColor }}
             />
           ))}
         </ThemedText>
@@ -440,7 +410,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
         // If all children are inline, wrap in ThemedText for inline flow
         if (childNodes.every((c: any) => isInline(c.nodeName))) {
           return (
-            <ThemedText key={key} accessibilityRole="text">
+            <ThemedText accessibilityRole="text">
               {childNodes.map((child: any, i: number) => (
                 <RenderNode
                   node={child}
