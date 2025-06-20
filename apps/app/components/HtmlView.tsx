@@ -63,14 +63,12 @@ const isInline = (tag: string) =>
 
 type TRenderNodeProps = {
   node: any;
-  key: number;
   colors: { colorBackground2: string };
   inheritStyles?: StyleProp<TextStyle>;
 };
 
 const RenderNode: FC<TRenderNodeProps> = ({
   node,
-  key,
   colors,
   inheritStyles,
 }) => {
@@ -98,8 +96,10 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "p":
       return (
         <ThemedText
-          key={key}
-          style={[inheritStyles, { marginBlockEnd: Spacing.size3 }]}
+          style={[
+            inheritStyles,
+            { marginBlockEnd: Spacing.size3, fontSize: FontSize.size2 },
+          ]}
           accessibilityRole="text"
         >
           {childNodes.map((child: any, i: number) => (
@@ -116,7 +116,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
         <>
           {" "}
           <ThemedText
-            key={key}
             style={inheritStyles}
             accessibilityRole="link"
             onPress={handlePress}
@@ -137,7 +136,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
         <>
           {" "}
           <ThemedText
-            key={key}
             style={[inheritStyles, BOLD_STYLE]}
             accessibilityRole="text"
           >
@@ -156,7 +154,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "i":
       return (
         <ThemedText
-          key={key}
           style={[inheritStyles, ITALIC_STYLE]}
           accessibilityRole="text"
         >
@@ -173,7 +170,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "u":
       return (
         <ThemedText
-          key={key}
           style={[inheritStyles, UNDERLINE_STYLE]}
           accessibilityRole="text"
         >
@@ -192,7 +188,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
         <>
           {" "}
           <ThemedText
-            key={key}
             style={[
               inheritStyles,
               {
@@ -217,7 +212,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "q":
       return (
         <ThemedText
-          key={key}
           style={[inheritStyles, ITALIC_STYLE]}
           accessibilityLabel="quote"
         >
@@ -237,7 +231,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "pre":
       return (
         <ThemedText
-          key={key}
           style={[
             inheritStyles,
             {
@@ -262,7 +255,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "blockquote":
       return (
         <View
-          key={key}
           style={{
             borderLeftWidth: Spacing.size1,
             borderLeftColor: "#ccc",
@@ -285,7 +277,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "ul":
       return (
         <View
-          key={key}
           style={{ marginVertical: Spacing.size2 }}
           accessibilityRole="list"
         >
@@ -301,7 +292,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "ol":
       return (
         <View
-          key={key}
           style={{ marginVertical: Spacing.size2 }}
           accessibilityRole="list"
         >
@@ -324,7 +314,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "li":
       return (
         <ThemedText
-          key={key}
           style={[inheritStyles, { marginLeft: Spacing.size3 }]}
         >
           •{" "}
@@ -339,7 +328,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
       );
     case "div":
       return (
-        <ThemedView key={key}>
+        <ThemedView>
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
@@ -352,7 +341,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h1":
       return (
         <ThemedText
-          key={key}
           style={[inheritStyles, H1_STYLE]}
           accessibilityRole="header"
         >
@@ -369,7 +357,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h2":
       return (
         <ThemedText
-          key={key}
           style={[inheritStyles, H2_STYLE]}
           accessibilityRole="header"
         >
@@ -386,7 +373,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h3":
       return (
         <ThemedText
-          key={key}
           style={[inheritStyles, H3_STYLE]}
           accessibilityRole="header"
         >
@@ -403,7 +389,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h4":
       return (
         <ThemedText
-          key={key}
           style={[inheritStyles, H4_STYLE]}
           accessibilityRole="header"
         >
@@ -420,7 +405,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h5":
       return (
         <ThemedText
-          key={key}
           style={[inheritStyles, H5_STYLE]}
           accessibilityRole="header"
         >
@@ -437,7 +421,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "h6":
       return (
         <ThemedText
-          key={key}
           style={[inheritStyles, H6_STYLE]}
           accessibilityRole="header"
         >
