@@ -16,7 +16,7 @@ export const Spacing = {
     size13: 240,
     size14: 320,
     size15: 480,
-}
+} as const;
 
 export const Radius = {
     size1: 2,
@@ -25,7 +25,7 @@ export const Radius = {
     size4: 8,
     size5: 12,
     size6: 16,
-}
+} as const;
 
 const BASE_FONT_SIZE = 14;
 
@@ -40,7 +40,7 @@ export const FontSize = {
     size6: 1.9 * BASE_FONT_SIZE,
     size7: 2.0 * BASE_FONT_SIZE,
     size8: 2.3 * BASE_FONT_SIZE,
-}
+} as const;
 
 export const FontWeight = {
     normal: "400",
