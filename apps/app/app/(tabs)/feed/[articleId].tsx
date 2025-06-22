@@ -21,7 +21,6 @@ export default function Article() {
           <ThemedView
             style={{
               marginBlockEnd: Spacing.size8,
-              marginBlockStart: Spacing.size3,
             }}
           >
             <ThemedText type="h1">{data?.title}</ThemedText>
