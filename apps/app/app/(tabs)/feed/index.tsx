@@ -45,7 +45,7 @@ export default function TabTwoScreen() {
               )}
             </ThemedView>
             <View style={styles.desc}>
-              <ThemedText style={styles.title}>{item.title}</ThemedText>
+              <ThemedText color="text" style={styles.title}>{item.title}</ThemedText>
               <ThemedView style={styles.publisher}>
                 {item.channel.image?.url && (
                   <Image
