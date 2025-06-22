@@ -1,7 +1,7 @@
 import { TThemedTextType } from "@/components/ThemedText";
 import { useThemeColor } from "./useThemeColor";
 
-export const useTextColor = (type: TThemedTextType, color?: "text" | "text2") => {
+export const useTextColor = (type: TThemedTextType | string, color?: "text" | "text2") => {
   const colorText = useThemeColor({}, "text");
   const colorText2 = useThemeColor({}, "text2");
 
