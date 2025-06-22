@@ -33,17 +33,17 @@ const isInline = (tag: string) =>
 
 type TRenderNodeProps = {
   node: any;
-  colors: { colorBackground2: string };
   inheritStyles?: StyleProp<TextStyle>;
 };
 
 const RenderNode: FC<TRenderNodeProps> = ({
   node,
-  colors,
   inheritStyles,
 }) => {
+  const colorBackground2 = useThemeColor({}, "background2");
+  const colorPrimary = useThemeColor({}, "primary");
   const textColor = useTextColor(node.nodeName)
-  const url = node.attributes?.href || "";
+  const url = (node.attrs ?? []).find((attr) => attr.name === "href")?.value;
   const handlePress = useCallback(async () => {
     // Checking if the link is supported for links with custom URL scheme.
     const supported = await Linking.canOpenURL(url);
@@ -77,7 +77,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
             />
           ))}
         </ThemedText>
@@ -87,7 +86,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
         <>
           {" "}
           <ThemedText
-            style={inheritStyles}
+            style={[inheritStyles, BOLD_STYLE, { color: colorPrimary }]}
             accessibilityRole="link"
             onPress={handlePress}
           >
@@ -95,7 +94,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
               <RenderNode
                 node={child}
                 key={i}
-                colors={{ colorBackground2: colors.colorBackground2 }}
               />
             ))}
           </ThemedText>{" "}
@@ -114,7 +112,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
               <RenderNode
                 node={child}
                 key={i}
-                colors={{ colorBackground2: colors.colorBackground2 }}
                 inheritStyles={BOLD_STYLE}
               />
             ))}
@@ -132,7 +129,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
               inheritStyles={ITALIC_STYLE}
             />
           ))}
@@ -148,7 +144,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
               inheritStyles={UNDERLINE_STYLE}
             />
           ))}
@@ -167,7 +162,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
               <RenderNode
                 node={child}
                 key={i}
-                colors={{ colorBackground2: colors.colorBackground2 }}
               />
             ))}
           </ThemedText>{" "}
@@ -184,7 +178,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
             />
           ))}
           {'"'}
@@ -199,7 +192,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
             inheritStyles,
             {
               fontFamily: "monospace",
-              backgroundColor: colors.colorBackground2,
+              backgroundColor: colorBackground2,
               padding: Spacing.size2,
               borderRadius: Radius.size2,
               marginBlock: Spacing.size2,
@@ -211,7 +204,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
             />
           ))}
         </ThemedText>
@@ -232,7 +224,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
               <RenderNode
                 node={child}
                 key={i}
-                colors={{ colorBackground2: colors.colorBackground2 }}
               />
             ))}
           </ThemedText>
@@ -248,7 +239,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
             />
           ))}
         </View>
@@ -268,7 +258,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
                   <RenderNode
                     node={c}
                     key={j}
-                    colors={{ colorBackground2: colors.colorBackground2 }}
                   />
                 ))}
               </ThemedText>
@@ -285,7 +274,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
             />
           ))}
         </ThemedText>
@@ -297,7 +285,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
             />
           ))}
         </ThemedView>
@@ -313,7 +300,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
               inheritStyles={{ ...H1_STYLE, color: textColor }}
             />
           ))}
@@ -330,7 +316,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
               inheritStyles={{ ...H2_STYLE, color: textColor }}
             />
           ))}
@@ -347,7 +332,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
               inheritStyles={{ ...H3_STYLE, color: textColor }}
             />
           ))}
@@ -364,7 +348,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
               inheritStyles={{ ...H4_STYLE, color: textColor }}
             />
           ))}
@@ -381,7 +364,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
               inheritStyles={{ ...H5_STYLE, color: textColor }}
             />
           ))}
@@ -398,7 +380,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
               inheritStyles={{ ...H6_STYLE, color: textColor }}
             />
           ))}
@@ -415,7 +396,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
                 <RenderNode
                   node={child}
                   key={i}
-                  colors={{ colorBackground2: colors.colorBackground2 }}
                 />
               ))}
             </ThemedText>
@@ -425,7 +405,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
             <RenderNode
               node={child}
               key={i}
-              colors={{ colorBackground2: colors.colorBackground2 }}
             />
           ));
         }
@@ -436,14 +415,13 @@ const RenderNode: FC<TRenderNodeProps> = ({
 
 export const HtmlViewer: FC<HtmlViewerProps> = ({ ast }) => {
   // parse5 AST root is usually 'document', so render its children
-  const colorBackground2 = useThemeColor({}, "background2");
   if (!ast) return null;
   const { childNodes } = ast;
   return (
     <ThemedView>
       {Array.isArray(childNodes)
         ? childNodes.map((child: any, i: number) => (
-            <RenderNode node={child} key={i} colors={{ colorBackground2 }} />
+            <RenderNode node={child} key={i} />
           ))
         : null}
     </ThemedView>
