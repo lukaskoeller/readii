@@ -6,14 +6,11 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
 import { H1_STYLE, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, H6_STYLE } from "@/constants/Styles";
 import { useTextColor } from "@/hooks/useTextColor";
+import { DefaultTreeAdapterTypes } from "parse5";
 
 const BOLD_STYLE = { fontWeight: FontWeight.bold } as const;
 const ITALIC_STYLE = { fontStyle: "italic" } as const;
 const UNDERLINE_STYLE = { textDecorationLine: "underline" } as const;
-
-export type HtmlViewerProps = {
-  ast: any;
-};
 
 // Helper to check if a tag is inline
 const isInline = (tag: string) =>
@@ -32,7 +29,7 @@ const isInline = (tag: string) =>
   ].includes(tag);
 
 type TRenderNodeProps = {
-  node: any;
+  node: DefaultTreeAdapterTypes.ChildNode;
   inheritStyles?: StyleProp<TextStyle>;
 };
 
@@ -411,6 +408,10 @@ const RenderNode: FC<TRenderNodeProps> = ({
       }
       return null;
   }
+};
+
+export type HtmlViewerProps = {
+  ast: DefaultTreeAdapterTypes.Document;
 };
 
 export const HtmlViewer: FC<HtmlViewerProps> = ({ ast }) => {
