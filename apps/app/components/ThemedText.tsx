@@ -19,6 +19,7 @@ export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
   type?: TThemedTextType;
+  color?: "text" | "text2";
 };
 
 export function ThemedText({
@@ -26,9 +27,10 @@ export function ThemedText({
   lightColor,
   darkColor,
   type = "default",
+  color,
   ...rest
 }: ThemedTextProps) {
-  const color = useTextColor(type);
+  const textColor = useTextColor(type, color);
   const colorBackground2 = useThemeColor(
     { light: lightColor, dark: darkColor },
     "background2"
@@ -38,10 +40,10 @@ export function ThemedText({
   return (
     <Text
       style={[
-        { color },
+        { color: textColor },
         baseStyles,
-        style,
         type === "code" ? { backgroundColor: colorBackground2 } : {},
+        style,
       ]}
       {...rest}
     />
