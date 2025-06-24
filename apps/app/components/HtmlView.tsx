@@ -1,12 +1,27 @@
 import { FC, useCallback } from "react";
 import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
-import { Alert, Linking, StyleProp, TextStyle, View } from "react-native";
+import {
+  Alert,
+  Linking,
+  StyleProp,
+  StyleSheet,
+  TextStyle,
+  View,
+} from "react-native";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
-import { H1_STYLE, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, H6_STYLE } from "@/constants/Styles";
+import {
+  H1_STYLE,
+  H2_STYLE,
+  H3_STYLE,
+  H4_STYLE,
+  H5_STYLE,
+  H6_STYLE,
+} from "@/constants/Styles";
 import { useTextColor } from "@/hooks/useTextColor";
 import { DefaultTreeAdapterTypes } from "parse5";
+import { Image } from "expo-image";
 
 const BOLD_STYLE = { fontWeight: FontWeight.bold } as const;
 const ITALIC_STYLE = { fontStyle: "italic" } as const;
@@ -31,28 +46,26 @@ const isInline = (tag: string) =>
 type TRenderNodeProps = {
   node: DefaultTreeAdapterTypes.ChildNode;
   inheritStyles?: StyleProp<TextStyle>;
+  url: string | undefined;
 };
 
-const RenderNode: FC<TRenderNodeProps> = ({
-  node,
-  inheritStyles,
-}) => {
+const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
   const colorBackground2 = useThemeColor({}, "background2");
   const colorPrimary = useThemeColor({}, "primary");
-  const textColor = useTextColor(node.nodeName)
-  const url = (node.attrs ?? []).find((attr) => attr.name === "href")?.value;
+  const textColor = useTextColor(node.nodeName);
+  const href = (node.attrs ?? []).find((attr) => attr.name === "href")?.value;
   const handlePress = useCallback(async () => {
     // Checking if the link is supported for links with custom URL scheme.
-    const supported = await Linking.canOpenURL(url);
+    const supported = await Linking.canOpenURL(href);
 
     if (supported) {
       // Opening the link with some app, if the URL scheme is "http" the web link should be opened
       // by some browser in the mobile
-      await Linking.openURL(url);
+      await Linking.openURL(href);
     } else {
-      Alert.alert(`Don't know how to open this URL: ${url}`);
+      Alert.alert(`Don't know how to open this URL: ${href}`);
     }
-  }, [url]);
+  }, [href]);
 
   if (!node) return null;
   const { nodeName, value, childNodes = [] } = node;
@@ -71,10 +84,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
           accessibilityRole="text"
         >
           {childNodes.map((child: any, i: number) => (
-            <RenderNode
-              node={child}
-              key={i}
-            />
+            <RenderNode node={child} url={url} key={i} />
           ))}
         </ThemedText>
       );
@@ -88,10 +98,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
             onPress={handlePress}
           >
             {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                key={i}
-              />
+              <RenderNode node={child} url={url} key={i} />
             ))}
           </ThemedText>{" "}
         </>
@@ -106,11 +113,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
             accessibilityRole="text"
           >
             {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                key={i}
-                inheritStyles={BOLD_STYLE}
-              />
+              <RenderNode node={child} url={url} key={i} inheritStyles={BOLD_STYLE} />
             ))}
           </ThemedText>{" "}
         </>
@@ -123,11 +126,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
           accessibilityRole="text"
         >
           {childNodes.map((child: any, i: number) => (
-            <RenderNode
-              node={child}
-              key={i}
-              inheritStyles={ITALIC_STYLE}
-            />
+            <RenderNode node={child} url={url} key={i} inheritStyles={ITALIC_STYLE} />
           ))}
         </ThemedText>
       );
@@ -138,11 +137,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
           accessibilityRole="text"
         >
           {childNodes.map((child: any, i: number) => (
-            <RenderNode
-              node={child}
-              key={i}
-              inheritStyles={UNDERLINE_STYLE}
-            />
+            <RenderNode node={child} url={url} key={i} inheritStyles={UNDERLINE_STYLE} />
           ))}
         </ThemedText>
       );
@@ -156,10 +151,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
             type="code"
           >
             {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                key={i}
-              />
+              <RenderNode node={child} url={url} key={i} />
             ))}
           </ThemedText>{" "}
         </>
@@ -172,10 +164,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
         >
           {'"'}
           {childNodes.map((child: any, i: number) => (
-            <RenderNode
-              node={child}
-              key={i}
-            />
+            <RenderNode node={child} url={url} key={i} />
           ))}
           {'"'}
         </ThemedText>
@@ -198,10 +187,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
           accessibilityLabel="code block"
         >
           {childNodes.map((child: any, i: number) => (
-            <RenderNode
-              node={child}
-              key={i}
-            />
+            <RenderNode node={child} url={url} key={i} />
           ))}
         </ThemedText>
       );
@@ -218,10 +204,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
         >
           <ThemedText style={[inheritStyles, ITALIC_STYLE]}>
             {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                key={i}
-              />
+              <RenderNode node={child} url={url} key={i} />
             ))}
           </ThemedText>
         </View>
@@ -233,10 +216,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
           accessibilityRole="list"
         >
           {childNodes.map((child: any, i: number) => (
-            <RenderNode
-              node={child}
-              key={i}
-            />
+            <RenderNode node={child} url={url} key={i} />
           ))}
         </View>
       );
@@ -252,10 +232,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
               <ThemedText key={i}>
                 {i + 1}.{" "}
                 {child.childNodes.map((c: any, j: number) => (
-                  <RenderNode
-                    node={c}
-                    key={j}
-                  />
+                  <RenderNode node={c} url={url} key={j} />
                 ))}
               </ThemedText>
             ))}
@@ -263,15 +240,10 @@ const RenderNode: FC<TRenderNodeProps> = ({
       );
     case "li":
       return (
-        <ThemedText
-          style={[inheritStyles, { marginLeft: Spacing.size3 }]}
-        >
+        <ThemedText style={[inheritStyles, { marginLeft: Spacing.size3 }]}>
           •{" "}
           {childNodes.map((child: any, i: number) => (
-            <RenderNode
-              node={child}
-              key={i}
-            />
+            <RenderNode node={child} url={url} key={i} />
           ))}
         </ThemedText>
       );
@@ -279,108 +251,126 @@ const RenderNode: FC<TRenderNodeProps> = ({
       return (
         <ThemedView>
           {childNodes.map((child: any, i: number) => (
-            <RenderNode
-              node={child}
-              key={i}
-            />
+            <RenderNode node={child} url={url} key={i} />
           ))}
         </ThemedView>
       );
     case "h1":
       return (
-        <ThemedText
-          style={inheritStyles}
-          accessibilityRole="header"
-          type="h1"
-        >
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h1">
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               inheritStyles={{ ...H1_STYLE, color: textColor }}
+              url={url}
             />
           ))}
         </ThemedText>
       );
     case "h2":
       return (
-        <ThemedText
-          style={inheritStyles}
-          accessibilityRole="header"
-          type="h2"
-        >
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h2">
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               inheritStyles={{ ...H2_STYLE, color: textColor }}
+              url={url}
             />
           ))}
         </ThemedText>
       );
     case "h3":
       return (
-        <ThemedText
-          style={inheritStyles}
-          accessibilityRole="header"
-          type="h3"
-        >
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h3">
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               inheritStyles={{ ...H3_STYLE, color: textColor }}
+              url={url}
             />
           ))}
         </ThemedText>
       );
     case "h4":
       return (
-        <ThemedText
-          style={inheritStyles}
-          accessibilityRole="header"
-          type="h4"
-        >
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h4">
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               inheritStyles={{ ...H4_STYLE, color: textColor }}
+              url={url}
             />
           ))}
         </ThemedText>
       );
     case "h5":
       return (
-        <ThemedText
-          style={inheritStyles}
-          accessibilityRole="header"
-          type="h5"
-        >
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h5">
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               inheritStyles={{ ...H5_STYLE, color: textColor }}
+              url={url}
             />
           ))}
         </ThemedText>
       );
     case "h6":
       return (
-        <ThemedText
-          style={inheritStyles}
-          accessibilityRole="header"
-          type="h6"
-        >
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h6">
           {childNodes.map((child: any, i: number) => (
             <RenderNode
               node={child}
               key={i}
               inheritStyles={{ ...H6_STYLE, color: textColor }}
+              url={url}
             />
           ))}
         </ThemedText>
+      );
+    case "img":
+      const src = (node.attrs ?? []).find((attr) => attr.name === "src")?.value;
+      const altText =
+        (node.attrs ?? []).find((attr) => attr.name === "alt")?.value || "";
+      const imgWidth = (node.attrs ?? []).find(
+        (attr) => attr.name === "width"
+      )?.value;
+      const imgHeight = (node.attrs ?? []).find(
+        (attr) => attr.name === "height"
+      )?.value;
+      const aspectRatio = Number(imgWidth) && Number(imgHeight) ? Number(imgWidth) / Number(imgHeight) : undefined;
+      let mainSrc;
+
+      try {
+        if (src && src.startsWith("http")) {
+          mainSrc = src;
+        } else {
+          const newSrc = new URL(`${url}${src}`);
+          mainSrc = newSrc.toString();
+        }
+      } catch {
+        return null;
+      }
+
+      console.log({
+        mainSrc,
+        aspectRatio,
+      });
+
+      return (
+        <ThemedView>
+          <Image
+            style={[styles.image, { aspectRatio }]}
+            source={mainSrc}
+            alt={altText}
+            contentFit="cover"
+          />
+        </ThemedView>
       );
     default:
       // For unknown tags, just render children
@@ -390,19 +380,13 @@ const RenderNode: FC<TRenderNodeProps> = ({
           return (
             <ThemedText accessibilityRole="text">
               {childNodes.map((child: any, i: number) => (
-                <RenderNode
-                  node={child}
-                  key={i}
-                />
+                <RenderNode node={child} url={url} key={i} />
               ))}
             </ThemedText>
           );
         } else {
           return childNodes.map((child: any, i: number) => (
-            <RenderNode
-              node={child}
-              key={i}
-            />
+            <RenderNode node={child} url={url} key={i} />
           ));
         }
       }
@@ -410,11 +394,23 @@ const RenderNode: FC<TRenderNodeProps> = ({
   }
 };
 
+const styles = StyleSheet.create({
+  image: {
+    width: "100%",
+    flex: 1,
+    display: "flex",
+    marginBlock: Spacing.size3,
+    overflow: "hidden",
+    borderRadius: Radius.size2,
+  },
+});
+
 export type HtmlViewerProps = {
   ast: DefaultTreeAdapterTypes.Document;
+  url: string | undefined;
 };
 
-export const HtmlViewer: FC<HtmlViewerProps> = ({ ast }) => {
+export const HtmlViewer: FC<HtmlViewerProps> = ({ ast, url }) => {
   // parse5 AST root is usually 'document', so render its children
   if (!ast) return null;
   const { childNodes } = ast;
@@ -422,7 +418,7 @@ export const HtmlViewer: FC<HtmlViewerProps> = ({ ast }) => {
     <ThemedView>
       {Array.isArray(childNodes)
         ? childNodes.map((child: any, i: number) => (
-            <RenderNode node={child} key={i} />
+            <RenderNode node={child} url={url} key={i} />
           ))
         : null}
     </ThemedView>
