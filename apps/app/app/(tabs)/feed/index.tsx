@@ -121,9 +121,9 @@ const styles = StyleSheet.create({
     gap: Spacing.size1,
   },
   publisherThumbnail: {
-    width: Spacing.size4,
-    height: Spacing.size4,
-    borderRadius: Radius.size3,
+    width: Spacing.size3,
+    height: Spacing.size3,
+    borderRadius: Radius.size2,
   },
   publisherName: {
     fontWeight: FontWeight.medium,
