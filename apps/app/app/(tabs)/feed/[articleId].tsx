@@ -24,7 +24,7 @@ export default function Article() {
             }}
           >
             <ThemedText type="h1">{data?.title}</ThemedText>
-            <HtmlViewer ast={contentAst} />
+            <HtmlViewer ast={contentAst} url={data?.channel.link} />
           </ThemedView>
         </ScrollView>
       </ThemedView>
