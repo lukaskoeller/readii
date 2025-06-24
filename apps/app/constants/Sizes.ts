@@ -34,7 +34,7 @@ export const FontSize = {
     size0: 0.9 * BASE_FONT_SIZE,
     size1: 1.0 * BASE_FONT_SIZE,
     size2: 1.1 * BASE_FONT_SIZE,
-    size3: 1.25 * BASE_FONT_SIZE,
+    size3: 1.2 * BASE_FONT_SIZE,
     size4: 1.5 * BASE_FONT_SIZE,
     size5: 1.7 * BASE_FONT_SIZE,
     size6: 1.9 * BASE_FONT_SIZE,
