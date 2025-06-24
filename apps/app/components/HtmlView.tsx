@@ -1,4 +1,5 @@
 import { FC, useCallback } from "react";
+import { WebView } from "react-native-webview";
 import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 import {
@@ -10,7 +11,7 @@ import {
   View,
 } from "react-native";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
+import { FontWeight, Radius, Spacing } from "@/constants/Sizes";
 import {
   H1_STYLE,
   H2_STYLE,
@@ -76,13 +77,7 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
   switch (nodeName) {
     case "p":
       return (
-        <ThemedText
-          style={[
-            inheritStyles,
-            { marginBlockEnd: Spacing.size3, fontSize: FontSize.size2 },
-          ]}
-          accessibilityRole="text"
-        >
+        <ThemedText style={[inheritStyles]} accessibilityRole="text">
           {childNodes.map((child: any, i: number) => (
             <RenderNode node={child} url={url} key={i} />
           ))}
@@ -113,7 +108,12 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
             accessibilityRole="text"
           >
             {childNodes.map((child: any, i: number) => (
-              <RenderNode node={child} url={url} key={i} inheritStyles={BOLD_STYLE} />
+              <RenderNode
+                node={child}
+                url={url}
+                key={i}
+                inheritStyles={BOLD_STYLE}
+              />
             ))}
           </ThemedText>{" "}
         </>
@@ -126,7 +126,12 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
           accessibilityRole="text"
         >
           {childNodes.map((child: any, i: number) => (
-            <RenderNode node={child} url={url} key={i} inheritStyles={ITALIC_STYLE} />
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              inheritStyles={ITALIC_STYLE}
+            />
           ))}
         </ThemedText>
       );
@@ -137,7 +142,12 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
           accessibilityRole="text"
         >
           {childNodes.map((child: any, i: number) => (
-            <RenderNode node={child} url={url} key={i} inheritStyles={UNDERLINE_STYLE} />
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              inheritStyles={UNDERLINE_STYLE}
+            />
           ))}
         </ThemedText>
       );
@@ -343,7 +353,10 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
       const imgHeight = (node.attrs ?? []).find(
         (attr) => attr.name === "height"
       )?.value;
-      const aspectRatio = Number(imgWidth) && Number(imgHeight) ? Number(imgWidth) / Number(imgHeight) : undefined;
+      const aspectRatio =
+        Number(imgWidth) && Number(imgHeight)
+          ? Number(imgWidth) / Number(imgHeight)
+          : undefined;
       let mainSrc;
 
       try {
@@ -357,11 +370,6 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
         return null;
       }
 
-      console.log({
-        mainSrc,
-        aspectRatio,
-      });
-
       return (
         <ThemedView>
           <Image
@@ -372,6 +380,21 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
           />
         </ThemedView>
       );
+    case "iframe":
+      const iframeSrc = (node.attrs ?? []).find(
+        (attr) => attr.name === "src"
+      )?.value;
+      if (iframeSrc) {
+        return (
+          <ThemedView>
+            <WebView
+              style={[styles.webview, { backgroundColor: colorBackground2 }]}
+              source={{ uri: iframeSrc }}
+            />
+          </ThemedView>
+        );
+      }
+      return null;
     default:
       // For unknown tags, just render children
       if (Array.isArray(childNodes)) {
@@ -399,9 +422,14 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     display: "flex",
-    marginBlock: Spacing.size3,
+    marginBlock: Spacing.size2,
     overflow: "hidden",
     borderRadius: Radius.size2,
+  },
+  webview: {
+    marginBlock: Spacing.size2,
+    width: "100%",
+    aspectRatio: 8 / 5,
   },
 });
 
