@@ -42,6 +42,21 @@ export const FontSize = {
     size8: 2.3 * BASE_FONT_SIZE,
 } as const;
 
+const BASE_LINE_HEIGHT = 1.3;
+
+export const LineHeight = {
+    size00: FontSize.size00 * BASE_LINE_HEIGHT,
+    size0: FontSize.size0 * BASE_LINE_HEIGHT,
+    size1: FontSize.size1 * BASE_LINE_HEIGHT,
+    size2: FontSize.size2 * BASE_LINE_HEIGHT,
+    size3: FontSize.size3 * 1.5,
+    size4: FontSize.size4 * BASE_LINE_HEIGHT,
+    size5: FontSize.size5 * BASE_LINE_HEIGHT,
+    size6: FontSize.size6 * BASE_LINE_HEIGHT,
+    size7: FontSize.size7 * BASE_LINE_HEIGHT,
+    size8: FontSize.size8 * BASE_LINE_HEIGHT,
+} as const;
+
 export const FontWeight = {
     normal: "400",
     medium: "500",
