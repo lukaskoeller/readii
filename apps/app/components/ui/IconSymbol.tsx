@@ -22,6 +22,7 @@ const MAPPING = {
   'app.badge': 'mark-chat-unread',
   'star': 'star-border',
   'clock.badge': 'access-time',
+  'photo': 'photo',
 } as IconMapping;
 
 /**
