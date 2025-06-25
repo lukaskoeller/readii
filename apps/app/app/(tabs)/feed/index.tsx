@@ -8,6 +8,9 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
+import { getPreviewText } from "@/core/utils";
+import { parse } from "parse5";
+import { IconSymbol } from "@/components/ui/IconSymbol";
 
 const blurhash =
   "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
@@ -16,56 +19,73 @@ export default function TabTwoScreen() {
   const { readItems } = useItem();
   const { data } = useLiveQuery(readItems());
   const router = useRouter();
-  const colorBackground2 = useThemeColor({}, "background2");
+  const colorBackground3 = useThemeColor({}, "background3");
   const colorText2 = useThemeColor({}, "text2");
 
   return (
     <FlatList
       style={styles.list}
       data={data}
-      renderItem={({ item }) => (
-        <Pressable onPress={() => router.navigate(`/feed/${item.id}`)}>
-          <ThemedView style={styles.item}>
-            <ThemedView>
-              {item.media_thumbnail ? (
-                <Image
-                  style={styles.thumbnail}
-                  source={item.media_thumbnail}
-                  placeholder={{ blurhash  }}
-                  contentFit="cover"
-                  transition={500}
-                />
-              ) : (
-                <ThemedView
-                  style={{
-                    ...styles.thumbnail,
-                    backgroundColor: colorBackground2,
-                  }}
-                ></ThemedView>
-              )}
-            </ThemedView>
-            <View style={styles.desc}>
-              <ThemedText color="text" style={styles.title}>{item.title}</ThemedText>
-              <ThemedView style={styles.publisher}>
-                {item.channel.image?.url && (
+      renderItem={({ item }) => {
+        const contentAst = parse(item?.description || "");
+        const previewText = getPreviewText(contentAst);
+        return (
+          <Pressable onPress={() => router.navigate(`/feed/${item.id}`)}>
+            <ThemedView style={styles.item}>
+              <ThemedView>
+                {item.media_thumbnail ? (
                   <Image
-                    style={styles.publisherThumbnail}
-                    source={item.channel.image?.url}
+                    style={styles.thumbnail}
+                    source={item.media_thumbnail}
+                    placeholder={{ blurhash }}
                     contentFit="cover"
-                    transition={1000}
+                    transition={500}
                   />
+                ) : (
+                  <ThemedView
+                    style={[
+                      styles.thumbnail,
+                      {
+                        backgroundColor: colorBackground3,
+                      },
+                    ]}
+                  >
+                    <IconSymbol
+                      size={Spacing.size5}
+                      name="photo"
+                      color={colorText2}
+                    />
+                  </ThemedView>
                 )}
-                <Text style={{ ...styles.publisherName, color: colorText2 }}>
-                  {item.channel.title}
-                </Text>
               </ThemedView>
-              <ThemedText style={{ ...styles.text, color: colorText2 }}>
-                {item.pub_date}
-              </ThemedText>
-            </View>
-          </ThemedView>
-        </Pressable>
-      )}
+              <View style={styles.desc}>
+                <ThemedText color="text" style={styles.title}>
+                  {item.title}
+                </ThemedText>
+                <ThemedView style={styles.publisher}>
+                  {item.channel.image?.url && (
+                    <Image
+                      style={styles.publisherThumbnail}
+                      source={item.channel.image?.url}
+                      contentFit="cover"
+                      transition={1000}
+                    />
+                  )}
+                  <Text style={{ ...styles.publisherName, color: colorText2 }}>
+                    {item.channel.title}
+                  </Text>
+                </ThemedView>
+                <ThemedText
+                  numberOfLines={5}
+                  style={{ ...styles.text, color: colorText2 }}
+                >
+                  {previewText}
+                </ThemedText>
+              </View>
+            </ThemedView>
+          </Pressable>
+        );
+      }}
       keyExtractor={(item) => String(item.id)}
     />
   );
@@ -92,8 +112,7 @@ const styles = StyleSheet.create({
     marginBlockEnd: Spacing.size2,
   },
   text: {
-    fontSize: FontSize.size3,
-    marginBlockStart: Spacing.size2,
+    lineHeight: FontSize.size3 * 1.3,
   },
   header: {
     marginBlockStart: Spacing.size4,
@@ -105,6 +124,9 @@ const styles = StyleSheet.create({
     height: Spacing.size9,
     borderRadius: Radius.size3,
     marginBlockStart: Spacing.size1,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   meta: {
     display: "flex",
