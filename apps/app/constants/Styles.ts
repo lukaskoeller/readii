@@ -1,4 +1,4 @@
-import { FontSize, FontWeight, Spacing } from "./Sizes";
+import { FontSize, FontWeight, LineHeight, Spacing } from "./Sizes";
 
 export const H1_STYLE = {
   fontSize: FontSize.size8,
@@ -36,7 +36,7 @@ export const H6_STYLE = {
   marginBlock: Spacing.size2,
 } as const;
 export const TEXT_DEFAULT_STYLE = {
-  fontSize: 14*1.2,
-  lineHeight: FontSize.size3 * 1.5,
+  fontSize: FontSize.size3,
+  lineHeight: LineHeight.size3,
   marginBlock: Spacing.size2,
 } as const;
