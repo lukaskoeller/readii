@@ -3,7 +3,7 @@ import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
-import { useItem } from "@/hooks/queries";
+import { useMediaItem } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Image } from "expo-image";
@@ -16,7 +16,7 @@ const blurhash =
   "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
 
 export default function TabTwoScreen() {
-  const { readItems } = useItem();
+  const { readItems } = useMediaItem();
   const { data } = useLiveQuery(readItems());
   const router = useRouter();
   const colorBackground3 = useThemeColor({}, "background3");
@@ -27,16 +27,16 @@ export default function TabTwoScreen() {
       style={styles.list}
       data={data}
       renderItem={({ item }) => {
-        const contentAst = parse(item?.description || "");
+        const contentAst = parse(item?.content || "");
         const previewText = getPreviewText(contentAst);
         return (
           <Pressable onPress={() => router.navigate(`/feed/${item.id}`)}>
             <ThemedView style={styles.item}>
               <ThemedView>
-                {item.media_thumbnail ? (
+                {item.thumbnail ? (
                   <Image
                     style={styles.thumbnail}
-                    source={item.media_thumbnail}
+                    source={item.thumbnail}
                     placeholder={{ blurhash }}
                     contentFit="cover"
                     transition={500}
@@ -63,16 +63,16 @@ export default function TabTwoScreen() {
                   {item.title}
                 </ThemedText>
                 <ThemedView style={styles.publisher}>
-                  {item.channel.image?.url && (
+                  {item.mediaSource.icon?.url && (
                     <Image
                       style={styles.publisherThumbnail}
-                      source={item.channel.image?.url}
+                      source={item.mediaSource.icon?.url}
                       contentFit="cover"
                       transition={1000}
                     />
                   )}
                   <Text style={{ ...styles.publisherName, color: colorText2 }}>
-                    {item.channel.title}
+                    {item.mediaSource.name}
                   </Text>
                 </ThemedView>
                 <ThemedText

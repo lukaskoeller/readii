@@ -51,42 +51,39 @@ export default function HomeScreen() {
             ignoreAttributes: false,
           });
           const feedObj = parser.parse(feed);
-          const channel = feedObj.rss.channel;
-          console.log("CHANNEL", channel);
+          const mediaSource = feedObj.rss.channel;
+          console.log("MEDIA_SOURCE", mediaSource);
 
-          if (!channel || !Array.isArray(channel.item)) {
+          if (!mediaSource || !Array.isArray(mediaSource.item)) {
             console.error("Invalid feed structure");
             return;
           }
           try {
             const args = {
-              channelImage: {
-                title: channel.image.title ?? channel.webMaster ?? channel.title,
-                link: channel.image.link ?? channel.link,
-                url: channel.image.url ?? null,
+              mediaSourceIcon: {
+                title: mediaSource.image.title ?? mediaSource.webMaster ?? mediaSource.title,
+                url: mediaSource.image.url, // @todo: Fetch favicon as fallback
               },
-              channel: {
-                title: channel.title,
-                link: channel.link,
-                description: channel.description,
-                atom_link: channel["atom:link"]["@_href"] ?? null,
-                copyright: channel.copyright ?? null,
-                generator: channel.generator ?? null,
-                last_build_date: channel.lastBuildDate ?? null,
-                icon: channel.icon ?? null,
-                logo: channel.logo ?? null,
-                language: channel.language ?? null,
-                web_master: channel.webMaster ?? null,
+              mediaSource: {
+                name: mediaSource.title,
+                description: mediaSource.description,
+                url: mediaSource.link,
+                feedUrl: mediaSource["atom:link"]["@_href"] ?? null,
+                logoUrl: mediaSource.logo ?? null,
+                lastBuildAt: mediaSource.lastBuildDate ?? null,
+                lastFetchedAt: new Date().toISOString(),
+                language: mediaSource.language ?? null,
+                generator: mediaSource.generator ?? null,
               },
-              items: channel.item.map((item: any) => ({
+              mediaItems: mediaSource.item.map((item: any) => ({
                 title: item.title,
-                link: item.link,
-                description: item.description ?? null,
-                guid: item.guid["#text"],
-                dc_creator: item["dc:creator"] ?? null,
-                pub_date: item.pubDate ?? null,
+                url: item.link,
+                type: "text",
+                content: item.description ?? null,
+                creator: item["dc:creator"] ?? null,
+                publishedAt: item.pubDate ?? null,
                 enclosure: item.enclosure?.["@_url"] ?? null,
-                media_thumbnail: item["media:thumbnail"]?.["@_url"] ?? null,
+                thumbnail: item["media:thumbnail"]?.["@_url"] ?? null,
               })),
             };
             

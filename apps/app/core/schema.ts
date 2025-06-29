@@ -6,71 +6,70 @@ import {
   text,
 } from "drizzle-orm/sqlite-core";
 
-// Channel table
-export const channel = sqliteTable("Channel", {
+// Media Source table
+export const mediaSource = sqliteTable("media_source", {
   id: integer("id").primaryKey({ autoIncrement: true }),
-  title: text("title").notNull(),
+  name: text("name").notNull(),
   description: text("description"),
-  link: text("link").notNull().unique(),
-  generator: text("generator"),
-  last_build_date: text("last_build_date"),
-  atom_link: text("atom_link"),
-  copyright: text("copyright"),
+  url: text("url").notNull(),
+  feedUrl: text("feed_url").unique().notNull(),
+  logoUrl: text("logo"),
+  lastBuildAt: text("last_build_at"),
+  lastFetchedAt: text("last_fetched_at").notNull(),
   language: text("language"),
-  web_master: text("web_master"),
-  ttl: integer("ttl"),
-  icon: text("icon"),
-  logo: text("logo"),
+  generator: text("generator"),
+  // categories
 });
 
-export const channelRelations = relations(channel, ({ one, many }) => ({
-  image: one(channelImage),
-  items: many(item),
+export const mediaSourceRelations = relations(mediaSource, ({ one, many }) => ({
+  icon: one(mediaSourceIcon),
+  items: many(mediaItem),
 }));
 
-export type TChannel = typeof channel.$inferInsert;
+export type TMediaSource = typeof mediaSource.$inferInsert;
 
-// ChannelImage table
-export const channelImage = sqliteTable("ChannelImage", {
+// Media Source Icon table
+export const mediaSourceIcon = sqliteTable("media_source_icon", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   url: text("url").notNull(),
   title: text("title").notNull(),
-  link: text("link").notNull(),
-  channel_id: integer("channel_id").references(() => channel.id),
+  mediaSourceId: integer("media_source_id").references(() => mediaSource.id),
 });
 
-export const channelImageRelations = relations(channelImage, ({ one }) => ({
-  channel: one(channel, {
-    fields: [channelImage.channel_id],
-    references: [channel.id],
+export const mediaSourceIconRelations = relations(mediaSourceIcon, ({ one }) => ({
+  mediaSource: one(mediaSource, {
+    fields: [mediaSourceIcon.mediaSourceId],
+    references: [mediaSource.id],
   }),
 }));
 
-export type TChannelImage = typeof channelImage.$inferInsert;
+export type TMediaSourceIcon = typeof mediaSourceIcon.$inferInsert;
 
-// Item table
-export const item = sqliteTable("Item", {
+// Media Item table
+export const mediaItem = sqliteTable("media_item", {
   id: integer("id").primaryKey({ autoIncrement: true }),
-  channel_id: integer("channel_id")
+  mediaSourceId: integer("media_source_id")
     .notNull()
-    .references(() => channel.id),
+    .references(() => mediaSource.id),
   title: text("title").notNull(),
-  description: text("description"),
-  link: text("link").notNull(),
-  guid: text("guid").notNull().unique(),
-  dc_creator: text("dc_creator"),
-  pub_date: text("pub_date"),
+  type: text("type", { enum: ["text", "audio", "video"] }).notNull(),
+  content: text("content").notNull(),
+  contentSnippet: text("content_snippet"),
+  contentTldr: text("content_tldr"),
+  url: text("url").notNull(),
+  creator: text("creator"),
+  publishedAt: text("published_at").notNull(),
+  thumbnail: text("thumbnail"),
   enclosure: text("enclosure"),
-  media_thumbnail: text("media_thumbnail"),
 });
 
-export type TItem = typeof item.$inferInsert;
+export type TMediaItem = typeof mediaItem.$inferInsert;
 
-export const itemRelations = relations(item, ({ many, one }) => ({
-  usersToGroups: many(itemToCategory),
-  channel: one(channel, {
-    fields: [item.channel_id],
-    references: [channel.id],
+export const mediaItemsRelations = relations(mediaItem, ({ many, one }) => ({
+  categories: many(mediaItemsToCategories),
+  mediaSource: one(mediaSource, {
+    fields: [mediaItem.mediaSourceId],
+    references: [mediaSource.id],
   }),
 }));
 
@@ -83,18 +82,18 @@ export const category = sqliteTable("Category", {
 export type TCategory = typeof category.$inferInsert;
 
 export const categoryRelations = relations(category, ({ many }) => ({
-  usersToGroups: many(itemToCategory),
+  mediaItems: many(mediaItemsToCategories),
 }));
 
-export const itemToCategory = sqliteTable(
-  "item_to_category",
+export const mediaItemsToCategories = sqliteTable(
+  "media_items_to_categories",
   {
-    itemId: integer("item_id")
+    mediaItemId: integer("media_item_id")
       .notNull()
-      .references(() => item.id),
+      .references(() => mediaItem.id),
     categoryId: integer("category_id")
       .notNull()
       .references(() => category.id),
   },
-  (t) => [primaryKey({ columns: [t.itemId, t.categoryId] })]
+  (t) => [primaryKey({ columns: [t.mediaItemId, t.categoryId] })]
 );

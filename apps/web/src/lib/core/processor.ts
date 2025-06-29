@@ -68,7 +68,7 @@ export class RSSFeed {
     let rawFeed: Element[] = [];
 
     const rawXML = await fetch(
-      `/api/channel?url=${encodeURIComponent(rssUrl)}`
+      `/api/media-source?url=${encodeURIComponent(rssUrl)}`
     ).then((res) => res.text());
     const domRSS = new DOMParser().parseFromString(rawXML, "text/xml");
 

@@ -2,41 +2,39 @@ import * as schema from "@/core/schema";
 import { drizzle } from "drizzle-orm/expo-sqlite";
 import { useSQLiteContext } from "expo-sqlite";
 
-export type TCreateChannelArgs = {
-  channelImage: schema.TChannelImage;
-  channel: schema.TChannel;
-  items: schema.TItem[];
+export type TCreateMediaSourceArgs = {
+  mediaSourceIcon: schema.TMediaSourceIcon;
+  mediaSource: schema.TMediaSource;
+  mediaItems: schema.TMediaItem[];
 };
 
 export const useFeed = () => {
   const db = useSQLiteContext();
-  console.log(db.databasePath);
+  console.log("DB PATH", db.databasePath); // For Debugging Database
   const drizzleDb = drizzle(db, { schema });
 
   const createFeed = async ({
-    channelImage: channelImageArgs,
-    channel: channelArgs,
-    items: itemsArgs,
-  }: TCreateChannelArgs) => {
-    const channel = await drizzleDb.insert(schema.channel).values(channelArgs);
-    const channelId = channel.lastInsertRowId;
+    mediaSourceIcon: mediaSourceIconArgs,
+    mediaSource: mediaSourceArgs,
+    mediaItems: mediaItemsArgs,
+  }: TCreateMediaSourceArgs) => {
+    const mediaSource = await drizzleDb.insert(schema.mediaSource).values(mediaSourceArgs);
+    const mediaSourceId = mediaSource.lastInsertRowId;
 
-    const itemsInsertList = itemsArgs.map(async (itemArg) => {
-        return drizzleDb.insert(schema.item).values({
+    const itemsInsertList = mediaItemsArgs.map(async (itemArg) => {
+        return drizzleDb.insert(schema.mediaItem).values({
           ...itemArg,
-          channel_id: channelId,
+          mediaSourceId: mediaSourceId,
         });
       })
-    const channelImageInsert = drizzleDb
-      .insert(schema.channelImage)
-      .values({ ...channelImageArgs, channel_id: channelId })
+    const mediaSourceImageInsert = drizzleDb
+      .insert(schema.mediaSourceIcon)
+      .values({ ...mediaSourceIconArgs, mediaSourceId: mediaSourceId })
 
     await Promise.all([
       ...itemsInsertList,
-      channelImageInsert,
+      mediaSourceImageInsert,
     ]);
-    console.log("Finished");
-    
   };
 
   return {
@@ -44,31 +42,31 @@ export const useFeed = () => {
   };
 };
 
-// const readChannelQuery = drizzleDb.query.channel.findMany({
+// const readMediaSourceQuery = drizzleDb.query.mediaSource.findMany({
 //     with: {
 //       image: true,
 //     }
 //   })
 
-export const useItem = () => {
+export const useMediaItem = () => {
   const db = useSQLiteContext();
   const drizzleDb = drizzle(db, { schema });
 
-  const readItems = () => drizzleDb.query.item.findMany({
+  const readMediaItems = () => drizzleDb.query.mediaItem.findMany({
     with: {
-      channel: {
+      mediaSource: {
         with: {
-          image: true,
+          icon: true,
         },
       },
     },
   });
 
-  const readItem = (id: NonNullable<schema.TItem["id"]>) => drizzleDb.query.item.findFirst({
+  const readItem = (id: NonNullable<schema.TMediaItem["id"]>) => drizzleDb.query.mediaItem.findFirst({
     with: {
-      channel: {
+      mediaSource: {
         with: {
-          image: true,
+          icon: true,
         },
       },
     },
@@ -76,7 +74,7 @@ export const useItem = () => {
   });
 
   return {
-    readItems,
+    readItems: readMediaItems,
     readItem,
   };
 }
