@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: FontWeight.bold,
     fontSize: FontSize.size3,
-    marginBlockEnd: Spacing.size2,
+    marginBlockEnd: Spacing.size1,
   },
   text: {
     lineHeight: FontSize.size3 * 1.3,
@@ -141,6 +141,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: Spacing.size1,
+    marginBlockEnd: Spacing.size2,
   },
   publisherThumbnail: {
     width: Spacing.size4,
