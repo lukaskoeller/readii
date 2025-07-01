@@ -112,14 +112,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     display: "flex",
     flexWrap: "wrap",
-    gap: Spacing.size3,
+    gap: Spacing.size4,
   },
   card: {
     display: "flex",
     flexDirection: "column",
-    gap: Spacing.size2,
+    gap: Spacing.size3,
     flexGrow: 1,
-    width: "47%", // Adjust width to fit two cards per row incl. gap
+    width: 160 - Spacing.size2, // Adjust width to fit two cards per row incl. gap
   },
   header: {
     display: "flex",

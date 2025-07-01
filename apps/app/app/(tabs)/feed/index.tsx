@@ -93,13 +93,13 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   list: {
-    padding: Spacing.size3,
+    padding: Spacing.size4,
   },
   item: {
     display: "flex",
     flexDirection: "row",
-    gap: Spacing.size3,
-    paddingBlock: Spacing.size3,
+    gap: Spacing.size4,
+    paddingBlock: Spacing.size4,
   },
   desc: {
     flex: 1,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    gap: Spacing.size3,
+    gap: Spacing.size4,
     marginBlockEnd: Spacing.size2,
   },
   publisher: {
@@ -143,8 +143,8 @@ const styles = StyleSheet.create({
     gap: Spacing.size1,
   },
   publisherThumbnail: {
-    width: Spacing.size3,
-    height: Spacing.size3,
+    width: Spacing.size4,
+    height: Spacing.size4,
     borderRadius: Radius.size2,
   },
   publisherName: {

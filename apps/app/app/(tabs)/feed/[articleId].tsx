@@ -18,7 +18,7 @@ export default function Article() {
   return (
     <SafeAreaView>
       <ThemedView style={styles.flow}>
-        <ScrollView style={{ padding: Spacing.size3 }}>
+        <ScrollView style={{ padding: Spacing.size4 }}>
           <ThemedView
             style={{
               marginBlockEnd: Spacing.size8,
@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
   flow: {
     display: "flex",
     flexDirection: "column",
-    gap: Spacing.size3,
+    gap: Spacing.size4,
   },
 });

@@ -22,7 +22,7 @@ export const H3_STYLE = {
 export const H4_STYLE = {
   fontSize: FontSize.size4,
   fontWeight: FontWeight.bold,
-  marginBlockStart: Spacing.size3,
+  marginBlockStart: Spacing.size4,
   marginBlockEnd: Spacing.size2,
 } as const;
 export const H5_STYLE = {

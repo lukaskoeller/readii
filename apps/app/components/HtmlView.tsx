@@ -245,7 +245,7 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
       );
     case "li":
       return (
-        <ThemedText style={[inheritStyles, { marginLeft: Spacing.size3 }]}>
+        <ThemedText style={[inheritStyles, { marginLeft: Spacing.size4 }]}>
           •{" "}
           {childNodes.map((child: any, i: number) => (
             <RenderNode node={child} url={url} key={i} />
