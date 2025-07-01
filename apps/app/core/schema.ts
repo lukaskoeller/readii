@@ -58,9 +58,12 @@ export const mediaItem = sqliteTable("media_item", {
   contentTldr: text("content_tldr"),
   url: text("url").notNull(),
   creator: text("creator"),
-  publishedAt: text("published_at").notNull(),
+  publishedAt: text("published_at", {  }).notNull(),
   thumbnail: text("thumbnail"),
   enclosure: text("enclosure"),
+  isStarred: integer("is_starred", { mode: "boolean" }).default(false),
+  isRead: integer("is_read", { mode: "boolean" }).default(false),
+  isReadLater: integer("is_read_later", { mode: "boolean" }).default(false),
 });
 
 export type TMediaItem = typeof mediaItem.$inferInsert;
