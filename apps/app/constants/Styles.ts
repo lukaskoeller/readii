@@ -38,5 +38,4 @@ export const H6_STYLE = {
 export const TEXT_DEFAULT_STYLE = {
   fontSize: FontSize.size3,
   lineHeight: LineHeight.size3,
-  marginBlock: Spacing.size2,
 } as const;

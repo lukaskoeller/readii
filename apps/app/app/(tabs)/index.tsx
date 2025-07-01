@@ -2,7 +2,7 @@ import { Card } from "@/components/Card";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
-import { Spacing } from "@/constants/Sizes";
+import { FontSize, FontWeight, Spacing } from "@/constants/Sizes";
 import { getFeed } from "@/core/data";
 import { useFeed } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
@@ -18,19 +18,25 @@ export default function HomeScreen() {
     <SafeAreaView>
       <ThemedView style={styles.kpis} padding={16}>
         <Card style={styles.card}>
-          <IconSymbol size={28} name="app.badge" color={colorText2} />
-          <ThemedText>7</ThemedText>
+          <ThemedView style={styles.header}>
+            <IconSymbol size={28} name="app.badge" color={colorText2} />
+            <ThemedText style={{ fontWeight: FontWeight.bold, fontSize: FontSize.size4 }}>7</ThemedText>
+          </ThemedView>
           <ThemedText>Unread</ThemedText>
         </Card>
         <Card style={styles.card}>
-          <IconSymbol size={28} name="star" color={colorText2} />
-          <ThemedText>7</ThemedText>
-          <ThemedText>Unread</ThemedText>
+          <ThemedView style={styles.header}>
+            <IconSymbol size={28} name="star" color={colorText2} />
+            <ThemedText style={{ fontWeight: FontWeight.bold, fontSize: FontSize.size4 }}>24</ThemedText>
+          </ThemedView>
+          <ThemedText>Starred</ThemedText>
         </Card>
         <Card style={styles.card}>
-          <IconSymbol size={28} name="clock.badge" color={colorText2} />
-          <ThemedText>7</ThemedText>
-          <ThemedText>Unread</ThemedText>
+          <ThemedView style={styles.header}>
+            <IconSymbol size={28} name="clock.badge" color={colorText2} />
+            <ThemedText style={{ fontWeight: FontWeight.bold, fontSize: FontSize.size4 }}>4</ThemedText>
+          </ThemedView>
+          <ThemedText>Read Later</ThemedText>
         </Card>
         <ThemedView
           style={{ ...styles.card, visibility: "hidden" }}
@@ -109,7 +115,18 @@ const styles = StyleSheet.create({
     gap: Spacing.size3,
   },
   card: {
+    display: "flex",
+    flexDirection: "column",
+    gap: Spacing.size2,
     flexGrow: 1,
     width: "47%", // Adjust width to fit two cards per row incl. gap
+  },
+  header: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: Spacing.size2,
+    backgroundColor: "transparent",
   },
 });

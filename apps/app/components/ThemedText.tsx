@@ -1,7 +1,7 @@
 import { StyleSheet, Text, type TextProps, Platform } from "react-native";
 
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { Radius } from "@/constants/Sizes";
+import { FontSize } from "@/constants/Sizes";
 import { H1_STYLE, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, H6_STYLE, TEXT_DEFAULT_STYLE } from "@/constants/Styles";
 import { useTextColor } from "@/hooks/useTextColor";
 
@@ -64,8 +64,7 @@ const styles = StyleSheet.create({
       android: "monospace",
       default: "monospace",
     }),
-    padding: 2,
-    borderRadius: Radius.size3,
     ...TEXT_DEFAULT_STYLE,
+    fontSize: FontSize.size2,
   },
 });

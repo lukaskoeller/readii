@@ -24,7 +24,9 @@ export default function Article() {
               marginBlockEnd: Spacing.size8,
             }}
           >
-            <ThemedText type="h1">{data?.title}</ThemedText>
+            <ThemedText type="h1" style={{ marginBlockStart: 0 }}>
+              {data?.title}
+            </ThemedText>
             <HtmlViewer ast={contentAst} url={data?.mediaSource.url} />
           </ThemedView>
         </ScrollView>

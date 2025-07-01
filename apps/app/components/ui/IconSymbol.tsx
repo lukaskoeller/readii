@@ -20,9 +20,11 @@ const MAPPING = {
   'person.crop.circle': 'person',
   'chevron.forward': 'chevron-right',
   'app.badge': 'mark-chat-unread',
-  'star': 'star-border',
   'clock.badge': 'access-time',
+  'clock.badge.fill': 'access-time-filled',
   'photo': 'photo',
+  'star': 'star-border',
+  'star.fill': 'star',
 } as IconMapping;
 
 /**

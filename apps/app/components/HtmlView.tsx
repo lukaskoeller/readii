@@ -28,22 +28,6 @@ const BOLD_STYLE = { fontWeight: FontWeight.bold } as const;
 const ITALIC_STYLE = { fontStyle: "italic" } as const;
 const UNDERLINE_STYLE = { textDecorationLine: "underline" } as const;
 
-// Helper to check if a tag is inline
-const isInline = (tag: string) =>
-  [
-    "strong",
-    "b",
-    "em",
-    "i",
-    "u",
-    "span",
-    "a",
-    "code",
-    "q",
-    "#text",
-    "br",
-  ].includes(tag);
-
 type TRenderNodeProps = {
   node: DefaultTreeAdapterTypes.ChildNode;
   inheritStyles?: StyleProp<TextStyle>;
@@ -76,6 +60,17 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
   }
   switch (nodeName) {
     case "p":
+      return (
+        <ThemedText
+          style={[inheritStyles, { marginBlock: Spacing.size2 }]}
+          accessibilityRole="text"
+        >
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode node={child} url={url} key={i} />
+          ))}
+        </ThemedText>
+      );
+    case "span":
       return (
         <ThemedText style={[inheritStyles]} accessibilityRole="text">
           {childNodes.map((child: any, i: number) => (
@@ -187,7 +182,6 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
           style={[
             inheritStyles,
             {
-              fontFamily: "monospace",
               backgroundColor: colorBackground2,
               padding: Spacing.size2,
               borderRadius: Radius.size2,
@@ -195,6 +189,7 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
             },
           ]}
           accessibilityLabel="code block"
+          type="code"
         >
           {childNodes.map((child: any, i: number) => (
             <RenderNode node={child} url={url} key={i} />
@@ -395,25 +390,18 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
         );
       }
       return null;
-    default:
-      // For unknown tags, just render children
-      if (Array.isArray(childNodes)) {
-        // If all children are inline, wrap in ThemedText for inline flow
-        if (childNodes.every((c: any) => isInline(c.nodeName))) {
-          return (
-            <ThemedText accessibilityRole="text">
-              {childNodes.map((child: any, i: number) => (
-                <RenderNode node={child} url={url} key={i} />
-              ))}
-            </ThemedText>
-          );
-        } else {
-          return childNodes.map((child: any, i: number) => (
-            <RenderNode node={child} url={url} key={i} />
-          ));
-        }
-      }
+    case "head":
       return null;
+    // case: video, style, picture, source
+    default:
+      console.log("DEFAULT", node);
+      return (
+        <ThemedView>
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode node={child} url={url} key={i} />
+          ))}
+        </ThemedView>
+      );
   }
 };
 
@@ -442,13 +430,13 @@ export const HtmlViewer: FC<HtmlViewerProps> = ({ ast, url }) => {
   // parse5 AST root is usually 'document', so render its children
   if (!ast) return null;
   const { childNodes } = ast;
+  console.log(childNodes);
+
   return (
     <ThemedView>
-      {Array.isArray(childNodes)
-        ? childNodes.map((child: any, i: number) => (
-            <RenderNode node={child} url={url} key={i} />
-          ))
-        : null}
+      {childNodes.map((child: any, i: number) => (
+        <RenderNode node={child} url={url} key={i} />
+      ))}
     </ThemedView>
   );
 };
