@@ -1,49 +1,87 @@
-import { Card } from "@/components/Card";
+import { LinkListCard } from "@/components/LinkListCard";
+import { QuickCardLink } from "@/components/QuickCardLink";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
-import { FontSize, FontWeight, Spacing } from "@/constants/Sizes";
+import { Spacing } from "@/constants/Sizes";
 import { getFeed } from "@/core/data";
-import { useFeed } from "@/hooks/queries";
+import { useFeed, useMediaItem, useMediaSource } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { useLiveQuery } from "drizzle-orm/expo-sqlite";
+import { Image } from "expo-image";
 import { XMLParser } from "fast-xml-parser";
 import { Button, SafeAreaView, StyleSheet } from "react-native";
 
 export default function HomeScreen() {
   const { createFeed } = useFeed();
+  const { readMediaSources } = useMediaSource();
+  const {
+    readMediaItemsCount,
+    readMediaItemsIsReadLaterCount,
+    readMediaItemsIsStarredCount,
+    readMediaItemsIsUnreadCount,
+  } = useMediaItem();
+  const { data } = useLiveQuery(readMediaSources());
+  const { data: itemsCount } = useLiveQuery(readMediaItemsCount());
+  const { data: itemsCountIsStarred } = useLiveQuery(readMediaItemsIsStarredCount());
+  const { data: itemsCountIsReadLater } = useLiveQuery(readMediaItemsIsReadLaterCount());
+  const { data: itemsCountIsUnread } = useLiveQuery(readMediaItemsIsUnreadCount());
+  const itemsCountAll = itemsCount[0]?.count ?? 0;
+  const itemsCountStarred = itemsCountIsStarred[0]?.count ?? 0;
+  const itemsCountReadLater = itemsCountIsReadLater[0]?.count ?? 0;
+  const itemsCountUnread = itemsCountIsUnread[0]?.count ?? 0;
+  
   const colorText2 = useThemeColor({}, "text2");
   const colorPrimary = useThemeColor({}, "primary");
 
   return (
     <SafeAreaView>
-      <ThemedView style={styles.kpis} padding={16}>
-        <Card style={styles.card}>
-          <ThemedView style={styles.header}>
+      <ThemedView padding={Spacing.size4}>
+        <ThemedText type="h1">Hey Luki.</ThemedText>
+        <ThemedText>Liebe ist wirklich ein Geschenk Gottes.</ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.quickFilters}>
+        <QuickCardLink
+          href={{
+            pathname: "/feed",
+          }}
+          label="All"
+          count={itemsCountAll}
+          icon={() => (
             <IconSymbol size={28} name="app.badge" color={colorText2} />
-            <ThemedText style={{ fontWeight: FontWeight.bold, fontSize: FontSize.size4 }}>7</ThemedText>
-          </ThemedView>
-          <ThemedText>Unread</ThemedText>
-        </Card>
-        <Card style={styles.card}>
-          <ThemedView style={styles.header}>
-            <IconSymbol size={28} name="star" color={colorText2} />
-            <ThemedText style={{ fontWeight: FontWeight.bold, fontSize: FontSize.size4 }}>24</ThemedText>
-          </ThemedView>
-          <ThemedText>Starred</ThemedText>
-        </Card>
-        <Card style={styles.card}>
-          <ThemedView style={styles.header}>
+          )}
+        />
+        <QuickCardLink
+          href={{
+            pathname: "/feed",
+            params: { isUnread: "true" },
+          }}
+          label="Unread"
+          count={itemsCountUnread}
+          icon={() => (
+            <IconSymbol size={28} name="app.badge" color={colorText2} />
+          )}
+        />
+        <QuickCardLink
+          href={{
+            pathname: "/feed",
+            params: { isStarred: "true" },
+          }}
+          label="Starred"
+          count={itemsCountStarred}
+          icon={() => <IconSymbol size={28} name="star" color={colorText2} />}
+        />
+        <QuickCardLink
+          href={{
+            pathname: "/feed",
+            params: { isReadLater: "true" },
+          }}
+          label="Read Later"
+          count={itemsCountReadLater}
+          icon={() => (
             <IconSymbol size={28} name="clock.badge" color={colorText2} />
-            <ThemedText style={{ fontWeight: FontWeight.bold, fontSize: FontSize.size4 }}>4</ThemedText>
-          </ThemedView>
-          <ThemedText>Read Later</ThemedText>
-        </Card>
-        <ThemedView
-          style={{ ...styles.card, visibility: "hidden" }}
-          aria-hidden
-        >
-          {null}
-        </ThemedView>
+          )}
+        />
       </ThemedView>
       <Button
         onPress={async () => {
@@ -67,7 +105,10 @@ export default function HomeScreen() {
           try {
             const args = {
               mediaSourceIcon: {
-                title: mediaSource.image.title ?? mediaSource.webMaster ?? mediaSource.title,
+                title:
+                  mediaSource.image.title ??
+                  mediaSource.webMaster ??
+                  mediaSource.title,
                 url: mediaSource.image.url, // @todo: Fetch favicon as fallback
               },
               mediaSource: {
@@ -92,8 +133,8 @@ export default function HomeScreen() {
                 thumbnail: item["media:thumbnail"]?.["@_url"] ?? null,
               })),
             };
-            
-            console.log("THUMBNAIL", args);
+
+            console.log("FEED ARGS", args);
             await createFeed(args);
           } catch (error) {
             console.log(error);
@@ -102,31 +143,43 @@ export default function HomeScreen() {
         title="Add Feed"
         color={colorPrimary}
       />
+      <ThemedView padding={Spacing.size4}>
+        <ThemedText type="h2">All feeds</ThemedText>
+        <ThemedView>
+          <LinkListCard
+            data={data.map((item) => ({
+              id: String(item.id),
+              label: item.name,
+              icon: (
+                <Image
+                  style={styles.thumbnail}
+                  source={item.icon?.url}
+                  contentFit="cover"
+                  transition={500}
+                />
+              ),
+            }))}
+          />
+        </ThemedView>
+      </ThemedView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  kpis: {
-    width: "100%",
-    flexDirection: "row",
+  quickFilters: {
     display: "flex",
+    flexDirection: "row",
     flexWrap: "wrap",
-    gap: Spacing.size4,
-  },
-  card: {
-    display: "flex",
-    flexDirection: "column",
     gap: Spacing.size3,
-    flexGrow: 1,
-    width: 160 - Spacing.size2, // Adjust width to fit two cards per row incl. gap
+    paddingInline: Spacing.size4,
   },
-  header: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: Spacing.size2,
-    backgroundColor: "transparent",
+  link: {
+    flex: 1,
+    backgroundColor: "gray",
+  },
+  thumbnail: {
+    width: "100%",
+    height: "100%",
   },
 });

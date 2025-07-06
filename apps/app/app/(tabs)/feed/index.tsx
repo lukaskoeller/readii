@@ -1,5 +1,4 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
-
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
@@ -7,37 +6,39 @@ import { useMediaItem } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Image } from "expo-image";
-import { useRouter } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 import { getPreviewText } from "@/core/utils";
 import { parse } from "parse5";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 
-const blurhash =
-  "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
-
 export default function TabTwoScreen() {
-  const { readItems } = useMediaItem();
-  const { data } = useLiveQuery(readItems());
-  const router = useRouter();
+  const { readMediaItems } = useMediaItem();
+  const params = useLocalSearchParams();
+  const { data } = useLiveQuery(readMediaItems(params));
   const colorBackground3 = useThemeColor({}, "background3");
   const colorText2 = useThemeColor({}, "text2");
 
   return (
     <FlatList
       style={styles.list}
+      contentContainerStyle={{ paddingBottom: Spacing.size12 }}
       data={data}
       renderItem={({ item }) => {
         const contentAst = parse(item?.content || "");
         const previewText = getPreviewText(contentAst);
         return (
-          <Pressable onPress={() => router.navigate(`/feed/${item.id}`)}>
+          <Link
+            href={{
+              pathname: "/feed/[mediaItemId]",
+              params: { mediaItemId: item.id },
+            }}
+          >
             <ThemedView style={styles.item}>
               <ThemedView>
                 {item.thumbnail ? (
                   <Image
                     style={styles.thumbnail}
                     source={item.thumbnail}
-                    placeholder={{ blurhash }}
                     contentFit="cover"
                     transition={500}
                   />
@@ -83,7 +84,7 @@ export default function TabTwoScreen() {
                 </ThemedText>
               </View>
             </ThemedView>
-          </Pressable>
+          </Link>
         );
       }}
       keyExtractor={(item) => String(item.id)}

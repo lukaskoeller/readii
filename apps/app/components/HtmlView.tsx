@@ -394,7 +394,6 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
       return null;
     // case: video, style, picture, source
     default:
-      console.log("DEFAULT", node);
       return (
         <ThemedView>
           {childNodes.map((child: any, i: number) => (
@@ -430,7 +429,6 @@ export const HtmlViewer: FC<HtmlViewerProps> = ({ ast, url }) => {
   // parse5 AST root is usually 'document', so render its children
   if (!ast) return null;
   const { childNodes } = ast;
-  console.log(childNodes);
 
   return (
     <ThemedView>

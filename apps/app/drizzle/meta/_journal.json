@@ -15,6 +15,13 @@
       "when": 1751218361218,
       "tag": "0001_neat_korg",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1751478382476,
+      "tag": "0002_clever_rafael_vega",
+      "breakpoints": true
     }
   ]
 }

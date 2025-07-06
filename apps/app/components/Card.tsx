@@ -10,11 +10,11 @@ export type CardProps = {
 
 export function Card(props: CardProps) {
   const { style, children } = props;
-  const colorBackground2 = useThemeColor({}, "background2");
+  const colorBackground3 = useThemeColor({}, "background3");
 
   return (
     <ThemedView
-      style={[styles.card, { backgroundColor: colorBackground2 }, style]}
+      style={[styles.card, { backgroundColor: colorBackground3 }, style]}
       padding={Spacing.size3}
     >
       {children}

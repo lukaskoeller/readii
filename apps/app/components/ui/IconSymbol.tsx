@@ -25,6 +25,7 @@ const MAPPING = {
   'photo': 'photo',
   'star': 'star-border',
   'star.fill': 'star',
+  'chevron.right': 'chevron-right',
 } as IconMapping;
 
 /**
