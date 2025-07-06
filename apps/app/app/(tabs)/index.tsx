@@ -37,8 +37,8 @@ export default function HomeScreen() {
   return (
     <SafeAreaView>
       <ThemedView padding={Spacing.size4}>
-        <ThemedText type="h1">Hey Luki.</ThemedText>
-        <ThemedText>Liebe ist wirklich ein Geschenk Gottes.</ThemedText>
+        <ThemedText type="h1" style={{ marginBlockStart: 0 }}>Hey Luki.</ThemedText>
+        <ThemedText style={{ marginBlockEnd: Spacing.size5 }}>Liebe ist wirklich ein Geschenk Gottes.</ThemedText>
       </ThemedView>
       <ThemedView style={styles.quickFilters}>
         <QuickCardLink
@@ -82,6 +82,25 @@ export default function HomeScreen() {
             <IconSymbol size={28} name="clock.badge" color={colorText2} />
           )}
         />
+      </ThemedView>
+      <ThemedView padding={Spacing.size4}>
+        <ThemedText type="h2">All feeds</ThemedText>
+        <ThemedView>
+          <LinkListCard
+            data={data.map((item) => ({
+              id: String(item.id),
+              label: item.name,
+              icon: (
+                <Image
+                  style={styles.thumbnail}
+                  source={item.icon?.url}
+                  contentFit="cover"
+                  transition={500}
+                />
+              ),
+            }))}
+          />
+        </ThemedView>
       </ThemedView>
       <Button
         onPress={async () => {
@@ -143,25 +162,6 @@ export default function HomeScreen() {
         title="Add Feed"
         color={colorPrimary}
       />
-      <ThemedView padding={Spacing.size4}>
-        <ThemedText type="h2">All feeds</ThemedText>
-        <ThemedView>
-          <LinkListCard
-            data={data.map((item) => ({
-              id: String(item.id),
-              label: item.name,
-              icon: (
-                <Image
-                  style={styles.thumbnail}
-                  source={item.icon?.url}
-                  contentFit="cover"
-                  transition={500}
-                />
-              ),
-            }))}
-          />
-        </ThemedView>
-      </ThemedView>
     </SafeAreaView>
   );
 }
