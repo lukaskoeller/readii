@@ -33,19 +33,6 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
-          tabBarIcon: ({ focused }) => (
-            <IconSymbol
-              size={28}
-              name="house.fill"
-              color={focused ? tabSelectedColor : tabDefaultColor}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="feed"
-        options={{
           title: "Feed",
           tabBarIcon: ({ focused }) => (
             <IconSymbol

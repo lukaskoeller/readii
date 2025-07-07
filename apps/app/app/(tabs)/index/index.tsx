@@ -48,13 +48,13 @@ export default function HomeScreen() {
           label="All"
           count={itemsCountAll}
           icon={() => (
-            <IconSymbol size={28} name="app.badge" color={colorText2} />
+            <IconSymbol size={28} name="house" color={colorText2} />
           )}
         />
         <QuickCardLink
           href={{
             pathname: "/feed",
-            params: { isUnread: "true" },
+            params: { isRead: "false" },
           }}
           label="Unread"
           count={itemsCountUnread}

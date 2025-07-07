@@ -9,6 +9,16 @@ export default function FeedStackLayout() {
       <Stack.Screen
         name="index"
         options={{
+          title: "Home",
+          headerStyle: {
+            backgroundColor,
+          },
+          headerShadowVisible: false,
+        }}
+      />
+      <Stack.Screen
+        name="feed"
+        options={{
           title: "Feed",
           headerStyle: {
             backgroundColor,

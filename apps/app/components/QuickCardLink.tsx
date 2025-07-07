@@ -17,6 +17,7 @@ export function QuickCardLink(props: QuickCardProps) {
   const { count, label, icon, href } = props;
   const Icon = icon;
   const colorText2 = useThemeColor({}, "text2");
+  const colorPrimary = useThemeColor({}, "primary");
   const colorBackground3 = useThemeColor({}, "background3");
 
   return (
@@ -36,7 +37,7 @@ export function QuickCardLink(props: QuickCardProps) {
         >
           {count}
         </ThemedText>
-        <ThemedText style={styles.label}>{label}</ThemedText>
+        <ThemedText style={[styles.label, { color: colorPrimary }]}>{label}</ThemedText>
       </ThemedView>
     </Link>
   );

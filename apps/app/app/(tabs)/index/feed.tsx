@@ -29,7 +29,7 @@ export default function TabTwoScreen() {
         return (
           <Link
             href={{
-              pathname: "/feed/[mediaItemId]",
+              pathname: "/[mediaItemId]",
               params: { mediaItemId: item.id },
             }}
           >
