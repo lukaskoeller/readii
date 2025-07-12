@@ -53,12 +53,40 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
   }, [href]);
 
   if (!node) return null;
-  const { nodeName, value, childNodes = [] } = node;
+  const { nodeName, value, childNodes = [], parentNode } = node;
 
-  if (nodeName === "#text") {
-    return value.trim();
-  }
   switch (nodeName) {
+    case "#text":
+      if (value.trim() === "") {
+        return null; // Ignore empty text nodes
+      }
+
+      if (
+        parentNode?.nodeName === "h1" ||
+        parentNode?.nodeName === "h2" ||
+        parentNode?.nodeName === "h3" ||
+        parentNode?.nodeName === "h4" ||
+        parentNode?.nodeName === "h5" ||
+        parentNode?.nodeName === "h6"
+      ) {
+        return `${value.trim()} `;
+      }
+
+      if (
+        parentNode?.nodeName === "body" ||
+        parentNode?.nodeName === "picture"
+      ) {
+        return (
+          <ThemedText
+            style={[inheritStyles, { color: textColor }]}
+            accessibilityRole="text"
+          >
+            {value}
+          </ThemedText>
+        )
+      }
+
+      return value;
     case "p":
       return (
         <ThemedText
@@ -80,24 +108,20 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
       );
     case "a":
       return (
-        <>
-          {" "}
-          <ThemedText
-            style={[inheritStyles, BOLD_STYLE, { color: colorPrimary }]}
-            accessibilityRole="link"
-            onPress={handlePress}
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode node={child} url={url} key={i} />
-            ))}
-          </ThemedText>{" "}
-        </>
+        <ThemedText
+          style={[inheritStyles, BOLD_STYLE, { color: colorPrimary }]}
+          accessibilityRole="link"
+          onPress={handlePress}
+        >
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode node={child} url={url} key={i} />
+          ))}
+        </ThemedText>
       );
     case "strong":
     case "b":
       return (
         <>
-          {" "}
           <ThemedText
             style={[inheritStyles, BOLD_STYLE]}
             accessibilityRole="text"
@@ -110,7 +134,7 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
                 inheritStyles={BOLD_STYLE}
               />
             ))}
-          </ThemedText>{" "}
+          </ThemedText>
         </>
       );
     case "em":
@@ -148,18 +172,11 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
       );
     case "code":
       return (
-        <>
-          {" "}
-          <ThemedText
-            style={inheritStyles}
-            accessibilityLabel="code"
-            type="code"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode node={child} url={url} key={i} />
-            ))}
-          </ThemedText>{" "}
-        </>
+        <ThemedText style={inheritStyles} accessibilityLabel="code" type="code">
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode node={child} url={url} key={i} />
+          ))}
+        </ThemedText>
       );
     case "q":
       return (
@@ -414,7 +431,7 @@ const styles = StyleSheet.create({
     borderRadius: Radius.size2,
   },
   webview: {
-    marginBlock: Spacing.size2,
+    marginBlock: Spacing.size3,
     width: "100%",
     aspectRatio: 8 / 5,
   },
