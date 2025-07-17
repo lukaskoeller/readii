@@ -9,6 +9,7 @@
     "web": "pnpm --filter @readii/web dev",
     "app": "pnpm --filter @readii/app dev",
     "app:ios": "pnpm --filter @readii/app ios",
+    "api": "pnpm --filter @readii/api dev",
     "extension": "pnpm --filter @readii/extension dev"
   },
   "keywords": [
