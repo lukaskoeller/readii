@@ -1,0 +1,23 @@
+{
+  "name": "@readii/schemas",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    "./zod": {
+      "import": "./src/zod/index.ts"
+    }
+  },
+  "scripts": {
+    "check": "biome check"
+  },
+  "keywords": [],
+  "author": "Lukas Koeller",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "dependencies": {
+    "zod": "^4.0.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.1.2"
+  }
+}
