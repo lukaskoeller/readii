@@ -127,7 +127,7 @@ export default function HomeScreen() {
           const feedObj = parser.parse(rawFeed);
           const mediaSource = feedObj.rss.channel;
           console.log("MEDIA_SOURCE", mediaSource);
-          const item = feedObj.items[2].description;
+          const item = feedObj.item[2].description;
           console.log("ITEM", item);
 
           if (!mediaSource || !Array.isArray(mediaSource.item)) {
