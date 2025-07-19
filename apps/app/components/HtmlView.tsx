@@ -57,21 +57,6 @@ const RenderNode: FC<TRenderNodeProps> = ({ node, inheritStyles, url }) => {
 
   switch (nodeName) {
     case "#text":
-      if (value.trim() === "") {
-        return null; // Ignore empty text nodes
-      }
-
-      if (
-        parentNode?.nodeName === "h1" ||
-        parentNode?.nodeName === "h2" ||
-        parentNode?.nodeName === "h3" ||
-        parentNode?.nodeName === "h4" ||
-        parentNode?.nodeName === "h5" ||
-        parentNode?.nodeName === "h6"
-      ) {
-        return `${value.trim()} `;
-      }
-
       if (
         parentNode?.nodeName === "body" ||
         parentNode?.nodeName === "picture"

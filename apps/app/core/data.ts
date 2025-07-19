@@ -2,12 +2,7 @@ import { Alert } from "react-native";
 
 export const getFeed = async (url: string) => {
   try {
-    const response = await fetch(url, {
-      headers: {
-        "Content-Type": "application/rss+xml",
-        Accept: "application/rss+xml",
-      },
-    });
+    const response = await fetch(url);
     const rawText = await response.text();
     return rawText;
   } catch (error) {

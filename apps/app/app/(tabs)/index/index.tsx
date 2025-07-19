@@ -23,22 +23,32 @@ export default function HomeScreen() {
   } = useMediaItem();
   const { data } = useLiveQuery(readMediaSources());
   const { data: itemsCount } = useLiveQuery(readMediaItemsCount());
-  const { data: itemsCountIsStarred } = useLiveQuery(readMediaItemsIsStarredCount());
-  const { data: itemsCountIsReadLater } = useLiveQuery(readMediaItemsIsReadLaterCount());
-  const { data: itemsCountIsUnread } = useLiveQuery(readMediaItemsIsUnreadCount());
+  const { data: itemsCountIsStarred } = useLiveQuery(
+    readMediaItemsIsStarredCount()
+  );
+  const { data: itemsCountIsReadLater } = useLiveQuery(
+    readMediaItemsIsReadLaterCount()
+  );
+  const { data: itemsCountIsUnread } = useLiveQuery(
+    readMediaItemsIsUnreadCount()
+  );
   const itemsCountAll = itemsCount[0]?.count ?? 0;
   const itemsCountStarred = itemsCountIsStarred[0]?.count ?? 0;
   const itemsCountReadLater = itemsCountIsReadLater[0]?.count ?? 0;
   const itemsCountUnread = itemsCountIsUnread[0]?.count ?? 0;
-  
+
   const colorText2 = useThemeColor({}, "text2");
   const colorPrimary = useThemeColor({}, "primary");
 
   return (
     <SafeAreaView>
       <ThemedView padding={Spacing.size4}>
-        <ThemedText type="h1" style={{ marginBlockStart: 0 }}>Hey Luki.</ThemedText>
-        <ThemedText style={{ marginBlockEnd: Spacing.size5 }}>Liebe ist wirklich ein Geschenk Gottes.</ThemedText>
+        <ThemedText type="h1" style={{ marginBlockStart: 0 }}>
+          Hey Luki.
+        </ThemedText>
+        <ThemedText style={{ marginBlockEnd: Spacing.size5 }}>
+          Liebe ist wirklich ein Geschenk Gottes.
+        </ThemedText>
       </ThemedView>
       <ThemedView style={styles.quickFilters}>
         <QuickCardLink
@@ -47,9 +57,7 @@ export default function HomeScreen() {
           }}
           label="All"
           count={itemsCountAll}
-          icon={() => (
-            <IconSymbol size={28} name="house" color={colorText2} />
-          )}
+          icon={() => <IconSymbol size={28} name="house" color={colorText2} />}
         />
         <QuickCardLink
           href={{
@@ -105,17 +113,22 @@ export default function HomeScreen() {
       <Button
         onPress={async () => {
           const url = "https://nerdy.dev/rss.xml";
-          const feed = await getFeed(url);
-          if (!feed) {
+          const rawFeed = await getFeed(url);
+          if (!rawFeed) {
             console.error("Failed to fetch feed");
             return;
           }
+
           const parser = new XMLParser({
             ignoreAttributes: false,
+            trimValues: true,
+            alwaysCreateTextNode: true,
           });
-          const feedObj = parser.parse(feed);
+          const feedObj = parser.parse(rawFeed);
           const mediaSource = feedObj.rss.channel;
           console.log("MEDIA_SOURCE", mediaSource);
+          const item = feedObj.items[2].description;
+          console.log("ITEM", item);
 
           if (!mediaSource || !Array.isArray(mediaSource.item)) {
             console.error("Invalid feed structure");
