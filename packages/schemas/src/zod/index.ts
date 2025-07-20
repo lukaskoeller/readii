@@ -13,7 +13,7 @@ const $IsoDatetime = z.iso.datetime();
 export const $MediaSourceIcon = z.object({
   id: $DatabaseId,
   title: z.string(),
-  url: $HttpsUrl,
+  url: z.nullable($HttpsUrl),
   // mediaSourceId is not included here as it's a foreign key reference
 });
 
@@ -23,7 +23,7 @@ export const $MediaSource = z.object({
   description: z.nullable(z.string()),
   url: $HttpsUrl,
   feedUrl: $HttpsUrl,
-  logoUrl: $HttpsUrl,
+  logoUrl: z.nullable($HttpsUrl),
   lastBuildAt: z.nullable($IsoDatetime),
   lastFetchedAt: $IsoDatetime,
   language: z.nullable(z.string()),
