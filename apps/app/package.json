@@ -18,6 +18,7 @@
     "@react-navigation/bottom-tabs": "^7.3.10",
     "@react-navigation/elements": "^2.3.8",
     "@react-navigation/native": "^7.1.6",
+    "@readii/parser": "workspace:^",
     "@tanstack/react-query": "^5.77.0",
     "babel-plugin-inline-import": "^3.0.0",
     "drizzle-orm": "^0.44.2",

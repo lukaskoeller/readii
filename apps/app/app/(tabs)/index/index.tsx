@@ -1,16 +1,15 @@
+import { Button, SafeAreaView, StyleSheet } from "react-native";
+import { Image } from "expo-image";
 import { LinkListCard } from "@/components/LinkListCard";
 import { QuickCardLink } from "@/components/QuickCardLink";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { Spacing } from "@/constants/Sizes";
-import { getFeed } from "@/core/data";
 import { useFeed, useMediaItem, useMediaSource } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
-import { Image } from "expo-image";
-import { XMLParser } from "fast-xml-parser";
-import { Button, SafeAreaView, StyleSheet } from "react-native";
+import { getFeedData } from "@readii/parser";
 
 export default function HomeScreen() {
   const { createFeed } = useFeed();
@@ -112,61 +111,10 @@ export default function HomeScreen() {
       </ThemedView>
       <Button
         onPress={async () => {
-          const url = "https://nerdy.dev/rss.xml";
-          const rawFeed = await getFeed(url);
-          if (!rawFeed) {
-            console.error("Failed to fetch feed");
-            return;
-          }
+          const url = "https://lea.verou.me/feed.xml";
 
-          const parser = new XMLParser({
-            ignoreAttributes: false,
-            trimValues: true,
-            alwaysCreateTextNode: true,
-          });
-          const feedObj = parser.parse(rawFeed);
-          const mediaSource = feedObj.rss.channel;
-          console.log("MEDIA_SOURCE", mediaSource);
-          const item = feedObj.item[2].description;
-          console.log("ITEM", item);
-
-          if (!mediaSource || !Array.isArray(mediaSource.item)) {
-            console.error("Invalid feed structure");
-            return;
-          }
           try {
-            const args = {
-              mediaSourceIcon: {
-                title:
-                  mediaSource.image.title ??
-                  mediaSource.webMaster ??
-                  mediaSource.title,
-                url: mediaSource.image.url, // @todo: Fetch favicon as fallback
-              },
-              mediaSource: {
-                name: mediaSource.title,
-                description: mediaSource.description,
-                url: mediaSource.link,
-                feedUrl: mediaSource["atom:link"]["@_href"] ?? null,
-                logoUrl: mediaSource.logo ?? null,
-                lastBuildAt: mediaSource.lastBuildDate ?? null,
-                lastFetchedAt: new Date().toISOString(),
-                language: mediaSource.language ?? null,
-                generator: mediaSource.generator ?? null,
-              },
-              mediaItems: mediaSource.item.map((item: any) => ({
-                title: item.title,
-                url: item.link,
-                type: "text",
-                content: item.description ?? null,
-                creator: item["dc:creator"] ?? null,
-                publishedAt: item.pubDate ?? null,
-                enclosure: item.enclosure?.["@_url"] ?? null,
-                thumbnail: item["media:thumbnail"]?.["@_url"] ?? null,
-              })),
-            };
-
-            console.log("FEED ARGS", args);
+            const args = await getFeedData(url);
             await createFeed(args);
           } catch (error) {
             console.log(error);
