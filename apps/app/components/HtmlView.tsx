@@ -301,18 +301,19 @@ const RenderNode: FC<TRenderNodeProps> = ({
       return "\n";
     case "pre":
       return (
-        <ScrollView horizontal={true} style={{ width: "100%", height: 300 }}>
+        <ScrollView
+          horizontal={true}
+          style={{
+            width: "100%",
+            backgroundColor: colorBackground2,
+            padding: Spacing.size2,
+            borderRadius: Radius.size2,
+            marginBlock: Spacing.size2,
+            minWidth: "100%",
+          }}
+        >
           <ThemedText
-            style={[
-              inheritStyles,
-              {
-                backgroundColor: colorBackground2,
-                padding: Spacing.size2,
-                borderRadius: Radius.size2,
-                marginBlock: Spacing.size2,
-                minWidth: "100%",
-              },
-            ]}
+            style={inheritStyles}
             accessibilityLabel="code block"
             type="code"
           >

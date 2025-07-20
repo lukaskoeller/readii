@@ -61,7 +61,7 @@ export default function HomeScreen() {
         <QuickCardLink
           href={{
             pathname: "/feed",
-            params: { isRead: "false" },
+            params: { isRead: "false", feedTitle: "Unread" },
           }}
           label="Unread"
           count={itemsCountUnread}
@@ -72,7 +72,7 @@ export default function HomeScreen() {
         <QuickCardLink
           href={{
             pathname: "/feed",
-            params: { isStarred: "true" },
+            params: { isStarred: "true", feedTitle: "Starred" },
           }}
           label="Starred"
           count={itemsCountStarred}
@@ -81,7 +81,7 @@ export default function HomeScreen() {
         <QuickCardLink
           href={{
             pathname: "/feed",
-            params: { isReadLater: "true" },
+            params: { isReadLater: "true", feedTitle: "Read Later" },
           }}
           label="Read Later"
           count={itemsCountReadLater}

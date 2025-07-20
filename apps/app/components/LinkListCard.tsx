@@ -23,7 +23,7 @@ export function LinkListCard({ data }: LinkListCardProps) {
           key={item.id}
           href={{
             pathname: "/feed",
-            params: { mediaSourceId: item.id },
+            params: { mediaSourceId: item.id, feedTitle: item.label },
           }}
         >
           <ListItem

@@ -96,7 +96,7 @@ export const useMediaItem = () => {
     const parsedFilters = getWhereClauseFromParams(filters);
     const conditions = parsedFilters
       ? Object.entries(parsedFilters).flatMap(([field, value]) => {
-          if (!value) return [];
+          if (!value || !(field in schema.mediaItem)) return [];
           return [
             eq(
               schema.mediaItem[field as keyof schema.TMediaItem],

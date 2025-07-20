@@ -6,17 +6,26 @@ import { useMediaItem } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Image } from "expo-image";
-import { Link, useLocalSearchParams } from "expo-router";
+import { Link, useLocalSearchParams, useNavigation } from "expo-router";
 import { getPreviewText } from "@/core/utils";
 import { parse } from "parse5";
 import { IconSymbol } from "@/components/ui/IconSymbol";
+import { useEffect } from "react";
 
 export default function TabTwoScreen() {
   const { readMediaItems } = useMediaItem();
   const params = useLocalSearchParams();
+  const navigation = useNavigation();
   const { data } = useLiveQuery(readMediaItems(params));
   const colorBackground3 = useThemeColor({}, "background3");
   const colorText2 = useThemeColor({}, "text2");
+
+  // Update stack title if `feedTitle` is present
+  useEffect(() => {
+    if (params.feedTitle) {
+      navigation.setOptions({ title: params.feedTitle });
+    }
+  }, [navigation, params.feedTitle]);
 
   return (
     <FlatList

@@ -19,7 +19,7 @@ export default function FeedStackLayout() {
       <Stack.Screen
         name="feed"
         options={{
-          title: "Feed",
+          title: "All Feeds",
           headerStyle: {
             backgroundColor,
           },
