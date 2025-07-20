@@ -1,0 +1,26 @@
+{
+  "name": "@readii/parser",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "dependencies": {
+    "@minify-html/deno": "jsr:^0.16.4",
+    "@readii/schemas": "workspace:^",
+    "fast-xml-parser": "^5.2.5",
+    "zod": "^4.0.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.1.2"
+  }
+}
