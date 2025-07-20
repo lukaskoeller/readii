@@ -150,8 +150,8 @@ export const getFeedData = async (url: string) => {
   }
 
   return {
-    mediaSourceIcon,
-    mediaSource,
-    mediaItems,
+    mediaSourceIcon: mediaSourceIcon.data,
+    mediaSource: mediaSource.data,
+    mediaItems: mediaItems.data,
   };
 };
