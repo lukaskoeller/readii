@@ -31,17 +31,20 @@ export type TMediaSource = typeof mediaSource.$inferInsert;
 // Media Source Icon table
 export const mediaSourceIcon = sqliteTable("media_source_icon", {
   id: integer("id").primaryKey({ autoIncrement: true }),
-  url: text("url").notNull(),
+  url: text("url"),
   title: text("title").notNull(),
   mediaSourceId: integer("media_source_id").references(() => mediaSource.id),
 });
 
-export const mediaSourceIconRelations = relations(mediaSourceIcon, ({ one }) => ({
-  mediaSource: one(mediaSource, {
-    fields: [mediaSourceIcon.mediaSourceId],
-    references: [mediaSource.id],
-  }),
-}));
+export const mediaSourceIconRelations = relations(
+  mediaSourceIcon,
+  ({ one }) => ({
+    mediaSource: one(mediaSource, {
+      fields: [mediaSourceIcon.mediaSourceId],
+      references: [mediaSource.id],
+    }),
+  })
+);
 
 export type TMediaSourceIcon = typeof mediaSourceIcon.$inferInsert;
 
@@ -58,7 +61,7 @@ export const mediaItem = sqliteTable("media_item", {
   contentTldr: text("content_tldr"),
   url: text("url").notNull(),
   creator: text("creator"),
-  publishedAt: text("published_at", {  }).notNull(),
+  publishedAt: text("published_at").notNull(),
   thumbnail: text("thumbnail"),
   enclosure: text("enclosure"),
   isStarred: integer("is_starred", { mode: "boolean" }).default(false),
