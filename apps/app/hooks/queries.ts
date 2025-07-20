@@ -8,7 +8,7 @@ import { useCallback } from "react";
 export type TCreateMediaSourceArgs = {
   mediaSourceIcon: schema.TMediaSourceIcon;
   mediaSource: schema.TMediaSource;
-  mediaItems: schema.TMediaItem[];
+  mediaItems: Omit<schema.TMediaItem, "mediaSourceId">[];
 };
 
 export const useFeed = () => {
