@@ -7,10 +7,30 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Image } from "expo-image";
 import { Link, useLocalSearchParams, useNavigation } from "expo-router";
-import { getPreviewText } from "@/core/utils";
+import { dayMonthYearFormat, getPreviewText } from "@/core/utils";
 import { parse } from "parse5";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { useEffect } from "react";
+import {
+  differenceInMinutes,
+  differenceInHours,
+  differenceInDays,
+  differenceInYears,
+  DateArg,
+} from "date-fns";
+
+function formatShortRelative(date: DateArg<Date>) {
+  const now = new Date();
+  const years = differenceInYears(now, date);
+  if (years > 0) return dayMonthYearFormat.format(new Date(date));
+  const days = differenceInDays(now, date);
+  if (days > 0) return `${days}d`;
+  const hours = differenceInHours(now, date);
+  if (hours > 0) return `${hours}h`;
+  const minutes = differenceInMinutes(now, date);
+  if (minutes > 0) return `${minutes}m`;
+  return "now";
+}
 
 export default function TabTwoScreen() {
   const { readMediaItems } = useMediaItem();
@@ -69,9 +89,15 @@ export default function TabTwoScreen() {
                 )}
               </ThemedView>
               <View style={styles.desc}>
-                <ThemedText color="text" style={styles.title}>
-                  {item.title}
-                </ThemedText>
+                <ThemedView style={styles.titleBar}>
+                  <ThemedText color="text" style={styles.title}>
+                    {item.title}
+                  </ThemedText>
+                  <ThemedText type="small">
+                    {formatShortRelative(item.publishedAt)}
+                  </ThemedText>
+                </ThemedView>
+
                 <ThemedView style={styles.publisher}>
                   {item.mediaSource.icon?.url && (
                     <Image
@@ -85,6 +111,7 @@ export default function TabTwoScreen() {
                     {item.mediaSource.name}
                   </Text>
                 </ThemedView>
+
                 <ThemedText
                   numberOfLines={5}
                   style={{ ...styles.text, color: colorText2 }}
@@ -116,7 +143,15 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
   },
+  titleBar: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "baseline",
+    gap: Spacing.size2,
+  },
   title: {
+    flex: 1,
     fontWeight: FontWeight.bold,
     fontSize: FontSize.size3,
     marginBlockEnd: Spacing.size1,
@@ -138,20 +173,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  meta: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    gap: Spacing.size4,
-    marginBlockEnd: Spacing.size2,
-  },
   publisher: {
+    height: Spacing.size4,
+    marginBlockStart: Spacing.size1,
+    marginBlockEnd: Spacing.size2,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     gap: Spacing.size1,
-    marginBlockEnd: Spacing.size2,
   },
   publisherThumbnail: {
     width: Spacing.size4,
