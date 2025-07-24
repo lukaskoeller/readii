@@ -1,8 +1,16 @@
 import { StyleSheet, Text, type TextProps, Platform } from "react-native";
 
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { FontSize } from "@/constants/Sizes";
-import { H1_STYLE, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, H6_STYLE, TEXT_DEFAULT_STYLE } from "@/constants/Styles";
+import { FontSize, FontWeight } from "@/constants/Sizes";
+import {
+  H1_STYLE,
+  H2_STYLE,
+  H3_STYLE,
+  H4_STYLE,
+  H5_STYLE,
+  H6_STYLE,
+  TEXT_DEFAULT_STYLE,
+} from "@/constants/Styles";
 import { useTextColor } from "@/hooks/useTextColor";
 
 export type TThemedTextType =
@@ -13,7 +21,8 @@ export type TThemedTextType =
   | "h4"
   | "h5"
   | "h6"
-  | "code";
+  | "code"
+  | "small";
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
@@ -66,5 +75,9 @@ const styles = StyleSheet.create({
     }),
     ...TEXT_DEFAULT_STYLE,
     fontSize: FontSize.size2,
+  },
+  small: {
+    fontWeight: FontWeight.medium,
+    fontSize: FontSize.size1,
   },
 });
