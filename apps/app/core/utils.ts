@@ -38,3 +38,9 @@ export const getPreviewText = (
 
   return previewText.trim();
 };
+
+export const dayMonthYearFormat = Intl.DateTimeFormat(undefined, {
+  day: "numeric",
+  month: "numeric",
+  year: "numeric",
+});
