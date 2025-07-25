@@ -112,6 +112,7 @@ export default function HomeScreen() {
       <Button
         onPress={async () => {
           const url = "https://lea.verou.me/feed.xml";
+          // const url = "https://nerdy.dev/rss.xml";
 
           try {
             const args = await getFeedData(url);
