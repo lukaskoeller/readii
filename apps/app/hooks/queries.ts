@@ -117,6 +117,7 @@ export const useMediaItem = () => {
         },
       },
       where: hasConditions ? and(...conditions) : undefined,
+      orderBy: (item, { desc }) => desc(item.publishedAt),
     });
   };
 
