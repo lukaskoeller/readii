@@ -36,6 +36,13 @@ export default function FeedStackLayout() {
           headerTitle: "",
         }}
       />
+      <Stack.Screen
+        name="add"
+        options={{
+          headerTitle: "Add new Feed",
+          presentation: "modal",
+        }}
+      />
     </Stack>
   );
 }
