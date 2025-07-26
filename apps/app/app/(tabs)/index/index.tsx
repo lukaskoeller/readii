@@ -1,4 +1,4 @@
-import { Button, SafeAreaView, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 import { LinkListCard } from "@/components/LinkListCard";
 import { QuickCardLink } from "@/components/QuickCardLink";
@@ -6,13 +6,12 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { Spacing } from "@/constants/Sizes";
-import { useFeed, useMediaItem, useMediaSource } from "@/hooks/queries";
+import { useMediaItem, useMediaSource } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
-import { getFeedData } from "@readii/parser";
+import { Link } from "expo-router";
 
 export default function HomeScreen() {
-  const { createFeed } = useFeed();
   const { readMediaSources } = useMediaSource();
   const {
     readMediaItemsCount,
@@ -37,7 +36,6 @@ export default function HomeScreen() {
   const itemsCountUnread = itemsCountIsUnread[0]?.count ?? 0;
 
   const colorText2 = useThemeColor({}, "text2");
-  const colorPrimary = useThemeColor({}, "primary");
 
   return (
     <SafeAreaView>
@@ -91,7 +89,7 @@ export default function HomeScreen() {
         />
       </ThemedView>
       <ThemedView padding={Spacing.size4}>
-        <ThemedText type="h2">All feeds</ThemedText>
+        <ThemedText type="h2">All Feeds</ThemedText>
         <ThemedView>
           <LinkListCard
             data={data.map((item) => ({
@@ -109,21 +107,11 @@ export default function HomeScreen() {
           />
         </ThemedView>
       </ThemedView>
-      <Button
-        onPress={async () => {
-          const url = "https://lea.verou.me/feed.xml";
-          // const url = "https://nerdy.dev/rss.xml";
-
-          try {
-            const args = await getFeedData(url);
-            await createFeed(args);
-          } catch (error) {
-            console.log(error);
-          }
-        }}
-        title="Add Feed"
-        color={colorPrimary}
-      />
+      <ThemedView padding={Spacing.size4}>
+        <Link href={"/add"}>
+          <ThemedText>Add Feed</ThemedText>
+        </Link>
+      </ThemedView>
     </SafeAreaView>
   );
 }
