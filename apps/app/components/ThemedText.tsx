@@ -28,7 +28,8 @@ export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
   type?: TThemedTextType;
-  color?: "text" | "text2";
+  color?: "text" | "text2" | "text3";
+  noMargin?: boolean;
 };
 
 export function ThemedText({
@@ -37,6 +38,7 @@ export function ThemedText({
   darkColor,
   type = "default",
   color,
+  noMargin,
   ...rest
 }: ThemedTextProps) {
   const textColor = useTextColor(type, color);
@@ -53,6 +55,7 @@ export function ThemedText({
         baseStyles,
         type === "code" ? { backgroundColor: colorBackground2 } : {},
         style,
+        noMargin && { marginBlock: 0 },
       ]}
       {...rest}
     />
