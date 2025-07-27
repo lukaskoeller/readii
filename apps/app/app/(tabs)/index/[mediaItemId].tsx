@@ -50,7 +50,10 @@ export default function Article() {
   return (
     <SafeAreaView>
       <ThemedView style={styles.flow}>
-        <ScrollView style={{ padding: Spacing.size4 }}>
+        <ScrollView
+          style={{ padding: Spacing.size4 }}
+          contentContainerStyle={{ paddingBlockEnd: Spacing.navigation }}
+        >
           <ThemedView
             style={{
               marginBlockEnd: Spacing.size8,
