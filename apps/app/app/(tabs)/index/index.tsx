@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 import { LinkListCard } from "@/components/LinkListCard";
 import { QuickCardLink } from "@/components/QuickCardLink";
@@ -39,79 +39,85 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView>
-      <ThemedView padding={Spacing.size4}>
-        <ThemedText type="h1" style={{ marginBlockStart: 0 }}>
-          Hey Luki.
-        </ThemedText>
-        <ThemedText style={{ marginBlockEnd: Spacing.size5 }}>
-          Liebe ist wirklich ein Geschenk Gottes.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.quickFilters}>
-        <QuickCardLink
-          href={{
-            pathname: "/feed",
-          }}
-          label="All"
-          count={itemsCountAll}
-          icon={() => <IconSymbol size={28} name="house" color={colorText2} />}
-        />
-        <QuickCardLink
-          href={{
-            pathname: "/feed",
-            params: { isRead: "false", feedTitle: "Unread" },
-          }}
-          label="Unread"
-          count={itemsCountUnread}
-          icon={() => (
-            <IconSymbol size={28} name="app.badge" color={colorText2} />
-          )}
-        />
-        <QuickCardLink
-          href={{
-            pathname: "/feed",
-            params: { isStarred: "true", feedTitle: "Starred" },
-          }}
-          label="Starred"
-          count={itemsCountStarred}
-          icon={() => <IconSymbol size={28} name="star" color={colorText2} />}
-        />
-        <QuickCardLink
-          href={{
-            pathname: "/feed",
-            params: { isReadLater: "true", feedTitle: "Read Later" },
-          }}
-          label="Read Later"
-          count={itemsCountReadLater}
-          icon={() => (
-            <IconSymbol size={28} name="clock.badge" color={colorText2} />
-          )}
-        />
-      </ThemedView>
-      <ThemedView padding={Spacing.size4}>
-        <ThemedText type="h2">All Feeds</ThemedText>
-        <ThemedView>
-          <LinkListCard
-            data={data.map((item) => ({
-              id: String(item.id),
-              label: item.name,
-              icon: (
-                <Image
-                  style={styles.thumbnail}
-                  source={item.icon?.url}
-                  contentFit="cover"
-                  transition={500}
-                />
-              ),
-            }))}
+      <ScrollView
+        contentContainerStyle={{ paddingBlockEnd: Spacing.navigation }}
+      >
+        <ThemedView padding={Spacing.size4}>
+          <ThemedText type="h1" style={{ marginBlockStart: 0 }}>
+            Hey Luki.
+          </ThemedText>
+          <ThemedText style={{ marginBlockEnd: Spacing.size5 }}>
+            Liebe ist wirklich ein Geschenk Gottes.
+          </ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.quickFilters}>
+          <QuickCardLink
+            href={{
+              pathname: "/feed",
+            }}
+            label="All"
+            count={itemsCountAll}
+            icon={() => (
+              <IconSymbol size={28} name="house" color={colorText2} />
+            )}
+          />
+          <QuickCardLink
+            href={{
+              pathname: "/feed",
+              params: { isRead: "false", feedTitle: "Unread" },
+            }}
+            label="Unread"
+            count={itemsCountUnread}
+            icon={() => (
+              <IconSymbol size={28} name="app.badge" color={colorText2} />
+            )}
+          />
+          <QuickCardLink
+            href={{
+              pathname: "/feed",
+              params: { isStarred: "true", feedTitle: "Starred" },
+            }}
+            label="Starred"
+            count={itemsCountStarred}
+            icon={() => <IconSymbol size={28} name="star" color={colorText2} />}
+          />
+          <QuickCardLink
+            href={{
+              pathname: "/feed",
+              params: { isReadLater: "true", feedTitle: "Read Later" },
+            }}
+            label="Read Later"
+            count={itemsCountReadLater}
+            icon={() => (
+              <IconSymbol size={28} name="clock.badge" color={colorText2} />
+            )}
           />
         </ThemedView>
-      </ThemedView>
-      <ThemedView padding={Spacing.size4}>
-        <Link href={"/add"}>
-          <ThemedText>Add Feed</ThemedText>
-        </Link>
-      </ThemedView>
+        <ThemedView padding={Spacing.size4}>
+          <ThemedText type="h2">All Feeds</ThemedText>
+          <ThemedView>
+            <LinkListCard
+              data={data.map((item) => ({
+                id: String(item.id),
+                label: item.name,
+                icon: (
+                  <Image
+                    style={styles.thumbnail}
+                    source={item.icon?.url}
+                    contentFit="cover"
+                    transition={500}
+                  />
+                ),
+              }))}
+            />
+          </ThemedView>
+        </ThemedView>
+        <ThemedView padding={Spacing.size4}>
+          <Link href={"/add"}>
+            <ThemedText>Add Feed</ThemedText>
+          </Link>
+        </ThemedView>
+      </ScrollView>
     </SafeAreaView>
   );
 }
