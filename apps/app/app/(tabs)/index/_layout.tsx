@@ -9,7 +9,7 @@ export default function FeedStackLayout() {
       <Stack.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "",
           headerStyle: {
             backgroundColor,
           },
@@ -40,7 +40,6 @@ export default function FeedStackLayout() {
         name="add"
         options={{
           headerTitle: "Add new Feed",
-          presentation: "modal",
         }}
       />
     </Stack>

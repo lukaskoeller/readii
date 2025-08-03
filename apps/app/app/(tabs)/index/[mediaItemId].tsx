@@ -4,7 +4,7 @@ import { ThemedView } from "@/components/ThemedView";
 import { Spacing } from "@/constants/Sizes";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
 import { Pressable, SafeAreaView, ScrollView, StyleSheet } from "react-native";
-import { parse, parseFragment } from "parse5";
+import { parseFragment } from "parse5";
 import { useEffect } from "react";
 import { useNavigation } from "expo-router";
 import { IconSymbol } from "@/components/ui/IconSymbol";

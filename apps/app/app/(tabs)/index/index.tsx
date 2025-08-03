@@ -94,10 +94,14 @@ export default function HomeScreen() {
           />
         </ThemedView>
         <ThemedView padding={Spacing.size4}>
-          <ThemedText type="h2">All Feeds</ThemedText>
+          <ThemedText type="h3">All Feeds</ThemedText>
           <ThemedView>
             <LinkListCard
               data={data.map((item) => ({
+                href: {
+                  pathname: "/feed",
+                  params: { mediaSourceId: item.id, feedTitle: item.name },
+                },
                 id: String(item.id),
                 label: item.name,
                 icon: (

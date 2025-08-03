@@ -11,6 +11,9 @@ import { getFeedData } from "@readii/parser";
 import { $HttpsUrl } from "@readii/schemas/zod";
 import { Image } from "expo-image";
 import * as Clipboard from "expo-clipboard";
+import { Collapsible } from "@/components/Collapsible";
+import { Card } from "@/components/Card";
+import { Section } from "@/components/Section";
 
 export type TFeedPreview = {
   iconUrl: string | null;
@@ -32,6 +35,9 @@ export default function AddFeed() {
   return (
     <View style={[styles.container, { borderColor: colorBorder }]}>
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+      <Section title="Browse Categories" href="/add/browse-categories">
+        <ThemedText>Categories</ThemedText>
+      </Section>
       <ThemedView style={[styles.preview, { borderColor: colorBorder }]}>
         {feedPreview ? (
           <>
@@ -63,34 +69,38 @@ export default function AddFeed() {
           </ThemedView>
         )}
       </ThemedView>
-      <ThemedView>
-        <ThemedText>URL</ThemedText>
-        <TextInput
-          style={[
-            styles.input,
-            { backgroundColor: colorBackground2, borderColor: colorBorder },
-          ]}
-          inputMode="url"
-          onChangeText={async (text) => {
-            setFeedUrl(text);
-            const feedUrl = $HttpsUrl.safeParse(text);
-            if (feedUrl.success) {
-              const feedData = await getFeedData(feedUrl.data);
-              setFeedPreview({
-                iconUrl: feedData.mediaSourceIcon.url,
-                name: feedData.mediaSource.name,
-                url: feedData.mediaSource.url,
-                description: feedData.mediaSource.description,
-                mediaItemsCount: feedData.mediaItems.length,
-              });
-              console.log(feedData);
-            } else {
-              setFeedPreview(null);
-            }
-          }}
-          value={feedUrl}
-        />
-      </ThemedView>
+      <Card>
+        <Collapsible title="File-based routing">
+          <ThemedView>
+            <ThemedText>URL</ThemedText>
+            <TextInput
+              style={[
+                styles.input,
+                { backgroundColor: colorBackground2, borderColor: colorBorder },
+              ]}
+              inputMode="url"
+              onChangeText={async (text) => {
+                setFeedUrl(text);
+                const feedUrl = $HttpsUrl.safeParse(text);
+                if (feedUrl.success) {
+                  const feedData = await getFeedData(feedUrl.data);
+                  setFeedPreview({
+                    iconUrl: feedData.mediaSourceIcon.url,
+                    name: feedData.mediaSource.name,
+                    url: feedData.mediaSource.url,
+                    description: feedData.mediaSource.description,
+                    mediaItemsCount: feedData.mediaItems.length,
+                  });
+                  console.log(feedData);
+                } else {
+                  setFeedPreview(null);
+                }
+              }}
+              value={feedUrl}
+            />
+          </ThemedView>
+        </Collapsible>
+      </Card>
       <ThemedView>
         <Button
           onPress={async () => {
