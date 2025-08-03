@@ -55,7 +55,7 @@ export function ThemedText({
         baseStyles,
         type === "code" ? { backgroundColor: colorBackground2 } : {},
         style,
-        noMargin && { marginBlock: 0 },
+        noMargin && { marginBlock: 0, marginBlockStart: 0, marginBlockEnd: 0 },
       ]}
       {...rest}
     />
