@@ -1,11 +1,14 @@
 // Fallback for using MaterialIcons on Android and web.
 
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { SymbolViewProps, SymbolWeight } from 'expo-symbols';
-import { ComponentProps } from 'react';
-import { OpaqueColorValue, type StyleProp, type TextStyle } from 'react-native';
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { SymbolViewProps, SymbolWeight } from "expo-symbols";
+import { ComponentProps } from "react";
+import { OpaqueColorValue, type StyleProp, type TextStyle } from "react-native";
 
-type IconMapping = Record<SymbolViewProps['name'], ComponentProps<typeof MaterialIcons>['name']>;
+type IconMapping = Record<
+  SymbolViewProps["name"],
+  ComponentProps<typeof MaterialIcons>["name"]
+>;
 type IconSymbolName = keyof typeof MAPPING;
 
 /**
@@ -14,18 +17,21 @@ type IconSymbolName = keyof typeof MAPPING;
  * - see SF Symbols in the [SF Symbols](https://developer.apple.com/sf-symbols/) app.
  */
 const MAPPING = {
-  'house': 'home',
-  'newspaper': 'feed',
-  'magnifyingglass': 'search',
-  'person.crop.circle': 'person',
-  'chevron.forward': 'chevron-right',
-  'app.badge': 'mark-chat-unread',
-  'clock.badge': 'access-time',
-  'clock.badge.fill': 'access-time-filled',
-  'photo': 'photo',
-  'star': 'star-border',
-  'star.fill': 'star',
-  'chevron.right': 'chevron-right',
+  house: "home",
+  newspaper: "feed",
+  magnifyingglass: "search",
+  "person.crop.circle": "person",
+  "chevron.forward": "chevron-right",
+  "app.badge": "mark-chat-unread",
+  "clock.badge": "access-time",
+  "clock.badge.fill": "access-time-filled",
+  photo: "photo",
+  star: "star-border",
+  "star.fill": "star",
+  "chevron.right": "chevron-right",
+  link: "link",
+  "smallcircle.fill.circle": "radio-button-checked",
+  "rectangle.stack": "list-alt",
 } as IconMapping;
 
 /**
@@ -45,5 +51,12 @@ export function IconSymbol({
   style?: StyleProp<TextStyle>;
   weight?: SymbolWeight;
 }) {
-  return <MaterialIcons color={color} size={size} name={MAPPING[name]} style={style} />;
+  return (
+    <MaterialIcons
+      color={color}
+      size={size}
+      name={MAPPING[name]}
+      style={style}
+    />
+  );
 }

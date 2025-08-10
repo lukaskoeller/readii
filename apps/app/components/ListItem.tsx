@@ -12,21 +12,12 @@ export type ListItemProps = {
 };
 
 export function ListItem({ label, icon, isLastItem }: ListItemProps) {
-  const colorBorder = useThemeColor({}, "background");
-  const colorBackground3 = useThemeColor({}, "background2");
+  const colorBorder = useThemeColor({}, "border");
+  const colorBackground = useThemeColor({}, "text2");
 
   return (
     <ThemedView style={[styles.item]}>
-      <ThemedView
-        style={[
-          styles.icon,
-          {
-            backgroundColor: colorBackground3,
-          },
-        ]}
-      >
-        {icon}
-      </ThemedView>
+      <ThemedView style={[styles.icon]}>{icon}</ThemedView>
       <ThemedView
         style={[
           styles.row,
@@ -42,8 +33,8 @@ export function ListItem({ label, icon, isLastItem }: ListItemProps) {
         <ThemedView>
           <IconSymbol
             name="chevron.right"
-            color={colorBorder}
-            size={Spacing.size5}
+            color={colorBackground}
+            size={Spacing.size3}
           />
         </ThemedView>
       </ThemedView>
@@ -63,7 +54,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: Spacing.size3,
-    paddingInlineStart: Spacing.size4,
   },
   row: {
     display: "flex",

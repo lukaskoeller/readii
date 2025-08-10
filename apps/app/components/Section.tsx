@@ -4,25 +4,35 @@ import { ThemedView } from "./ThemedView";
 import { ThemedText } from "./ThemedText";
 import { IconSymbol } from "./ui/IconSymbol";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { StyleSheet } from "react-native";
+import { StyleSheet, ViewProps } from "react-native";
 import { FontSize, Spacing } from "@/constants/Sizes";
 
 export type SectionProps = {
   title: string;
   children: React.ReactNode;
   href?: LinkProps["href"];
+  style?: ViewProps["style"];
+  withPadding?: boolean;
 };
 
-export const Section: FC<SectionProps> = ({ title, children, href }) => {
-  const colorBorder = useThemeColor({}, "border");
+export const Section: FC<SectionProps> = ({
+  title,
+  children,
+  href,
+  style,
+  withPadding,
+}) => {
+  const colorText2 = useThemeColor({}, "text2");
   const heading = (
-    <ThemedText type="h3" noMargin>
+    <ThemedText type="h4" noMargin>
       {title}
     </ThemedText>
   );
 
   return (
-    <ThemedView>
+    <ThemedView
+      style={[style, withPadding && { paddingInline: Spacing.size4 }]}
+    >
       {href ? (
         <Link href={href}>
           <ThemedView style={styles.header}>
@@ -30,8 +40,8 @@ export const Section: FC<SectionProps> = ({ title, children, href }) => {
             <ThemedView>
               <IconSymbol
                 name="chevron.forward"
-                color={colorBorder}
-                size={FontSize.size4}
+                color={colorText2}
+                size={FontSize.size3}
               />
             </ThemedView>
           </ThemedView>
@@ -39,7 +49,7 @@ export const Section: FC<SectionProps> = ({ title, children, href }) => {
       ) : (
         heading
       )}
-      <ThemedView>{children}</ThemedView>
+      <ThemedView style={styles.content}>{children}</ThemedView>
     </ThemedView>
   );
 };
@@ -52,5 +62,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: Spacing.size1,
     paddingInlineEnd: Spacing.size3,
+  },
+  content: {
+    marginBlockStart: Spacing.size2,
   },
 });
