@@ -18,6 +18,7 @@ export const Spacing = {
   size15: 320,
   size16: 480,
   navigation: 48,
+  container: 16,
 } as const;
 
 export const Radius = {
