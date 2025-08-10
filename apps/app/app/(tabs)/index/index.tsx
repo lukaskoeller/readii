@@ -10,6 +10,7 @@ import { useMediaItem, useMediaSource } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Link } from "expo-router";
+import { Section } from "@/components/Section";
 
 export default function HomeScreen() {
   const { readMediaSources } = useMediaSource();
@@ -94,8 +95,7 @@ export default function HomeScreen() {
           />
         </ThemedView>
         <ThemedView padding={Spacing.size4}>
-          <ThemedText type="h3">All Feeds</ThemedText>
-          <ThemedView>
+          <Section title="All Feeds">
             <LinkListCard
               data={data.map((item) => ({
                 href: {
@@ -114,7 +114,7 @@ export default function HomeScreen() {
                 ),
               }))}
             />
-          </ThemedView>
+          </Section>
         </ThemedView>
         <ThemedView padding={Spacing.size4}>
           <Link href={"/add"}>
