@@ -28,11 +28,52 @@ export default function FeedScreen() {
 
   const colorBackground2 = useThemeColor({}, "background2");
   const colorBorder = useThemeColor({}, "border");
+  const colorText = useThemeColor({}, "text");
   const colorPrimary = useThemeColor({}, "primary");
 
   return (
     <ThemedView container>
       <Card>
+        <ThemedView style={[styles.previewContainer]}>
+          <ThemedView style={[styles.preview]}>
+            {feedPreview ? (
+              <>
+                <Image
+                  style={[
+                    styles.thumbnail,
+                    { backgroundColor: colorBackground2 },
+                  ]}
+                  source={feedPreview?.iconUrl ?? undefined}
+                />
+                <ThemedView style={styles.previewText}>
+                  <ThemedText type="h5" color="text2" noMargin>
+                    {feedPreview?.name}
+                  </ThemedText>
+                  <ThemedText type="small" color="text3" noMargin>
+                    {feedPreview?.description}
+                  </ThemedText>
+                </ThemedView>
+              </>
+            ) : (
+              <ThemedView
+                style={{
+                  flex: 1,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <ThemedText
+                  type="small"
+                  color="text3"
+                  noMargin
+                  style={{ textAlign: "center" }}
+                >
+                  Enter a feed URL to preview its content.
+                </ThemedText>
+              </ThemedView>
+            )}
+          </ThemedView>
+        </ThemedView>
         <ThemedView>
           <ThemedText>URL</ThemedText>
           <TextInput
@@ -61,16 +102,17 @@ export default function FeedScreen() {
             value={feedUrl}
           />
         </ThemedView>
+        <ThemedView style={styles.pasteContainer}>
+          <Button
+            onPress={async () => {
+              const text = await Clipboard.getStringAsync();
+              setFeedUrl(text);
+            }}
+            title="Paste from Clipboard"
+            color={colorText}
+          />
+        </ThemedView>
       </Card>
-      <ThemedView>
-        <Button
-          onPress={async () => {
-            const text = await Clipboard.getStringAsync();
-            setFeedUrl(text);
-          }}
-          title="Paste from Clipboard"
-        />
-      </ThemedView>
       <ThemedView style={{ marginBlockStart: Spacing.size4 }}>
         <Button
           title="Add Feed"
@@ -89,37 +131,6 @@ export default function FeedScreen() {
           color={colorPrimary}
         />
       </ThemedView>
-      <ThemedView style={[styles.preview, { borderColor: colorBorder }]}>
-        {feedPreview ? (
-          <>
-            <Image
-              style={styles.thumbnail}
-              source={feedPreview?.iconUrl ?? undefined}
-            />
-            <ThemedView style={styles.previewText}>
-              <ThemedText type="h5" color="text2" noMargin>
-                {feedPreview?.name}
-              </ThemedText>
-              <ThemedText type="small" color="text3" noMargin>
-                {feedPreview?.description}
-              </ThemedText>
-            </ThemedView>
-          </>
-        ) : (
-          <ThemedView
-            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-          >
-            <ThemedText
-              type="small"
-              color="text3"
-              noMargin
-              style={{ textAlign: "center" }}
-            >
-              No feed preview available.
-            </ThemedText>
-          </ThemedView>
-        )}
-      </ThemedView>
     </ThemedView>
   );
 }
@@ -133,24 +144,26 @@ const styles = StyleSheet.create({
     width: "100%",
     borderWidth: 1,
   },
+  previewContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    minHeight: Spacing.size12,
+    marginBlockStart: Spacing.size2,
+  },
   preview: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
     gap: Spacing.size3,
-    minHeight: Spacing.size12,
-    padding: Spacing.size3,
-    borderRadius: Radius.size3,
-    marginBlockStart: Spacing.size2,
-    borderWidth: 1,
   },
   thumbnail: {
     alignSelf: "flex-start",
     width: Spacing.size8,
     height: Spacing.size8,
     borderRadius: Radius.size3,
-    margin: Spacing.size3,
-    marginInlineEnd: 0,
+    marginBlock: Spacing.size2,
+    marginInlineStart: Spacing.size3,
   },
   previewText: {
     flex: 1,
@@ -159,5 +172,10 @@ const styles = StyleSheet.create({
     gap: Spacing.size2,
     marginBlock: Spacing.size3,
     marginInlineEnd: Spacing.size3,
+  },
+  pasteContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
   },
 });
