@@ -52,14 +52,16 @@ export default function AddFeed() {
         style={{ margin: Spacing.container }}
         data={[
           {
-            href: "/add/feed",
+            href: "/home/add/feed",
+            id: "/home/add/feed",
             label: "Add Feed",
             icon: (
               <IconSymbol name="link" size={Spacing.size5} color={colorText2} />
             ),
           },
           {
-            href: "/add/collection",
+            href: "/home/add/collection",
+            id: "/home/add/collection",
             label: "Add Collection",
             icon: (
               <IconSymbol
@@ -70,7 +72,8 @@ export default function AddFeed() {
             ),
           },
           {
-            href: "/add/opml",
+            href: "/home/add/opml",
+            id: "/home/add/opml",
             label: "Add from OPML",
             icon: (
               <IconSymbol
