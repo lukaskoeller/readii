@@ -8,6 +8,10 @@ import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
+export const unstable_settings = {
+  initialRouteName: "home",
+};
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const tabSelectedColor = Colors[colorScheme ?? "light"].tabIconSelected;
@@ -31,7 +35,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           title: "Feed",
           tabBarIcon: ({ focused }) => (

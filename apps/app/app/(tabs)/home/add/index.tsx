@@ -25,6 +25,7 @@ import { Section } from "@/components/Section";
 import { LinkList } from "@/components/LinkList";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { SimpleCardLink } from "@/components/SimpleCardLink";
+import { Gallery } from "@/components/Gallery";
 
 export type TFeedPreview = {
   iconUrl: string | null;
@@ -81,8 +82,8 @@ export default function AddFeed() {
           },
         ]}
       />
-      <Section title="Browse Categories" href="/add/categories">
-        <FlatList
+      <Section title="Browse Categories" href="/add/categories" headerPadding>
+        <Gallery
           data={[
             { href: "/add/categories/news-politics", label: "News & Politics" },
             { href: "/add/categories/entertainment", label: "Entertainment" },
@@ -111,7 +112,6 @@ export default function AddFeed() {
           renderItem={({ item }) => (
             <SimpleCardLink href={item.href} label={item.label} />
           )}
-          horizontal
         />
       </Section>
       <ThemedView style={[styles.preview, { borderColor: colorBorder }]}>

@@ -12,7 +12,8 @@ export type SectionProps = {
   children: React.ReactNode;
   href?: LinkProps["href"];
   style?: ViewProps["style"];
-  withPadding?: boolean;
+  headerPadding?: boolean;
+  bodyPadding?: boolean;
 };
 
 export const Section: FC<SectionProps> = ({
@@ -20,7 +21,8 @@ export const Section: FC<SectionProps> = ({
   children,
   href,
   style,
-  withPadding,
+  headerPadding,
+  bodyPadding,
 }) => {
   const colorText2 = useThemeColor({}, "text2");
   const heading = (
@@ -30,12 +32,15 @@ export const Section: FC<SectionProps> = ({
   );
 
   return (
-    <ThemedView
-      style={[style, withPadding && { paddingInline: Spacing.size4 }]}
-    >
+    <ThemedView style={style}>
       {href ? (
         <Link href={href}>
-          <ThemedView style={styles.header}>
+          <ThemedView
+            style={[
+              styles.header,
+              headerPadding && { paddingInline: Spacing.size4 },
+            ]}
+          >
             {heading}
             <ThemedView>
               <IconSymbol
@@ -49,7 +54,11 @@ export const Section: FC<SectionProps> = ({
       ) : (
         heading
       )}
-      <ThemedView style={styles.content}>{children}</ThemedView>
+      <ThemedView
+        style={[styles.content, bodyPadding && { padding: Spacing.size4 }]}
+      >
+        {children}
+      </ThemedView>
     </ThemedView>
   );
 };

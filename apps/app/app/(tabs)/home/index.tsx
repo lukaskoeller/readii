@@ -54,7 +54,7 @@ export default function HomeScreen() {
         <ThemedView style={styles.quickFilters}>
           <QuickCardLink
             href={{
-              pathname: "/feed",
+              pathname: "/home/feed",
             }}
             label="All"
             count={itemsCountAll}
@@ -64,7 +64,7 @@ export default function HomeScreen() {
           />
           <QuickCardLink
             href={{
-              pathname: "/feed",
+              pathname: "/home/feed",
               params: { isRead: "false", feedTitle: "Unread" },
             }}
             label="Unread"
@@ -75,7 +75,7 @@ export default function HomeScreen() {
           />
           <QuickCardLink
             href={{
-              pathname: "/feed",
+              pathname: "/home/feed",
               params: { isStarred: "true", feedTitle: "Starred" },
             }}
             label="Starred"
@@ -84,7 +84,7 @@ export default function HomeScreen() {
           />
           <QuickCardLink
             href={{
-              pathname: "/feed",
+              pathname: "/home/feed",
               params: { isReadLater: "true", feedTitle: "Read Later" },
             }}
             label="Read Later"
@@ -99,7 +99,7 @@ export default function HomeScreen() {
             <LinkListCard
               data={data.map((item) => ({
                 href: {
-                  pathname: "/feed",
+                  pathname: "/home/feed",
                   params: { mediaSourceId: item.id, feedTitle: item.name },
                 },
                 id: String(item.id),
@@ -117,7 +117,7 @@ export default function HomeScreen() {
           </Section>
         </ThemedView>
         <ThemedView padding={Spacing.size4}>
-          <Link href={"/add"}>
+          <Link href={"/home/add"}>
             <ThemedText>Add Feed</ThemedText>
           </Link>
         </ThemedView>

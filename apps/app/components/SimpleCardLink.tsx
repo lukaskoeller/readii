@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     paddingBlock: Spacing.size2,
     paddingInline: Spacing.size3,
     borderRadius: Radius.size4,
-    marginInlineEnd: Spacing.size2,
   },
   link: {
     flex: 1,
