@@ -662,7 +662,7 @@ const styles = StyleSheet.create({
 });
 
 export type HtmlViewerProps = {
-  ast: DefaultTreeAdapterTypes.Document;
+  ast: DefaultTreeAdapterTypes.DocumentFragment;
   url: string | undefined;
 };
 
