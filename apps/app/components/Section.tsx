@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    gap: Spacing.size1,
+    gap: Spacing.size2,
     paddingInlineEnd: Spacing.size3,
   },
   content: {
