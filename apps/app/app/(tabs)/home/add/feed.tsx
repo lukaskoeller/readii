@@ -3,7 +3,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useState } from "react";
-import { Button, StyleSheet, TextInput } from "react-native";
+import { Button, StyleSheet } from "react-native";
 import { $HttpsUrl } from "@readii/schemas/zod";
 import { getFeedData } from "@readii/parser";
 import { Image } from "expo-image";
@@ -11,6 +11,7 @@ import { useFeed } from "@/hooks/queries";
 import { useRouter } from "expo-router";
 import { FontSize, Radius, Spacing } from "@/constants/Sizes";
 import * as Clipboard from "expo-clipboard";
+import { TextInputField } from "@/components/TextInputField";
 
 export type TFeedPreview = {
   iconUrl: string | null;
@@ -23,7 +24,7 @@ export type TFeedPreview = {
 export default function FeedScreen() {
   const router = useRouter();
   const { createFeed } = useFeed();
-  const [feedUrl, setFeedUrl] = useState<string>("");
+  const [feedUrl, setFeedUrl] = useState<string>("https://");
   const [feedPreview, setFeedPreview] = useState<TFeedPreview | null>(null);
 
   const colorBackground2 = useThemeColor({}, "background2");
@@ -74,15 +75,15 @@ export default function FeedScreen() {
             )}
           </ThemedView>
         </ThemedView>
-        <ThemedView>
-          <ThemedText>URL</ThemedText>
-          <TextInput
-            style={[
+        <TextInputField
+          label="URL"
+          inputProps={{
+            style: [
               styles.input,
               { backgroundColor: colorBackground2, borderColor: colorBorder },
-            ]}
-            inputMode="url"
-            onChangeText={async (text) => {
+            ],
+            inputMode: "url",
+            onChangeText: async (text) => {
               setFeedUrl(text);
               const feedUrl = $HttpsUrl.safeParse(text);
               if (feedUrl.success) {
@@ -98,10 +99,10 @@ export default function FeedScreen() {
               } else {
                 setFeedPreview(null);
               }
-            }}
-            value={feedUrl}
-          />
-        </ThemedView>
+            },
+            value: feedUrl,
+          }}
+        />
         <ThemedView style={styles.pasteContainer}>
           <Button
             onPress={async () => {
@@ -123,7 +124,7 @@ export default function FeedScreen() {
               console.log(args);
 
               await createFeed(args);
-              router.navigate("../");
+              router.navigate("../../");
             } catch (error) {
               console.log(error);
             }
