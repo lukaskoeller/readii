@@ -14,7 +14,7 @@ export default function AddFeed() {
 
   return (
     <View style={[styles.container, { borderColor: colorBorder }]}>
-      <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+      <StatusBar style={Platform.OS === "ios" ? "auto" : "auto"} />
       <LinkList
         style={{ margin: Spacing.container }}
         data={[
@@ -61,29 +61,41 @@ export default function AddFeed() {
           data={
             [
               {
-                href: "/add/categories/news-politics",
+                href: "/home/add/categories/news-politics",
                 label: "News & Politics",
               },
-              { href: "/add/categories/entertainment", label: "Entertainment" },
-              { href: "/add/categories/sports", label: "Sports" },
               {
-                href: "/add/categories/money-business",
+                href: "/home/add/categories/entertainment",
+                label: "Entertainment",
+              },
+              { href: "/home/add/categories/sports", label: "Sports" },
+              {
+                href: "/home/add/categories/money-business",
                 label: "Money & Business",
               },
-              { href: "/add/categories/style-beauty", label: "Style & Beauty" },
-              { href: "/add/categories/food", label: "Food" },
               {
-                href: "/add/categories/travel-regional",
+                href: "/home/add/categories/style-beauty",
+                label: "Style & Beauty",
+              },
+              { href: "/home/add/categories/food", label: "Food" },
+              {
+                href: "/home/add/categories/travel-regional",
                 label: "Travel & Regional",
               },
-              { href: "/add/categories/health", label: "Health" },
-              { href: "/add/categories/home-garden", label: "Home & Garden" },
-              { href: "/add/categories/science-tech", label: "Science & Tech" },
-              { href: "/add/categories/cars", label: "Cars" },
-              { href: "/add/categories/hobbies", label: "Hobbies" },
-              { href: "/add/categories/outdoors", label: "Outdoors" },
+              { href: "/home/add/categories/health", label: "Health" },
               {
-                href: "/add/categories/kids-parenting",
+                href: "/home/add/categories/home-garden",
+                label: "Home & Garden",
+              },
+              {
+                href: "/home/add/categories/science-tech",
+                label: "Science & Tech",
+              },
+              { href: "/home/add/categories/cars", label: "Cars" },
+              { href: "/home/add/categories/hobbies", label: "Hobbies" },
+              { href: "/home/add/categories/outdoors", label: "Outdoors" },
+              {
+                href: "/home/add/categories/kids-parenting",
                 label: "Kids & Parenting",
               },
             ] as const

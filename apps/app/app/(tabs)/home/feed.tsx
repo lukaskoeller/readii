@@ -58,7 +58,7 @@ export default function TabTwoScreen() {
         return (
           <Link
             href={{
-              pathname: "/[mediaItemId]",
+              pathname: "/home/[mediaItemId]",
               params: { mediaItemId: item.id },
             }}
           >
