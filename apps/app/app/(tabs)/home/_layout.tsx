@@ -27,16 +27,6 @@ export default function FeedStackLayout() {
         }}
       />
       <Stack.Screen
-        name="[mediaItemId]"
-        options={{
-          headerStyle: {
-            backgroundColor,
-          },
-          headerShadowVisible: false,
-          headerTitle: "",
-        }}
-      />
-      <Stack.Screen
         name="add"
         options={{
           headerTitle: "Add new Feed",
