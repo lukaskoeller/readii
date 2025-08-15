@@ -124,7 +124,7 @@ export default function FeedScreen() {
               console.log(args);
 
               await createFeed(args);
-              router.navigate("../../");
+              router.navigate("/home");
             } catch (error) {
               console.log(error);
             }
