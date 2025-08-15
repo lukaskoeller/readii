@@ -18,6 +18,7 @@ import {
   differenceInYears,
   DateArg,
 } from "date-fns";
+import { useRefresh } from "@/hooks/useRefresh";
 
 function formatShortRelative(date: DateArg<Date>) {
   const now = new Date();
@@ -33,6 +34,9 @@ function formatShortRelative(date: DateArg<Date>) {
 }
 
 export default function TabTwoScreen() {
+  const { refreshing, handleRefresh } = useRefresh(async () => {
+    return new Promise((resolve) => setTimeout(resolve, 2000));
+  });
   const { readMediaItems } = useMediaItem();
   const params = useLocalSearchParams();
   const navigation = useNavigation();
@@ -51,6 +55,8 @@ export default function TabTwoScreen() {
     <FlatList
       style={styles.list}
       contentContainerStyle={{ paddingBottom: Spacing.size12 }}
+      onRefresh={handleRefresh}
+      refreshing={refreshing}
       data={data}
       renderItem={({ item }) => {
         const contentAst = parse(item?.content || "");
