@@ -1,5 +1,9 @@
 # readii
 
+## Todos
+
+- [ ] Add "Weekly Digest", an AI generated summary of the week's news
+
 ## Helpful
 
 - DOM Reference: `<link rel="alternate" type="application/rss+xml" title="RSS" href="https://...">`
