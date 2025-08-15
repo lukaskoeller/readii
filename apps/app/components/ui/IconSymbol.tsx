@@ -32,6 +32,7 @@ const MAPPING = {
   link: "link",
   "smallcircle.fill.circle": "radio-button-checked",
   "rectangle.stack": "list-alt",
+  "arrow.clockwise": "refresh",
 } as IconMapping;
 
 /**
