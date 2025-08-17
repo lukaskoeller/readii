@@ -59,7 +59,7 @@ export const mediaItem = sqliteTable("media_item", {
   content: text("content").notNull(),
   contentSnippet: text("content_snippet"),
   contentTldr: text("content_tldr"),
-  url: text("url").notNull().unique(),
+  url: text("url").unique().notNull(),
   creator: text("creator"),
   publishedAt: text("published_at").notNull(),
   thumbnail: text("thumbnail"),
