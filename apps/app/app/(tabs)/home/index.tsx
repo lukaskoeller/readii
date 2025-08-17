@@ -6,13 +6,17 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { Spacing } from "@/constants/Sizes";
-import { useMediaItem, useMediaSource } from "@/hooks/queries";
+import { useFeed, useMediaItem, useMediaSource } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Link } from "expo-router";
 import { Section } from "@/components/Section";
+import { useEffect } from "react";
+import { getFeedData } from "@readii/parser";
+import { TMediaSource } from "@/core/schema";
 
 export default function HomeScreen() {
+  const { updateFeed } = useFeed();
   const { readMediaSources } = useMediaSource();
   const {
     readMediaItemsCount,
@@ -37,6 +41,29 @@ export default function HomeScreen() {
   const itemsCountUnread = itemsCountIsUnread[0]?.count ?? 0;
 
   const colorText2 = useThemeColor({}, "text2");
+
+  // @todo Improve update on mount
+  useEffect(() => {
+    const updateFeeds = async (
+      mediaSourceFeedURLs: TMediaSource["feedUrl"][]
+    ) => {
+      await Promise.all(
+        mediaSourceFeedURLs.map(async (url) => {
+          const args = await getFeedData(url);
+          await updateFeed(args);
+        })
+      );
+    };
+    if (Array.isArray(data) && data.length > 0) {
+      const mediaSourceFeedURLs = data.map((mediaSource) => {
+        return mediaSource.feedUrl;
+      });
+
+      console.log("UPDATE FEEDS", mediaSourceFeedURLs);
+
+      updateFeeds(mediaSourceFeedURLs);
+    }
+  }, [data.length]);
 
   return (
     <SafeAreaView>
