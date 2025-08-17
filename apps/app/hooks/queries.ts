@@ -11,6 +11,8 @@ export type TCreateMediaSourceArgs = {
   mediaItems: Omit<schema.TMediaItem, "mediaSourceId">[];
 };
 
+export type TUpdateMediaSourceArgs = TCreateMediaSourceArgs;
+
 export const useFeed = () => {
   const db = useSQLiteContext();
   console.log("DB PATH", db.databasePath); // For Debugging Database
@@ -39,8 +41,34 @@ export const useFeed = () => {
     await Promise.all([...itemsInsertList, mediaSourceImageInsert]);
   };
 
+  const updateFeed = async ({
+    mediaSourceIcon: mediaSourceIconArgs,
+    mediaSource: mediaSourceArgs,
+    mediaItems: mediaItemsArgs,
+  }: TUpdateMediaSourceArgs) => {
+    const mediaSource = await drizzleDb
+      .update(schema.mediaSource)
+      .set(mediaSourceArgs)
+      .where(eq(schema.mediaSource.feedUrl, mediaSourceArgs.feedUrl));
+    const mediaSourceId = mediaSource.lastInsertRowId;
+
+    const itemsUpdateList = mediaItemsArgs.map(async (itemArg) => {
+      return drizzleDb
+        .update(schema.mediaItem)
+        .set(itemArg)
+        .where(eq(schema.mediaItem.url, itemArg.url));
+    });
+    const mediaSourceImageUpdate = drizzleDb
+      .update(schema.mediaSourceIcon)
+      .set(mediaSourceIconArgs)
+      .where(eq(schema.mediaSourceIcon.mediaSourceId, mediaSourceId));
+
+    await Promise.all([...itemsUpdateList, mediaSourceImageUpdate]);
+  };
+
   return {
     createFeed,
+    updateFeed,
   };
 };
 
