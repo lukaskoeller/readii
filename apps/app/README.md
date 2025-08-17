@@ -60,3 +60,7 @@ Generate migrations by running:
 ```zsh
 npx drizzle-kit generate
 ```
+
+## Docs
+
+- Expo and SQLite: https://orm.drizzle.team/docs/get-started/expo-new
