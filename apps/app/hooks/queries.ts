@@ -46,24 +46,37 @@ export const useFeed = () => {
     mediaSource: mediaSourceArgs,
     mediaItems: mediaItemsArgs,
   }: TUpdateMediaSourceArgs) => {
-    const mediaSource = await drizzleDb
-      .update(schema.mediaSource)
-      .set(mediaSourceArgs)
-      .where(eq(schema.mediaSource.feedUrl, mediaSourceArgs.feedUrl));
-    const mediaSourceId = mediaSource.lastInsertRowId;
+    try {
+      const mediaSource = await drizzleDb
+        .update(schema.mediaSource)
+        .set(mediaSourceArgs)
+        .where(eq(schema.mediaSource.feedUrl, mediaSourceArgs.feedUrl))
+        .returning({ id: schema.mediaSource.id });
+      const mediaSourceId = mediaSource[0].id;
 
-    const itemsUpdateList = mediaItemsArgs.map(async (itemArg) => {
-      return drizzleDb
-        .update(schema.mediaItem)
-        .set(itemArg)
-        .where(eq(schema.mediaItem.url, itemArg.url));
-    });
-    const mediaSourceImageUpdate = drizzleDb
-      .update(schema.mediaSourceIcon)
-      .set(mediaSourceIconArgs)
-      .where(eq(schema.mediaSourceIcon.mediaSourceId, mediaSourceId));
+      const itemsInsertOrUpdateList = mediaItemsArgs.map(async (itemArg) => {
+        return drizzleDb
+          .insert(schema.mediaItem)
+          .values({
+            ...itemArg,
+            mediaSourceId: mediaSourceId,
+          })
+          .onConflictDoUpdate({
+            target: schema.mediaItem.url,
+            set: itemArg,
+          });
+      });
 
-    await Promise.all([...itemsUpdateList, mediaSourceImageUpdate]);
+      const mediaSourceImageUpdate = drizzleDb
+        .update(schema.mediaSourceIcon)
+        .set(mediaSourceIconArgs)
+        .where(eq(schema.mediaSourceIcon.mediaSourceId, mediaSourceId));
+
+      await Promise.all([...itemsInsertOrUpdateList, mediaSourceImageUpdate]);
+    } catch (error) {
+      // @todo handle error properly
+      console.error("Error updating feed:", error);
+    }
   };
 
   return {
