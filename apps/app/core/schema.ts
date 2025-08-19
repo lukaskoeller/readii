@@ -62,7 +62,7 @@ export const mediaItem = sqliteTable("media_item", {
   url: text("url").unique().notNull(),
   creator: text("creator"),
   publishedAt: text("published_at").notNull(),
-  thumbnail: text("thumbnail"),
+  thumbnailUrl: text("thumbnail_url"),
   enclosure: text("enclosure"),
   isStarred: integer("is_starred", { mode: "boolean" }).default(false),
   isRead: integer("is_read", { mode: "boolean" }).default(false),

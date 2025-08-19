@@ -1,0 +1,1 @@
+ALTER TABLE `media_item` RENAME COLUMN "thumbnail" TO "thumbnail_url";

@@ -70,10 +70,10 @@ export default function TabTwoScreen() {
           >
             <ThemedView style={styles.item}>
               <ThemedView>
-                {item.thumbnail ? (
+                {item.thumbnailUrl ? (
                   <Image
                     style={styles.thumbnail}
-                    source={item.thumbnail}
+                    source={item.thumbnailUrl}
                     contentFit="cover"
                     transition={500}
                   />
