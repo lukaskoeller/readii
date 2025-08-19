@@ -3,6 +3,11 @@
 ## Todos
 
 - [ ] Add "Weekly Digest", an AI generated summary of the week's news
+- [ ] Fix "thumbnail" in `getFeedData`
+- [ ] Add support for Google Alert
+- [ ] Add support for Podcasts
+- [ ] Handle videos in `<HtmlViewer>`
+- [ ] Check out Android App
 
 ## Helpful
 
