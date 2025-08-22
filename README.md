@@ -9,6 +9,8 @@
 - [ ] FEAT: Handle videos in `<HtmlViewer>`
 - [ ] PERF: Move `content` to files instead of in DB
 - [ ] CHORE: Check out Android App
+- [ ] FEAT: Add Onboarding Flow!
+- [ ] FEAT: Add empty feed UI
 - [ ] FEAT: Add support for Podcasts
 - [ ] FEAT: Add support for Google Alert
 - [ ] FEAT: Add "Weekly Digest", an AI generated summary of the week's news
