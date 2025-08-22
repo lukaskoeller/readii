@@ -6,11 +6,10 @@ import { useMediaItem } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Image } from "expo-image";
-import { Link, useLocalSearchParams, useNavigation } from "expo-router";
+import { Link, Stack, useLocalSearchParams } from "expo-router";
 import { dayMonthYearFormat, getPreviewText } from "@/core/utils";
 import { parse } from "parse5";
 import { IconSymbol } from "@/components/ui/IconSymbol";
-import { useEffect } from "react";
 import {
   differenceInMinutes,
   differenceInHours,
@@ -38,99 +37,105 @@ export default function TabTwoScreen() {
     return new Promise((resolve) => setTimeout(resolve, 2000));
   });
   const { readMediaItems } = useMediaItem();
-  const params = useLocalSearchParams();
-  const navigation = useNavigation();
+  const params = useLocalSearchParams<{ feedTitle: string }>();
   const { data } = useLiveQuery(readMediaItems(params));
+  const backgroundColor = useThemeColor({}, "background");
   const colorBackground3 = useThemeColor({}, "background3");
   const colorText2 = useThemeColor({}, "text2");
 
-  // Update stack title if `feedTitle` is present
-  useEffect(() => {
-    if (params.feedTitle) {
-      navigation.setOptions({ title: params.feedTitle });
-    }
-  }, [navigation, params.feedTitle]);
-
   return (
-    <FlatList
-      style={styles.list}
-      contentContainerStyle={{ paddingBottom: Spacing.size12 }}
-      onRefresh={handleRefresh}
-      refreshing={refreshing}
-      data={data}
-      renderItem={({ item }) => {
-        const contentAst = parse(item?.content || "");
-        const previewText = getPreviewText(contentAst);
-        return (
-          <Link
-            href={{
-              pathname: "/home/[mediaItemId]",
-              params: { mediaItemId: item.id },
-            }}
-          >
-            <ThemedView style={styles.item}>
-              <ThemedView>
-                {item.thumbnailUrl ? (
-                  <Image
-                    style={styles.thumbnail}
-                    source={item.thumbnailUrl}
-                    contentFit="cover"
-                    transition={500}
-                  />
-                ) : (
-                  <ThemedView
-                    style={[
-                      styles.thumbnail,
-                      {
-                        backgroundColor: colorBackground3,
-                      },
-                    ]}
-                  >
-                    <IconSymbol
-                      size={Spacing.size5}
-                      name="photo"
-                      color={colorText2}
-                    />
-                  </ThemedView>
-                )}
-              </ThemedView>
-              <View style={styles.desc}>
-                <ThemedView style={styles.titleBar}>
-                  <ThemedText color="text" style={styles.title}>
-                    {item.title}
-                  </ThemedText>
-                  <ThemedText type="small">
-                    {formatShortRelative(item.publishedAt)}
-                  </ThemedText>
-                </ThemedView>
-
-                <ThemedView style={styles.publisher}>
-                  {item.mediaSource.icon?.url && (
+    <>
+      <Stack.Screen
+        options={{
+          title: params.feedTitle ?? "All Feeds",
+          headerStyle: {
+            backgroundColor,
+          },
+          headerShadowVisible: false,
+        }}
+      />
+      <FlatList
+        style={styles.list}
+        contentContainerStyle={{ paddingBottom: Spacing.size12 }}
+        onRefresh={handleRefresh}
+        refreshing={refreshing}
+        data={data}
+        renderItem={({ item }) => {
+          const contentAst = parse(item?.content || "");
+          const previewText = getPreviewText(contentAst);
+          return (
+            <Link
+              href={{
+                pathname: "/home/[mediaItemId]",
+                params: { mediaItemId: item.id },
+              }}
+            >
+              <ThemedView style={styles.item}>
+                <ThemedView>
+                  {item.thumbnailUrl ? (
                     <Image
-                      style={styles.publisherThumbnail}
-                      source={item.mediaSource.icon?.url}
+                      style={styles.thumbnail}
+                      source={item.thumbnailUrl}
                       contentFit="cover"
-                      transition={1000}
+                      transition={500}
                     />
+                  ) : (
+                    <ThemedView
+                      style={[
+                        styles.thumbnail,
+                        {
+                          backgroundColor: colorBackground3,
+                        },
+                      ]}
+                    >
+                      <IconSymbol
+                        size={Spacing.size5}
+                        name="photo"
+                        color={colorText2}
+                      />
+                    </ThemedView>
                   )}
-                  <Text style={{ ...styles.publisherName, color: colorText2 }}>
-                    {item.mediaSource.name}
-                  </Text>
                 </ThemedView>
+                <View style={styles.desc}>
+                  <ThemedView style={styles.titleBar}>
+                    <ThemedText color="text" style={styles.title}>
+                      {item.title}
+                    </ThemedText>
+                    <ThemedText type="small">
+                      {formatShortRelative(item.publishedAt)}
+                    </ThemedText>
+                  </ThemedView>
 
-                <ThemedText
-                  numberOfLines={5}
-                  style={{ ...styles.text, color: colorText2 }}
-                >
-                  {previewText}
-                </ThemedText>
-              </View>
-            </ThemedView>
-          </Link>
-        );
-      }}
-      keyExtractor={(item) => String(item.id)}
-    />
+                  <ThemedView style={styles.publisher}>
+                    {item.mediaSource.icon?.url && (
+                      <Image
+                        style={styles.publisherThumbnail}
+                        source={item.mediaSource.icon?.url}
+                        contentFit="cover"
+                        transition={1000}
+                      />
+                    )}
+                    <Text
+                      style={{ ...styles.publisherName, color: colorText2 }}
+                    >
+                      {item.mediaSource.name}
+                    </Text>
+                  </ThemedView>
+
+                  <ThemedText
+                    numberOfLines={5}
+                    style={{ ...styles.text, color: colorText2 }}
+                  >
+                    {previewText}
+                  </ThemedText>
+                </View>
+              </ThemedView>
+            </Link>
+          );
+        }}
+        keyExtractor={(item) => String(item.id)}
+      />
+    </>
   );
 }
 

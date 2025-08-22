@@ -17,16 +17,6 @@ export default function FeedStackLayout() {
         }}
       />
       <Stack.Screen
-        name="feed"
-        options={{
-          title: "All Feeds",
-          headerStyle: {
-            backgroundColor,
-          },
-          headerShadowVisible: false,
-        }}
-      />
-      <Stack.Screen
         name="add"
         options={{
           headerTitle: "Add new Feed",
