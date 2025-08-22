@@ -39,6 +39,7 @@
     "expo-status-bar": "~2.2.3",
     "expo-symbols": "~0.4.4",
     "expo-system-ui": "~5.0.10",
+    "expo-video": "~2.2.2",
     "expo-web-browser": "~14.2.0",
     "fast-xml-parser": "^5.2.3",
     "parse5": "^7.3.0",
