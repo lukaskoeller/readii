@@ -24,6 +24,7 @@ import {
 import { useTextColor } from "@/hooks/useTextColor";
 import { DefaultTreeAdapterTypes } from "parse5";
 import { Image } from "expo-image";
+import { Video } from "./Video";
 
 const BOLD_STYLE = { fontWeight: FontWeight.bold } as const;
 const ITALIC_STYLE = { fontStyle: "italic" } as const;
@@ -120,13 +121,9 @@ const RenderNode: FC<TRenderNodeProps> = ({
 
   switch (nodeName) {
     case "#text":
-      // console.log(node);
       if (preserveWhitespace) {
         return value;
       }
-      // if (nextNodeName === "#text" && value.endsWith(" ")) {
-      //   return `${value.trim()} `;
-      // }
       if (shouldAddSingleWhitespace) {
         return `${value.trim()} `;
       }
@@ -555,7 +552,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
           {suffix}
         </>
       );
-    case "img":
+    case "img": {
       const src = (node.attrs ?? []).find((attr) => attr.name === "src")?.value;
       const altText =
         (node.attrs ?? []).find((attr) => attr.name === "alt")?.value || "";
@@ -592,6 +589,33 @@ const RenderNode: FC<TRenderNodeProps> = ({
           />
         </ThemedView>
       );
+    }
+    case "video": {
+      const videoSrc = (node.attrs ?? []).find(
+        (attr) => attr.name === "src"
+      )?.value;
+
+      let mainSrc;
+      try {
+        if (videoSrc && videoSrc.startsWith("http")) {
+          mainSrc = videoSrc;
+        } else {
+          const newSrc = new URL(`${url}${videoSrc}`);
+          mainSrc = newSrc.toString();
+        }
+      } catch {
+        return null;
+      }
+
+      if (mainSrc) {
+        return (
+          <ThemedView>
+            <Video source={mainSrc} />
+          </ThemedView>
+        );
+      }
+      return null;
+    }
     case "iframe":
       const iframeSrc = (node.attrs ?? []).find(
         (attr) => attr.name === "src"
