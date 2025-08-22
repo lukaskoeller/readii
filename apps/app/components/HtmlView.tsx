@@ -109,7 +109,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
   }, [href]);
 
   if (!node) return null;
-  const { nodeName, value, childNodes = [] } = node;
+  const { nodeName, value, childNodes = [], parentNode } = node;
   const isInlineElement = getIsInlineElement(nodeName);
   const shouldAddSingleWhitespace =
     !preserveWhitespace &&
@@ -120,14 +120,40 @@ const RenderNode: FC<TRenderNodeProps> = ({
   const suffix = shouldAddSingleWhitespace ? " " : "";
 
   switch (nodeName) {
-    case "#text":
+    case "#text": {
+      const isParentNodeDocument =
+        parentNode?.nodeName === "#document-fragment";
       if (preserveWhitespace) {
+        if (isParentNodeDocument) {
+          return (
+            <ThemedText style={inheritStyles} accessibilityRole="text">
+              {value}
+            </ThemedText>
+          );
+        }
         return value;
       }
       if (shouldAddSingleWhitespace) {
+        if (isParentNodeDocument) {
+          return (
+            <ThemedText
+              style={inheritStyles}
+              accessibilityRole="text"
+            >{`${value.trim()} `}</ThemedText>
+          );
+        }
         return `${value.trim()} `;
       }
+
+      if (isParentNodeDocument) {
+        return (
+          <ThemedText style={inheritStyles} accessibilityRole="text">
+            {value.trim()}
+          </ThemedText>
+        );
+      }
       return value.trim();
+    }
     case "p":
       return (
         <>
