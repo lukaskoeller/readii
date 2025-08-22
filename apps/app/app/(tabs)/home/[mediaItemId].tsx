@@ -13,7 +13,6 @@ export default function Article() {
   const data = useReadMediaItem();
   const { updateMediaItem } = useUpdateMediaItem();
   const contentAst = parseFragment(data?.content || "");
-  console.log(data?.content, contentAst);
 
   const backgroundColor = useThemeColor({}, "background");
   const primaryColor = useThemeColor({}, "primary");

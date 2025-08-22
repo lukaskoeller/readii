@@ -95,7 +95,6 @@ export default function FeedScreen() {
                   description: feedData.mediaSource.description,
                   mediaItemsCount: feedData.mediaItems.length,
                 });
-                console.log(feedData);
               } else {
                 setFeedPreview(null);
               }

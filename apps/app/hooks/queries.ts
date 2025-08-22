@@ -147,7 +147,6 @@ export const useMediaItem = () => {
         })
       : [];
     const hasConditions = conditions && conditions.length > 0;
-    console.log({ filters, parsedFilters });
 
     return drizzleDb.query.mediaItem.findMany({
       with: {
