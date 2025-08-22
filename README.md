@@ -3,8 +3,8 @@
 ## Todos
 
 - [x] FIX: "thumbnail" in `getFeedData`
-- [ ] FIX: Update should not override isStarred etc.
-- [ ] FIX: Texts must be rendered within a `<Text>`c…
+- [x] FIX: Update should not override isStarred etc.
+- [x] FIX: Texts must be rendered within a `<Text>`c…
 - [ ] FIX: `<pre>` code block
 - [ ] FEAT: Handle videos in `<HtmlViewer>`
 - [ ] PERF: Move `content` to files instead of in DB
