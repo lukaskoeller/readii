@@ -121,37 +121,16 @@ const RenderNode: FC<TRenderNodeProps> = ({
 
   switch (nodeName) {
     case "#text": {
-      const isParentNodeDocument =
-        parentNode?.nodeName === "#document-fragment";
+      if (parentNode?.nodeName === "#document-fragment") {
+        return null;
+      }
       if (preserveWhitespace) {
-        if (isParentNodeDocument) {
-          return (
-            <ThemedText style={inheritStyles} accessibilityRole="text">
-              {value}
-            </ThemedText>
-          );
-        }
         return value;
       }
       if (shouldAddSingleWhitespace) {
-        if (isParentNodeDocument) {
-          return (
-            <ThemedText
-              style={inheritStyles}
-              accessibilityRole="text"
-            >{`${value.trim()} `}</ThemedText>
-          );
-        }
         return `${value.trim()} `;
       }
 
-      if (isParentNodeDocument) {
-        return (
-          <ThemedText style={inheritStyles} accessibilityRole="text">
-            {value.trim()}
-          </ThemedText>
-        );
-      }
       return value.trim();
     }
     case "p":
