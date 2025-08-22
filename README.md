@@ -2,12 +2,16 @@
 
 ## Todos
 
-- [ ] Add "Weekly Digest", an AI generated summary of the week's news
-- [ ] Fix "thumbnail" in `getFeedData`
-- [ ] Add support for Google Alert
-- [ ] Add support for Podcasts
-- [ ] Handle videos in `<HtmlViewer>`
-- [ ] Check out Android App
+- [x] FIX: "thumbnail" in `getFeedData`
+- [ ] FIX: Update should not override isStarred etc.
+- [ ] FIX: Texts must be rendered within a `<Text>`c…
+- [ ] FIX: `<pre>` code block
+- [ ] FEAT: Handle videos in `<HtmlViewer>`
+- [ ] PERF: Move `content` to files instead of in DB
+- [ ] CHORE: Check out Android App
+- [ ] FEAT: Add support for Podcasts
+- [ ] FEAT: Add support for Google Alert
+- [ ] FEAT: Add "Weekly Digest", an AI generated summary of the week's news
 
 ## Helpful
 
