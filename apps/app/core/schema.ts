@@ -48,12 +48,7 @@ export const mediaSourceIconRelations = relations(
 
 export type TMediaSourceIcon = typeof mediaSourceIcon.$inferInsert;
 
-// Media Item table
-export const mediaItem = sqliteTable("media_item", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
-  mediaSourceId: integer("media_source_id")
-    .notNull()
-    .references(() => mediaSource.id),
+const mediaItemBase = {
   title: text("title").notNull(),
   type: text("type", { enum: ["text", "audio", "video"] }).notNull(),
   content: text("content").notNull(),
@@ -64,9 +59,24 @@ export const mediaItem = sqliteTable("media_item", {
   publishedAt: text("published_at").notNull(),
   thumbnailUrl: text("thumbnail_url"),
   enclosure: text("enclosure"),
+} as const;
+
+const mediaItemUserControlled = {
   isStarred: integer("is_starred", { mode: "boolean" }).default(false),
   isRead: integer("is_read", { mode: "boolean" }).default(false),
   isReadLater: integer("is_read_later", { mode: "boolean" }).default(false),
+} as const;
+
+export type TMediaItemUserControlled = keyof typeof mediaItemUserControlled;
+
+// Media Item table
+export const mediaItem = sqliteTable("media_item", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  mediaSourceId: integer("media_source_id")
+    .notNull()
+    .references(() => mediaSource.id),
+  ...mediaItemBase,
+  ...mediaItemUserControlled,
 });
 
 export type TMediaItem = typeof mediaItem.$inferInsert;
