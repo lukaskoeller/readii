@@ -33,8 +33,13 @@ export const $MediaSource = z.object({
 
 export const $MediaType = z.enum(["text", "audio", "video"]);
 
-export const $MediaItem = z.object({
-  id: $DatabaseId,
+export const $MediaItemUserControlled = z.object({
+  isStarred: z._default(z.boolean(), false),
+  isRead: z._default(z.boolean(), false),
+  isReadLater: z._default(z.boolean(), false),
+});
+
+export const $MediaItemBase = z.object({
   title: z.string(),
   type: $MediaType,
   url: $HttpsUrl,
@@ -45,7 +50,10 @@ export const $MediaItem = z.object({
   publishedAt: $IsoDatetime,
   thumbnailUrl: z.nullable($HttpsUrl),
   enclosure: z.nullable($HttpsUrl),
-  isStarred: z._default(z.boolean(), false),
-  isRead: z._default(z.boolean(), false),
-  isReadLater: z._default(z.boolean(), false),
+});
+
+export const $MediaItem = z.object({
+  id: $DatabaseId,
+  ...$MediaItemBase.shape,
+  ...$MediaItemUserControlled.shape,
 });
