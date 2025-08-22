@@ -1,4 +1,5 @@
 import * as schema from "@/core/schema";
+import { $MediaItemBase } from "@readii/schemas/zod";
 import { and, count, eq, SQL } from "drizzle-orm";
 import { drizzle, useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { useLocalSearchParams } from "expo-router";
@@ -11,7 +12,14 @@ export type TCreateMediaSourceArgs = {
   mediaItems: Omit<schema.TMediaItem, "mediaSourceId">[];
 };
 
-export type TUpdateMediaSourceArgs = TCreateMediaSourceArgs;
+export type TUpdateMediaSourceArgs = {
+  mediaSourceIcon: schema.TMediaSourceIcon;
+  mediaSource: schema.TMediaSource;
+  mediaItems: Omit<
+    schema.TMediaItem,
+    "mediaSourceId" | schema.TMediaItemUserControlled
+  >[];
+};
 
 export const useFeed = () => {
   const db = useSQLiteContext();
@@ -55,15 +63,17 @@ export const useFeed = () => {
       const mediaSourceId = mediaSource[0].id;
 
       const itemsInsertOrUpdateList = mediaItemsArgs.map(async (itemArg) => {
+        const newMediaItem = $MediaItemBase.parse(itemArg);
+
         return drizzleDb
           .insert(schema.mediaItem)
           .values({
-            ...itemArg,
+            ...newMediaItem,
             mediaSourceId: mediaSourceId,
           })
           .onConflictDoUpdate({
             target: schema.mediaItem.url,
-            set: itemArg,
+            set: newMediaItem,
           });
       });
 
