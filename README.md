@@ -7,7 +7,10 @@
 - [ ] FIX: Texts must be rendered within a `<Text>`c…
 - [x] FIX: `<pre>` code block
 - [ ] FEAT: Handle videos in `<HtmlViewer>`
+- [ ] FIX: Handle images correctly (nintendo article)
+  - IN PROGRESS: https://github.com/expo/expo/issues/39100
 - [ ] PERF: Move `content` to files instead of in DB
+- [ ] FEAT: Add "All feeds" tab
 - [ ] CHORE: Check out Android App
 - [ ] FEAT: Add Onboarding Flow!
 - [ ] FEAT: Add empty feed UI
