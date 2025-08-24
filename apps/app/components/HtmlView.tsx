@@ -257,11 +257,13 @@ const RenderNode: FC<TRenderNodeProps> = ({
         </>
       );
     case "code":
+    case "samp":
+    case "kbd":
       return (
         <>
           <ThemedText
             style={inheritStyles}
-            accessibilityLabel="code"
+            accessibilityLabel={nodeName}
             type="code"
           >
             {childNodes.map((child: any, i: number) => (
@@ -314,21 +316,27 @@ const RenderNode: FC<TRenderNodeProps> = ({
             minWidth: "100%",
           }}
         >
-          <ThemedText
-            style={inheritStyles}
-            accessibilityLabel="code block"
-            type="code"
+          <ThemedView
+            style={{
+              minWidth: "100%",
+            }}
           >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                url={url}
-                key={i}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace
-              />
-            ))}
-          </ThemedText>
+            <ThemedText
+              style={inheritStyles}
+              accessibilityLabel="code block"
+              type="code"
+            >
+              {childNodes.map((child: any, i: number) => (
+                <RenderNode
+                  node={child}
+                  url={url}
+                  key={i}
+                  nextNode={childNodes[i + 1] ?? null}
+                  preserveWhitespace
+                />
+              ))}
+            </ThemedText>
+          </ThemedView>
         </ScrollView>
       );
     case "blockquote":
