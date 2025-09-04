@@ -8,6 +8,7 @@ import {
   ScrollView,
   StyleProp,
   StyleSheet,
+  Text,
   TextStyle,
   View,
 } from "react-native";
@@ -83,6 +84,7 @@ type TRenderNodeProps = {
   url: string | undefined;
   nextNode: DefaultTreeAdapterTypes.ChildNode | null;
   preserveWhitespace?: boolean;
+  unknownParentNode?: boolean;
 };
 
 const RenderNode: FC<TRenderNodeProps> = ({
@@ -91,6 +93,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
   url,
   nextNode,
   preserveWhitespace,
+  unknownParentNode,
 }) => {
   const colorBackground2 = useThemeColor({}, "background2");
   const colorPrimary = useThemeColor({}, "primary");
@@ -122,6 +125,9 @@ const RenderNode: FC<TRenderNodeProps> = ({
 
   switch (nodeName) {
     case "#text": {
+      if (unknownParentNode) {
+        return <ThemedText style={inheritStyles}>{value}</ThemedText>;
+      }
       if (parentNode?.nodeName === "#document-fragment") {
         return null;
       }
@@ -303,7 +309,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
         </>
       );
     case "br":
-      return "\n";
+      return <Text>{"\n"}</Text>;
     case "pre":
       return (
         <ScrollView
@@ -646,8 +652,9 @@ const RenderNode: FC<TRenderNodeProps> = ({
       }
       return null;
     case "head":
+    case "style":
       return null;
-    // case: video, style, picture, source
+    // case: picture, source
     default:
       if (isInlineElement) {
         return (
@@ -676,6 +683,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
               key={i}
               nextNode={childNodes[i + 1] ?? null}
               preserveWhitespace={preserveWhitespace}
+              unknownParentNode
             />
           ))}
         </ThemedView>
