@@ -4,7 +4,7 @@
 
 - [x] FIX: "thumbnail" in `getFeedData`
 - [x] FIX: Update should not override isStarred etc.
-- [ ] FIX: Texts must be rendered within a `<Text>`c…
+- [x] FIX: Texts must be rendered within a `<Text>`c…
 - [x] FIX: `<pre>` code block
 - [x] FEAT: Handle videos in `<HtmlViewer>` (https://github.com/expo/expo/issues/39100)
 - [ ] FIX: Handle images correctly (nintendo article)
