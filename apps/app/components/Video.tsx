@@ -44,7 +44,7 @@ export const Video: FC<VideoProps> = ({ source, poster, style }) => {
           style={[styles.video, { backgroundColor: colorBackground2 }]}
           source={{
             html: `
-              <div>
+              <div style="width: 100%; height: 100%;">
                 <video controls src="${source}" poster="${poster}" style="width: 100%; height: 100%;">
                   Your browser does not support the video tag.
                 </video>
