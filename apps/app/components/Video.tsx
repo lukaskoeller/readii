@@ -1,59 +1,70 @@
 import { FC, useState } from "react";
 import { ThemedView } from "./ThemedView";
 import { Spacing } from "@/constants/Sizes";
-import { useVideoPlayer, VideoView } from "expo-video";
+import { useVideoPlayer, VideoPlayerStatus, VideoView } from "expo-video";
 import { StyleProp, StyleSheet, ViewStyle } from "react-native";
-import { useEventListener } from "expo";
-import * as FileSystem from "expo-file-system";
+import { useThemeColor } from "@/hooks/useThemeColor";
+import WebView from "react-native-webview";
 
 export type VideoProps = {
   source: string;
+  poster: string | undefined;
   style?: StyleProp<ViewStyle>;
 };
 
-export const Video: FC<VideoProps> = ({ source, style }) => {
-  const [uri, setUri] = useState<string | null>(source);
-  console.log("VIDEO SOURCE!!!", uri);
-  const player = useVideoPlayer(uri);
+export const Video: FC<VideoProps> = ({ source, poster, style }) => {
+  const colorBackground2 = useThemeColor({}, "background2");
 
-  useEventListener(player, "statusChange", ({ status, error }) => {
-    console.log("Player error: ", error, status);
-    if (status === "error") {
-      const fileName = source.split("/").at(-1);
-      if (!fileName)
-        throw new Error(`Could not retrieve file name from source "${source}"`);
-      FileSystem.downloadAsync(source, FileSystem.documentDirectory + fileName)
-        .then(({ uri }) => {
-          console.log("Finished downloading to ", uri);
-          setUri(uri);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
+  const [status, setStatus] = useState<VideoPlayerStatus | null>(null);
+  const player = useVideoPlayer(source, (player) => {
+    player.addListener("statusChange", ({ status }) => {
+      setStatus(status);
+    });
   });
 
   return (
-    <ThemedView style={styles.container}>
-      <VideoView
-        style={[styles.video, style]}
-        player={player}
-        allowsFullscreen
-        allowsPictureInPicture
-      />
+    <ThemedView
+      style={[
+        styles.container,
+        {
+          backgroundColor: colorBackground2,
+        },
+      ]}
+    >
+      {status === "readyToPlay" && (
+        <VideoView
+          style={[styles.video, style]}
+          player={player}
+          allowsFullscreen
+          allowsPictureInPicture
+        />
+      )}
+      {status === "error" && (
+        <WebView
+          style={[styles.video, { backgroundColor: colorBackground2 }]}
+          source={{
+            html: `
+              <div>
+                <video controls src="${source}" poster="${poster}" style="width: 100%; height: 100%;">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            `,
+          }}
+        />
+      )}
     </ThemedView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     paddingBlock: Spacing.size3,
-    alignItems: "center",
-    justifyContent: "center",
+    width: "100%",
+    aspectRatio: 16 / 9,
   },
   video: {
     width: "100%",
-    aspectRatio: 16 / 9,
+    height: "100%",
   },
 });
