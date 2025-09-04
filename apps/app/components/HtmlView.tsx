@@ -24,6 +24,7 @@ import {
 import { useTextColor } from "@/hooks/useTextColor";
 import { DefaultTreeAdapterTypes } from "parse5";
 import { Image } from "expo-image";
+import { z } from "zod/mini";
 import { Video } from "./Video";
 
 const BOLD_STYLE = { fontWeight: FontWeight.bold } as const;
@@ -604,26 +605,26 @@ const RenderNode: FC<TRenderNodeProps> = ({
       );
     }
     case "video": {
-      const videoSrc = (node.attrs ?? []).find(
+      const videoSrcAttr = (node.attrs ?? []).find(
         (attr) => attr.name === "src"
       )?.value;
+      const posterSrcAttr = (node.attrs ?? []).find(
+        (attr) => attr.name === "poster"
+      )?.value;
 
-      let mainSrc;
-      try {
-        if (videoSrc && videoSrc.startsWith("http")) {
-          mainSrc = videoSrc;
-        } else {
-          const newSrc = new URL(`${url}${videoSrc}`);
-          mainSrc = newSrc.toString();
-        }
-      } catch {
-        return null;
-      }
+      const videoSrc: string | undefined = z.safeParse(
+        z.catch(z.httpUrl(), `${url}${videoSrcAttr}`),
+        videoSrcAttr
+      ).data;
+      const posterSrc: string | undefined = z.safeParse(
+        z.catch(z.httpUrl(), `${url}${posterSrcAttr}`),
+        posterSrcAttr
+      ).data;
 
-      if (mainSrc) {
+      if (videoSrc) {
         return (
           <ThemedView>
-            <Video source={mainSrc} />
+            <Video source={videoSrc} poster={posterSrc} />
           </ThemedView>
         );
       }
