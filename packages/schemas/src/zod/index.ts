@@ -1,4 +1,4 @@
-import { url, z } from "zod/mini";
+import { z } from "zod/mini";
 
 const $DatabaseId = z.optional(z.int().check(z.positive()));
 
