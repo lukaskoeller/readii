@@ -6,9 +6,8 @@
 - [x] FIX: Update should not override isStarred etc.
 - [ ] FIX: Texts must be rendered within a `<Text>`c…
 - [x] FIX: `<pre>` code block
-- [ ] FEAT: Handle videos in `<HtmlViewer>`
+- [x] FEAT: Handle videos in `<HtmlViewer>` (https://github.com/expo/expo/issues/39100)
 - [ ] FIX: Handle images correctly (nintendo article)
-  - IN PROGRESS: https://github.com/expo/expo/issues/39100
 - [ ] PERF: Move `content` to files instead of in DB
 - [ ] FEAT: Add "All feeds" tab
 - [ ] CHORE: Check out Android App
@@ -30,12 +29,13 @@
 - https://infrequently.org/links/
 - https://www.sovereign.tech/feed.rss
 
-## Technical References
+## Technical References & Libs
 
 - https://www.rfc-editor.org/rfc/rfc4287
 - https://datatracker.ietf.org/doc/html/rfc4287
 - https://www.ietf.org/rfc/rfc5013.txt
 - https://www.data2type.de/xml-xslt-xslfo/newsfeeds-rss-atom/referenz-atom-elemente
+- https://github.com/mozilla/readability
 
 ## Competition
 
