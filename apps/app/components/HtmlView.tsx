@@ -601,8 +601,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
           ? Number(imgWidth) / Number(imgHeight)
           : undefined;
 
-      console.log("SRC: ", src, aspectRatio);
-
       return (
         <Image
           style={[styles.image, { aspectRatio }]}
