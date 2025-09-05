@@ -84,7 +84,12 @@ type TRenderNodeProps = {
   url: string | undefined;
   nextNode: DefaultTreeAdapterTypes.ChildNode | null;
   preserveWhitespace?: boolean;
-  unknownParentNode?: boolean;
+  /**
+   * Is `true` if the parent is wrapped in a `<View>` (`<ThemedView>`) component.
+   * This is important for subsequent text nodes to be rendered
+   * in a separate `<Text>` (`<ThemedText>`) component.
+   */
+  isView?: boolean;
 };
 
 const RenderNode: FC<TRenderNodeProps> = ({
@@ -93,7 +98,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
   url,
   nextNode,
   preserveWhitespace,
-  unknownParentNode,
+  isView,
 }) => {
   const colorBackground2 = useThemeColor({}, "background2");
   const colorPrimary = useThemeColor({}, "primary");
@@ -125,8 +130,10 @@ const RenderNode: FC<TRenderNodeProps> = ({
 
   switch (nodeName) {
     case "#text": {
-      if (unknownParentNode) {
-        return <ThemedText style={inheritStyles}>{value}</ThemedText>;
+      if (isView) {
+        const trimmedValue = value.trim();
+        if (!trimmedValue) return null;
+        return <ThemedText style={inheritStyles}>{trimmedValue}</ThemedText>;
       }
       if (parentNode?.nodeName === "#document-fragment") {
         return null;
@@ -573,7 +580,14 @@ const RenderNode: FC<TRenderNodeProps> = ({
         </>
       );
     case "img": {
-      const src = (node.attrs ?? []).find((attr) => attr.name === "src")?.value;
+      const srcAttr = (node.attrs ?? []).find(
+        (attr) => attr.name === "src"
+      )?.value;
+      const src: string | undefined = z.safeParse(
+        z.catch(z.httpUrl(), `${url}${srcAttr}`),
+        srcAttr
+      ).data;
+
       const altText =
         (node.attrs ?? []).find((attr) => attr.name === "alt")?.value || "";
       const imgWidth = (node.attrs ?? []).find(
@@ -586,28 +600,16 @@ const RenderNode: FC<TRenderNodeProps> = ({
         Number(imgWidth) && Number(imgHeight)
           ? Number(imgWidth) / Number(imgHeight)
           : undefined;
-      let mainSrc;
 
-      try {
-        if (src && src.startsWith("http")) {
-          mainSrc = src;
-        } else {
-          const newSrc = new URL(`${url}${src}`);
-          mainSrc = newSrc.toString();
-        }
-      } catch {
-        return null;
-      }
+      console.log("SRC: ", src, aspectRatio);
 
       return (
-        <ThemedView>
-          <Image
-            style={[styles.image, { aspectRatio }]}
-            source={mainSrc}
-            alt={altText}
-            contentFit="cover"
-          />
-        </ThemedView>
+        <Image
+          style={[styles.image, { aspectRatio }]}
+          source={src}
+          alt={altText}
+          contentFit="cover"
+        />
       );
     }
     case "video": {
@@ -653,8 +655,23 @@ const RenderNode: FC<TRenderNodeProps> = ({
       return null;
     case "head":
     case "style":
+    case "source": // @todo: Use additional sources in "img"
       return null;
-    // case: picture, source
+    case "picture":
+      return (
+        <ThemedView>
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={false}
+              isView
+            />
+          ))}
+        </ThemedView>
+      );
     default:
       if (isInlineElement) {
         return (
@@ -683,7 +700,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
               key={i}
               nextNode={childNodes[i + 1] ?? null}
               preserveWhitespace={preserveWhitespace}
-              unknownParentNode
+              isView
             />
           ))}
         </ThemedView>
@@ -694,11 +711,8 @@ const RenderNode: FC<TRenderNodeProps> = ({
 const styles = StyleSheet.create({
   image: {
     width: "100%",
-    flex: 1,
-    display: "flex",
-    marginBlock: Spacing.size2,
-    overflow: "hidden",
     borderRadius: Radius.size2,
+    aspectRatio: 4 / 3,
   },
   webview: {
     marginBlock: Spacing.size3,
