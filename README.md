@@ -11,6 +11,7 @@
 - [ ] PERF: Move `content` to files instead of in DB
 - [ ] FEAT: Add "All feeds" tab
 - [ ] CHORE: Check out Android App
+- [x] FIX: Add App icon
 - [ ] FEAT: Beautify add screen
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add Onboarding Flow!
