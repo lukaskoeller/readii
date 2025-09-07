@@ -20,6 +20,9 @@ export default function FeedStackLayout() {
         name="add"
         options={{
           headerTitle: "Add new Feed",
+          headerStyle: {
+            backgroundColor,
+          },
         }}
       />
     </Stack>

@@ -12,7 +12,7 @@ import migrations from "@/drizzle/migrations";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { drizzle } from "drizzle-orm/expo-sqlite";
-import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator';
+import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
 import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
 import { openDatabaseSync, SQLiteProvider } from "expo-sqlite";
 import { Suspense } from "react";

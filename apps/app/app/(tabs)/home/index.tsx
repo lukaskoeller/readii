@@ -40,6 +40,7 @@ export default function HomeScreen() {
   const itemsCountReadLater = itemsCountIsReadLater[0]?.count ?? 0;
   const itemsCountUnread = itemsCountIsUnread[0]?.count ?? 0;
 
+  const colorBackground = useThemeColor({}, "background");
   const colorText2 = useThemeColor({}, "text2");
 
   // @todo Improve update on mount
@@ -66,9 +67,11 @@ export default function HomeScreen() {
   }, [data.length]);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ backgroundColor: colorBackground }}>
       <ScrollView
-        contentContainerStyle={{ paddingBlockEnd: Spacing.navigation }}
+        contentContainerStyle={{
+          paddingBlockEnd: Spacing.navigation,
+        }}
       >
         <ThemedView padding={Spacing.size4}>
           <ThemedText type="h1" style={{ marginBlockStart: 0 }}>

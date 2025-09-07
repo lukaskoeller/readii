@@ -55,7 +55,7 @@ export default function TabTwoScreen() {
         }}
       />
       <FlatList
-        style={styles.list}
+        style={[styles.list, { backgroundColor }]}
         contentContainerStyle={{ paddingBottom: Spacing.size12 }}
         onRefresh={handleRefresh}
         refreshing={refreshing}
