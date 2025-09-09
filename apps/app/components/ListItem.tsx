@@ -25,11 +25,9 @@ export function ListItem({ label, icon, isLastItem }: ListItemProps) {
           isLastItem ? styles.lastRow : undefined,
         ]}
       >
-        <ThemedView>
-          <ThemedText numberOfLines={1} style={styles.text}>
-            {label}
-          </ThemedText>
-        </ThemedView>
+        <ThemedText numberOfLines={1} style={styles.text} ellipsizeMode="tail">
+          {label}
+        </ThemedText>
         <ThemedView>
           <IconSymbol
             name="chevron.right"
@@ -50,12 +48,15 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   item: {
+    width: "100%",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     gap: Spacing.size3,
   },
   row: {
+    flexShrink: 1,
+    width: "100%",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -69,6 +70,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0,
   },
   text: {
-    // flexGrow: 1,
+    flexShrink: 1,
+    paddingInlineEnd: Spacing.size2,
   },
 });
