@@ -117,6 +117,8 @@ export default function TabTwoScreen() {
                     )}
                     <Text
                       style={{ ...styles.publisherName, color: colorText2 }}
+                      numberOfLines={1}
+                      ellipsizeMode="tail"
                     >
                       {item.mediaSource.name}
                     </Text>
@@ -185,6 +187,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   publisher: {
+    width: "100%",
     height: Spacing.size4,
     marginBlockStart: Spacing.size1,
     marginBlockEnd: Spacing.size2,
@@ -199,6 +202,7 @@ const styles = StyleSheet.create({
     borderRadius: Radius.size2,
   },
   publisherName: {
+    flexShrink: 1,
     fontWeight: FontWeight.medium,
     fontSize: FontSize.size1,
   },
