@@ -730,15 +730,17 @@ export const HtmlViewer: FC<HtmlViewerProps> = ({ ast, url }) => {
   const { childNodes } = ast;
 
   return (
-    <ThemedView>
-      {childNodes.map((child: any, i: number) => (
+    <FlatList
+      scrollEnabled={false}
+      data={childNodes}
+      renderItem={({ item, index }) => (
         <RenderNode
-          node={child}
+          node={item}
           url={url}
-          key={i}
-          nextNode={childNodes[i + 1] ?? null}
+          key={index}
+          nextNode={childNodes[index + 1] ?? null}
         />
-      ))}
-    </ThemedView>
+      )}
+    />
   );
 };
