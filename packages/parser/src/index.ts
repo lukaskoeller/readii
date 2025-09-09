@@ -119,9 +119,9 @@ export const getFeedData = async (url: string) => {
       const enclosureUrl = item?.enclosure?.["@_url"] ?? null;
 
       const content =
-        item?.description?.["#text"] ??
+        item?.["content:encoded"]?.["#text"] ??
         item?.content?.["#text"] ??
-        item?.["content:encoded"]?.["#text"];
+        item?.description?.["#text"];
 
       return {
         title: item?.title?.["#text"],
