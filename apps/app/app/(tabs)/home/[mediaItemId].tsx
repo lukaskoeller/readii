@@ -21,7 +21,7 @@ export default function Article() {
   const isReadLater = Boolean(data?.isReadLater);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ backgroundColor }}>
       <Stack.Screen
         options={{
           headerStyle: {
