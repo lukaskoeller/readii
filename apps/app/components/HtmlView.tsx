@@ -4,6 +4,7 @@ import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 import {
   Alert,
+  FlatList,
   Linking,
   ScrollView,
   StyleProp,
@@ -602,12 +603,14 @@ const RenderNode: FC<TRenderNodeProps> = ({
           : undefined;
 
       return (
-        <Image
-          style={[styles.image, { aspectRatio }]}
-          source={src}
-          alt={altText}
-          contentFit="cover"
-        />
+        <ThemedView>
+          <Image
+            style={[styles.image, { aspectRatio: aspectRatio ?? 4 / 3 }]}
+            source={src}
+            alt={altText}
+            contentFit="cover"
+          />
+        </ThemedView>
       );
     }
     case "video": {
@@ -710,7 +713,6 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     borderRadius: Radius.size2,
-    aspectRatio: 4 / 3,
   },
   webview: {
     marginBlock: Spacing.size3,
