@@ -1,5 +1,4 @@
-import { StyleSheet, View, Platform } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { Platform, StyleSheet, View } from "react-native";
 import { Spacing } from "@/constants/Sizes";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Section } from "@/components/Section";
@@ -7,13 +6,24 @@ import { LinkList } from "@/components/LinkList";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { SimpleCardLink } from "@/components/SimpleCardLink";
 import { Gallery } from "@/components/Gallery";
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
 export default function AddFeed() {
+  const backgroundColor = useThemeColor({}, "background");
   const colorBorder = useThemeColor({}, "border");
   const colorText2 = useThemeColor({}, "text2");
 
   return (
     <View style={[styles.container, { borderColor: colorBorder }]}>
+      <Stack.Screen
+        options={{
+          headerTitle: "Add new Feed",
+          headerStyle: {
+            backgroundColor,
+          },
+        }}
+      />
       <StatusBar style={Platform.OS === "ios" ? "auto" : "auto"} />
       <LinkList
         style={{ margin: Spacing.container }}

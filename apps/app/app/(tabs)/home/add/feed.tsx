@@ -8,7 +8,7 @@ import { $HttpsUrl } from "@readii/schemas/zod";
 import { getFeedData } from "@readii/parser";
 import { Image } from "expo-image";
 import { useFeed } from "@/hooks/queries";
-import { useRouter } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { FontSize, Radius, Spacing } from "@/constants/Sizes";
 import * as Clipboard from "expo-clipboard";
 import { TextInputField } from "@/components/TextInputField";
@@ -27,6 +27,7 @@ export default function FeedScreen() {
   const [feedUrl, setFeedUrl] = useState<string>("https://");
   const [feedPreview, setFeedPreview] = useState<TFeedPreview | null>(null);
 
+  const backgroundColor = useThemeColor({}, "background");
   const colorBackground2 = useThemeColor({}, "background2");
   const colorBorder = useThemeColor({}, "border");
   const colorText = useThemeColor({}, "text");
@@ -34,6 +35,16 @@ export default function FeedScreen() {
 
   return (
     <ThemedView container>
+      <Stack.Screen
+        options={{
+          title: "Add from URL",
+          headerStyle: {
+            backgroundColor,
+          },
+          headerShadowVisible: false,
+          presentation: "modal",
+        }}
+      />
       <Card>
         <ThemedView style={[styles.previewContainer]}>
           <ThemedView style={[styles.preview]}>
