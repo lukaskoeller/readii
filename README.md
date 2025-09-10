@@ -9,13 +9,13 @@
 - [x] FEAT: Handle videos in `<HtmlViewer>` (https://github.com/expo/expo/issues/39100)
 - [x] FIX: Handle images correctly (nintendo article)
 - [ ] PERF: Move `content` to files instead of in DB
-- [ ] FEAT: Add "All feeds" tab
-- [ ] CHORE: Check out Android App
+- [x] CHORE: Check out Android App
 - [x] FIX: Add App icon
 - [ ] FEAT: Beautify add screen
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add Onboarding Flow!
 - [ ] FEAT: Add empty feed UI
+- [ ] FEAT: Add "All feeds" tab
 - [ ] FEAT: Add support for Podcasts
 - [ ] FEAT: Add support for Google Alert
 - [ ] FEAT: Add "Weekly Digest", an AI generated summary of the week's news
