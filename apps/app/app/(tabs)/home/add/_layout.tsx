@@ -26,6 +26,17 @@ export default function FeedStackLayout() {
           presentation: "modal",
         }}
       />
+      <Stack.Screen
+        name="collection"
+        options={{
+          title: "Add Collection",
+          headerStyle: {
+            backgroundColor,
+          },
+          headerShadowVisible: false,
+          presentation: "modal",
+        }}
+      />
     </Stack>
   );
 }
