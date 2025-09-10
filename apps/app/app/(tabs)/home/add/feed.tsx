@@ -9,7 +9,7 @@ import { getFeedData } from "@readii/parser";
 import { Image } from "expo-image";
 import { useFeed } from "@/hooks/queries";
 import { useRouter } from "expo-router";
-import { FontSize, Radius, Spacing } from "@/constants/Sizes";
+import { Radius, Spacing } from "@/constants/Sizes";
 import * as Clipboard from "expo-clipboard";
 import { TextInputField } from "@/components/TextInputField";
 
@@ -28,7 +28,6 @@ export default function FeedScreen() {
   const [feedPreview, setFeedPreview] = useState<TFeedPreview | null>(null);
 
   const colorBackground2 = useThemeColor({}, "background2");
-  const colorBorder = useThemeColor({}, "border");
   const colorText = useThemeColor({}, "text");
   const colorPrimary = useThemeColor({}, "primary");
 
@@ -95,10 +94,6 @@ export default function FeedScreen() {
         <TextInputField
           label="URL"
           inputProps={{
-            style: [
-              styles.input,
-              { backgroundColor: colorBackground2, borderColor: colorBorder },
-            ],
             inputMode: "url",
             onChangeText: handleOnChangeText,
             value: feedUrl,
@@ -108,8 +103,7 @@ export default function FeedScreen() {
           <Button
             onPress={async () => {
               const text = await Clipboard.getStringAsync();
-              setFeedUrl(text);
-              // await handleOnChangeText(text);
+              await handleOnChangeText(text);
             }}
             title="Paste from Clipboard"
             color={colorText}
@@ -139,14 +133,6 @@ export default function FeedScreen() {
 }
 
 const styles = StyleSheet.create({
-  input: {
-    borderRadius: Radius.size3,
-    paddingInline: Spacing.size3,
-    paddingBlock: Spacing.size4,
-    fontSize: FontSize.size3,
-    width: "100%",
-    borderWidth: 1,
-  },
   previewContainer: {
     display: "flex",
     flexDirection: "column",
