@@ -50,6 +50,30 @@ export default function AddFeed() {
               />
             ),
           },
+          {
+            href: "/home/add/newsletter",
+            id: "/home/add/newsletter",
+            label: "Add from Newsletter",
+            icon: (
+              <IconSymbol
+                name="envelope"
+                size={Spacing.size5}
+                color={colorText2}
+              />
+            ),
+          },
+          {
+            href: "/home/add/google-alerts",
+            id: "/home/add/google-alerts",
+            label: "Add from Google Alerts",
+            icon: (
+              <IconSymbol
+                name="envelope"
+                size={Spacing.size5}
+                color={colorText2}
+              />
+            ),
+          },
         ]}
       />
       <Section
