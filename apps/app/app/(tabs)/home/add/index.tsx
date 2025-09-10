@@ -6,24 +6,14 @@ import { LinkList } from "@/components/LinkList";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { SimpleCardLink } from "@/components/SimpleCardLink";
 import { Gallery } from "@/components/Gallery";
-import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
 export default function AddFeed() {
-  const backgroundColor = useThemeColor({}, "background");
   const colorBorder = useThemeColor({}, "border");
   const colorText2 = useThemeColor({}, "text2");
 
   return (
     <View style={[styles.container, { borderColor: colorBorder }]}>
-      <Stack.Screen
-        options={{
-          headerTitle: "Add new Feed",
-          headerStyle: {
-            backgroundColor,
-          },
-        }}
-      />
       <StatusBar style={Platform.OS === "ios" ? "auto" : "auto"} />
       <LinkList
         style={{ margin: Spacing.container }}
