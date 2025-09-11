@@ -13,7 +13,6 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { drizzle } from "drizzle-orm/expo-sqlite";
 import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
-import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
 import { openDatabaseSync, SQLiteProvider } from "expo-sqlite";
 import { Suspense } from "react";
 import { ActivityIndicator } from "react-native";
@@ -24,7 +23,7 @@ const db = drizzle(expoDb);
 
 export default function RootLayout() {
   const { success, error } = useMigrations(db, migrations);
-  useDrizzleStudio(expoDb);
+  // useDrizzleStudio(expoDb); @todo Try again later
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
