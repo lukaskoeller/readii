@@ -25,6 +25,7 @@
 
 - [ ] FEAT: Search for Feeds
 - [ ] FEAT: Transcribe Podcasts
+- [ ] FEAT: Add Notifications
 
 ## Helpful
 
