@@ -38,7 +38,9 @@ export const Section: FC<SectionProps> = ({
           <ThemedView
             style={[
               styles.header,
-              headerPadding && { paddingInline: Spacing.size4 },
+              headerPadding && {
+                paddingInline: Spacing.size4,
+              },
             ]}
           >
             {heading}
@@ -52,10 +54,23 @@ export const Section: FC<SectionProps> = ({
           </ThemedView>
         </Link>
       ) : (
-        heading
+        <ThemedView
+          style={[
+            headerPadding && {
+              paddingInline: Spacing.size4,
+            },
+          ]}
+        >
+          {heading}
+        </ThemedView>
       )}
       <ThemedView
-        style={[styles.content, bodyPadding && { padding: Spacing.size4 }]}
+        style={[
+          styles.content,
+          bodyPadding && {
+            paddingInline: Spacing.size4,
+          },
+        ]}
       >
         {children}
       </ThemedView>
