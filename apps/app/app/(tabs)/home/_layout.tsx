@@ -9,7 +9,6 @@ export default function FeedStackLayout() {
       <Stack.Screen
         name="index"
         options={{
-          headerShown: false,
           headerTitle: "Home",
           headerStyle: {
             backgroundColor,
