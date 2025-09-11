@@ -17,7 +17,7 @@ export const Spacing = {
   size14: 240,
   size15: 320,
   size16: 480,
-  navigation: 48,
+  navigation: 100,
   container: 16,
 } as const;
 
