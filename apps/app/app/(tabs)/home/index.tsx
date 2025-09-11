@@ -1,4 +1,4 @@
-import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 import { LinkListCard } from "@/components/LinkListCard";
 import { QuickCardLink } from "@/components/QuickCardLink";
@@ -67,20 +67,13 @@ export default function HomeScreen() {
   }, [data.length]);
 
   return (
-    <SafeAreaView style={{ backgroundColor: colorBackground }}>
+    <>
       <ScrollView
-        contentContainerStyle={{
-          paddingBlockEnd: Spacing.navigation,
+        style={{
+          marginBlockStart: Spacing.size4,
+          backgroundColor: colorBackground,
         }}
       >
-        <ThemedView padding={Spacing.size4}>
-          <ThemedText type="h1" style={{ marginBlockStart: 0 }}>
-            Hey Luki.
-          </ThemedText>
-          <ThemedText style={{ marginBlockEnd: Spacing.size5 }}>
-            Liebe ist wirklich ein Geschenk Gottes.
-          </ThemedText>
-        </ThemedView>
         <ThemedView style={styles.quickFilters}>
           <QuickCardLink
             href={{
@@ -152,7 +145,7 @@ export default function HomeScreen() {
           </Link>
         </ThemedView>
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 }
 

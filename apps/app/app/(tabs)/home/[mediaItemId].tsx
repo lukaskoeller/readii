@@ -3,7 +3,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Spacing } from "@/constants/Sizes";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
-import { Pressable, SafeAreaView, ScrollView, StyleSheet } from "react-native";
+import { Pressable, ScrollView, StyleSheet } from "react-native";
 import { parseFragment } from "parse5";
 import { Stack } from "expo-router";
 import { IconSymbol } from "@/components/ui/IconSymbol";
@@ -21,7 +21,7 @@ export default function Article() {
   const isReadLater = Boolean(data?.isReadLater);
 
   return (
-    <SafeAreaView style={{ backgroundColor }}>
+    <ThemedView style={{ backgroundColor }}>
       <Stack.Screen
         options={{
           headerStyle: {
@@ -70,7 +70,7 @@ export default function Article() {
           </ThemedView>
         </ScrollView>
       </ThemedView>
-    </SafeAreaView>
+    </ThemedView>
   );
 }
 
