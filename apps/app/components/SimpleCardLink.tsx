@@ -18,7 +18,7 @@ export function SimpleCardLink(props: SimpleCardLinkProps) {
       href={props.href}
       style={[styles.card, { backgroundColor: colorBackground2 }]}
     >
-      <ThemedView>
+      <ThemedView style={styles.link}>
         <ThemedText type="h6" style={styles.label}>
           {props.label}
         </ThemedText>
@@ -29,13 +29,12 @@ export function SimpleCardLink(props: SimpleCardLinkProps) {
 
 const styles = StyleSheet.create({
   card: {
-    flex: 1,
     paddingBlock: Spacing.size2,
+    paddingBlockStart: Spacing.size5,
     paddingInline: Spacing.size3,
     borderRadius: Radius.size4,
   },
   link: {
-    flex: 1,
     display: "flex",
     alignItems: "flex-end",
   },
