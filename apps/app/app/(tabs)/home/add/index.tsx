@@ -1,19 +1,27 @@
-import { Platform, StyleSheet, View } from "react-native";
+import { Platform, ScrollView, StyleSheet, View } from "react-native";
 import { Spacing } from "@/constants/Sizes";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Section } from "@/components/Section";
 import { LinkList } from "@/components/LinkList";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { SimpleCardLink } from "@/components/SimpleCardLink";
-import { Gallery } from "@/components/Gallery";
 import { StatusBar } from "expo-status-bar";
+import { TwoGrid } from "@/components/TwoGrid";
 
 export default function AddFeed() {
-  const colorBorder = useThemeColor({}, "border");
+  const colorBackground = useThemeColor({}, "background");
   const colorText2 = useThemeColor({}, "text2");
 
   return (
-    <View style={[styles.container, { borderColor: colorBorder }]}>
+    <ScrollView
+      contentContainerStyle={[
+        styles.container,
+        {
+          backgroundColor: colorBackground,
+          paddingBlockEnd: Spacing.navigation,
+        },
+      ]}
+    >
       <StatusBar style={Platform.OS === "ios" ? "auto" : "auto"} />
       <LinkList
         style={{ margin: Spacing.container }}
@@ -21,27 +29,27 @@ export default function AddFeed() {
           {
             href: "/home/add/feed",
             id: "/home/add/feed",
-            label: "Add Feed",
+            label: "Add RSS Feed",
             icon: (
               <IconSymbol name="link" size={Spacing.size5} color={colorText2} />
             ),
           },
-          {
-            href: "/home/add/collection",
-            id: "/home/add/collection",
-            label: "Add Collection",
-            icon: (
-              <IconSymbol
-                name="rectangle.stack"
-                size={Spacing.size5}
-                color={colorText2}
-              />
-            ),
-          },
+          // {
+          //   href: "/home/add/collection",
+          //   id: "/home/add/collection",
+          //   label: "Add Collection",
+          //   icon: (
+          //     <IconSymbol
+          //       name="rectangle.stack"
+          //       size={Spacing.size5}
+          //       color={colorText2}
+          //     />
+          //   ),
+          // },
           {
             href: "/home/add/opml",
             id: "/home/add/opml",
-            label: "Add from OPML",
+            label: "Add List of RSS Feeds (OPML)",
             icon: (
               <IconSymbol
                 name="smallcircle.fill.circle"
@@ -62,26 +70,28 @@ export default function AddFeed() {
               />
             ),
           },
-          {
-            href: "/home/add/google-alerts",
-            id: "/home/add/google-alerts",
-            label: "Add from Google Alerts",
-            icon: (
-              <IconSymbol
-                name="envelope"
-                size={Spacing.size5}
-                color={colorText2}
-              />
-            ),
-          },
+          // {
+          //   href: "/home/add/google-alerts",
+          //   id: "/home/add/google-alerts",
+          //   label: "Add from Google Alerts",
+          //   icon: (
+          //     <IconSymbol
+          //       name="envelope"
+          //       size={Spacing.size5}
+          //       color={colorText2}
+          //     />
+          //   ),
+          // },
         ]}
       />
       <Section
         title="Browse Categories"
-        href="/home/add/categories"
+        // href="/home/add/categories"
         headerPadding
+        bodyPadding
       >
-        <Gallery
+        <TwoGrid
+          keyExtractor={(item) => item.href}
           data={
             [
               {
@@ -124,12 +134,12 @@ export default function AddFeed() {
               },
             ] as const
           }
-          renderItem={({ item }) => (
+          renderItem={(item) => (
             <SimpleCardLink href={item.href} label={item.label} />
           )}
         />
       </Section>
-    </View>
+    </ScrollView>
   );
 }
 
