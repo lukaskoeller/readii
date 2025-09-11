@@ -13,12 +13,18 @@
 - [x] FIX: Add App icon
 - [ ] FEAT: Beautify add screen
 - [ ] FEAT: Add feed suggestions
+- [ ] FEAT: Add Payment handling
 - [ ] FEAT: Add Onboarding Flow!
 - [ ] FEAT: Add empty feed UI
 - [ ] FEAT: Add "All feeds" tab
 - [ ] FEAT: Add support for Podcasts
 - [ ] FEAT: Add support for Google Alert
 - [ ] FEAT: Add "Weekly Digest", an AI generated summary of the week's news
+
+### Backlog
+
+- [ ] FEAT: Search for Feeds
+- [ ] FEAT: Transcribe Podcasts
 
 ## Helpful
 
@@ -66,3 +72,7 @@
 - Outdoors
 - Kids & Parenting
 - New Titles
+
+## Upgrade Expo
+
+https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/
