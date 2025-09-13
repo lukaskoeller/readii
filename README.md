@@ -30,6 +30,11 @@
 - [ ] FEAT: Transcribe Podcasts
 - [ ] FEAT: Add Notifications
 
+## Marketing
+- Suggest cool RSS and deeplink into app
+- Tutorial how to create RSS Feed - https://www.citationneeded.news/curate-with-rss/
+- 
+
 ## Helpful
 
 - DOM Reference: `<link rel="alternate" type="application/rss+xml" title="RSS" href="https://...">`
