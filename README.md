@@ -33,6 +33,8 @@
 ## Marketing
 - Suggest cool RSS and deeplink into app
 - Tutorial how to create RSS Feed - https://www.citationneeded.news/curate-with-rss/
+- Suggest to Tech Newsletters (ui.dev)
+- Expo Showcase?
 
 ## Helpful
 
