@@ -1,0 +1,19 @@
+{
+  "name": "@readii/assets",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    "./icons/favicon/png": "./icons/favicon/readii-icon-gradient.png",
+    "./icons/favicon/svg": "./icons/favicon/readii-icon-gradient.svg",
+    "./icons/app/1024/png": "./icons/app/readii-app-icon-1024.png",
+    "./icons/app/1024@2/png": "./icons/app/readii-app-icon-1024@2.png",
+    "./logos/svg": "./logos/readii-logo.svg"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.1"
+}
