@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "web": "pnpm --filter @readii/web dev",
+    "webapp": "pnpm --filter @readii/webapp dev",
     "app": "pnpm --filter @readii/app dev",
     "app:ios": "pnpm --filter @readii/app ios",
     "app:android": "pnpm --filter @readii/app android",

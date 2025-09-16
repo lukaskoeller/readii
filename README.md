@@ -31,6 +31,7 @@
 - [ ] FEAT: Add Notifications
 
 ## Marketing
+
 - Suggest cool RSS and deeplink into app
 - Tutorial how to create RSS Feed - https://www.citationneeded.news/curate-with-rss/
 - Suggest to Tech Newsletters (ui.dev)
@@ -82,7 +83,3 @@
 - Outdoors
 - Kids & Parenting
 - New Titles
-
-## Upgrade Expo
-
-https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/
