@@ -1,26 +1,15 @@
+import { paraglideVitePlugin } from '@inlang/paraglide-js';
+import devtoolsJson from 'vite-plugin-devtools-json';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
-import browserslist from 'browserslist';
-import { browserslistToTargets } from 'lightningcss';
 
 export default defineConfig({
-	plugins: [sveltekit()],
-	optimizeDeps: {
-		exclude: ['@electric-sql/pglite']
-	},
-	worker: {
-		format: 'es'
-	},
-	css: {
-		transformer: 'lightningcss',
-		lightningcss: {
-			targets: browserslistToTargets(browserslist('>= 0.25%')),
-			drafts: {
-				customMedia: true
-			}
-		}
-	},
-	build: {
-		cssMinify: 'lightningcss'
-	}
+	plugins: [
+		sveltekit(),
+		devtoolsJson(),
+		paraglideVitePlugin({
+			project: './project.inlang',
+			outdir: './src/lib/paraglide'
+		})
+	]
 });

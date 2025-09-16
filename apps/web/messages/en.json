@@ -1,0 +1,8 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"intro": "With readii, you can follow content from the internet in a single app. Whether it's your favorite blogs, websites, or newsletters. Filter and customize your content according to your personal interests.",
+	"language": "Language",
+	"form_waitlist_submit_label": "Join the Waitlist",
+	"form_waitlist_email_input": "E-Mail",
+	"waitlist_paragraph": "Sign up for our waiting list with your email address and we will let you know as soon as our product goes live. No spam, just good news – we promise."
+}
