@@ -29,6 +29,12 @@ You can start developing by editing the files inside the **app** directory. This
 
 https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/
 
+## Create Development Build
+
+```zsh
+npx expo prebuild
+```
+
 ## Get a fresh project
 
 When you're ready, run:
