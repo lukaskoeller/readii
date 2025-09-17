@@ -48,6 +48,7 @@
 - https://www.youtube.com/feeds/videos.xml?channel_id=UCcefcZRL2oaA_uBNeo5UOWg
 - https://infrequently.org/links/
 - https://www.sovereign.tech/feed.rss
+- https://www.smashingmagazine.com/feed/
 
 ## Technical References & Libs
 
