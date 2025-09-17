@@ -2,12 +2,14 @@ import { NativeTabs, Label, Icon } from "expo-router/unstable-native-tabs";
 import React from "react";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { useThemeColor } from "@/hooks/useThemeColor";
 
 export const unstable_settings = {
   initialRouteName: "home",
 };
 
 export default function TabLayout() {
+  const backgroundColor = useThemeColor({}, "background");
   const colorScheme = useColorScheme();
   const tabSelectedColor = Colors[colorScheme ?? "light"].tabIconSelected;
   const tabDefaultColor = Colors[colorScheme ?? "light"].tabIconDefault;
@@ -16,6 +18,7 @@ export default function TabLayout() {
     <NativeTabs
       iconColor={tabDefaultColor}
       labelStyle={{ color: tabDefaultColor }}
+      backgroundColor={backgroundColor}
     >
       <NativeTabs.Trigger name="home">
         <Label
