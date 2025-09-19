@@ -25,6 +25,10 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
+## Issues
+
+- https://discord.com/channels/695411232856997968/1418247937405878273
+
 ## Upgrade Expo
 
 https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/
@@ -32,7 +36,7 @@ https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/
 ## Create Development Build
 
 ```zsh
-npx expo prebuild
+pnpm prebuild
 ```
 
 ## Get a fresh project
