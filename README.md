@@ -64,6 +64,16 @@
 - https://ground.news/
 - https://www.inoreader.com/
 
+## Inspiration
+
+- https://kraa.io/kraa/examples/echolibrary
+- https://rune.demo.luxethemes.com/
+
+## Fonts
+
+- https://fonts.google.com/specimen/IBM+Plex+Serif
+- https://www.fontshare.com/fonts/erode
+
 ## Curated Categories
 
 - Featured
