@@ -65,9 +65,7 @@ export const getFeedData = async (url: string) => {
     url: await getFavicon(url, channelData),
   });
   if (!mediaSourceIcon.success) {
-    throw new Error("Invalid media source icon data", {
-      cause: mediaSourceIcon.error,
-    });
+    throw new Error(z.prettifyError(mediaSourceIcon.error));
   }
 
   const baseUrl =
@@ -109,7 +107,7 @@ export const getFeedData = async (url: string) => {
       : null,
   });
   if (!mediaSource.success) {
-    throw new Error("Invalid media source data", { cause: mediaSource.error });
+    throw new Error(z.prettifyError(mediaSource.error));
   }
 
   const mediaItems = z.array($MediaItem).safeParse(
@@ -146,7 +144,7 @@ export const getFeedData = async (url: string) => {
     })
   );
   if (!mediaItems.success) {
-    throw new Error("Invalid media items data", { cause: mediaItems.error });
+    throw new Error(z.prettifyError(mediaItems.error));
   }
 
   return {
