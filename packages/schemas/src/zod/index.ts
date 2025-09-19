@@ -57,3 +57,11 @@ export const $MediaItem = z.object({
   ...$MediaItemBase.shape,
   ...$MediaItemUserControlled.shape,
 });
+
+/**
+ * Tailored to media items from social media like Bluesky or Mastodon
+ */
+export const $MediaItemSocial = z.object({
+  ...$MediaItem.shape,
+  title: z.nullable(z.string()),
+});
