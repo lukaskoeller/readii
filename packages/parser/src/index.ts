@@ -1,5 +1,6 @@
 import {
   $MediaItem,
+  $MediaItemSocial,
   $MediaSource,
   $MediaSourceIcon,
 } from "@readii/schemas/zod";
@@ -38,14 +39,31 @@ export const getFavicon = async (url: string, channelData: any) => {
   return null;
 };
 
+const SOURCE_TO_MEDIA_ITEM_SCHEMA = {
+  website: $MediaItem,
+  social: $MediaItemSocial,
+  podcast: $MediaItem,
+  youtube: $MediaItem,
+};
+
+export type TGetFeedDataOptions = {
+  /** @default "website" */
+  source: "website" | "social" | "podcast" | "youtube";
+  rssString?: string;
+};
 /**
  * Fetch and parse an RSS or Atom feed and transform it into a structured format.
- * @param url The URL of the RSS or Atom feed to fetch and parse.
+ * @param url The URL of the feed
+ * @param rssString Raw XML feed data as a string. If given, fetching from the URL will be skipped.
+ * @param options Additional options for fetching and parsing the feed.
  * @returns An object containing the media source icon, media source details, and an array of media items.
  */
-export const getFeedData = async (url: string) => {
-  const response = await fetch(url);
-  const text = await response.text();
+export const getFeedData = async (
+  url: string,
+  options?: TGetFeedDataOptions
+) => {
+  const text = options?.rssString ?? (await (await fetch(url)).text());
+
   const parser = new XMLParser({
     ignoreAttributes: false,
     trimValues: true,
@@ -65,7 +83,10 @@ export const getFeedData = async (url: string) => {
     url: await getFavicon(url, channelData),
   });
   if (!mediaSourceIcon.success) {
-    throw new Error(z.prettifyError(mediaSourceIcon.error));
+    console.error(mediaSourceIcon.error);
+    throw new Error(
+      `Invalid Media Source Icon: ${z.prettifyError(mediaSourceIcon.error)}`
+    );
   }
 
   const baseUrl =
@@ -90,6 +111,7 @@ export const getFeedData = async (url: string) => {
       )?.find((link: Record<string, unknown>) => link?.["@_rel"] === "self")?.[
         "@_href"
       ] ??
+      channelData?.link?.["#text"] ??
       null,
     logoUrl:
       channelData?.logo?.["#text"] ??
@@ -107,10 +129,16 @@ export const getFeedData = async (url: string) => {
       : null,
   });
   if (!mediaSource.success) {
-    throw new Error(z.prettifyError(mediaSource.error));
+    console.error(mediaSource.error);
+    throw new Error(
+      `Invalid Media Source: ${z.prettifyError(mediaSource.error)}`
+    );
   }
 
-  const mediaItems = z.array($MediaItem).safeParse(
+  const mediaItemSchema =
+    SOURCE_TO_MEDIA_ITEM_SCHEMA[options?.source ?? "website"];
+
+  const mediaItems = z.array(mediaItemSchema).safeParse(
     (mediaItemsData ?? []).map((item: Record<string, any>) => {
       const mediaThumbnailUrl = item?.["media:thumbnail"]?.["@_url"];
       const itemUrl = item?.link?.["#text"] ?? item?.link?.["@_href"];
@@ -122,7 +150,7 @@ export const getFeedData = async (url: string) => {
         item?.description?.["#text"];
 
       return {
-        title: item?.title?.["#text"],
+        title: item?.title?.["#text"] ?? null,
         url: getUrl(itemUrl, baseUrl),
         type: "text", // @todo Make this dynamic based on content type
 
@@ -144,7 +172,10 @@ export const getFeedData = async (url: string) => {
     })
   );
   if (!mediaItems.success) {
-    throw new Error(z.prettifyError(mediaItems.error));
+    console.error(mediaItems.error);
+    throw new Error(
+      `Invalid Media Items: ${z.prettifyError(mediaItems.error)}`
+    );
   }
 
   return {
