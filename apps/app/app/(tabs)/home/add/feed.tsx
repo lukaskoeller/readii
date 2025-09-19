@@ -3,7 +3,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useState } from "react";
-import { Button, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { $HttpsUrl } from "@readii/schemas/zod";
 import { getFeedData } from "@readii/parser";
 import { Image } from "expo-image";
@@ -12,6 +12,7 @@ import { useRouter } from "expo-router";
 import { Radius, Spacing } from "@/constants/Sizes";
 import * as Clipboard from "expo-clipboard";
 import { TextInputField } from "@/components/TextInputField";
+import { Button } from "@/components/Button/Button";
 
 export type TFeedPreview = {
   iconUrl: string | null;
@@ -28,8 +29,6 @@ export default function FeedScreen() {
   const [feedPreview, setFeedPreview] = useState<TFeedPreview | null>(null);
 
   const colorBackground2 = useThemeColor({}, "background2");
-  const colorText = useThemeColor({}, "text");
-  const colorPrimary = useThemeColor({}, "primary");
 
   const handleOnChangeText = async (text: string) => {
     setFeedUrl(text);
@@ -101,18 +100,20 @@ export default function FeedScreen() {
         />
         <ThemedView style={styles.pasteContainer}>
           <Button
+            variant="text"
             onPress={async () => {
               const text = await Clipboard.getStringAsync();
               await handleOnChangeText(text);
             }}
-            title="Paste from Clipboard"
-            color={colorText}
-          />
+          >
+            Paste from Clipboard
+          </Button>
         </ThemedView>
       </Card>
-      <ThemedView style={{ marginBlockStart: Spacing.size4 }}>
+      <ThemedView
+        style={{ marginBlockStart: Spacing.size4, marginInline: "auto" }}
+      >
         <Button
-          title="Add Feed"
           onPress={async () => {
             try {
               console.log("GET FEED DATA", feedUrl);
@@ -125,8 +126,9 @@ export default function FeedScreen() {
               console.log(error);
             }
           }}
-          color={colorPrimary}
-        />
+        >
+          Add Feed
+        </Button>
       </ThemedView>
     </ThemedView>
   );
