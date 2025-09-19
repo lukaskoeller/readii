@@ -2,18 +2,17 @@ import { ScrollView, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 import { LinkListCard } from "@/components/LinkListCard";
 import { QuickCardLink } from "@/components/QuickCardLink";
-import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { Spacing } from "@/constants/Sizes";
 import { useFeed, useMediaItem, useMediaSource } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
-import { Link } from "expo-router";
 import { Section } from "@/components/Section";
 import { useEffect } from "react";
 import { getFeedData } from "@readii/parser";
 import { TMediaSource } from "@/core/schema";
+import { AddFeedButton } from "@/components/AddFeedButton";
 
 export default function HomeScreen() {
   const { updateFeed } = useFeed();
@@ -139,10 +138,8 @@ export default function HomeScreen() {
             />
           </Section>
         </ThemedView>
-        <ThemedView padding={Spacing.size4}>
-          <Link href={"/home/add"}>
-            <ThemedText>Add Feed</ThemedText>
-          </Link>
+        <ThemedView padding={Spacing.size4} style={{ marginInline: "auto" }}>
+          <AddFeedButton />
         </ThemedView>
       </ScrollView>
     </>
