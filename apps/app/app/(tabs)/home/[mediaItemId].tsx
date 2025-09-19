@@ -3,11 +3,11 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Spacing } from "@/constants/Sizes";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
-import { Pressable, ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { parseFragment } from "parse5";
 import { Stack } from "expo-router";
-import { IconSymbol } from "@/components/ui/IconSymbol";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { HeaderActions } from "@/components/mediaItemId/HeaderActions";
 
 export default function Article() {
   const data = useReadMediaItem();
@@ -15,7 +15,6 @@ export default function Article() {
   const contentAst = parseFragment(data?.content || "");
 
   const backgroundColor = useThemeColor({}, "background");
-  const primaryColor = useThemeColor({}, "primary");
 
   const isStarred = Boolean(data?.isStarred);
   const isReadLater = Boolean(data?.isReadLater);
@@ -30,26 +29,11 @@ export default function Article() {
           headerShadowVisible: false,
           headerTitle: "",
           headerRight: () => (
-            <ThemedView style={{ flexDirection: "row", gap: Spacing.size4 }}>
-              <Pressable
-                onPress={async () =>
-                  updateMediaItem({ isReadLater: !isReadLater })
-                }
-              >
-                <IconSymbol
-                  name={isReadLater ? "clock.badge.fill" : "clock.badge"}
-                  color={primaryColor}
-                />
-              </Pressable>
-              <Pressable
-                onPress={async () => updateMediaItem({ isStarred: !isStarred })}
-              >
-                <IconSymbol
-                  name={isStarred ? "star.fill" : "star"}
-                  color={primaryColor}
-                />
-              </Pressable>
-            </ThemedView>
+            <HeaderActions
+              isReadLater={isReadLater}
+              isStarred={isStarred}
+              updateMediaItem={updateMediaItem}
+            />
           ),
         }}
       />
