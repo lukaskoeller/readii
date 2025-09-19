@@ -62,6 +62,7 @@
 
 - https://www.distillintelligence.com/
 - https://ground.news/
+- https://www.inoreader.com/
 
 ## Curated Categories
 
