@@ -17,7 +17,7 @@ export const Spacing = {
   size14: 240,
   size15: 320,
   size16: 480,
-  navigation: 100,
+  navigation: 56,
   container: 16,
 } as const;
 
@@ -28,6 +28,7 @@ export const Radius = {
   size4: 8,
   size5: 12,
   size6: 16,
+  full: 99,
 } as const;
 
 const BASE_FONT_SIZE = 14;
