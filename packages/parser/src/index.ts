@@ -73,7 +73,10 @@ export const getFeedData = async (
 
   const baseData = rawData?.rss ?? rawData?.feed;
   const channelData = baseData?.channel ?? baseData;
-  const mediaItemsData = channelData?.item ?? channelData?.entry ?? null;
+  let mediaItemsData = channelData?.item ?? channelData?.entry ?? null;
+  if (mediaItemsData && !Array.isArray(mediaItemsData)) {
+    mediaItemsData = [mediaItemsData];
+  }
 
   const mediaSourceIcon = $MediaSourceIcon.safeParse({
     title:
