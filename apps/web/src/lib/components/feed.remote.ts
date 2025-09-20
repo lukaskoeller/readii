@@ -1,8 +1,9 @@
 import { prerender } from '$app/server';
+import { FEED_URL } from '$lib/constants';
 import { getFeedData } from '@readii/parser';
 
 export const getFeed = prerender(async () => {
-	const URL = 'https://bsky.app/profile/did:plc:eclio37ymobqex2ncko63h4r/rss';
+	const URL = FEED_URL;
 	const feed = await getFeedData(URL, { source: 'social' });
 
 	return feed.mediaItems;
