@@ -5,6 +5,7 @@
   "exports": {
     "./icons/favicon/png": "./icons/favicon/readii-icon-gradient.png",
     "./icons/favicon/svg": "./icons/favicon/readii-icon-gradient.svg",
+    "./icons/app/svg": "./icons/app/readii-app-icon.svg",
     "./icons/app/1024/png": "./icons/app/readii-app-icon-1024.png",
     "./icons/app/1024@2/png": "./icons/app/readii-app-icon-1024@2.png",
     "./logos/svg": "./logos/readii-logo.svg"
