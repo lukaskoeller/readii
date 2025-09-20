@@ -35,6 +35,7 @@
 
 <style>
 	.switch-group {
+		font-family: var(--font-family-default);
 		/* inline layout with minor space between */
 		display: flex;
 		gap: var(--spacing-nearest);
@@ -70,7 +71,8 @@
 		/* single cell grid, prepare for the pile */
 		display: grid;
 		place-items: center;
-		padding: var(--spacing-near);
+		padding-block: var(--spacing-nearest);
+		padding-inline: var(--spacing-near);
 
 		/* sets width */
 		inline-size: auto;
