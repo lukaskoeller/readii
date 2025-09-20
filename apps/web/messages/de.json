@@ -1,8 +1,15 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"intro_heading": "Folge den Inhalten, die du liebst",
 	"intro": "Mit readii kannst du Inhalte aus dem Internet in einer einzigen App verfolgen. Egal, ob es sich um deine Lieblingsblogs, Websites oder Newsletter handelt. Filtere und individualisiere deine Inhalte nach deinen persönlichen Interessen.",
 	"language": "Sprache",
 	"form_waitlist_submit_label": "Auf die Warteliste",
 	"form_waitlist_email_input": "E-Mail",
-	"waitlist_paragraph": "Trag dich mit deiner E-Mail in unsere Warteliste ein und wir informieren dich, sobald unser Produkt live geht. Keine Spam, nur gute Nachrichten – versprochen."
+	"waitlist_paragraph": "Trag dich mit deiner E-Mail in unsere Warteliste ein und wir informieren dich, sobald unser Produkt live geht. Keine Spam, nur gute Nachrichten – versprochen.",
+	"feed_heading": "Was es Neues gibt",
+	"feed_intro": "Bleibe auf dem Laufenden mit den neuesten Entwicklungen bei readii.",
+	"feed_loading": "Lade Feed…",
+	"feed_rss_btn": "RSS abonnieren",
+	"feed_bluesky_btn": "Auf Bluesky folgen",
+	"feed_item_link": "Post anzeigen"
 }
