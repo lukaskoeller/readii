@@ -25,7 +25,8 @@
 
 <style>
 	.wrapper {
-		inline-size: 72ch;
+		inline-size: min(60ch, 100%);
+		padding-inline: var(--spacing-base);
 		margin-inline: auto;
 	}
 </style>

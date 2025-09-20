@@ -24,5 +24,6 @@
 
 	.text {
 		margin-block: var(--spacing-far);
+		margin-block-end: var(--spacing-farthest);
 	}
 </style>
