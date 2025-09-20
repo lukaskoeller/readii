@@ -1,19 +1,22 @@
 /* dm-serif-display-regular - latin */
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: "STIX Two Text", serif;
-    font-style: normal;
-    font-weight: 600;
-    src: url("../assets/STIXTwoText-SemiBold.ttf") format("ttf");
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'STIX Two Text', serif;
+	font-style: normal;
+	font-weight: 600;
+	src: url('../assets/STIXTwoText-SemiBold.ttf') format('ttf');
 }
 
 html {
-    background-color: var(--color-surface-base);
+	font-family: var(--font-family-serif);
+	background-color: var(--color-surface-base);
 }
 
 :root {
-    --font-family-serif: Georgia, serif;
-    --font-family-heading: "DM Serif Text", serif;
+	--font-family-serif: Georgia, serif;
+	--font-family-heading: 'DM Serif Text', serif;
+
+	--color-brand-primary-gradient: oklch(0.6225 0.1826 43.52);
 }
 
 h1,
@@ -22,16 +25,56 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-family-heading);
-    font-weight: 600;
+	font-family: var(--font-family-heading);
+	font-weight: 600;
 }
 
 p {
-    font-family: var(--font-family-serif);
+	font-family: var(--font-family-serif);
 }
 
 .nc-card {
-    box-shadow: none;
-    box-shadow: inset 0px -2px 6px -2px var(--color-border-muted);
-    background-color: var(--color-surface-muted);
+	box-shadow: none;
+	box-shadow: inset 0px -2px 6px -2px var(--color-border-muted);
+	background-color: var(--color-surface-muted);
+}
+
+.nc-button {
+	font-weight: var(--font-weight-strong);
+	border: 0;
+
+	&.-primary {
+		--button-border-color: var(--color-brand-primary-gradient);
+
+		box-shadow: inset 0px -3px 0px 0px var(--color-brand-primary-gradient);
+		/* background: linear-gradient(var(--color-brand-primary-base), var(--color-brand-primary-gradient)); */
+
+		&:hover {
+			background-color: var(--_button-background);
+			color: var(--_button-color);
+			box-shadow: inset 0px -2px 0px 0px var(--color-brand-primary-gradient);
+		}
+		&:active {
+			background-color: var(--_button-background);
+			color: var(--_button-color);
+			box-shadow: inset 0px 0px 0px 0px var(--color-brand-primary-gradient);
+		}
+	}
+
+	&.-outline {
+		border: 0;
+		box-shadow:
+			inset 0px 0px 0px 2px var(--border),
+			inset 0px -3px 0px 0px var(--border);
+
+		&:hover {
+			background-color: none; /* var(--_button-background-hover-light) */
+			box-shadow:
+				inset 0px 0px 0px 2px var(--border),
+				inset 0px -2px 0px 0px var(--border);
+		}
+		&:active {
+			box-shadow: 0px 0px 0px 2px var(--border);
+		}
+	}
 }
