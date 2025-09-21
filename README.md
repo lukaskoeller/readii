@@ -36,6 +36,9 @@
 - Tutorial how to create RSS Feed - https://www.citationneeded.news/curate-with-rss/
 - Suggest to Tech Newsletters (ui.dev)
 - Expo Showcase?
+- ProductHunt
+- Reddit Feedback
+- Handpicked OPML on website
 
 ## Helpful
 
