@@ -8,8 +8,8 @@
     "update:expo": "expo install expo@latest",
     "prebuild": "pnpx expo prebuild",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint"
   },

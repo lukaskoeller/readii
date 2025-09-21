@@ -28,6 +28,7 @@ You can start developing by editing the files inside the **app** directory. This
 ## Issues
 
 - https://discord.com/channels/695411232856997968/1418247937405878273
+- Multiple header: https://discord.com/channels/695411232856997968/1268957485037916200/1419422830965293190
 
 ## Upgrade Expo
 
