@@ -18,7 +18,7 @@ export default function FeedStackLayout() {
       <Stack.Screen
         name="add"
         options={{
-          headerTitle: "Add new Feed",
+          headerTitle: "Add Feed",
           headerStyle: {
             backgroundColor,
           },
