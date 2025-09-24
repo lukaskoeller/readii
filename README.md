@@ -66,6 +66,7 @@
 - https://www.distillintelligence.com/
 - https://ground.news/
 - https://www.inoreader.com/
+- https://feedly.com/
 
 ## Inspiration
 
