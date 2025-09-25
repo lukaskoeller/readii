@@ -37,6 +37,12 @@ export default function FeedStackLayout() {
           presentation: "modal",
         }}
       />
+      <Stack.Screen
+        name="[category]"
+        options={{
+          presentation: "modal",
+        }}
+      />
     </Stack>
   );
 }
