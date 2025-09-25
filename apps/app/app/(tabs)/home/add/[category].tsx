@@ -4,6 +4,11 @@ import { Spacing } from "@/constants/Sizes";
 import { FlatList } from "react-native";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { CATEGORIES } from "@/constants/data";
+
+const getTitle = (category: string) => {
+  return CATEGORIES.find((c) => c.key === category)?.label ?? category;
+};
 
 export default function Category() {
   const backgroundColor = useThemeColor({}, "background");
@@ -16,7 +21,7 @@ export default function Category() {
           headerStyle: {
             backgroundColor,
           },
-          headerTitle: params.category,
+          headerTitle: getTitle(params.category),
         }}
       />
       <FlatList
