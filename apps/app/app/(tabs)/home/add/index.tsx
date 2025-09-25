@@ -7,6 +7,7 @@ import { IconSymbol } from "@/components/ui/IconSymbol";
 import { SimpleCardLink } from "@/components/SimpleCardLink";
 import { StatusBar } from "expo-status-bar";
 import { TwoGrid } from "@/components/TwoGrid";
+import { CATEGORIES } from "@/constants/data";
 
 export default function AddFeed() {
   const colorBackground = useThemeColor({}, "background");
@@ -91,49 +92,8 @@ export default function AddFeed() {
         bodyPadding
       >
         <TwoGrid
-          keyExtractor={(item) => item.href}
-          data={
-            [
-              {
-                href: "/home/add/categories/news-politics",
-                label: "News & Politics",
-              },
-              {
-                href: "/home/add/categories/entertainment",
-                label: "Entertainment",
-              },
-              { href: "/home/add/categories/sports", label: "Sports" },
-              {
-                href: "/home/add/categories/money-business",
-                label: "Money & Business",
-              },
-              {
-                href: "/home/add/categories/style-beauty",
-                label: "Style & Beauty",
-              },
-              { href: "/home/add/categories/food", label: "Food" },
-              {
-                href: "/home/add/categories/travel-regional",
-                label: "Travel & Regional",
-              },
-              { href: "/home/add/categories/health", label: "Health" },
-              {
-                href: "/home/add/categories/home-garden",
-                label: "Home & Garden",
-              },
-              {
-                href: "/home/add/categories/science-tech",
-                label: "Science & Tech",
-              },
-              { href: "/home/add/categories/cars", label: "Cars" },
-              { href: "/home/add/categories/hobbies", label: "Hobbies" },
-              { href: "/home/add/categories/outdoors", label: "Outdoors" },
-              {
-                href: "/home/add/categories/kids-parenting",
-                label: "Kids & Parenting",
-              },
-            ] as const
-          }
+          keyExtractor={(item) => item.key}
+          data={[...CATEGORIES]}
           renderItem={(item) => (
             <SimpleCardLink href={item.href} label={item.label} />
           )}
