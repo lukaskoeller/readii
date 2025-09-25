@@ -44,3 +44,18 @@ export const dayMonthYearFormat = Intl.DateTimeFormat(undefined, {
   month: "numeric",
   year: "numeric",
 });
+
+/**
+ * @license https://github.com/Chalarangelo/30-seconds-of-code?tab=CC-BY-4.0-1-ov-file#readme
+ * Changes were applied
+ * @see https://www.30secondsofcode.org/js/s/string-case-conversion/#convert-any-case-to-title-case
+ */
+export const toTitleCase = (string: string) => {
+  const formattedString = string
+    .toLocaleLowerCase()
+    .match(/[\p{Letter}\p{Mark}\p{Number}\p{Symbol}]+/gu)
+    ?.map((x) => x.charAt(0).toLocaleUpperCase() + x.slice(1))
+    .join(" ");
+
+  return formattedString ?? string;
+};
