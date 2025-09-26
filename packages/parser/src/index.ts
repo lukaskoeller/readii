@@ -25,12 +25,17 @@ export const getFavicon = async (url: string, channelData: any) => {
 
   try {
     const originUrl = new URL(url).origin;
-    const faviconUrl = `${originUrl}/favicon.ico`;
-    const response = await fetch(faviconUrl, {
-      method: "HEAD",
-    });
-    if (response.ok) {
-      return faviconUrl;
+    const faviconIcoUrl = `${originUrl}/favicon.ico`;
+    const faviconPngUrl = `${originUrl}/favicon.png`;
+    const faviconSvgUrl = `${originUrl}/favicon.svg`;
+    const responses = await Promise.all([
+      fetch(faviconIcoUrl),
+      fetch(faviconPngUrl),
+      fetch(faviconSvgUrl),
+    ]);
+    const responseOk = responses.find((res) => res.ok);
+    if (responseOk) {
+      return responseOk.url;
     }
   } catch (error) {
     // do nothing
