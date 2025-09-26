@@ -1,18 +1,17 @@
 import { Card } from "@/components/Card";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { useThemeColor } from "@/hooks/useThemeColor";
 import { useState } from "react";
 import { StyleSheet } from "react-native";
 import { $HttpsUrl } from "@readii/schemas/zod";
 import { getFeedData } from "@readii/parser";
-import { Image } from "expo-image";
 import { useFeed } from "@/hooks/queries";
 import { useRouter } from "expo-router";
 import { Radius, Spacing } from "@/constants/Sizes";
 import * as Clipboard from "expo-clipboard";
 import { TextInputField } from "@/components/TextInputField";
 import { Button } from "@/components/Button/Button";
+import { FeedPreview } from "@/components/FeedPreview";
 
 export type TFeedPreview = {
   iconUrl: string | null;
@@ -27,8 +26,6 @@ export default function FeedScreen() {
   const { createFeed } = useFeed();
   const [feedUrl, setFeedUrl] = useState<string>("https://");
   const [feedPreview, setFeedPreview] = useState<TFeedPreview | null>(null);
-
-  const colorBackground2 = useThemeColor({}, "background2");
 
   const handleOnChangeText = async (text: string) => {
     setFeedUrl(text);
@@ -53,23 +50,11 @@ export default function FeedScreen() {
         <ThemedView style={[styles.previewContainer]}>
           <ThemedView style={[styles.preview]}>
             {feedPreview ? (
-              <>
-                <Image
-                  style={[
-                    styles.thumbnail,
-                    { backgroundColor: colorBackground2 },
-                  ]}
-                  source={feedPreview?.iconUrl ?? undefined}
-                />
-                <ThemedView style={styles.previewText}>
-                  <ThemedText type="h5" color="text2" noMargin>
-                    {feedPreview?.name}
-                  </ThemedText>
-                  <ThemedText type="small" color="text3" noMargin>
-                    {feedPreview?.description}
-                  </ThemedText>
-                </ThemedView>
-              </>
+              <FeedPreview
+                iconUrl={feedPreview.iconUrl}
+                name={feedPreview.name}
+                description={feedPreview.description}
+              />
             ) : (
               <ThemedView
                 style={{
