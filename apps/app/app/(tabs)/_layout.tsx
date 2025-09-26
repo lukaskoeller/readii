@@ -18,7 +18,7 @@ export default function TabLayout() {
     <NativeTabs
       iconColor={tabDefaultColor}
       labelStyle={{ color: tabDefaultColor }}
-      backgroundColor={backgroundColor}
+      backgroundColor={backgroundColor}  
     >
       <NativeTabs.Trigger name="home">
         <Label
