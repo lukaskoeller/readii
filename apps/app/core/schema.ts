@@ -49,7 +49,7 @@ export const mediaSourceIconRelations = relations(
 export type TMediaSourceIcon = typeof mediaSourceIcon.$inferInsert;
 
 const mediaItemBase = {
-  title: text("title").notNull(),
+  title: text("title"),
   type: text("type", { enum: ["text", "audio", "video"] }).notNull(),
   content: text("content").notNull(),
   contentSnippet: text("content_snippet"),
