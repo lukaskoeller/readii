@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { Pressable, StyleSheet } from "react-native";
-import { FontWeight, Radius } from "@/constants/Sizes";
+import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { ThemedText } from "../ThemedText";
+import { IconSymbol, IconSymbolName } from "../ui/IconSymbol";
 
 export type ButtonVariant = "primary" | "text" | "secondary";
 
@@ -11,6 +12,7 @@ export type ButtonProps = {
   children: React.ReactNode;
   onPress: () => void;
   style?: object;
+  startIcon?: IconSymbolName;
 };
 
 export const Button: FC<ButtonProps> = ({
@@ -18,6 +20,7 @@ export const Button: FC<ButtonProps> = ({
   onPress,
   style,
   variant = "primary",
+  startIcon,
 }) => {
   const colorPrimary = useThemeColor({}, "primary");
   const colorText3 = useThemeColor({}, "text3");
@@ -50,6 +53,9 @@ export const Button: FC<ButtonProps> = ({
       onPress={onPress}
       style={[style, buttonStyles.button, variants[variant].button]}
     >
+      {startIcon && (
+        <IconSymbol name={startIcon} size={FontSize.size3} color={variants[variant].text.color} />
+      )}
       {isChildrenString ? (
         <ThemedText style={[buttonStyles.text, variants[variant].text]}>
           {children}
@@ -63,6 +69,11 @@ export const Button: FC<ButtonProps> = ({
 
 export const buttonStyles = StyleSheet.create({
   button: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: Spacing.size1,
     paddingBlock: 6,
     paddingInline: 14,
     borderRadius: Radius.full,
