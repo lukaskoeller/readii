@@ -11,7 +11,7 @@
 - [ ] PERF: Move `content` to files instead of in DB
 - [x] CHORE: Check out Android App
 - [x] FIX: Add App icon
-- [ ] FEAT: Beautify add screen
+- [x] FEAT: Beautify add screen
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add Payment handling
 - [ ] FEAT: Add support for Newsletter
@@ -21,8 +21,10 @@
   - [ ] FEAT: add url param to /home/add/feed to allow prefill RSS Feeds
 - [ ] FEAT: Add "All feeds" tab
 - [ ] FEAT: Add support for Podcasts
+  - [ ] FEAT: Transcribe Podcast to make it searchable
 - [ ] FEAT: Add support for Google Alert
 - [ ] FEAT: Add "Weekly Digest", an AI generated summary of the week's news
+  - https://www.youtube.com/watch?v=zReFsPgUdMs&list=WL&index=2
 
 ### Backlog
 
