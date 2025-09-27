@@ -26,7 +26,16 @@
       "favicon": "./assets/images/readii-favicon.png"
     },
     "plugins": [
-      "expo-router",
+      ["expo-router", {
+        "origin": "https://api.readii.de"
+      }],
+      [
+        "@stripe/stripe-react-native", {
+          "merchantIdentifier": "merchant.com.anonymous.readiiapp",
+          "publishableKey": "@todo",
+          "enableGooglePay": true
+        }
+      ],
       [
         "expo-splash-screen",
         {
