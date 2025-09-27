@@ -49,6 +49,7 @@
 - https://nerdy.dev/rss.xml
 - https://lea.verou.me/feed.xml
 - https://www.youtube.com/feeds/videos.xml?channel_id=UCcefcZRL2oaA_uBNeo5UOWg
+- https://sprind.podigee.io/feed/mp3
 - https://infrequently.org/links/
 - https://www.sovereign.tech/feed.rss
 - https://www.smashingmagazine.com/feed/
