@@ -26,6 +26,14 @@ export const CATEGORIES = [
   {
     href: {
       pathname: "/home/add/[category]",
+      params: { category: "startups-innovation" },
+    },
+    key: "startups-innovation",
+    label: "Startups & Innovation",
+  },
+  {
+    href: {
+      pathname: "/home/add/[category]",
       params: { category: "money-business" },
     },
     key: "money-business",
@@ -148,6 +156,20 @@ export const FEEDS_BY_CATEGORY = {
       imgUrl:
         "https://static.kicker.de/content/b2ea4d70/img/favicon/appicon48x48.png",
     },
+  ],
+  "startups-innovation": [
+    {
+      title: "Gründerszene",
+      url: "https://www.businessinsider.de/gruenderszene/feed/",
+      description: "Aktuelle Wirtschafts-News von Business Insider aus Deutschland.",
+      imgUrl: "https://www.businessinsider.de/wp-content/themes/business-insider/public/favicons/apple-touch-icon-gs.png",
+    },
+    {
+      title: "Sovereign Tech Agency",
+      url: "https://www.sovereign.tech/feed.rss",
+      description: "The Sovereign Tech Agency is dedicated to protecting and strengthening the open source backbone of our digital future.",
+      imgUrl: "https://www.sovereign.tech/static/images/favicons/favicon-32x32.png",
+    }
   ],
   "money-business": [],
   "style-beauty": [],
