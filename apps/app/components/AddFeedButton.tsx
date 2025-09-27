@@ -9,6 +9,7 @@ export const AddFeedButton: FC = () => {
         onPress={() => {
           router.navigate("/home/add");
         }}
+        startIcon="plus"
       >
         Add Feed
       </Button>
