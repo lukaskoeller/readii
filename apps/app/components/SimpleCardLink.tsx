@@ -33,13 +33,15 @@ const styles = StyleSheet.create({
     paddingBlockStart: Spacing.size5,
     paddingInline: Spacing.size3,
     borderRadius: Radius.size4,
+    minHeight: Spacing.size11,
   },
   link: {
+    height: "100%",
     display: "flex",
-    alignItems: "flex-end",
+    flexDirection: "column",
+    justifyContent: "flex-end",
   },
   label: {
-    marginBlockStart: Spacing.size4,
     marginBlockEnd: 0,
   },
 });
