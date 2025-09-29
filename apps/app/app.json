@@ -32,7 +32,7 @@
       [
         "@stripe/stripe-react-native", {
           "merchantIdentifier": "merchant.com.anonymous.readiiapp",
-          "publishableKey": "@todo",
+          "publishableKey": "pk_test_51SC2ksQVrVh1kP5IzIa9JOUuyzygWQ1jyqYErW4bvK4E0cqOCrXr4sLxu634ROmqv6upvuFvt80menpoehqE1NOk00rUeyxUgl",
           "enableGooglePay": true
         }
       ],
