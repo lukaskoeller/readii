@@ -15,6 +15,8 @@
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add Payment handling
 - [ ] FEAT: Add support for Newsletter
+- [ ] FEAT: Show website in reader mode
+  - https://github.com/mozilla/readability
 - [ ] FEAT: Add Onboarding Flow!
 - [ ] FEAT: Add empty feed UI
 - [ ] FEAT: Allow deep linking (e.g. suggest cool content on social media and deep link)
