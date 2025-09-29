@@ -1,0 +1,26 @@
+{
+  "name": "@readii/newsletter-to-rss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "node --experimental-transform-types --watch ./src/index.ts",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.17.1",
+  "dependencies": {
+    "mailparser": "^3.7.4",
+    "smtp-server": "^3.14.0"
+  },
+  "devDependencies": {
+    "@types/mailparser": "^3.4.6",
+    "@types/nodemailer": "^7.0.1",
+    "@types/smtp-server": "^3.5.12",
+    "nodemailer": "^7.0.6",
+    "vitest": "^3.2.4"
+  }
+}
