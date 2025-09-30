@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { createTransport } from 'nodemailer';
-import { PORT } from '../src/constants';
+import { PORT_SMTP } from '../src/constants';
 import { UI_DEV_TEST_MAIL } from './testMails.ts';
 
 beforeAll(async () => {
@@ -14,7 +14,7 @@ afterAll(async () => {
 describe('SMTP Server', () => {
   it('should receive an email and log the subject', async () => {
     const transport = createTransport({
-      port: PORT,
+      port: PORT_SMTP,
       host: 'localhost',
       secure: false,
       tls: { rejectUnauthorized: false },
