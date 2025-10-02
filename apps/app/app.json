@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "readii-app",
-    "slug": "readii-app",
+    "name": "readii",
+    "slug": "readii",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/readii-icon.png",
