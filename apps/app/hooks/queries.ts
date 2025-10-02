@@ -112,8 +112,26 @@ export const useMediaSource = () => {
       },
     });
 
+  const deleteMediaSource = (
+    value: NonNullable<schema.TMediaSource["id"]> | schema.TMediaSource["name"],
+    accessor: "id" | "name"
+  ) => {
+    const mediaSourceId = drizzleDb
+      .delete(schema.mediaSource)
+      .where(eq(schema.mediaSource[accessor], value))
+      .returning({ id: schema.mediaSource.id });
+
+    drizzleDb
+      .delete(schema.mediaItem)
+      .where(eq(schema.mediaItem.mediaSourceId, mediaSourceId));
+    drizzleDb
+      .delete(schema.mediaSourceIcon)
+      .where(eq(schema.mediaSourceIcon.mediaSourceId, mediaSourceId));
+  };
+
   return {
     readMediaSources,
+    deleteMediaSource,
   };
 };
 
