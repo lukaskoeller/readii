@@ -2055,6 +2055,91 @@ PODS:
   - SDWebImageWebPCoder (0.14.6):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.17)
+  - Stripe (24.19.0):
+    - StripeApplePay (= 24.19.0)
+    - StripeCore (= 24.19.0)
+    - StripePayments (= 24.19.0)
+    - StripePaymentsUI (= 24.19.0)
+    - StripeUICore (= 24.19.0)
+  - stripe-react-native (0.50.3):
+    - hermes-engine
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Stripe (~> 24.19.0)
+    - stripe-react-native/NewArch (= 0.50.3)
+    - StripeApplePay (~> 24.19.0)
+    - StripeFinancialConnections (~> 24.19.0)
+    - StripePayments (~> 24.19.0)
+    - StripePaymentSheet (~> 24.19.0)
+    - StripePaymentsUI (~> 24.19.0)
+    - Yoga
+  - stripe-react-native/NewArch (0.50.3):
+    - hermes-engine
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Stripe (~> 24.19.0)
+    - StripeApplePay (~> 24.19.0)
+    - StripeFinancialConnections (~> 24.19.0)
+    - StripePayments (~> 24.19.0)
+    - StripePaymentSheet (~> 24.19.0)
+    - StripePaymentsUI (~> 24.19.0)
+    - Yoga
+  - StripeApplePay (24.19.0):
+    - StripeCore (= 24.19.0)
+  - StripeCore (24.19.0)
+  - StripeFinancialConnections (24.19.0):
+    - StripeCore (= 24.19.0)
+    - StripeUICore (= 24.19.0)
+  - StripePayments (24.19.0):
+    - StripeCore (= 24.19.0)
+    - StripePayments/Stripe3DS2 (= 24.19.0)
+  - StripePayments/Stripe3DS2 (24.19.0):
+    - StripeCore (= 24.19.0)
+  - StripePaymentSheet (24.19.0):
+    - StripeApplePay (= 24.19.0)
+    - StripeCore (= 24.19.0)
+    - StripePayments (= 24.19.0)
+    - StripePaymentsUI (= 24.19.0)
+  - StripePaymentsUI (24.19.0):
+    - StripeCore (= 24.19.0)
+    - StripePayments (= 24.19.0)
+    - StripeUICore (= 24.19.0)
+  - StripeUICore (24.19.0):
+    - StripeCore (= 24.19.0)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2151,6 +2236,7 @@ DEPENDENCIES:
   - "RNReanimated (from `../../../node_modules/.pnpm/react-native-reanimated@4.1.0_@babel+core@7.28.4_react-native-worklets@0.5.1_@babel+cor_e00b722dd9f6005969be13e672906784/node_modules/react-native-reanimated`)"
   - "RNScreens (from `../../../node_modules/.pnpm/react-native-screens@4.16.0_react-native@0.81.4_@babel+core@7.28.4_@types+react@19.1.13_react@19.1.0__react@19.1.0/node_modules/react-native-screens`)"
   - "RNWorklets (from `../../../node_modules/.pnpm/react-native-worklets@0.5.1_@babel+core@7.28.4_react-native@0.81.4_@babel+core@7.28.4_@_e8376ad622bd6d86721c09c7f11c57d3/node_modules/react-native-worklets`)"
+  - "stripe-react-native (from `../../../node_modules/.pnpm/@stripe+stripe-react-native@0.50.3_expo@54.0.8_react-native@0.81.4_@babel+core@7.28.4_@_004935133b0986fef75584078fe57008/node_modules/@stripe/stripe-react-native`)"
   - "Yoga (from `../../../node_modules/.pnpm/react-native@0.81.4_@babel+core@7.28.4_@types+react@19.1.13_react@19.1.0/node_modules/react-native/ReactCommon/yoga`)"
 
 SPEC REPOS:
@@ -2162,6 +2248,14 @@ SPEC REPOS:
     - SDWebImageAVIFCoder
     - SDWebImageSVGCoder
     - SDWebImageWebPCoder
+    - Stripe
+    - StripeApplePay
+    - StripeCore
+    - StripeFinancialConnections
+    - StripePayments
+    - StripePaymentSheet
+    - StripePaymentsUI
+    - StripeUICore
 
 EXTERNAL SOURCES:
   EXConstants:
@@ -2349,6 +2443,8 @@ EXTERNAL SOURCES:
     :path: "../../../node_modules/.pnpm/react-native-screens@4.16.0_react-native@0.81.4_@babel+core@7.28.4_@types+react@19.1.13_react@19.1.0__react@19.1.0/node_modules/react-native-screens"
   RNWorklets:
     :path: "../../../node_modules/.pnpm/react-native-worklets@0.5.1_@babel+core@7.28.4_react-native@0.81.4_@babel+core@7.28.4_@_e8376ad622bd6d86721c09c7f11c57d3/node_modules/react-native-worklets"
+  stripe-react-native:
+    :path: "../../../node_modules/.pnpm/@stripe+stripe-react-native@0.50.3_expo@54.0.8_react-native@0.81.4_@babel+core@7.28.4_@_004935133b0986fef75584078fe57008/node_modules/@stripe/stripe-react-native"
   Yoga:
     :path: "../../../node_modules/.pnpm/react-native@0.81.4_@babel+core@7.28.4_@types+react@19.1.13_react@19.1.0/node_modules/react-native/ReactCommon/yoga"
 
@@ -2452,6 +2548,15 @@ SPEC CHECKSUMS:
   SDWebImageAVIFCoder: 00310d246aab3232ce77f1d8f0076f8c4b021d90
   SDWebImageSVGCoder: 15a300a97ec1c8ac958f009c02220ac0402e936c
   SDWebImageWebPCoder: e38c0a70396191361d60c092933e22c20d5b1380
+  Stripe: d1824162e4bcb6ead10401a0dc8e8a3d5ffee41f
+  stripe-react-native: eb0d6fac02a31029c3c3d0fc43e6b25dbf9c61fd
+  StripeApplePay: eb64705d3c919492b1b28876652fd0aca2db38cc
+  StripeCore: b5bee05167f0c8ccce936244a031a9972fdeade8
+  StripeFinancialConnections: fd6c661f86f47b1d26a32f588b3a0b09826aba84
+  StripePayments: cf00b3c85cd7b57e40f622493f81bdf361cb3982
+  StripePaymentSheet: b126816213ae4f56ff4525ad25f94bb985a43e27
+  StripePaymentsUI: 05d4be35b34f821d5ddc8617dee04219f3646253
+  StripeUICore: d07bd63a4b53dee8cab4d6f81ce5a7ab3e28511e
   Yoga: 051f086b5ccf465ff2ed38a2cf5a558ae01aaaa1
 
 PODFILE CHECKSUM: d1b3e59fa51fdd4e64af4922cdb8aca9b1703f98

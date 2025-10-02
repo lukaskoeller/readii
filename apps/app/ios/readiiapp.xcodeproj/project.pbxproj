@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		096EF642E7D14042B7AB778F /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6324EC8E690B47919BCBAB7B /* noop-file.swift */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		16829FC2B8B1D6276C50DD63 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 989D1968EAE08C16C2468271 /* PrivacyInfo.xcprivacy */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
@@ -20,6 +21,7 @@
 		13B07F961A680F5B00A75B9A /* readiiapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = readiiapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = readiiapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = readiiapp/Info.plist; sourceTree = "<group>"; };
+		6324EC8E690B47919BCBAB7B /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "readiiapp/noop-file.swift"; sourceTree = "<group>"; };
 		64080CABEC30EFC0A952597B /* Pods-readiiapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-readiiapp.debug.xcconfig"; path = "Target Support Files/Pods-readiiapp/Pods-readiiapp.debug.xcconfig"; sourceTree = "<group>"; };
 		7FA7DB7B64924A706A283D04 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-readiiapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		989D1968EAE08C16C2468271 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = readiiapp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
 				989D1968EAE08C16C2468271 /* PrivacyInfo.xcprivacy */,
+				6324EC8E690B47919BCBAB7B /* noop-file.swift */,
 			);
 			name = readiiapp;
 			sourceTree = "<group>";
@@ -256,6 +259,14 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/React-Core_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact/React-cxxreact_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Stripe/StripeBundle.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/StripeCore/StripeCoreBundle.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/StripeFinancialConnections/StripeFinancialConnectionsBundle.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/StripePaymentSheet/StripePaymentSheetBundle.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/StripePayments/StripePaymentsBundle.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/StripePayments/Stripe3DS2.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/StripePaymentsUI/StripePaymentsUIBundle.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/StripeUICore/StripeUICoreBundle.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -266,6 +277,14 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-Core_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-cxxreact_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDWebImage.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StripeBundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StripeCoreBundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StripeFinancialConnectionsBundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StripePaymentSheetBundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StripePaymentsBundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Stripe3DS2.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StripePaymentsUIBundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StripeUICoreBundle.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -327,6 +346,7 @@
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
 				4D1874D286E23542B2708FB3 /* ExpoModulesProvider.swift in Sources */,
+				096EF642E7D14042B7AB778F /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +380,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.readiiapp;
-				PRODUCT_NAME = readiiapp;
+				PRODUCT_NAME = "readii";
 				SWIFT_OBJC_BRIDGING_HEADER = "readiiapp/readiiapp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -391,7 +411,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.readiiapp;
-				PRODUCT_NAME = readiiapp;
+				PRODUCT_NAME = "readii";
 				SWIFT_OBJC_BRIDGING_HEADER = "readiiapp/readiiapp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
