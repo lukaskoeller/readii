@@ -40,6 +40,13 @@ https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/
 pnpm prebuild
 ```
 
+## Drizzle Studio (SQLite Client)
+1. Run the app via `pnpm app:ios` (root) or `pnpm ios` (`/app` root).
+2. Press `Shift + M`. Select `expo-drizzle-studio-plugin`.
+3. Drizzle Studio will open in a new browser tab.
+
+More information: [Modern SQLite for React Native apps](https://expo.dev/blog/modern-sqlite-for-react-native-apps)
+
 ## Get a fresh project
 
 When you're ready, run:
