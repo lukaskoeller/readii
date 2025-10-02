@@ -66,7 +66,7 @@ export default function Category() {
                       await createFeed(args);
                       router.replace("/home");
                     } catch (error) {
-                      console.log(error);
+                      console.error(error);
                     }
                   }}
                   startIcon={isAdded ? "checkmark" : "plus"}
