@@ -1,9 +1,16 @@
 import { expect, test } from "vitest";
 import { getFeedData } from "../src";
 
-test("should parse RSS Feed correctly", async () => {
-  // const feedURL = new URL("./nerdy-rss.xml", import.meta.url).toString();
-  const parsedFeed = await getFeedData("https://nerdy.dev/rss");
+const feeds = [
+  ["Adam Argyle", "https://nerdy.dev/rss"],
+  ["Contrario by Victor Matekole", "https://matekole.com/rss.xml"],
+  ["NYT Top Stories", "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"]
+];
+
+
+test.each(feeds)("should parse RSS feed \"%s\" correctly", async (title, url) => {
+  const parsedFeed = await getFeedData(url);
+  console.log(`[${title}] mediaSourceIcon:`, parsedFeed.mediaSourceIcon);
   expect("mediaSourceIcon" in parsedFeed).toBe(true);
   expect("mediaSource" in parsedFeed).toBe(true);
   expect("mediaItems" in parsedFeed).toBe(true);
