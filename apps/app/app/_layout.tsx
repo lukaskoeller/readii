@@ -23,7 +23,6 @@ const db = drizzle(expoDb);
 
 export default function RootLayout() {
   const { success, error } = useMigrations(db, migrations);
-  // useDrizzleStudio(expoDb); @todo Try again later
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),

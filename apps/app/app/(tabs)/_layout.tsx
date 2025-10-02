@@ -3,6 +3,8 @@ import React from "react";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { useSQLiteContext } from "expo-sqlite";
+import { useDrizzleStudio } from "expo-drizzle-studio-plugin/build/useDrizzleStudio";
 
 export const unstable_settings = {
   initialRouteName: "home",
@@ -11,6 +13,8 @@ export const unstable_settings = {
 export default function TabLayout() {
   const backgroundColor = useThemeColor({}, "background");
   const colorScheme = useColorScheme();
+  const dbContext = useSQLiteContext();
+    useDrizzleStudio(dbContext);
   const tabSelectedColor = Colors[colorScheme ?? "light"].tabIconSelected;
   const tabDefaultColor = Colors[colorScheme ?? "light"].tabIconDefault;
 
