@@ -17,7 +17,8 @@ export const getUrl = (url: string | null, baseUrl: string | null) => {
 };
 
 export const getFavicon = async (url: string, channelData: any) => {
-  const feedImageUrl = channelData?.image?.url?.["#text"];
+  const feedImageUrl =
+    channelData?.icon?.["#text"] ?? channelData?.image?.url?.["#text"];
 
   if (feedImageUrl) {
     return feedImageUrl;
@@ -91,7 +92,6 @@ export const getFeedData = async (
     url: await getFavicon(url, channelData),
   });
   if (!mediaSourceIcon.success) {
-    console.error(mediaSourceIcon.error);
     throw new Error(
       `Invalid Media Source Icon: ${z.prettifyError(mediaSourceIcon.error)}`
     );
@@ -111,16 +111,7 @@ export const getFeedData = async (
     name: channelData?.title?.["#text"] ?? null,
     description: channelData?.description?.["#text"] ?? null,
     url: baseUrl,
-    feedUrl:
-      channelData?.["atom:link"]?.["@_href"] ??
-      (Array.isArray(channelData?.link ?? channelData?.["atom:link"])
-        ? channelData?.link ?? channelData?.["atom:link"]
-        : []
-      )?.find((link: Record<string, unknown>) => link?.["@_rel"] === "self")?.[
-        "@_href"
-      ] ??
-      channelData?.link?.["#text"] ??
-      null,
+    feedUrl: url,
     logoUrl:
       channelData?.logo?.["#text"] ??
       channelData?.icon?.["#text"] ??
