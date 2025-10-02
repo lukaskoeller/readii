@@ -15,6 +15,10 @@
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add Payment handling
 - [ ] FEAT: Add support for Newsletter
+  - https://orm.drizzle.team/docs/get-started/sqlite-new#step-6---applying-changes-to-the-database
+  - https://hono.dev/docs/getting-started/nodejs
+  - https://kill-the-newsletter.com/feeds/tvuvsyy0mvhk0yd5x0qc
+  - https://kill-the-newsletter.com/feeds/kewz3og88bmsed7avkxz.xml
 - [ ] FEAT: Show website in reader mode
   - https://github.com/mozilla/readability
 - [ ] FEAT: Add Onboarding Flow!
