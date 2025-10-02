@@ -101,14 +101,11 @@ export default function FeedScreen() {
         <Button
           onPress={async () => {
             try {
-              console.log("GET FEED DATA", feedUrl);
               const args = await getFeedData(feedUrl);
-              console.log(args);
-
               await createFeed(args);
               router.replace("/home");
             } catch (error) {
-              console.log(error);
+              console.error("Error creating feed:", error);
             }
           }}
         >
