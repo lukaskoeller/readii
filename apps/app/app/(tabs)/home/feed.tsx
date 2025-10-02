@@ -18,6 +18,7 @@ import {
   DateArg,
 } from "date-fns";
 import { useRefresh } from "@/hooks/useRefresh";
+import { HeaderActions } from "@/components/feed/HeaderActions";
 
 function formatShortRelative(date: DateArg<Date>) {
   const now = new Date();
@@ -52,6 +53,7 @@ export default function TabTwoScreen() {
             backgroundColor,
           },
           headerShadowVisible: false,
+          headerRight: () => (<HeaderActions feedTitle={params.feedTitle} />),
         }}
       />
       <FlatList
