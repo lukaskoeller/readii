@@ -7,11 +7,11 @@ import { useMediaSource } from "@/hooks/queries";
 import { useRouter } from "expo-router";
 
 export type HeaderActionsProps = {
-  feedTitle: string;
+  mediaSourceId: number;
 };
 
 export function HeaderActions({
-  feedTitle,
+  mediaSourceId,
 }: HeaderActionsProps) {
   const router = useRouter();
   const { deleteMediaSource } = useMediaSource();
@@ -32,7 +32,7 @@ export function HeaderActions({
         }}
         aria-label="Delete Feed"
         onPress={async () => {
-          deleteMediaSource(feedTitle, "name")
+          deleteMediaSource(mediaSourceId)
           router.replace("/home");
         }}
       >

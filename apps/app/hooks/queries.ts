@@ -23,7 +23,6 @@ export type TUpdateMediaSourceArgs = {
 
 export const useFeed = () => {
   const db = useSQLiteContext();
-  console.log("DB PATH", db.databasePath); // For Debugging Database
   const drizzleDb = drizzle(db, { schema });
 
   const createFeed = async ({
@@ -113,20 +112,25 @@ export const useMediaSource = () => {
     });
 
   const deleteMediaSource = (
-    value: NonNullable<schema.TMediaSource["id"]> | schema.TMediaSource["name"],
-    accessor: "id" | "name"
+    mediaSourceId: NonNullable<schema.TMediaSource["id"]>
   ) => {
-    const mediaSourceId = drizzleDb
-      .delete(schema.mediaSource)
-      .where(eq(schema.mediaSource[accessor], value))
-      .returning({ id: schema.mediaSource.id });
+    db.withTransactionSync(() => {
+      const mediaSource = drizzleDb
+        .delete(schema.mediaSource)
+        .where(eq(schema.mediaSource.id, mediaSourceId))
 
-    drizzleDb
-      .delete(schema.mediaItem)
-      .where(eq(schema.mediaItem.mediaSourceId, mediaSourceId));
-    drizzleDb
-      .delete(schema.mediaSourceIcon)
-      .where(eq(schema.mediaSourceIcon.mediaSourceId, mediaSourceId));
+      const mediaItem = drizzleDb
+        .delete(schema.mediaItem)
+        .where(eq(schema.mediaItem.mediaSourceId, mediaSourceId))
+
+      const mediaSourceIcon = drizzleDb
+        .delete(schema.mediaSourceIcon)
+        .where(eq(schema.mediaSourceIcon.mediaSourceId, mediaSourceId))
+
+      mediaSource.run();
+      mediaItem.run();
+      mediaSourceIcon.run();
+    });
   };
 
   return {
