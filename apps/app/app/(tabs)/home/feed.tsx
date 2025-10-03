@@ -38,7 +38,13 @@ export default function TabTwoScreen() {
     return new Promise((resolve) => setTimeout(resolve, 2000));
   });
   const { readMediaItems } = useMediaItem();
-  const params = useLocalSearchParams<{ feedTitle: string }>();
+  const params = useLocalSearchParams<{
+    feedTitle: string;
+    mediaSourceId?: `${number}`;
+  }>();
+  const mediaSourceId = params.mediaSourceId
+    ? Number(params.mediaSourceId)
+    : undefined;
   const { data } = useLiveQuery(readMediaItems(params));
   const backgroundColor = useThemeColor({}, "background");
   const colorBackground3 = useThemeColor({}, "background3");
@@ -53,7 +59,9 @@ export default function TabTwoScreen() {
             backgroundColor,
           },
           headerShadowVisible: false,
-          headerRight: () => (<HeaderActions feedTitle={params.feedTitle} />),
+          headerRight: mediaSourceId
+            ? () => <HeaderActions mediaSourceId={mediaSourceId} />
+            : undefined,
         }}
       />
       <FlatList
