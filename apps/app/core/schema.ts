@@ -33,7 +33,7 @@ export const mediaSourceIcon = sqliteTable("media_source_icon", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   url: text("url"),
   title: text("title").notNull(),
-  mediaSourceId: integer("media_source_id").references(() => mediaSource.id),
+  mediaSourceId: integer("media_source_id").references(() => mediaSource.id, { onDelete: "cascade" }),
 });
 
 export const mediaSourceIconRelations = relations(
@@ -74,7 +74,7 @@ export const mediaItem = sqliteTable("media_item", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   mediaSourceId: integer("media_source_id")
     .notNull()
-    .references(() => mediaSource.id),
+    .references(() => mediaSource.id, { onDelete: "cascade" }),
   ...mediaItemBase,
   ...mediaItemUserControlled,
 });
@@ -106,10 +106,10 @@ export const mediaItemsToCategories = sqliteTable(
   {
     mediaItemId: integer("media_item_id")
       .notNull()
-      .references(() => mediaItem.id),
+      .references(() => mediaItem.id, { onDelete: "cascade" }),
     categoryId: integer("category_id")
       .notNull()
-      .references(() => category.id),
+      .references(() => category.id, { onDelete: "cascade" }),
   },
   (t) => [primaryKey({ columns: [t.mediaItemId, t.categoryId] })]
 );
