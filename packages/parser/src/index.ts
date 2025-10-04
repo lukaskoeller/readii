@@ -6,6 +6,7 @@ import {
 } from "@readii/schemas/zod";
 import { z } from "zod/mini";
 import { XMLParser } from "fast-xml-parser";
+import { getIsMediaTypeImage } from "./utils";
 
 export const getUrl = (url: string | null, baseUrl: string | null) => {
   if (!url || !baseUrl) return null;
@@ -140,19 +141,16 @@ export const getFeedData = async (
 
   const mediaItems = z.array(mediaItemSchema).safeParse(
     (mediaItemsData ?? []).map((item: Record<string, any>) => {
+
       const mediaThumbnailUrl =
         item?.["media:thumbnail"]?.["@_url"] ??
+        (getIsMediaTypeImage(item?.enclosure?.["@_type"])
+          ? item?.enclosure?.["@_url"]
+          : null) ??
         (Array.isArray(item?.link) ? item?.link : [])?.find(
           (link: Record<string, unknown>) => {
-            const mediaType = link?.["@_type"];
-            return (
-              mediaType === "image/png" ||
-              mediaType === "image/jpeg" ||
-              mediaType === "image/jpg" ||
-              mediaType === "image/gif" ||
-              mediaType === "image/webp" ||
-              mediaType === "image/svg+xml"
-            );
+            const mediaType = link?.["@_type"] as string | undefined;
+            return getIsMediaTypeImage(mediaType);
           }
         )?.["@_href"];
 
@@ -162,7 +160,6 @@ export const getFeedData = async (
         (Array.isArray(item?.link) ? item?.link : [])?.find(
           (link: Record<string, unknown>) => link?.["@_rel"] == undefined
         )?.["@_href"];
-      console.log("ITEM!!!", item?.link);
       const enclosureUrl = item?.enclosure?.["@_url"] ?? null;
 
       const content =
