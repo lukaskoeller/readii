@@ -4,7 +4,8 @@ import { getFeedData } from "../src";
 const feeds = [
   ["Adam Argyle", "https://nerdy.dev/rss"],
   ["Contrario by Victor Matekole", "https://matekole.com/rss.xml"],
-  ["NYT Top Stories", "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"]
+  ["NYT Top Stories", "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"],
+  ["Jake Archibald", "https://jakearchibald.com/posts.rss"],
 ];
 
 
