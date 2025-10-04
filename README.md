@@ -37,6 +37,7 @@
 - [ ] FEAT: Search for Feeds
 - [ ] FEAT: Transcribe Podcasts
 - [ ] FEAT: Add Notifications
+- [ ] FEAT: Add "Add to readii" in context menus of the browser
 
 ## Marketing
 
@@ -58,6 +59,7 @@
 - https://nerdy.dev/rss.xml
 - https://lea.verou.me/feed.xml
 - https://www.youtube.com/feeds/videos.xml?channel_id=UCcefcZRL2oaA_uBNeo5UOWg
+- https://darknet-diaries-deutsch.podigee.io/feed/mp3
 - https://sprind.podigee.io/feed/mp3
 - https://infrequently.org/links/
 - https://www.sovereign.tech/feed.rss
