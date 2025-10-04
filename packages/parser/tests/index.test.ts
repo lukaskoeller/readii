@@ -6,6 +6,7 @@ const feeds = [
   ["Contrario by Victor Matekole", "https://matekole.com/rss.xml"],
   ["NYT Top Stories", "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"],
   ["Jake Archibald", "https://jakearchibald.com/posts.rss"],
+  ["Smashing Magazine", "https://www.smashingmagazine.com/feed/"],
 ];
 
 
