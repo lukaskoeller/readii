@@ -102,6 +102,7 @@ export const getFeedData = async (
     (Array.isArray(channelData?.link) ? channelData?.link : [])?.find(
       (link: Record<string, unknown>) => link?.["@_rel"] !== "self"
     )?.["@_href"] ??
+    channelData?.link?.["@_href"] ??
     null;
   const lastBuildAt =
     channelData?.lastBuildDate?.["#text"] ??
@@ -139,8 +140,29 @@ export const getFeedData = async (
 
   const mediaItems = z.array(mediaItemSchema).safeParse(
     (mediaItemsData ?? []).map((item: Record<string, any>) => {
-      const mediaThumbnailUrl = item?.["media:thumbnail"]?.["@_url"];
-      const itemUrl = item?.link?.["#text"] ?? item?.link?.["@_href"];
+      const mediaThumbnailUrl =
+        item?.["media:thumbnail"]?.["@_url"] ??
+        (Array.isArray(item?.link) ? item?.link : [])?.find(
+          (link: Record<string, unknown>) => {
+            const mediaType = link?.["@_type"];
+            return (
+              mediaType === "image/png" ||
+              mediaType === "image/jpeg" ||
+              mediaType === "image/jpg" ||
+              mediaType === "image/gif" ||
+              mediaType === "image/webp" ||
+              mediaType === "image/svg+xml"
+            );
+          }
+        )?.["@_href"];
+
+      const itemUrl =
+        item?.link?.["#text"] ??
+        item?.link?.["@_href"] ??
+        (Array.isArray(item?.link) ? item?.link : [])?.find(
+          (link: Record<string, unknown>) => link?.["@_rel"] == undefined
+        )?.["@_href"];
+      console.log("ITEM!!!", item?.link);
       const enclosureUrl = item?.enclosure?.["@_url"] ?? null;
 
       const content =
@@ -156,7 +178,7 @@ export const getFeedData = async (
         /** Main content of the media item (html, audio, video) */
         content: content, // @todo NEXT: minify HTML
         contentSnippet: null,
-        contentTldr: null,
+        contentTldr: item?.summary?.["#text"] ?? null,
 
         creator: item?.["dc:creator"]?.["#text"] ?? null,
         publishedAt:
