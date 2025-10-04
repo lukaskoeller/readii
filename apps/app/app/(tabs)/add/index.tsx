@@ -8,6 +8,7 @@ import { SimpleCardLink } from "@/components/SimpleCardLink";
 import { StatusBar } from "expo-status-bar";
 import { TwoGrid } from "@/components/TwoGrid";
 import { CATEGORIES } from "@/constants/data";
+import { Stack } from "expo-router";
 
 export default function AddFeed() {
   const colorBackground = useThemeColor({}, "background");
@@ -23,21 +24,29 @@ export default function AddFeed() {
         },
       ]}
     >
+      <Stack.Screen
+        options={{
+          headerTitle: "Add",
+          headerStyle: {
+            backgroundColor: colorBackground,
+          },
+        }}
+      />
       <StatusBar style={Platform.OS === "ios" ? "auto" : "auto"} />
       <LinkList
         style={{ margin: Spacing.container }}
         data={[
           {
-            href: "/home/add/feed",
-            id: "/home/add/feed",
+            href: "/add/feed",
+            id: "/add/feed",
             label: "Add RSS Feed",
             icon: (
               <IconSymbol name="link" size={Spacing.size5} color={colorText2} />
             ),
           },
           // {
-          //   href: "/home/add/collection",
-          //   id: "/home/add/collection",
+          //   href: "/add/collection",
+          //   id: "/add/collection",
           //   label: "Add Collection",
           //   icon: (
           //     <IconSymbol
@@ -48,8 +57,8 @@ export default function AddFeed() {
           //   ),
           // },
           {
-            href: "/home/add/opml",
-            id: "/home/add/opml",
+            href: "/add/opml",
+            id: "/add/opml",
             label: "Add List of RSS Feeds (OPML)",
             icon: (
               <IconSymbol
@@ -60,8 +69,8 @@ export default function AddFeed() {
             ),
           },
           {
-            href: "/home/add/newsletter",
-            id: "/home/add/newsletter",
+            href: "/add/newsletter",
+            id: "/add/newsletter",
             label: "Add from Newsletter",
             icon: (
               <IconSymbol
@@ -72,8 +81,8 @@ export default function AddFeed() {
             ),
           },
           // {
-          //   href: "/home/add/google-alerts",
-          //   id: "/home/add/google-alerts",
+          //   href: "/add/google-alerts",
+          //   id: "/add/google-alerts",
           //   label: "Add from Google Alerts",
           //   icon: (
           //     <IconSymbol
@@ -87,7 +96,7 @@ export default function AddFeed() {
       />
       <Section
         title="Browse Categories"
-        // href="/home/add/categories"
+        // href="/add/categories"
         headerPadding
         bodyPadding
       >

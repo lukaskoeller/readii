@@ -4,10 +4,10 @@ import { Button } from "./Button/Button";
 
 export const AddFeedButton: FC = () => {
   return (
-    <Link href={"/home/add"}>
+    <Link href={"/add"}>
       <Button
         onPress={() => {
-          router.navigate("/home/add");
+          router.navigate("/add");
         }}
         startIcon="plus"
       >

@@ -12,7 +12,6 @@ import { Section } from "@/components/Section";
 import { useEffect } from "react";
 import { getFeedData } from "@readii/parser";
 import { TMediaSource } from "@/core/schema";
-import { AddFeedButton } from "@/components/AddFeedButton";
 
 export default function HomeScreen() {
   const { updateFeed } = useFeed();
@@ -69,7 +68,7 @@ export default function HomeScreen() {
     <>
       <ScrollView
         style={{
-          marginBlockStart: Spacing.size4,
+          paddingBlockStart: Spacing.size4,
           backgroundColor: colorBackground,
         }}
       >
@@ -137,9 +136,6 @@ export default function HomeScreen() {
               }))}
             />
           </Section>
-        </ThemedView>
-        <ThemedView padding={Spacing.size4} style={{ marginInline: "auto" }}>
-          <AddFeedButton />
         </ThemedView>
       </ScrollView>
     </>

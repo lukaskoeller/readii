@@ -11,7 +11,7 @@ export const AddFeedButton: FC = () => {
         variant="glassProminent"
         color={colorPrimary}
         onPress={() => {
-          router.navigate("/home/add");
+          router.navigate("/add");
         }}
       >
         Add Feed

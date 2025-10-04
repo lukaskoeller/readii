@@ -23,6 +23,7 @@ export default function TabLayout() {
       iconColor={tabDefaultColor}
       labelStyle={{ color: tabDefaultColor }}
       backgroundColor={backgroundColor}  
+      tintColor={backgroundColor}
     >
       <NativeTabs.Trigger name="home">
         <Label
@@ -30,14 +31,25 @@ export default function TabLayout() {
             color: tabSelectedColor,
           }}
         >
-          Feed
+          Home
         </Label>
-        <Icon sf="newspaper" selectedColor={tabSelectedColor} />
+        <Icon sf="house" selectedColor={tabSelectedColor} />
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="add">
+        <Label
+          selectedStyle={{
+            color: tabSelectedColor,
+          }}
+        >
+          Add
+        </Label>
+        <Icon sf="plus" selectedColor={tabSelectedColor} />
       </NativeTabs.Trigger>
 
       <NativeTabs.Trigger name="index" hidden={true} />
 
-      <NativeTabs.Trigger name="explore">
+      <NativeTabs.Trigger name="profile">
         <Label
           selectedStyle={{
             color: tabSelectedColor,

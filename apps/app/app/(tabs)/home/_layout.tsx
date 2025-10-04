@@ -15,15 +15,6 @@ export default function FeedStackLayout() {
           },
         }}
       />
-      <Stack.Screen
-        name="add"
-        options={{
-          headerTitle: "Add Feed",
-          headerStyle: {
-            backgroundColor,
-          },
-        }}
-      />
     </Stack>
   );
 }
