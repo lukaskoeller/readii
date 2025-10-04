@@ -45,6 +45,7 @@
 - Suggest to Tech Newsletters (ui.dev)
 - Expo Showcase?
 - ProductHunt
+- ifun kontaktieren
 - Reddit Feedback
 - Handpicked OPML on website
 
