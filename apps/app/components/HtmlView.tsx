@@ -131,6 +131,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
 
   switch (nodeName) {
     case "#text": {
+      if (value === "\n") return null;
       if (isView) {
         const trimmedValue = value.trim();
         if (!trimmedValue) return null;
@@ -149,6 +150,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
       return value.trim();
     }
     case "p":
+      if (childNodes.length === 0) return null;
       return (
         <>
           <ThemedText
@@ -391,6 +393,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
               key={i}
               nextNode={childNodes[i + 1] ?? null}
               preserveWhitespace={preserveWhitespace}
+              isView
             />
           ))}
         </View>
@@ -444,6 +447,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
               key={i}
               nextNode={childNodes[i + 1] ?? null}
               preserveWhitespace={preserveWhitespace}
+              isView
             />
           ))}
         </ThemedView>
@@ -601,11 +605,18 @@ const RenderNode: FC<TRenderNodeProps> = ({
         Number(imgWidth) && Number(imgHeight)
           ? Number(imgWidth) / Number(imgHeight)
           : undefined;
+      const isSmallImage = Number(imgWidth) && Number(imgWidth) < 100;
 
       return (
         <ThemedView>
           <Image
-            style={[styles.image, { aspectRatio: aspectRatio ?? 4 / 3 }]}
+            style={[
+              styles.image,
+              {
+                width: isSmallImage ? Number(imgWidth) : "100%",
+                aspectRatio: aspectRatio ?? 4 / 3,
+              },
+            ]}
             source={src}
             alt={altText}
             contentFit="cover"
@@ -713,6 +724,7 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     borderRadius: Radius.size2,
+    marginBlock: Spacing.size3,
   },
   webview: {
     marginBlock: Spacing.size3,
