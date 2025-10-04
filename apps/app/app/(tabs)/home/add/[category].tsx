@@ -29,7 +29,7 @@ export default function Category() {
   const mediaSourcesRssUrls = mediaSources.map((ms) => ms.feedUrl);
 
   return (
-    <ThemedView style={{ backgroundColor, height: "100%" }} container>
+    <ThemedView style={{ backgroundColor, height: "100%" }}>
       <Stack.Screen
         options={{
           headerStyle: {
@@ -39,6 +39,7 @@ export default function Category() {
         }}
       />
       <FlatList
+        style={{ padding: Spacing.container }}
         data={
           FEEDS_BY_CATEGORY[
             params.category as keyof typeof FEEDS_BY_CATEGORY
