@@ -20,7 +20,7 @@ export default function Article() {
   const isReadLater = Boolean(data?.isReadLater);
 
   return (
-    <ThemedView style={{ backgroundColor }}>
+    <ThemedView style={{ backgroundColor, minHeight: "100%" }}>
       <Stack.Screen
         options={{
           headerStyle: {
