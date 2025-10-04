@@ -12,6 +12,7 @@
 - [x] CHORE: Check out Android App
 - [x] FIX: Add App icon
 - [x] FEAT: Beautify add screen
+- [ ] FEAT: Add Read/Unread feature
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add Payment handling
 - [ ] FEAT: Add support for Newsletter
@@ -24,7 +25,7 @@
 - [ ] FEAT: Add Onboarding Flow!
 - [ ] FEAT: Add empty feed UI
 - [ ] FEAT: Allow deep linking (e.g. suggest cool content on social media and deep link)
-  - [ ] FEAT: add url param to /home/add/feed to allow prefill RSS Feeds
+  - [ ] FEAT: add url param to /add/feed to allow prefill RSS Feeds
 - [ ] FEAT: Add "All feeds" tab
 - [ ] FEAT: Add support for Podcasts
   - [ ] FEAT: Transcribe Podcast to make it searchable
