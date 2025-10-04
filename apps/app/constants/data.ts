@@ -42,6 +42,14 @@ export const CATEGORIES = [
   {
     href: {
       pathname: "/home/add/[category]",
+      params: { category: "software-development" },
+    },
+    key: "software-development",
+    label: "Software Development",
+  },
+  {
+    href: {
+      pathname: "/home/add/[category]",
       params: { category: "style-beauty" },
     },
     key: "style-beauty",
@@ -172,6 +180,14 @@ export const FEEDS_BY_CATEGORY = {
     }
   ],
   "money-business": [],
+  "software-development": [
+    {
+      title: "Smashing Magazine",
+      url: "https://www.smashingmagazine.com/feed/",
+      description: "Recent content in Articles on Smashing Magazine — For Web Designers And Developers",
+      imgUrl: "https://www.smashingmagazine.com/images/favicon/app-icon-512x512.png",
+    },
+  ],
   "style-beauty": [],
   food: [],
   "travel-regional": [],
