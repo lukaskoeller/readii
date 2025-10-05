@@ -26,6 +26,7 @@
 - [ ] FEAT: Add empty feed UI
 - [ ] FEAT: Allow deep linking (e.g. suggest cool content on social media and deep link)
   - [ ] FEAT: add url param to /add/feed to allow prefill RSS Feeds
+- [ ] FEAT: Add "Mark all as Read/Unread"
 - [ ] FEAT: Add "All feeds" tab
 - [ ] FEAT: Add support for Podcasts
   - [ ] FEAT: Transcribe Podcast to make it searchable
