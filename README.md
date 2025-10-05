@@ -12,7 +12,7 @@
 - [x] CHORE: Check out Android App
 - [x] FIX: Add App icon
 - [x] FEAT: Beautify add screen
-- [ ] FEAT: Add Read/Unread feature
+- [x] FEAT: Add Read/Unread feature
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add Payment handling
 - [ ] FEAT: Add support for Newsletter
