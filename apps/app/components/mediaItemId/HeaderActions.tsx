@@ -11,7 +11,7 @@ export type HeaderActionsProps = {
   updateMediaItem: (data: {
     isReadLater?: boolean;
     isStarred?: boolean;
-  }) => Promise<SQLiteRunResult>;
+  }) => SQLiteRunResult;
 };
 
 export function HeaderActions({

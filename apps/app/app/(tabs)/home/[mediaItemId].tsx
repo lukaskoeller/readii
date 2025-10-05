@@ -3,7 +3,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Spacing } from "@/constants/Sizes";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, Dimensions } from "react-native";
 import { parseFragment } from "parse5";
 import { Stack } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
@@ -21,6 +21,8 @@ export default function Article() {
   const isReadLater = Boolean(data?.isReadLater);
   const isRead = Boolean(data?.isRead);
   const url = data?.url;
+
+  const deviceHeight = Dimensions.get("window").height;
 
   return (
     <ThemedView style={{ backgroundColor, minHeight: "100%" }}>
@@ -44,6 +46,26 @@ export default function Article() {
         <ScrollView
           style={{ padding: Spacing.size4 }}
           contentContainerStyle={{ paddingBlockEnd: Spacing.navigation }}
+          onLayout={({ nativeEvent }) => {
+            const thresholdMultiplier = 1.3;
+            if (nativeEvent.layout.height <= deviceHeight * thresholdMultiplier) {
+              updateMediaItem({ isRead: true });
+            }
+          }}
+          onScroll={({ nativeEvent }) => {
+            const padding = 620;
+            if (
+              nativeEvent.contentOffset.y >=
+              nativeEvent.contentSize.height -
+                nativeEvent.layoutMeasurement.height -
+                padding
+            ) {
+              if (!isRead) {
+                updateMediaItem({ isRead: true });
+              }
+            }
+          }}
+          scrollEventThrottle={400}
         >
           <ThemedView
             style={{

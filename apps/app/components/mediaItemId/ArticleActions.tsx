@@ -9,7 +9,7 @@ import { StyleSheet } from "react-native";
 export type ArticleActionsProps = {
   isRead: boolean;
   url: string | undefined;
-  updateMediaItem: (data: { isRead: boolean }) => Promise<SQLiteRunResult>;
+  updateMediaItem: (data: { isRead: boolean }) => SQLiteRunResult;
 };
 
 export const ArticleActions: FC<ArticleActionsProps> = ({
