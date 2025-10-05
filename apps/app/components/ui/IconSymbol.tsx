@@ -35,6 +35,7 @@ const MAPPING = {
   "arrow.clockwise": "refresh",
   envelope: "email",
   checkmark: "check",
+  "arrow.up.forward.app": "open-in-new",
 } as IconMapping;
 
 /**

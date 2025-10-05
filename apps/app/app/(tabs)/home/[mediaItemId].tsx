@@ -8,6 +8,7 @@ import { parseFragment } from "parse5";
 import { Stack } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { HeaderActions } from "@/components/mediaItemId/HeaderActions";
+import { ArticleActions } from "@/components/mediaItemId/ArticleActions";
 
 export default function Article() {
   const data = useReadMediaItem();
@@ -18,6 +19,8 @@ export default function Article() {
 
   const isStarred = Boolean(data?.isStarred);
   const isReadLater = Boolean(data?.isReadLater);
+  const isRead = Boolean(data?.isRead);
+  const url = data?.url;
 
   return (
     <ThemedView style={{ backgroundColor, minHeight: "100%" }}>
@@ -50,6 +53,11 @@ export default function Article() {
             <ThemedText type="h1" style={{ marginBlockStart: 0 }}>
               {data?.title}
             </ThemedText>
+            <ArticleActions
+              isRead={isRead}
+              url={url}
+              updateMediaItem={updateMediaItem}
+            />
             <HtmlViewer ast={contentAst} url={data?.mediaSource.url} />
           </ThemedView>
         </ScrollView>

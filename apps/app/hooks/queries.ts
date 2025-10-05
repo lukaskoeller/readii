@@ -212,7 +212,8 @@ export const useMediaItem = () => {
     drizzleDb
       .update(schema.mediaItem)
       .set(mediaItem)
-      .where(eq(schema.mediaItem.id, id));
+      .where(eq(schema.mediaItem.id, id))
+      .run();
 
   const readMediaItemsCount = () =>
     drizzleDb.select({ count: count() }).from(schema.mediaItem);
@@ -256,9 +257,10 @@ export const useReadMediaItem = () => {
 export const useUpdateMediaItem = () => {
   const { mediaItemId } = useLocalSearchParams();
   const { updateMediaItem } = useMediaItem();
-
+  
   const updateFn = useCallback(
     (mediaItem: Partial<schema.TMediaItem>) => {
+      console.log("UPDATE ITM", mediaItemId, mediaItem);
       return updateMediaItem(Number(mediaItemId), mediaItem);
     },
     [mediaItemId, updateMediaItem]

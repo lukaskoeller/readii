@@ -5,12 +5,13 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { ThemedText } from "../ThemedText";
 import { IconSymbol, IconSymbolName } from "../ui/IconSymbol";
 
-export type ButtonVariant = "primary" | "text" | "secondary";
+export type ButtonVariant = "primary" | "text" | "secondary" | "outline";
 
 export type ButtonProps = {
   variant?: ButtonVariant;
   children: React.ReactNode;
   onPress: () => void;
+  size?: "small" | "medium" | "large";
   style?: object;
   startIcon?: IconSymbolName;
 };
@@ -19,6 +20,7 @@ export const Button: FC<ButtonProps> = ({
   children,
   onPress,
   style,
+  size = "medium",
   variant = "primary",
   startIcon,
 }) => {
@@ -44,20 +46,72 @@ export const Button: FC<ButtonProps> = ({
       button: {},
       text: { color: colorPrimary },
     },
+    outline: {
+      button: {
+        borderWidth: 1,
+        borderColor: colorPrimary,
+      },
+      text: { color: colorPrimary },
+    },
   } as const satisfies Record<
     ButtonVariant,
     { text: Record<string, unknown>; button: Record<string, unknown> }
   >;
+
+  const sizes = {
+    small: {
+      button: {
+        paddingBlock: 2,
+        paddingInline: 10,
+      },
+      text: {
+        fontWeight: FontWeight.medium,
+        fontSize: FontSize.size2,
+      },
+    },
+    medium: {
+      button: {
+        paddingBlock: 6,
+        paddingInline: 14,
+      },
+      text: {
+        fontWeight: FontWeight.bold,
+        fontSize: FontSize.size3,
+      },
+    },
+    large: {
+      button: {
+        paddingBlock: 6,
+        paddingInline: 14,
+      },
+      text: {
+        fontWeight: FontWeight.bold,
+        fontSize: FontSize.size3,
+      },
+    },
+  };
+
   return (
     <Pressable
       onPress={onPress}
-      style={[style, buttonStyles.button, variants[variant].button]}
+      style={[
+        style,
+        buttonStyles.button,
+        variants[variant].button,
+        sizes[size].button,
+      ]}
     >
       {startIcon && (
-        <IconSymbol name={startIcon} size={FontSize.size3} color={variants[variant].text.color} />
+        <IconSymbol
+          name={startIcon}
+          size={sizes[size].text.fontSize}
+          color={variants[variant].text.color}
+        />
       )}
       {isChildrenString ? (
-        <ThemedText style={[buttonStyles.text, variants[variant].text]}>
+        <ThemedText
+          style={[buttonStyles.text, variants[variant].text, sizes[size].text]}
+        >
           {children}
         </ThemedText>
       ) : (
@@ -74,11 +128,6 @@ export const buttonStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: Spacing.size1,
-    paddingBlock: 6,
-    paddingInline: 14,
     borderRadius: Radius.full,
-  },
-  text: {
-    fontWeight: FontWeight.bold,
   },
 });
