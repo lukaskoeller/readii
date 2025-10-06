@@ -2,9 +2,8 @@ import { FC } from "react";
 import { ThemedView } from "../ThemedView";
 import { Button } from "../Button/Button";
 import { SQLiteRunResult } from "expo-sqlite";
-import { Linking } from "react-native/Libraries/Linking/Linking";
 import {  Spacing } from "@/constants/Sizes";
-import { StyleSheet } from "react-native";
+import { Linking, StyleSheet } from "react-native";
 
 export type ArticleActionsProps = {
   isRead: boolean;
