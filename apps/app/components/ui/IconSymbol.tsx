@@ -36,6 +36,7 @@ const MAPPING = {
   envelope: "email",
   checkmark: "check",
   "arrow.up.forward.app": "open-in-new",
+  "xmark": "clear",
 } as IconMapping;
 
 /**
