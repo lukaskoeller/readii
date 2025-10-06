@@ -10,6 +10,7 @@ import { Button } from "@/components/Button/Button";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { useFeed, useMediaSource } from "@/hooks/queries";
 import { getFeedData } from "@readii/parser";
+import { TMediaSource } from "@/core/schema";
 
 const getTitle = (category: string) => {
   return CATEGORIES.find((c) => c.key === category)?.label ?? category;
@@ -19,9 +20,14 @@ const getHasFeedUrl = (mediaSourcesRssUrls: string[], feedUrl: string) => {
   return mediaSourcesRssUrls.some((url) => url === feedUrl);
 };
 
+const getMediaSourceId = (mediaSources: TMediaSource[], feedUrl: string) => {
+  return mediaSources.find((ms) => ms.feedUrl === feedUrl)?.id;
+};
+
 export default function Category() {
   const router = useRouter();
   const { createFeed } = useFeed();
+  const { deleteMediaSource } = useMediaSource()
   const { readMediaSources } = useMediaSource();
   const { data: mediaSources } = useLiveQuery(readMediaSources());
   const backgroundColor = useThemeColor({}, "background");
@@ -50,6 +56,7 @@ export default function Category() {
           <View style={{ height: Spacing.size2 }} />
         )}
         renderItem={({ item }) => {
+          const mediaSourceId = getMediaSourceId(mediaSources, item.url);
           const isAdded = getHasFeedUrl(mediaSourcesRssUrls, item.url);
           const feedUrl = item.url;
           return (
@@ -62,6 +69,11 @@ export default function Category() {
               <ThemedView style={styles.actions}>
                 <Button
                   onPress={async () => {
+                    if (isAdded && mediaSourceId) {
+                      deleteMediaSource(mediaSourceId);
+                      return;
+                    }
+
                     try {
                       const args = await getFeedData(feedUrl);
                       await createFeed(args);
@@ -73,7 +85,7 @@ export default function Category() {
                   startIcon={isAdded ? "checkmark" : "plus"}
                   variant={isAdded ? "primary" : "text"}
                 >
-                  Add
+                  {isAdded ? "Added" : "Add"}
                 </Button>
               </ThemedView>
             </Card>
