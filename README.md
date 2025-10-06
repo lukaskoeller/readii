@@ -66,6 +66,7 @@
 - https://infrequently.org/links/
 - https://www.sovereign.tech/feed.rss
 - https://www.smashingmagazine.com/feed/
+- https://changelog.com/news/feed
 
 ## Technical References & Libs
 
