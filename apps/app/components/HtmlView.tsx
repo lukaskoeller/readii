@@ -153,171 +153,155 @@ const RenderNode: FC<TRenderNodeProps> = ({
     case "p":
       if (childNodes.length === 0) return null;
       return (
-        <>
-          <ThemedText
-            style={[inheritStyles, { marginBlock: Spacing.size2 }]}
-            accessibilityRole="text"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                url={url}
-                key={i}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText
+          style={[inheritStyles, { marginBlock: Spacing.size2 }]}
+          accessibilityRole="text"
+        >
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "span":
       return (
-        <>
-          <ThemedText style={[inheritStyles]} accessibilityRole="text">
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                url={url}
-                key={i}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText style={[inheritStyles]} accessibilityRole="text">
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "a":
       return (
-        <>
-          <ThemedText
-            style={[inheritStyles, BOLD_STYLE, { color: colorPrimary }]}
-            accessibilityRole="link"
-            onPress={handlePress}
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                url={url}
-                key={i}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText
+          style={[inheritStyles, BOLD_STYLE, { color: colorPrimary }]}
+          accessibilityRole="link"
+          onPress={handlePress}
+        >
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "strong":
     case "b":
       return (
-        <>
-          <ThemedText
-            style={[inheritStyles, BOLD_STYLE]}
-            accessibilityRole="text"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                url={url}
-                key={i}
-                inheritStyles={BOLD_STYLE}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText
+          style={[inheritStyles, BOLD_STYLE]}
+          accessibilityRole="text"
+        >
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              inheritStyles={BOLD_STYLE}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "em":
     case "i":
       return (
-        <>
-          <ThemedText
-            style={[inheritStyles, ITALIC_STYLE]}
-            accessibilityRole="text"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                url={url}
-                key={i}
-                inheritStyles={ITALIC_STYLE}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText
+          style={[inheritStyles, ITALIC_STYLE]}
+          accessibilityRole="text"
+        >
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              inheritStyles={ITALIC_STYLE}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "u":
       return (
-        <>
-          <ThemedText
-            style={[inheritStyles, UNDERLINE_STYLE]}
-            accessibilityRole="text"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                url={url}
-                key={i}
-                inheritStyles={UNDERLINE_STYLE}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText
+          style={[inheritStyles, UNDERLINE_STYLE]}
+          accessibilityRole="text"
+        >
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              inheritStyles={UNDERLINE_STYLE}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "code":
     case "samp":
     case "kbd":
       return (
-        <>
-          <ThemedText
-            style={inheritStyles}
-            accessibilityLabel={nodeName}
-            type="code"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                url={url}
-                key={i}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText
+          style={inheritStyles}
+          accessibilityLabel={nodeName}
+          type="code"
+        >
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "q":
       return (
-        <>
-          <ThemedText
-            style={[inheritStyles, ITALIC_STYLE]}
-            accessibilityLabel="quote"
-          >
-            {'"'}
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                url={url}
-                key={i}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-            {'"'}
-          </ThemedText>
+        <ThemedText
+          style={[inheritStyles, ITALIC_STYLE]}
+          accessibilityLabel="quote"
+        >
+          {'"'}
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
+          {'"'}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "br":
       return <Text>{"\n"}</Text>;
@@ -455,135 +439,99 @@ const RenderNode: FC<TRenderNodeProps> = ({
       );
     case "h1":
       return (
-        <>
-          <ThemedText
-            style={inheritStyles}
-            accessibilityRole="header"
-            type="h1"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                key={i}
-                inheritStyles={{ ...H1_STYLE, color: textColor }}
-                url={url}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h1">
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              key={i}
+              inheritStyles={{ ...H1_STYLE, color: textColor }}
+              url={url}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "h2":
       return (
-        <>
-          <ThemedText
-            style={inheritStyles}
-            accessibilityRole="header"
-            type="h2"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                key={i}
-                inheritStyles={{ ...H2_STYLE, color: textColor }}
-                url={url}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h2">
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              key={i}
+              inheritStyles={{ ...H2_STYLE, color: textColor }}
+              url={url}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "h3":
       return (
-        <>
-          <ThemedText
-            style={inheritStyles}
-            accessibilityRole="header"
-            type="h3"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                key={i}
-                inheritStyles={{ ...H3_STYLE, color: textColor }}
-                url={url}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h3">
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              key={i}
+              inheritStyles={{ ...H3_STYLE, color: textColor }}
+              url={url}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "h4":
       return (
-        <>
-          <ThemedText
-            style={inheritStyles}
-            accessibilityRole="header"
-            type="h4"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                key={i}
-                inheritStyles={{ ...H4_STYLE, color: textColor }}
-                url={url}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h4">
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              key={i}
+              inheritStyles={{ ...H4_STYLE, color: textColor }}
+              url={url}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "h5":
       return (
-        <>
-          <ThemedText
-            style={inheritStyles}
-            accessibilityRole="header"
-            type="h5"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                key={i}
-                inheritStyles={{ ...H5_STYLE, color: textColor }}
-                url={url}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h5">
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              key={i}
+              inheritStyles={{ ...H5_STYLE, color: textColor }}
+              url={url}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "h6":
       return (
-        <>
-          <ThemedText
-            style={inheritStyles}
-            accessibilityRole="header"
-            type="h6"
-          >
-            {childNodes.map((child: any, i: number) => (
-              <RenderNode
-                node={child}
-                key={i}
-                inheritStyles={{ ...H6_STYLE, color: textColor }}
-                url={url}
-                nextNode={childNodes[i + 1] ?? null}
-                preserveWhitespace={preserveWhitespace}
-              />
-            ))}
-          </ThemedText>
+        <ThemedText style={inheritStyles} accessibilityRole="header" type="h6">
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              key={i}
+              inheritStyles={{ ...H6_STYLE, color: textColor }}
+              url={url}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
           {suffix}
-        </>
+        </ThemedText>
       );
     case "img": {
       const srcAttr = (node.attrs ?? []).find(
@@ -627,7 +575,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
     }
     case "video": {
       console.log(node);
-      
+
       let videoSrcAttr = (node.attrs ?? []).find(
         (attr) => attr.name === "src"
       )?.value;
@@ -698,20 +646,18 @@ const RenderNode: FC<TRenderNodeProps> = ({
     default:
       if (isInlineElement) {
         return (
-          <>
-            <ThemedText style={[inheritStyles, { color: textColor }]}>
-              {childNodes.map((child: any, i: number) => (
-                <RenderNode
-                  node={child}
-                  url={url}
-                  key={i}
-                  nextNode={childNodes[i + 1] ?? null}
-                  preserveWhitespace={preserveWhitespace}
-                />
-              ))}
-            </ThemedText>
+          <ThemedText style={[inheritStyles, { color: textColor }]}>
+            {childNodes.map((child: any, i: number) => (
+              <RenderNode
+                node={child}
+                url={url}
+                key={i}
+                nextNode={childNodes[i + 1] ?? null}
+                preserveWhitespace={preserveWhitespace}
+              />
+            ))}
             {suffix}
-          </>
+          </ThemedText>
         );
       }
       return (
@@ -764,6 +710,7 @@ export const HtmlViewer: FC<HtmlViewerProps> = ({ ast, url }) => {
           url={url}
           key={index}
           nextNode={childNodes[index + 1] ?? null}
+          isView
         />
       )}
     />
