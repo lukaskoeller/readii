@@ -59,3 +59,32 @@ export const toTitleCase = (string: string) => {
 
   return formattedString ?? string;
 };
+
+/**
+ * Recursively searches for a node and returns its value using the accessor function
+ * @param childNodes The child nodes to search within
+ * @param nodeName The node name to search for
+ * @param accessorFn Function that receives the node and should return its value or `false` if not found
+ * @returns The value of the node or `false` if not found
+ */
+export const getNodeValue = (
+  childNodes: DefaultTreeAdapterTypes.Element["childNodes"],
+  nodeName: DefaultTreeAdapterTypes.Element["nodeName"],
+  accessorFn: (node: DefaultTreeAdapterTypes.ChildNode) => string | false
+): string | false => {
+  for (const node of childNodes) {
+    if (node.nodeName !== nodeName) continue;
+
+    const value = accessorFn(node);
+    if (value) {
+      return value;
+    }
+    const hasChildren = "childNodes" in node && node.childNodes.length > 0;
+    if (hasChildren) {
+      const childValue = getNodeValue(node.childNodes, nodeName, accessorFn);
+      if (childValue) return childValue;
+    }
+    
+  }
+  return false;
+};
