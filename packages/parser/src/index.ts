@@ -7,6 +7,11 @@ import {
 import { z } from "zod/mini";
 import { XMLParser } from "fast-xml-parser";
 import { getIsMediaTypeImage } from "./utils";
+import { AtpAgent } from '@atproto/api'
+
+const getFeedDataFromBluesky = async (handle: string) => {
+  const agent = new AtpAgent({ service: 'https://example.com' })
+};
 
 export const getUrl = (url: string | null, baseUrl: string | null) => {
   if (!url || !baseUrl) return null;
@@ -46,16 +51,19 @@ export const getFavicon = async (url: string, channelData: any) => {
   return null;
 };
 
+const DEFAULT_SOURCE = "text" as const satisfies TMediaSourceType;
 const SOURCE_TO_MEDIA_ITEM_SCHEMA = {
-  website: $MediaItem,
+  text: $MediaItem,
   social: $MediaItemSocial,
   podcast: $MediaItem,
   youtube: $MediaItem,
 };
 
+export type TMediaSourceType = keyof typeof SOURCE_TO_MEDIA_ITEM_SCHEMA;
+
 export type TGetFeedDataOptions = {
   /** @default "website" */
-  source: "website" | "social" | "podcast" | "youtube";
+  source: TMediaSourceType;
   rssString?: string;
 };
 /**
@@ -69,6 +77,7 @@ export const getFeedData = async (
   url: string,
   options?: TGetFeedDataOptions
 ) => {
+  const source = options?.source ?? DEFAULT_SOURCE;
   const text = options?.rssString ?? (await (await fetch(url)).text());
 
   const parser = new XMLParser({
@@ -137,7 +146,7 @@ export const getFeedData = async (
   }
 
   const mediaItemSchema =
-    SOURCE_TO_MEDIA_ITEM_SCHEMA[options?.source ?? "website"];
+    SOURCE_TO_MEDIA_ITEM_SCHEMA[source];
 
   const mediaItems = z.array(mediaItemSchema).safeParse(
     (mediaItemsData ?? []).map((item: Record<string, any>) => {
@@ -165,7 +174,8 @@ export const getFeedData = async (
       const content =
         item?.["content:encoded"]?.["#text"] ??
         item?.content?.["#text"] ??
-        item?.description?.["#text"];
+        item?.description?.["#text"] ??
+        "";
 
       return {
         title: item?.title?.["#text"] ?? null,
