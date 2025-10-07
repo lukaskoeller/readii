@@ -1,5 +1,6 @@
 import * as schema from "@/core/schema";
-import { $MediaItemBase } from "@readii/schemas/zod";
+import { parseQueryParams } from "@/core/utils";
+import { $MediaItemBase, $MediaItemPartial } from "@readii/schemas/zod";
 import { and, count, eq, SQL } from "drizzle-orm";
 import { drizzle, useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { useLocalSearchParams } from "expo-router";
@@ -117,15 +118,15 @@ export const useMediaSource = () => {
     db.withTransactionSync(() => {
       const mediaSource = drizzleDb
         .delete(schema.mediaSource)
-        .where(eq(schema.mediaSource.id, mediaSourceId))
+        .where(eq(schema.mediaSource.id, mediaSourceId));
 
       const mediaItem = drizzleDb
         .delete(schema.mediaItem)
-        .where(eq(schema.mediaItem.mediaSourceId, mediaSourceId))
+        .where(eq(schema.mediaItem.mediaSourceId, mediaSourceId));
 
       const mediaSourceIcon = drizzleDb
         .delete(schema.mediaSourceIcon)
-        .where(eq(schema.mediaSourceIcon.mediaSourceId, mediaSourceId))
+        .where(eq(schema.mediaSourceIcon.mediaSourceId, mediaSourceId));
 
       mediaSource.run();
       mediaItem.run();
@@ -139,26 +140,6 @@ export const useMediaSource = () => {
   };
 };
 
-const getWhereClauseFromParams = (
-  params: Record<string, string | number | (string | number)[]> | undefined
-): Partial<schema.TMediaItem> | undefined => {
-  if (!params) {
-    return undefined;
-  }
-  const conditions = Object.entries(params).map(([key, value]) => {
-    const parsedValue =
-      value === "true" || value === "false" ? value === "true" : value;
-
-    return [key, parsedValue];
-  });
-
-  if (conditions.length === 0) {
-    return undefined;
-  }
-
-  return Object.fromEntries(conditions);
-};
-
 export const useMediaItem = () => {
   const db = useSQLiteContext();
   const drizzleDb = drizzle(db, { schema });
@@ -166,10 +147,13 @@ export const useMediaItem = () => {
   const readMediaItems = (
     filters?: Record<string, string | number | (string | number)[]>
   ) => {
-    const parsedFilters = getWhereClauseFromParams(filters);
-    const conditions = parsedFilters
-      ? Object.entries(parsedFilters).flatMap(([field, value]) => {
-          if (!value || !(field in schema.mediaItem)) return [];
+    const parsedFilters = parseQueryParams(filters);
+    const result = $MediaItemPartial.safeParse(parsedFilters);
+    const params = result.success ? result.data : null;
+
+    const conditions = params
+      ? Object.entries(params).flatMap(([field, value]) => {
+          if (value === undefined || value === null || !(field in schema.mediaItem)) return [];
           return [
             eq(
               schema.mediaItem[field as keyof schema.TMediaItem],
@@ -257,7 +241,7 @@ export const useReadMediaItem = () => {
 export const useUpdateMediaItem = () => {
   const { mediaItemId } = useLocalSearchParams();
   const { updateMediaItem } = useMediaItem();
-  
+
   const updateFn = useCallback(
     (mediaItem: Partial<schema.TMediaItem>) => {
       console.log("UPDATE ITM", mediaItemId, mediaItem);
