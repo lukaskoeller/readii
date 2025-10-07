@@ -88,3 +88,23 @@ export const getNodeValue = (
   }
   return false;
 };
+
+/**
+ * Parses query parameters and coerces them to their appropriate types.
+ * @param params The query parameters to parse.
+ * @returns An object containing the parsed query parameters.
+ */
+export const parseQueryParams = (
+  params?: Record<string, string | number | (string | number)[]>
+) => {
+  if (!params) return null;
+
+  const parsed = Object.entries(params).map(([key, value]) => {
+    if (value === "true") return [key, true];
+    if (value === "false") return [key, false];
+    if (!isNaN(Number(value))) return [key, Number(value)];
+    return [key, value];
+  });
+
+  return Object.fromEntries(parsed);
+};
