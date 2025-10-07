@@ -50,6 +50,7 @@ export const $MediaItemBase = z.object({
   publishedAt: $IsoDatetime,
   thumbnailUrl: z.nullable($HttpsUrl),
   enclosure: z.nullable($HttpsUrl),
+  mediaSourceId: $DatabaseId,
 });
 
 export const $MediaItem = z.object({
