@@ -15,6 +15,7 @@
 - [x] FEAT: Add Read/Unread feature
 - [x] FIX: Video source retrieval
 - [ ] FEAT: Add feed suggestions
+- [ ] FEAT: Implement `onRefresh` handling
 - [ ] FEAT: Add Payment handling
 - [ ] FEAT: Add support for Newsletter
   - https://orm.drizzle.team/docs/get-started/sqlite-new#step-6---applying-changes-to-the-database
