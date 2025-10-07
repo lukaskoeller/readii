@@ -28,6 +28,7 @@ import { DefaultTreeAdapterTypes } from "parse5";
 import { Image } from "expo-image";
 import { z } from "zod/mini";
 import { Video } from "./Video";
+import { getNodeValue } from "@/core/utils";
 
 const BOLD_STYLE = { fontWeight: FontWeight.bold } as const;
 const ITALIC_STYLE = { fontStyle: "italic" } as const;
@@ -625,9 +626,19 @@ const RenderNode: FC<TRenderNodeProps> = ({
       );
     }
     case "video": {
-      const videoSrcAttr = (node.attrs ?? []).find(
+      console.log(node);
+      
+      let videoSrcAttr = (node.attrs ?? []).find(
         (attr) => attr.name === "src"
       )?.value;
+      if (!videoSrcAttr) {
+        const videoSrc = getNodeValue(childNodes, "source", (n) => {
+          return (n.attrs ?? []).find((attr) => attr.name === "src")?.value;
+        });
+        if (videoSrc) {
+          videoSrcAttr = videoSrc;
+        }
+      }
       const posterSrcAttr = (node.attrs ?? []).find(
         (attr) => attr.name === "poster"
       )?.value;

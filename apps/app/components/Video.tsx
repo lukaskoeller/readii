@@ -35,7 +35,9 @@ export const Video: FC<VideoProps> = ({ source, poster, style }) => {
         <VideoView
           style={[styles.video, style]}
           player={player}
-          allowsFullscreen
+          fullscreenOptions={{
+            enable: true,
+          }}
           allowsPictureInPicture
         />
       )}
@@ -59,7 +61,7 @@ export const Video: FC<VideoProps> = ({ source, poster, style }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBlock: Spacing.size3,
+    marginBlock: Spacing.size3,
     width: "100%",
     aspectRatio: 16 / 9,
   },
