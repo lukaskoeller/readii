@@ -13,6 +13,7 @@
 - [x] FIX: Add App icon
 - [x] FEAT: Beautify add screen
 - [x] FEAT: Add Read/Unread feature
+- [x] FIX: Video source retrieval
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add Payment handling
 - [ ] FEAT: Add support for Newsletter
@@ -67,6 +68,7 @@
 - https://www.sovereign.tech/feed.rss
 - https://www.smashingmagazine.com/feed/
 - https://changelog.com/news/feed
+- https://news.google.com/rss?hl=de&gl=DE&ceid=DE:de
 
 ## Technical References & Libs
 
