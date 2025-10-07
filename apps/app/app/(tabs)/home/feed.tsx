@@ -39,6 +39,9 @@ export default function TabTwoScreen() {
   });
   const { readMediaItems } = useMediaItem();
   const params = useLocalSearchParams<{
+    isReadLater?: "true" | "false";
+    isStarred?: "true" | "false";
+    isUnread?: "true" | "false";
     feedTitle: string;
     mediaSourceId?: `${number}`;
   }>();
