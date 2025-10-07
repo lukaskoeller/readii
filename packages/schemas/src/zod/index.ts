@@ -34,9 +34,9 @@ export const $MediaSource = z.object({
 export const $MediaType = z.enum(["text", "audio", "video"]);
 
 export const $MediaItemUserControlled = z.object({
-  isStarred: z._default(z.boolean(), false),
-  isRead: z._default(z.boolean(), false),
-  isReadLater: z._default(z.boolean(), false),
+  isStarred: z.optional(z.boolean()),
+  isRead: z.optional(z.boolean()),
+  isReadLater: z.optional(z.boolean()),
 });
 
 export const $MediaItemBase = z.object({
@@ -57,6 +57,8 @@ export const $MediaItem = z.object({
   ...$MediaItemBase.shape,
   ...$MediaItemUserControlled.shape,
 });
+
+export const $MediaItemPartial = z.partial($MediaItem);
 
 /**
  * Tailored to media items from social media like Bluesky or Mastodon
