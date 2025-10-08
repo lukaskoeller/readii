@@ -223,6 +223,12 @@ export const FEEDS_BY_CATEGORY = {
       description: "Friendly tutorials for developers. Focus on React, CSS, animation, and careers.",
       imgUrl: "https://www.joshwcomeau.com/favicon.png",
     },
+    {
+      title: "Lea Verou’s blog",
+      url: "https://lea.verou.me/feed.xml",
+      description: "Web standards, Software Engineering, Product, Usability, and more",
+      imgUrl: "https://lea.verou.me/mark.svg",
+    },
   ],
   "style-beauty": [],
   food: [],
