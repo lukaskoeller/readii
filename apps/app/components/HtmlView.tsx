@@ -104,6 +104,7 @@ const RenderNode: FC<TRenderNodeProps> = ({
 }) => {
   const colorBackground2 = useThemeColor({}, "background2");
   const colorPrimary = useThemeColor({}, "primary");
+  const colorBorder = useThemeColor({}, "border");
   const textColor = useTextColor(node.nodeName);
   const href = (node.attrs ?? []).find((attr) => attr.name === "href")?.value;
   const handlePress = useCallback(async () => {
@@ -568,11 +569,13 @@ const RenderNode: FC<TRenderNodeProps> = ({
               {
                 width: isSmallImage ? Number(imgWidth) : "100%",
                 aspectRatio: aspectRatio ?? 4 / 3,
+                backgroundColor: colorBackground2,
+                borderColor: colorBorder,
               },
             ]}
             source={src}
             alt={altText}
-            contentFit="cover"
+            contentFit="contain"
           />
         </ThemedView>
       );
@@ -634,9 +637,10 @@ const RenderNode: FC<TRenderNodeProps> = ({
           style={{
             width: "100%",
             display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
+            flexDirection: "column",
             gap: Spacing.size3,
+            marginBlock: Spacing.size1,
+            overflow: "hidden",
           }}
         >
           {childNodes.map((child: any, i: number) => (
@@ -739,8 +743,9 @@ const RenderNode: FC<TRenderNodeProps> = ({
 const styles = StyleSheet.create({
   image: {
     width: "100%",
-    borderRadius: Radius.size2,
+    borderRadius: Radius.size5,
     marginBlock: Spacing.size3,
+    borderWidth: 1,
   },
   webview: {
     marginBlock: Spacing.size3,
