@@ -136,7 +136,11 @@ const RenderNode: FC<TRenderNodeProps> = ({
       if (isView) {
         const trimmedValue = value.trim();
         if (!trimmedValue) return null;
-        return <ThemedText style={inheritStyles}>{trimmedValue}</ThemedText>;
+        return (
+          <ThemedText style={inheritStyles}>
+            {trimmedValue.replaceAll("\n", " ")}
+          </ThemedText>
+        );
       }
       if (parentNode?.nodeName === "#document-fragment") {
         return null;
@@ -145,10 +149,10 @@ const RenderNode: FC<TRenderNodeProps> = ({
         return value;
       }
       if (shouldAddSingleWhitespace) {
-        return `${value.trim()} `;
+        return `${value.trim().replaceAll("\n", " ")} `;
       }
 
-      return value.trim();
+      return value.trim().replaceAll("\n", "");
     }
     case "p":
       if (childNodes.length === 0) return null;
