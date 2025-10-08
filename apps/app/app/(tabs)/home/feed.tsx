@@ -2,7 +2,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
-import { useMediaItem } from "@/hooks/queries";
+import { useFeed, useMediaItem } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Image } from "expo-image";
@@ -19,6 +19,7 @@ import {
 } from "date-fns";
 import { useRefresh } from "@/hooks/useRefresh";
 import { HeaderActions } from "@/components/feed/HeaderActions";
+import { getFeedData } from "@readii/parser";
 
 function formatShortRelative(date: DateArg<Date>) {
   const now = new Date();
@@ -33,10 +34,8 @@ function formatShortRelative(date: DateArg<Date>) {
   return "now";
 }
 
-export default function TabTwoScreen() {
-  const { refreshing, handleRefresh } = useRefresh(async () => {
-    return new Promise((resolve) => setTimeout(resolve, 2000));
-  });
+export default function Feed() {
+  const { updateFeed } = useFeed();
   const { readMediaItems } = useMediaItem();
   const params = useLocalSearchParams<{
     isReadLater?: "true" | "false";
@@ -44,7 +43,15 @@ export default function TabTwoScreen() {
     isUnread?: "true" | "false";
     feedTitle: string;
     mediaSourceId?: `${number}`;
+    feedUrl?: string;
   }>();
+  const { refreshing, handleRefresh } = useRefresh(async () => {
+    const minWait = new Promise((resolve) => setTimeout(resolve, 1000));
+    if (!params.feedUrl) return;
+    const args = await getFeedData(params.feedUrl);
+    await updateFeed(args);
+    await minWait;
+  });
   const mediaSourceId = params.mediaSourceId
     ? Number(params.mediaSourceId)
     : undefined;

@@ -121,7 +121,7 @@ export default function HomeScreen() {
               data={data.map((item) => ({
                 href: {
                   pathname: "/home/feed",
-                  params: { mediaSourceId: item.id, feedTitle: item.name },
+                  params: { mediaSourceId: item.id, feedTitle: item.name, feedUrl: item.feedUrl },
                 },
                 id: String(item.id),
                 label: item.name,
