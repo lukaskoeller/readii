@@ -24,6 +24,7 @@ export const mediaSource = sqliteTable("media_source", {
 export const mediaSourceRelations = relations(mediaSource, ({ one, many }) => ({
   icon: one(mediaSourceIcon),
   items: many(mediaItem),
+  folders: many(mediaSourceToFolders),
 }));
 
 export type TMediaSource = typeof mediaSource.$inferInsert;
@@ -112,4 +113,27 @@ export const mediaItemsToCategories = sqliteTable(
       .references(() => category.id, { onDelete: "cascade" }),
   },
   (t) => [primaryKey({ columns: [t.mediaItemId, t.categoryId] })]
+);
+
+export const folder = sqliteTable("folder", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  name: text("name").notNull().unique(),
+  description: text("description"),
+});
+
+export const folderRelations = relations(folder, ({ many }) => ({
+  mediaSources: many(mediaSourceToFolders),
+}));
+
+export const mediaSourceToFolders = sqliteTable(
+  "media_sources_to_folders",
+  {
+    mediaSourceId: integer("media_source_id")
+      .notNull()
+      .references(() => mediaSource.id, { onDelete: "cascade" }),
+    folderId: integer("folder_id")
+      .notNull()
+      .references(() => folder.id, { onDelete: "cascade" }),
+  },
+  (t) => [primaryKey({ columns: [t.mediaSourceId, t.folderId] })]
 );
