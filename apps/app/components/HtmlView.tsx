@@ -628,6 +628,61 @@ const RenderNode: FC<TRenderNodeProps> = ({
         );
       }
       return null;
+    case "dl":
+      return (
+        <ThemedView
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            gap: Spacing.size3,
+          }}
+        >
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+              isView
+            />
+          ))}
+        </ThemedView>
+      );
+    case "dt":
+      return (
+        <ThemedText
+          style={[inheritStyles, BOLD_STYLE, { marginTop: Spacing.size2 }]}
+        >
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
+          {suffix}
+        </ThemedText>
+      );
+    case "dd":
+      return (
+        <ThemedText style={inheritStyles}>
+          {childNodes.map((child: any, i: number) => (
+            <RenderNode
+              node={child}
+              url={url}
+              key={i}
+              nextNode={childNodes[i + 1] ?? null}
+              preserveWhitespace={preserveWhitespace}
+            />
+          ))}
+          {suffix}
+        </ThemedText>
+      );
     case "head":
     case "style":
     case "source": // @todo: Use additional sources in "img"
@@ -703,6 +758,7 @@ export const HtmlViewer: FC<HtmlViewerProps> = ({ ast, url }) => {
   // parse5 AST root is usually 'document', so render its children
   if (!ast) return null;
   const { childNodes } = ast;
+  console.log(childNodes);
 
   return (
     <FlatList
