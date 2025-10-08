@@ -103,7 +103,7 @@ export const getFeedData = async (
   });
   if (!mediaSourceIcon.success) {
     throw new Error(
-      `Invalid Media Source Icon: ${z.prettifyError(mediaSourceIcon.error)}`
+      `Invalid Media Source Icon: ${z.prettifyError(mediaSourceIcon.error)}\nURL: ${url}`
     );
   }
 
@@ -141,7 +141,7 @@ export const getFeedData = async (
   if (!mediaSource.success) {
     console.error(mediaSource.error);
     throw new Error(
-      `Invalid Media Source: ${z.prettifyError(mediaSource.error)}`
+      `Invalid Media Source: ${z.prettifyError(mediaSource.error)}\nURL: ${url}`
     );
   }
 
@@ -202,7 +202,7 @@ export const getFeedData = async (
   if (!mediaItems.success) {
     console.error(mediaItems.error);
     throw new Error(
-      `Invalid Media Items: ${z.prettifyError(mediaItems.error)}`
+      `Invalid Media Items: ${z.prettifyError(mediaItems.error)}\nURL: ${url}`
     );
   }
 
