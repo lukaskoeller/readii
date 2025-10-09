@@ -37,6 +37,7 @@ const MAPPING = {
   checkmark: "check",
   "arrow.up.forward.app": "open-in-new",
   "xmark": "clear",
+  "folder": "folder",
 } as IconMapping;
 
 /**
