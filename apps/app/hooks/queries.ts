@@ -244,7 +244,6 @@ export const useUpdateMediaItem = () => {
 
   const updateFn = useCallback(
     (mediaItem: Partial<schema.TMediaItem>) => {
-      console.log("UPDATE ITM", mediaItemId, mediaItem);
       return updateMediaItem(Number(mediaItemId), mediaItem);
     },
     [mediaItemId, updateMediaItem]
@@ -252,3 +251,26 @@ export const useUpdateMediaItem = () => {
 
   return { updateMediaItem: updateFn };
 };
+
+export type TCreateFolderArgs = {
+  folderArgs: schema.TFolder;
+};
+
+export const useFolder = () => {
+  const db = useSQLiteContext();
+  const drizzleDb = drizzle(db, { schema });
+
+  const createFolder = async ({
+    folderArgs,
+  }: TCreateFolderArgs) => {
+    await drizzleDb
+      .insert(schema.folder)
+      .values(folderArgs);
+  };
+
+  const api = {
+    createFolder,
+  };
+
+  return api;
+}
