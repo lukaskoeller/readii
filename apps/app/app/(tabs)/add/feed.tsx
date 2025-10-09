@@ -21,7 +21,7 @@ export type TFeedPreview = {
   mediaItemsCount: number;
 };
 
-export default function FeedScreen() {
+export default function AddFeed() {
   const router = useRouter();
   const { createFeed } = useFeed();
   const [feedUrl, setFeedUrl] = useState<string>("https://");
