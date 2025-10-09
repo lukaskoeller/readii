@@ -44,18 +44,6 @@ export default function AddFeed() {
               <IconSymbol name="link" size={Spacing.size5} color={colorText2} />
             ),
           },
-          // {
-          //   href: "/add/collection",
-          //   id: "/add/collection",
-          //   label: "Add Collection",
-          //   icon: (
-          //     <IconSymbol
-          //       name="rectangle.stack"
-          //       size={Spacing.size5}
-          //       color={colorText2}
-          //     />
-          //   ),
-          // },
           {
             href: "/add/opml",
             id: "/add/opml",
@@ -75,6 +63,18 @@ export default function AddFeed() {
             icon: (
               <IconSymbol
                 name="envelope"
+                size={Spacing.size5}
+                color={colorText2}
+              />
+            ),
+          },
+          {
+            href: "/add/folder",
+            id: "/add/folder",
+            label: "Add Folder",
+            icon: (
+              <IconSymbol
+                name="folder"
                 size={Spacing.size5}
                 color={colorText2}
               />
