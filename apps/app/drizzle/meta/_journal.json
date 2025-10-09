@@ -43,6 +43,13 @@
       "when": 1758920557402,
       "tag": "0005_sharp_skin",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1760042347886,
+      "tag": "0006_bitter_rocket_racer",
+      "breakpoints": true
     }
   ]
 }
