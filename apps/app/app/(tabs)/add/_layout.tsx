@@ -27,9 +27,9 @@ export default function FeedStackLayout() {
         }}
       />
       <Stack.Screen
-        name="collection"
+        name="folder"
         options={{
-          title: "Add Collection",
+          title: "Add Folder",
           headerStyle: {
             backgroundColor,
           },
