@@ -121,6 +121,8 @@ export const folder = sqliteTable("folder", {
   description: text("description"),
 });
 
+export type TFolder = typeof folder.$inferInsert;
+
 export const folderRelations = relations(folder, ({ many }) => ({
   mediaSources: many(mediaSourceToFolders),
 }));
