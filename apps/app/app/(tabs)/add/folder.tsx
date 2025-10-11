@@ -10,12 +10,14 @@ import { useFolder, useMediaSource } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { FlatList, ScrollView, StyleSheet } from "react-native";
 
 export default function AddFolder() {
+  const router = useRouter();
   const [folderName, setFolderName] = useState<string>("");
-  const [selectedFeeds, setSelectedFeeds] = useState<Set<string>>(new Set());
+  const [selectedFeeds, setSelectedFeeds] = useState<Set<number>>(new Set());
   const { readMediaSources } = useMediaSource();
   const { createFolder } = useFolder();
   const { data } = useLiveQuery(readMediaSources());
@@ -43,7 +45,7 @@ export default function AddFolder() {
           />
         </Card>
         <Card>
-          <Collapsible title="Add Feeds (optional)">
+          <Collapsible title={`Add Feeds (optional) (${selectedFeeds.size})`}>
             <FlatList
               scrollEnabled={false}
               data={data.map((item) => ({
@@ -55,7 +57,7 @@ export default function AddFolder() {
                     feedUrl: item.feedUrl,
                   },
                 },
-                id: String(item.id),
+                id: item.id,
                 label: item.name,
                 icon: (
                   <Image
@@ -77,7 +79,6 @@ export default function AddFolder() {
                       newSelectedFeeds.delete(item.id);
                     }
                     setSelectedFeeds(new Set(newSelectedFeeds));
-
                   }}
                   icon={item.icon}
                   isLastItem={index === data.length - 1}
@@ -89,13 +90,19 @@ export default function AddFolder() {
           </Collapsible>
         </Card>
         <ThemedView
-          style={{ marginBlockStart: Spacing.size4, marginInline: "auto" }}
+          style={{ marginBlockStart: Spacing.size4, marginBlockEnd: Spacing.size9, marginInline: "auto" }}
         >
           <Button
             onPress={async () => {
               try {
                 console.log("Create folder", folderName);
-                await createFolder({ folderArgs: { name: folderName } });
+                await createFolder({
+                  folderArgs: { name: folderName },
+                  mediaSourceArgs: Array.from(selectedFeeds).map((id) => ({
+                    mediaSourceId: id,
+                  })),
+                });
+                router.replace("/home");
               } catch (error) {
                 console.error("Error creating folder:", error);
               }
