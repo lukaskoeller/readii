@@ -139,3 +139,16 @@ export const mediaSourceToFolders = sqliteTable(
   },
   (t) => [primaryKey({ columns: [t.mediaSourceId, t.folderId] })]
 );
+
+export const mediaSourceToFoldersRelations = relations(mediaSourceToFolders, ({ one }) => ({
+  mediaSource: one(mediaSource, {
+    fields: [mediaSourceToFolders.mediaSourceId],
+    references: [mediaSource.id],
+  }),
+  folder: one(folder, {
+    fields: [mediaSourceToFolders.folderId],
+    references: [folder.id],
+  }),
+}));
+
+export type TMediaSourceToFolders = typeof mediaSourceToFolders.$inferInsert;
