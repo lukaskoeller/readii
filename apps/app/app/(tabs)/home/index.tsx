@@ -5,7 +5,12 @@ import { QuickCardLink } from "@/components/QuickCardLink";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { Spacing } from "@/constants/Sizes";
-import { useFeed, useMediaItem, useMediaSource } from "@/hooks/queries";
+import {
+  useFeed,
+  useFolder,
+  useMediaItem,
+  useMediaSource,
+} from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Section } from "@/components/Section";
@@ -15,6 +20,9 @@ import { TMediaSource } from "@/core/schema";
 
 export default function HomeScreen() {
   const { updateFeed } = useFeed();
+  const { readFolders } = useFolder();
+  const { data: folders } = useLiveQuery(readFolders());
+
   const { readMediaSources } = useMediaSource();
   const {
     readMediaItemsCount,
@@ -115,13 +123,45 @@ export default function HomeScreen() {
             )}
           />
         </ThemedView>
+        {folders.map((folder) => (
+          <ThemedView padding={Spacing.size4} key={folder.id}>
+            <Section title={folder.name}>
+              <LinkListCard
+                data={folder.mediaSources.map(({ mediaSource }) => ({
+                  href: {
+                    pathname: "/home/feed",
+                    params: {
+                      mediaSourceId: mediaSource.id,
+                      feedTitle: mediaSource.name,
+                      feedUrl: mediaSource.feedUrl,
+                    },
+                  },
+                  id: String(mediaSource.id),
+                  label: mediaSource.name,
+                  icon: (
+                    <Image
+                      style={styles.thumbnail}
+                      source={mediaSource.icon?.url}
+                      contentFit="cover"
+                      transition={500}
+                    />
+                  ),
+                }))}
+              />
+            </Section>
+          </ThemedView>
+        ))}
         <ThemedView padding={Spacing.size4}>
           <Section title="All Feeds">
             <LinkListCard
               data={data.map((item) => ({
                 href: {
                   pathname: "/home/feed",
-                  params: { mediaSourceId: item.id, feedTitle: item.name, feedUrl: item.feedUrl },
+                  params: {
+                    mediaSourceId: item.id,
+                    feedTitle: item.name,
+                    feedUrl: item.feedUrl,
+                  },
                 },
                 id: String(item.id),
                 label: item.name,
