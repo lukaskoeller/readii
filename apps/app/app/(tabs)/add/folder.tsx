@@ -1,7 +1,7 @@
 import { Button } from "@/components/Button/Button";
 import { Card } from "@/components/Card";
 import { Collapsible } from "@/components/Collapsible";
-import { LinkListCard } from "@/components/LinkListCard";
+import { ListItemSwitch } from "@/components/ListItemSwitch";
 import { TextInputField } from "@/components/TextInputField";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
@@ -11,10 +11,11 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Image } from "expo-image";
 import { useState } from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { FlatList, ScrollView, StyleSheet } from "react-native";
 
 export default function AddFolder() {
   const [folderName, setFolderName] = useState<string>("");
+  const [selectedFeeds, setSelectedFeeds] = useState<Set<string>>(new Set());
   const { readMediaSources } = useMediaSource();
   const { createFolder } = useFolder();
   const { data } = useLiveQuery(readMediaSources());
@@ -43,7 +44,8 @@ export default function AddFolder() {
         </Card>
         <Card>
           <Collapsible title="Add Feeds (optional)">
-            <LinkListCard
+            <FlatList
+              scrollEnabled={false}
               data={data.map((item) => ({
                 href: {
                   pathname: "/home/feed",
@@ -64,6 +66,25 @@ export default function AddFolder() {
                   />
                 ),
               }))}
+              renderItem={({ item, index }) => (
+                <ListItemSwitch
+                  checked={selectedFeeds.has(item.id)}
+                  onChange={(value) => {
+                    const newSelectedFeeds = selectedFeeds;
+                    if (value) {
+                      newSelectedFeeds.add(item.id);
+                    } else {
+                      newSelectedFeeds.delete(item.id);
+                    }
+                    setSelectedFeeds(new Set(newSelectedFeeds));
+
+                  }}
+                  icon={item.icon}
+                  isLastItem={index === data.length - 1}
+                  label={item.label}
+                  key={item.id}
+                />
+              )}
             />
           </Collapsible>
         </Card>
