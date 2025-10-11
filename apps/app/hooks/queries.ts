@@ -153,7 +153,12 @@ export const useMediaItem = () => {
 
     const conditions = params
       ? Object.entries(params).flatMap(([field, value]) => {
-          if (value === undefined || value === null || !(field in schema.mediaItem)) return [];
+          if (
+            value === undefined ||
+            value === null ||
+            !(field in schema.mediaItem)
+          )
+            return [];
           return [
             eq(
               schema.mediaItem[field as keyof schema.TMediaItem],
@@ -254,6 +259,7 @@ export const useUpdateMediaItem = () => {
 
 export type TCreateFolderArgs = {
   folderArgs: schema.TFolder;
+  mediaSourceArgs: Omit<schema.TMediaSourceToFolders, "folderId">[];
 };
 
 export const useFolder = () => {
@@ -262,15 +268,36 @@ export const useFolder = () => {
 
   const createFolder = async ({
     folderArgs,
+    mediaSourceArgs,
   }: TCreateFolderArgs) => {
+    const folder = await drizzleDb.insert(schema.folder).values(folderArgs);
+    const folderId = folder.lastInsertRowId;
+
     await drizzleDb
-      .insert(schema.folder)
-      .values(folderArgs);
+      .insert(schema.mediaSourceToFolders)
+      .values(mediaSourceArgs.map((item) => ({ ...item, folderId })));
+  };
+
+  const readFolders = () => {
+    return drizzleDb.query.folder.findMany({
+      with: {
+        mediaSources: {
+          with: {
+            mediaSource: {
+              with: {
+                icon: true,
+              }
+            },
+          }
+        },
+      },
+    });
   };
 
   const api = {
     createFolder,
+    readFolders,
   };
 
   return api;
-}
+};
