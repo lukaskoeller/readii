@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet } from "react-native";
+import { FlatList, ScrollView, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 import { LinkListCard } from "@/components/LinkListCard";
 import { QuickCardLink } from "@/components/QuickCardLink";
@@ -17,6 +17,7 @@ import { Section } from "@/components/Section";
 import { useEffect } from "react";
 import { getFeedData } from "@readii/parser";
 import { TMediaSource } from "@/core/schema";
+import { FolderButton } from "@/components/FolderButton";
 
 export default function HomeScreen() {
   const { updateFeed } = useFeed();
@@ -123,37 +124,30 @@ export default function HomeScreen() {
             )}
           />
         </ThemedView>
-        {folders.map((folder) => (
-          <ThemedView padding={Spacing.size4} key={folder.id}>
-            <Section title={folder.name}>
-              <LinkListCard
-                data={folder.mediaSources.map(({ mediaSource }) => ({
-                  href: {
-                    pathname: "/home/feed",
-                    params: {
-                      mediaSourceId: mediaSource.id,
-                      feedTitle: mediaSource.name,
-                      feedUrl: mediaSource.feedUrl,
-                    },
-                  },
-                  id: String(mediaSource.id),
-                  label: mediaSource.name,
-                  icon: (
-                    <Image
-                      style={styles.thumbnail}
-                      source={mediaSource.icon?.url}
-                      contentFit="cover"
-                      transition={500}
-                    />
-                  ),
-                }))}
-              />
-            </Section>
-          </ThemedView>
-        ))}
         <ThemedView padding={Spacing.size4}>
-          <Section title="All Feeds">
-            <LinkListCard
+          <Section title="Folders">
+            <FlatList
+              data={folders}
+              ItemSeparatorComponent={() => <ThemedView style={{ height: Spacing.size3 }} />}
+              renderItem={({ item: folder }) => (
+                <FolderButton
+                  key={folder.id}
+                  label={folder.name}
+                  count={folder.mediaSources.length}
+                thumbnailUrls={folder.mediaSources.flatMap(
+                  ({ mediaSource }) => {
+                    const url = mediaSource.icon?.url;
+                    return url ? [url] : [];
+                  }
+                )}
+              />
+            )}
+          />
+        </Section>
+      </ThemedView>
+      <ThemedView padding={Spacing.size4}>
+        <Section title="All Feeds">
+          <LinkListCard
               data={data.map((item) => ({
                 href: {
                   pathname: "/home/feed",
