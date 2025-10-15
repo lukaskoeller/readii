@@ -6,16 +6,17 @@ import { ThemedView } from "./ThemedView";
 export type CardProps = {
   children: React.ReactNode;
   style?: StyleProp<ViewStyle>;
+  padding?: number | false;
 };
 
 export function Card(props: CardProps) {
-  const { style, children } = props;
+  const { style, children, padding = Spacing.size3 } = props;
   const colorBackground3 = useThemeColor({}, "background3");
 
   return (
     <ThemedView
       style={[styles.card, { backgroundColor: colorBackground3 }, style]}
-      padding={Spacing.size3}
+      padding={padding || undefined}
     >
       {children}
     </ThemedView>
