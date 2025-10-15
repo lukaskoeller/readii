@@ -9,11 +9,20 @@ export type ListItemProps = {
   label: string;
   icon: React.JSX.Element;
   isLastItem: boolean;
+  slotRight?: React.JSX.Element;
 };
 
-export function ListItem({ label, icon, isLastItem }: ListItemProps) {
+export function ListItem(props: ListItemProps) {
+  const { label, icon, isLastItem } = props;
   const colorBorder = useThemeColor({}, "border");
   const colorBackground = useThemeColor({}, "text2");
+  const slotRight = props.slotRight ?? (
+    <IconSymbol
+      name="chevron.right"
+      color={colorBackground}
+      size={Spacing.size3}
+    />
+  );
 
   return (
     <ThemedView style={[styles.item]}>
@@ -29,11 +38,7 @@ export function ListItem({ label, icon, isLastItem }: ListItemProps) {
           {label}
         </ThemedText>
         <ThemedView>
-          <IconSymbol
-            name="chevron.right"
-            color={colorBackground}
-            size={Spacing.size3}
-          />
+          {slotRight}
         </ThemedView>
       </ThemedView>
     </ThemedView>
