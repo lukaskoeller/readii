@@ -127,27 +127,38 @@ export default function HomeScreen() {
         <ThemedView padding={Spacing.size4}>
           <Section title="Folders">
             <FlatList
+              scrollEnabled={false}
               data={folders}
-              ItemSeparatorComponent={() => <ThemedView style={{ height: Spacing.size3 }} />}
-              renderItem={({ item: folder }) => (
-                <FolderButton
-                  key={folder.id}
-                  label={folder.name}
-                  count={folder.mediaSources.length}
-                thumbnailUrls={folder.mediaSources.flatMap(
+              ItemSeparatorComponent={() => (
+                <ThemedView style={{ height: Spacing.size3 }} />
+              )}
+              renderItem={({ item: folder }) => {
+                const thumbnailUrls = folder.mediaSources.flatMap(
                   ({ mediaSource }) => {
                     const url = mediaSource.icon?.url;
                     return url ? [url] : [];
                   }
-                )}
-              />
-            )}
-          />
-        </Section>
-      </ThemedView>
-      <ThemedView padding={Spacing.size4}>
-        <Section title="All Feeds">
-          <LinkListCard
+                );
+                const folderId = folder.id;
+                return (
+                  <FolderButton
+                    key={folder.id}
+                    href={{
+                      pathname: "/home/feed",
+                      params: { folderId: folderId, feedTitle: folder.name },
+                    }}
+                    label={folder.name}
+                    count={folder.mediaSources.length}
+                    thumbnailUrls={thumbnailUrls}
+                  />
+                );
+              }}
+            />
+          </Section>
+        </ThemedView>
+        <ThemedView padding={Spacing.size4}>
+          <Section title="All Feeds">
+            <LinkListCard
               data={data.map((item) => ({
                 href: {
                   pathname: "/home/feed",
