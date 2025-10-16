@@ -1,7 +1,7 @@
 import * as schema from "@/core/schema";
 import { parseQueryParams } from "@/core/utils";
 import { $MediaItemBase, $MediaItemPartial } from "@readii/schemas/zod";
-import { and, count, eq, SQL } from "drizzle-orm";
+import { and, count, eq, or, SQL } from "drizzle-orm";
 import { drizzle, useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { useLocalSearchParams } from "expo-router";
 import { useSQLiteContext } from "expo-sqlite";
@@ -144,6 +144,31 @@ export const useMediaItem = () => {
   const db = useSQLiteContext();
   const drizzleDb = drizzle(db, { schema });
 
+  const readMediaItemsFromFolderId = (
+    folderId: NonNullable<schema.TFolder["id"]>
+  ) => {
+    const mediaSourceIds = drizzleDb.query.mediaSourceToFolders
+      .findMany({
+        where: (item, { eq }) => eq(item.folderId, folderId),
+        columns: { mediaSourceId: true },
+      })
+      .sync()
+      .map(({ mediaSourceId }) => mediaSourceId);
+
+    return drizzleDb.query.mediaItem.findMany({
+      with: {
+        mediaSource: {
+          with: {
+            icon: true,
+          },
+        },
+      },
+      where: (item, { eq }) =>
+        or(...mediaSourceIds.map((id) => eq(item.mediaSourceId, id))),
+      orderBy: (item, { desc }) => desc(item.publishedAt),
+    });
+  };
+
   const readMediaItems = (
     filters?: Record<string, string | number | (string | number)[]>
   ) => {
@@ -223,13 +248,14 @@ export const useMediaItem = () => {
       .where(eq(schema.mediaItem.isRead, false));
 
   const api = {
-    readMediaItems,
     readMediaItem,
-    updateMediaItem,
+    readMediaItems,
     readMediaItemsCount,
-    readMediaItemsIsStarredCount,
+    readMediaItemsFromFolderId,
     readMediaItemsIsReadLaterCount,
+    readMediaItemsIsStarredCount,
     readMediaItemsIsUnreadCount,
+    updateMediaItem,
   };
 
   return api;
@@ -286,9 +312,9 @@ export const useFolder = () => {
             mediaSource: {
               with: {
                 icon: true,
-              }
+              },
             },
-          }
+          },
         },
       },
     });
