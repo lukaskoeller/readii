@@ -36,7 +36,7 @@ function formatShortRelative(date: DateArg<Date>) {
 
 export default function Feed() {
   const { updateFeed } = useFeed();
-  const { readMediaItems } = useMediaItem();
+  const { readMediaItems, readMediaItemsFromFolderId } = useMediaItem();
   const params = useLocalSearchParams<{
     isReadLater?: "true" | "false";
     isStarred?: "true" | "false";
@@ -44,7 +44,10 @@ export default function Feed() {
     feedTitle: string;
     mediaSourceId?: `${number}`;
     feedUrl?: string;
+    folderId?: `${number}`;
   }>();
+  const folderId = params.folderId ? Number(params.folderId) : undefined;
+  const hasFolderId = typeof folderId === "number";
   const { refreshing, handleRefresh } = useRefresh(async () => {
     const minWait = new Promise((resolve) => setTimeout(resolve, 1000));
     if (!params.feedUrl) return;
@@ -55,7 +58,9 @@ export default function Feed() {
   const mediaSourceId = params.mediaSourceId
     ? Number(params.mediaSourceId)
     : undefined;
-  const { data } = useLiveQuery(readMediaItems(params));
+  const { data } = useLiveQuery(
+    hasFolderId ? readMediaItemsFromFolderId(folderId) : readMediaItems(params)
+  );
   const backgroundColor = useThemeColor({}, "background");
   const colorBackground3 = useThemeColor({}, "background3");
   const colorText2 = useThemeColor({}, "text2");
