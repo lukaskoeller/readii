@@ -11,7 +11,7 @@ import {
   H6_STYLE,
   TEXT_DEFAULT_STYLE,
 } from "@/constants/Styles";
-import { useTextColor } from "@/hooks/useTextColor";
+import { TTextColor, useTextColor } from "@/hooks/useTextColor";
 
 export type TThemedTextType =
   | "default"
@@ -28,7 +28,7 @@ export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
   type?: TThemedTextType;
-  color?: "text" | "text2" | "text3";
+  color?: TTextColor;
   noMargin?: boolean;
 };
 
