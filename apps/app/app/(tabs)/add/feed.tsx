@@ -53,11 +53,9 @@ export default function AddFeed() {
       try {
         const feedUrlResult = $HttpsUrl.safeParse(value.feedUrl);
         if (feedUrlResult.success) {
-          const args = await getFeedData(value.feedUrl);
+          const args = await getFeedData(feedUrlResult.data);
           await createFeed(args);
-          console.log("router.replace");
-          
-          router.replace("/(tabs)");
+          router.replace({ pathname: "/(tabs)/add" });
         } else {
           throw new Error("Invalid feed URL");
         }
