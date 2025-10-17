@@ -14,6 +14,8 @@
 - [x] FEAT: Beautify add screen
 - [x] FEAT: Add Read/Unread feature
 - [x] FIX: Video source retrieval
+- [ ] FEAT: Add interaction to **Buttons**
+- [ ] FEAT: Handle after submit behavior
 - [ ] FEAT: Add feed suggestions
 - [x] FEAT: Implement `onRefresh` handling
 - [ ] FEAT: Add Payment handling
@@ -73,7 +75,7 @@
 - https://news.google.com/rss?hl=de&gl=DE&ceid=DE:de
 - https://martinfowler.com/feed.atom
 - https://news.ycombinator.com/rss
-- https://cydstumpel.nl/feed/?_gl=1%2Auv8p44%2A_ga%2AMTMxMzgwNTYwMC4xNzYwNDMxMzg3%2A_ga_4WKX0476ND%2AczE3NjA0MzEzODYkbzEkZzEkdDE3NjA0MzE0MTIkajM0JGwwJGgw
+- https://cydstumpel.nl/feed
 
 ## Technical References & Libs
 
