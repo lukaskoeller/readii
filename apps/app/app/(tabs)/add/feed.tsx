@@ -2,7 +2,7 @@ import { Card } from "@/components/Card";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { useState } from "react";
-import { StyleSheet } from "react-native";
+import { ActivityIndicator, Alert, StyleSheet } from "react-native";
 import { $HttpsUrl } from "@readii/schemas/zod";
 import { getFeedData } from "@readii/parser";
 import { useFeed } from "@/hooks/queries";
@@ -12,6 +12,20 @@ import * as Clipboard from "expo-clipboard";
 import { TextInputField } from "@/components/TextInputField";
 import { Button } from "@/components/Button/Button";
 import { FeedPreview } from "@/components/FeedPreview";
+import { useForm } from "@tanstack/react-form";
+import { z } from "zod/mini";
+
+const schema = z.object({
+  feedUrl: $HttpsUrl,
+});
+
+const PREVIEW_STATUS = {
+  INITIAL: "Enter a feed URL to preview its content.",
+  LOADING: (<ActivityIndicator size="small" />),
+  ERROR: "Could not retrieve preview.\nPlease check the URL and try again.",
+} as const;
+
+export type TPreviewStatus = keyof typeof PREVIEW_STATUS;
 
 export type TFeedPreview = {
   iconUrl: string | null;
@@ -24,21 +38,53 @@ export type TFeedPreview = {
 export default function AddFeed() {
   const router = useRouter();
   const { createFeed } = useFeed();
-  const [feedUrl, setFeedUrl] = useState<string>("https://");
+  const [feedPreviewStatus, setFeedPreviewStatus] = useState<TPreviewStatus>("INITIAL");
   const [feedPreview, setFeedPreview] = useState<TFeedPreview | null>(null);
 
-  const handleOnChangeText = async (text: string) => {
-    setFeedUrl(text);
-    const feedUrl = $HttpsUrl.safeParse(text);
+  const form = useForm({
+    defaultValues: {
+      feedUrl: "https://",
+    },
+    validators: {
+      onBlur: schema,
+      onSubmit: schema,
+    },
+    onSubmit: async ({ value }) => {
+      try {
+        const feedUrlResult = $HttpsUrl.safeParse(value.feedUrl);
+        if (feedUrlResult.success) {
+          const args = await getFeedData(value.feedUrl);
+          await createFeed(args);
+          console.log("router.replace");
+          
+          router.replace("/(tabs)");
+        } else {
+          throw new Error("Invalid feed URL");
+        }
+      } catch (error) {
+        console.error("Error creating feed:", error);
+        Alert.alert("Could not add feed", "Please try again.");
+      }
+    },
+  });
+
+  const handleOnChangeText = async (url: string) => {
+    const feedUrl = $HttpsUrl.safeParse(url);
     if (feedUrl.success) {
-      const feedData = await getFeedData(feedUrl.data);
-      setFeedPreview({
-        iconUrl: feedData.mediaSourceIcon.url,
-        name: feedData.mediaSource.name,
-        url: feedData.mediaSource.url,
-        description: feedData.mediaSource.description,
-        mediaItemsCount: feedData.mediaItems.length,
-      });
+      try {
+        setFeedPreviewStatus("LOADING");
+        const feedData = await getFeedData(feedUrl.data);
+        setFeedPreview({
+          iconUrl: feedData.mediaSourceIcon.url,
+          name: feedData.mediaSource.name,
+          url: feedData.mediaSource.url,
+          description: feedData.mediaSource.description,
+          mediaItemsCount: feedData.mediaItems.length,
+        });
+        setFeedPreviewStatus("INITIAL");
+      } catch {
+        setFeedPreviewStatus("ERROR");
+      }
     } else {
       setFeedPreview(null);
     }
@@ -69,25 +115,45 @@ export default function AddFeed() {
                   noMargin
                   style={{ textAlign: "center" }}
                 >
-                  Enter a feed URL to preview its content.
+                  {PREVIEW_STATUS[feedPreviewStatus]}
                 </ThemedText>
               </ThemedView>
             )}
           </ThemedView>
         </ThemedView>
-        <TextInputField
-          label="URL"
-          inputProps={{
-            inputMode: "url",
-            onChangeText: handleOnChangeText,
-            value: feedUrl,
-          }}
-        />
+        <form.Field name="feedUrl">
+          {(field) => (
+            <>
+              <TextInputField
+                label="URL"
+                inputProps={{
+                  inputMode: "url",
+                  onChangeText: (value) => {
+                    field.handleChange(value);
+                    handleOnChangeText(value);
+                  },
+                  value: field.state.value,
+                  onBlur: () => {},
+                }}
+              />
+              {!field.state.meta.isValid && (
+                <ThemedText
+                  type="small"
+                  color="error"
+                  style={{ marginTop: Spacing.size1 }}
+                >
+                  Fehler: {field.state.meta.errors[0]?.message}
+                </ThemedText>
+              )}
+            </>
+          )}
+        </form.Field>
         <ThemedView style={styles.pasteContainer}>
           <Button
             variant="text"
             onPress={async () => {
               const text = await Clipboard.getStringAsync();
+              form.setFieldValue("feedUrl", text);
               await handleOnChangeText(text);
             }}
           >
@@ -98,19 +164,18 @@ export default function AddFeed() {
       <ThemedView
         style={{ marginBlockStart: Spacing.size4, marginInline: "auto" }}
       >
-        <Button
-          onPress={async () => {
-            try {
-              const args = await getFeedData(feedUrl);
-              await createFeed(args);
-              router.replace("/home");
-            } catch (error) {
-              console.error("Error creating feed:", error);
-            }
-          }}
-        >
-          Add Feed
-        </Button>
+        <form.Subscribe selector={(state) => [state.isSubmitting]}>
+          {([isSubmitting]) => (
+            <Button
+              loading={isSubmitting}
+              onPress={() => {
+                form.handleSubmit();
+              }}
+            >
+              Add Feed
+            </Button>
+          )}
+        </form.Subscribe>
       </ThemedView>
     </ThemedView>
   );
