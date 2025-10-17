@@ -30,6 +30,15 @@ export const colorsPrimary = {
   dark: "#ad6600", // hsl(35.25 100% 34%)
 };
 
+export const colorsStatus = {
+  success: "#1db459",
+  error: "#fd5361",
+  warning: "#e0b400",
+  info: "#3399ff",
+} as const;
+
+export type TColorStatus = keyof typeof colorsStatus;
+
 const tintColorLight = colors[6];
 const tintColorDark = colors[4];
 
@@ -51,6 +60,7 @@ export const Colors = {
     icon: colors[12],
     tabIconDefault: colors[8],
     tabIconSelected: colorsPrimary.main,
+    ...colorsStatus,
   },
   dark: {
     primary: colorsPrimary.main,
@@ -69,6 +79,7 @@ export const Colors = {
     icon: "#9BA1A6",
     tabIconDefault: colors[4],
     tabIconSelected: colorsPrimary.main,
+    ...colorsStatus,
   },
 };
 
