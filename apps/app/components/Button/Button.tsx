@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Pressable, StyleSheet } from "react-native";
+import { ActivityIndicator, Pressable, StyleSheet } from "react-native";
 import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { ThemedText } from "../ThemedText";
@@ -14,6 +14,7 @@ export type ButtonProps = {
   size?: "small" | "medium" | "large";
   style?: object;
   startIcon?: IconSymbolName;
+  loading?: boolean;
 };
 
 export const Button: FC<ButtonProps> = ({
@@ -22,6 +23,7 @@ export const Button: FC<ButtonProps> = ({
   style,
   size = "medium",
   variant = "primary",
+  loading = false,
   startIcon,
 }) => {
   const colorPrimary = useThemeColor({}, "primary");
@@ -110,12 +112,30 @@ export const Button: FC<ButtonProps> = ({
       )}
       {isChildrenString ? (
         <ThemedText
-          style={[buttonStyles.text, variants[variant].text, sizes[size].text]}
+          style={[
+            variants[variant].text,
+            sizes[size].text,
+            { textAlign: "center" },
+            loading && { color: "transparent" },
+          ]}
         >
           {children}
         </ThemedText>
       ) : (
         children
+      )}
+      {loading && (
+        <ActivityIndicator
+          
+          style={{
+            position: "absolute",
+            left: "auto",
+            right: "auto",
+            top: 0,
+            bottom: 0,
+          }}
+          color={variants[variant].text.color}
+        />
       )}
     </Pressable>
   );
