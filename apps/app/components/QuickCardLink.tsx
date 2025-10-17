@@ -2,9 +2,10 @@ import { StyleSheet } from "react-native";
 import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 import { IconSymbol } from "./ui/IconSymbol";
-import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
+import { FontSize, FontWeight, Spacing } from "@/constants/Sizes";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Link, LinkProps } from "expo-router";
+import { CARD_STYLES } from "./Card";
 
 export type QuickCardProps = {
   count: number;
@@ -47,9 +48,9 @@ const styles = StyleSheet.create({
   card: {
     flexBasis: "40%",
     flex: 1,
-    borderRadius: Radius.size3,
     padding: Spacing.size3,
     gap: 0,
+    ...CARD_STYLES,
   },
   header: {
     width: "100%",

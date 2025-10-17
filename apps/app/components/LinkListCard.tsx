@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
-import { Radius, Spacing } from "@/constants/Sizes";
+import { Spacing } from "@/constants/Sizes";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { ThemedView } from "./ThemedView";
 import { LinkList, LinkListProps } from "./LinkList";
+import { CARD_STYLES } from "./Card";
 
 export type LinkListCardProps = LinkListProps;
 
@@ -20,6 +21,6 @@ const styles = StyleSheet.create({
   list: {
     padding: Spacing.size3,
     paddingInlineStart: Spacing.size4,
-    borderRadius: Radius.size4,
+    ...CARD_STYLES,
   },
 });
