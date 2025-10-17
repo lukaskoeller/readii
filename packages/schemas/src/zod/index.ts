@@ -5,6 +5,8 @@ const $DatabaseId = z.optional(z.int().check(z.positive()));
 export const $HttpsUrl = z.string().check(
   z.url({
     protocol: /^https?$/,
+    hostname: z.regexes.domain,
+    error: "Enter a valid 'https' URL",
   })
 );
 
