@@ -37,14 +37,18 @@ export const colorsStatus = {
   info: "#3399ff",
 } as const;
 
-export type TColorStatus = keyof typeof colorsStatus;
+export type TStatus = keyof typeof colorsStatus;
 
 const tintColorLight = colors[6];
 const tintColorDark = colors[4];
 
+export const colorBoxShadowRGB = "153, 89, 0"; // 102, 60, 0
+
 export const Colors = {
   light: {
     primary: colorsPrimary.main,
+    primaryDark: colorsPrimary.dark,
+    primaryBoxShadow: `rgba(${colorBoxShadowRGB}, 0.5)`,
     text: colors[12],
     text2: colors[10],
     text3: colors[8],
@@ -64,6 +68,8 @@ export const Colors = {
   },
   dark: {
     primary: colorsPrimary.main,
+    primaryDark: colorsPrimary.dark,
+    primaryBoxShadow: `rgba(${colorBoxShadowRGB}, 0.3)`,
     text: colors[3],
     text2: colors[5],
     text3: colors[7],
