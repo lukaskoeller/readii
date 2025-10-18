@@ -27,6 +27,9 @@ export const Button: FC<ButtonProps> = ({
   startIcon,
 }) => {
   const colorPrimary = useThemeColor({}, "primary");
+  const colorPrimaryDark = useThemeColor({}, "primaryDark");
+  const colorPrimaryBoxShadow = useThemeColor({}, "primaryBoxShadow");
+  const colorText2 = useThemeColor({}, "text2");
   const colorText3 = useThemeColor({}, "text3");
   const colorTextInverted = useThemeColor({}, "textInverted");
   const isChildrenString = typeof children === "string";
@@ -35,6 +38,10 @@ export const Button: FC<ButtonProps> = ({
     primary: {
       button: {
         backgroundColor: colorPrimary,
+        boxShadow: `0px 2px 4px -1px ${colorPrimaryBoxShadow}`,
+      },
+      hover: {
+        backgroundColor: colorPrimaryDark,
       },
       text: { color: colorTextInverted },
     },
@@ -42,14 +49,22 @@ export const Button: FC<ButtonProps> = ({
       button: {
         backgroundColor: colorText3,
       },
+      hover: {
+        backgroundColor: colorText2,
+      },
       text: { color: colorTextInverted },
     },
     text: {
       button: {},
       text: { color: colorPrimary },
+      hover: { color: colorPrimaryDark },
     },
     outline: {
       button: {
+        borderWidth: 1,
+        borderColor: colorPrimary,
+      },
+      hover: {
         borderWidth: 1,
         borderColor: colorPrimary,
       },
@@ -57,7 +72,11 @@ export const Button: FC<ButtonProps> = ({
     },
   } as const satisfies Record<
     ButtonVariant,
-    { text: Record<string, unknown>; button: Record<string, unknown> }
+    {
+      text: Record<string, unknown>;
+      button: Record<string, unknown>;
+      hover?: Record<string, unknown>;
+    }
   >;
 
   const sizes = {
@@ -96,10 +115,12 @@ export const Button: FC<ButtonProps> = ({
   return (
     <Pressable
       onPress={onPress}
-      style={[
+      style={({ hovered, pressed }) => [
         style,
         buttonStyles.button,
         variants[variant].button,
+        hovered && variants[variant].hover,
+        pressed && variants[variant].hover,
         sizes[size].button,
       ]}
     >
@@ -126,7 +147,6 @@ export const Button: FC<ButtonProps> = ({
       )}
       {loading && (
         <ActivityIndicator
-          
           style={{
             position: "absolute",
             left: "auto",
