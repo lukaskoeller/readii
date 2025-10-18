@@ -5,10 +5,15 @@ import { ThemedText } from "./ThemedText";
 import { StyleSheet } from "react-native";
 import { FontSize, Radius, Spacing } from "@/constants/Sizes";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { TStatus } from "@/constants/Colors";
 
 export type TextInputFieldProps = {
   label: string;
   inputProps?: ThemedTextInputProps;
+  helper?: {
+    text?: string;
+    status: TStatus;
+  };
 };
 
 export const TextInputField: FC<TextInputFieldProps> = (props) => {
@@ -27,6 +32,15 @@ export const TextInputField: FC<TextInputFieldProps> = (props) => {
           ...(Array.isArray(style) ? style : [style]),
         ]}
       />
+      {props?.helper?.text && (
+        <ThemedText
+          type="small"
+          color={props.helper.status}
+          style={{ marginTop: Spacing.size1 }}
+        >
+          {props.helper.text}
+        </ThemedText>
+      )}
     </ThemedView>
   );
 };
