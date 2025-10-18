@@ -21,7 +21,7 @@ const schema = z.object({
 
 const PREVIEW_STATUS = {
   INITIAL: "Enter a feed URL to preview its content.",
-  LOADING: (<ActivityIndicator size="small" />),
+  LOADING: <ActivityIndicator size="small" />,
   ERROR: "Could not retrieve preview.\nPlease check the URL and try again.",
 } as const;
 
@@ -38,7 +38,8 @@ export type TFeedPreview = {
 export default function AddFeed() {
   const router = useRouter();
   const { createFeed } = useFeed();
-  const [feedPreviewStatus, setFeedPreviewStatus] = useState<TPreviewStatus>("INITIAL");
+  const [feedPreviewStatus, setFeedPreviewStatus] =
+    useState<TPreviewStatus>("INITIAL");
   const [feedPreview, setFeedPreview] = useState<TFeedPreview | null>(null);
 
   const form = useForm({
@@ -121,29 +122,22 @@ export default function AddFeed() {
         </ThemedView>
         <form.Field name="feedUrl">
           {(field) => (
-            <>
-              <TextInputField
-                label="URL"
-                inputProps={{
-                  inputMode: "url",
-                  onChangeText: (value) => {
-                    field.handleChange(value);
-                    handleOnChangeText(value);
-                  },
-                  value: field.state.value,
-                  onBlur: () => {},
-                }}
-              />
-              {!field.state.meta.isValid && (
-                <ThemedText
-                  type="small"
-                  color="error"
-                  style={{ marginTop: Spacing.size1 }}
-                >
-                  Fehler: {field.state.meta.errors[0]?.message}
-                </ThemedText>
-              )}
-            </>
+            <TextInputField
+              label="URL"
+              inputProps={{
+                inputMode: "url",
+                onChangeText: (value) => {
+                  field.handleChange(value);
+                  handleOnChangeText(value);
+                },
+                value: field.state.value,
+                onBlur: () => {},
+              }}
+              helper={{
+                text: field.state.meta.errors[0]?.message,
+                status: "error",
+              }}
+            />
           )}
         </form.Field>
         <ThemedView style={styles.pasteContainer}>
