@@ -1,4 +1,4 @@
-import { StyleSheet, Switch } from "react-native";
+import { BlurEvent, StyleSheet, Switch } from "react-native";
 import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 import { FontSize, Radius, Spacing } from "@/constants/Sizes";
@@ -9,6 +9,7 @@ export type ListItemSwitchProps = {
   icon: React.JSX.Element;
   isLastItem: boolean;
   onChange: (value: boolean) => void | Promise<void>;
+  onBlur?: ((e: BlurEvent) => void) | null | undefined
   checked: boolean;
 };
 
@@ -17,6 +18,7 @@ export function ListItemSwitch({
   icon,
   isLastItem,
   onChange,
+  onBlur,
   checked,
 }: ListItemSwitchProps) {
   const colorBorder = useThemeColor({}, "border");
@@ -43,6 +45,7 @@ export function ListItemSwitch({
             thumbColor={checked ? colorBackground3 : colorBackground3}
             ios_backgroundColor="#3e3e3e"
             onValueChange={onChange}
+            onBlur={onBlur}
             value={checked}
           />
         </ThemedView>
