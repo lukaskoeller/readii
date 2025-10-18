@@ -1,8 +1,8 @@
 import { TThemedTextType } from "@/components/ThemedText";
 import { useThemeColor } from "./useThemeColor";
-import { colorsStatus, TColorStatus } from "@/constants/Colors";
+import { colorsStatus, TStatus } from "@/constants/Colors";
 
-export type TTextColor = "text" | "text2" | "text3" | TColorStatus;
+export type TTextColor = "text" | "text2" | "text3" | TStatus;
 
 export const useTextColor = (
   type: TThemedTextType | string,
@@ -33,7 +33,7 @@ export const useTextColor = (
   }
 
   if (Object.keys(colorsStatus).some((key) => key === color)) {
-    return colorsStatus[color as TColorStatus];
+    return colorsStatus[color as TStatus];
   }
 
   return colorText2;
