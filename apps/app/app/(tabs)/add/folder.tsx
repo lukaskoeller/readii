@@ -18,7 +18,7 @@ import { z } from "zod/mini";
 
 const schema = z.object({
   name: z.string().check(z.minLength(1, "Folder name is required"), z.trim()),
-  description: z.nullable(z.string().check(z.trim())),
+  // description: z.nullable(z.string().check(z.trim())),
   mediaSources: z
     .array(z.number())
     .check(z.minLength(1, "Select at least one feed")),
@@ -43,7 +43,6 @@ export default function AddFolder() {
     },
     onSubmit: async ({ value }) => {
       try {
-        console.log("Create folder", value.name);
         await createFolder({
           folderArgs: { name: value.name },
           mediaSourceArgs: Array.from(value.mediaSources).map((id) => ({
