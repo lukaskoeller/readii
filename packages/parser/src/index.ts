@@ -7,11 +7,6 @@ import {
 import { z } from "zod/mini";
 import { XMLParser } from "fast-xml-parser";
 import { getIsMediaTypeImage } from "./utils";
-import { AtpAgent } from '@atproto/api'
-
-const getFeedDataFromBluesky = async (handle: string) => {
-  const agent = new AtpAgent({ service: 'https://example.com' })
-};
 
 export const getUrl = (url: string | null, baseUrl: string | null) => {
   if (!url || !baseUrl) return null;
