@@ -1,6 +1,6 @@
 import { FlatList, ScrollView, StyleSheet } from "react-native";
 import { Image } from "expo-image";
-import { LinkListCard } from "@/components/LinkListCard";
+import { MediaSourceListCard } from "@/components/MediaSourceListCard";
 import { QuickCardLink } from "@/components/QuickCardLink";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
@@ -156,7 +156,7 @@ export default function HomeScreen() {
         </ThemedView>
         <ThemedView padding={Spacing.size4}>
           <Section title="All Feeds">
-            <LinkListCard
+            <MediaSourceListCard
               data={data.map((item) => ({
                 href: {
                   pathname: "/home/feed",
@@ -167,6 +167,7 @@ export default function HomeScreen() {
                   },
                 },
                 id: String(item.id),
+                mediaSourceId: item.id,
                 label: item.name,
                 icon: (
                   <Image

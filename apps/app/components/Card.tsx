@@ -24,7 +24,7 @@ export function Card(props: CardProps) {
 }
 
 export const CARD_STYLES = {
-borderRadius: Radius.size5,
+  borderRadius: Radius.size5,
 }
 
 const styles = StyleSheet.create({
