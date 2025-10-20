@@ -251,7 +251,10 @@ export const useMediaItem = () => {
         mediaSourceIds
           ? or(
               ...mediaSourceIds.map((id) =>
-                eq(schema.mediaItem.mediaSourceId, id)
+                and(
+                  eq(schema.mediaItem.mediaSourceId, id),
+                  eq(schema.mediaItem.isRead, false)
+                )
               )
             )
           : eq(schema.mediaItem.isRead, false)
