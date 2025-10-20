@@ -14,8 +14,9 @@
 - [x] FEAT: Beautify add screen
 - [x] FEAT: Add Read/Unread feature
 - [x] FIX: Video source retrieval
-- [ ] FEAT: Add interaction to **Buttons**
-- [ ] FEAT: Handle after submit behavior
+- [x] FEAT: Add interaction to **Buttons**
+- [x] FEAT: Handle after submit behavior
+- [ ] FEAT: Add wait list via google forms
 - [ ] FEAT: Add feed suggestions
 - [x] FEAT: Implement `onRefresh` handling
 - [ ] FEAT: Add Payment handling

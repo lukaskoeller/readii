@@ -8,6 +8,9 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { Card } from "./Card";
 import { Image } from "expo-image";
 import { Link, LinkProps } from "expo-router";
+import { useLiveQuery } from "drizzle-orm/expo-sqlite/query";
+import { useMediaItem } from "@/hooks/queries";
+import * as schema from "@/core/schema";
 
 const THUMBNAIL_PREVIEW_COUNT = 4 as const;
 const MAIN_PADDING = Spacing.size4;
@@ -19,18 +22,27 @@ export type FolderButtonProps = {
   label: string;
   icon?: React.JSX.Element;
   count?: number;
-  thumbnailUrls: string[];
+  mediaSources: {
+    thumbnailUrl: schema.TMediaItem["thumbnailUrl"];
+    id: NonNullable<schema.TMediaItem["mediaSourceId"]>;
+  }[];
   href: LinkProps["href"];
 };
 
 export const FolderButton: FC<FolderButtonProps> = (props) => {
-  const { label, count, thumbnailUrls, href } = props;
+  const { label, mediaSources, href } = props;
   const colorBackground = useThemeColor({}, "background");
   const colorBackground3 = useThemeColor({}, "background3");
   const colorText2 = useThemeColor({}, "text2");
   const icon = props.icon ?? <IconSymbol name="folder" size={FontSize.size5} />;
   const additionalMediaSourcesCount =
-    thumbnailUrls.length - THUMBNAIL_PREVIEW_COUNT;
+    mediaSources.length - THUMBNAIL_PREVIEW_COUNT;
+    
+  const { readMediaItemsIsUnreadCount } = useMediaItem();
+  const { data: itemsCountIsUnread } = useLiveQuery(
+    readMediaItemsIsUnreadCount(mediaSources.map(({ id }) => id))
+  );
+  const mediaItemsUnreadCount = itemsCountIsUnread[0]?.count;
 
   return (
     <Link href={href}>
@@ -46,14 +58,16 @@ export const FolderButton: FC<FolderButtonProps> = (props) => {
               {label}
             </ThemedText>
             <ThemedView style={styles.right}>
-              <ThemedView
-                style={[
-                  styles.unreadBadge,
-                  { backgroundColor: colorBackground },
-                ]}
-              >
-                <ThemedText type="small">{count ?? 0}</ThemedText>
-              </ThemedView>
+              {mediaItemsUnreadCount && (
+                <ThemedView
+                  style={[
+                    styles.unreadBadge,
+                    { backgroundColor: colorBackground },
+                  ]}
+                >
+                  <ThemedText type="small">{mediaItemsUnreadCount}</ThemedText>
+                </ThemedView>
+              )}
               <IconSymbol
                 name="chevron.right"
                 color={colorText2}
@@ -63,13 +77,13 @@ export const FolderButton: FC<FolderButtonProps> = (props) => {
           </ThemedView>
         </ThemedView>
         <ThemedView style={styles.footer}>
-          {thumbnailUrls.length > 0 && (
+          {mediaSources.length > 0 && (
             <ThemedView style={styles.thumbnails}>
-              {thumbnailUrls
+              {mediaSources
                 .slice(0, THUMBNAIL_PREVIEW_COUNT)
-                .map((url, idx) => (
+                .map(({ thumbnailUrl, id }, idx) => (
                   <ThemedView
-                    key={url}
+                    key={id}
                     style={[
                       styles.thumbnail,
                       {
@@ -79,11 +93,19 @@ export const FolderButton: FC<FolderButtonProps> = (props) => {
                       idx === 0 && { marginInlineStart: 0 },
                     ]}
                   >
-                    <Image
-                      source={{ uri: url }}
-                      style={{ width: "100%", height: "100%" }}
-                      contentFit="contain"
-                    />
+                    {thumbnailUrl ? (
+                      <Image
+                        source={{ uri: thumbnailUrl }}
+                        style={{ width: "100%", height: "100%" }}
+                        contentFit="contain"
+                      />
+                    ) : (
+                      <IconSymbol
+                        name="photo"
+                        size={FontSize.size1}
+                        color={colorText2}
+                      />
+                    )}
                   </ThemedView>
                 ))}
               {additionalMediaSourcesCount > 0 && (
@@ -166,6 +188,9 @@ const styles = StyleSheet.create({
     gap: Spacing.size1,
   },
   thumbnail: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     width: FOOTER_ITEM_SIZE,
     height: FOOTER_ITEM_SIZE,
     borderRadius: Radius.full,

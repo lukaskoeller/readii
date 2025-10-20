@@ -241,11 +241,21 @@ export const useMediaItem = () => {
       .select({ count: count() })
       .from(schema.mediaItem)
       .where(eq(schema.mediaItem.isReadLater, true));
-  const readMediaItemsIsUnreadCount = () =>
+  const readMediaItemsIsUnreadCount = (
+    mediaSourceIds?: NonNullable<schema.TMediaItem["mediaSourceId"]>[]
+  ) =>
     drizzleDb
       .select({ count: count() })
       .from(schema.mediaItem)
-      .where(eq(schema.mediaItem.isRead, false));
+      .where(
+        mediaSourceIds
+          ? or(
+              ...mediaSourceIds.map((id) =>
+                eq(schema.mediaItem.mediaSourceId, id)
+              )
+            )
+          : eq(schema.mediaItem.isRead, false)
+      );
 
   const api = {
     readMediaItem,
