@@ -57,6 +57,7 @@
 - ifun kontaktieren
 - Reddit Feedback
 - Handpicked OPML on website
+- Use hashtag #buildinpublic
 
 ## Helpful
 
