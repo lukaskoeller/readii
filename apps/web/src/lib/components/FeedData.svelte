@@ -12,7 +12,7 @@
 			<div class="logo">
 				<img class="img" src={logo} alt="" />
 			</div>
-			<div>
+			<div class="main">
 				<time datetime={publishedAt.toISOString()} class="meta">
 					{publishedAt ? dayMonthYearTimeFormat.format(publishedAt) : ''}
 				</time>
@@ -50,6 +50,7 @@
 		min-inline-size: 0;
 		word-break: break-word;
 		text-wrap: pretty;
+		white-space: pre-wrap;
 		margin-block-start: var(--spacing-near);
 		font-size: var(--font-size-large);
 	}
@@ -58,6 +59,10 @@
 		inline-size: 42px;
 		block-size: 42px;
 		flex-shrink: 0;
+	}
+
+	.main {
+		flex-grow: 1;
 	}
 
 	.img {

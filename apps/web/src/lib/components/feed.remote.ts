@@ -4,7 +4,7 @@ import { getFeedData } from '@readii/parser';
 
 export const getFeed = prerender(async () => {
 	const URL = FEED_URL;
-	const feed = await getFeedData(URL, { source: 'social' });
+	const feed = await getFeedData(URL, { source: 'atproto' });
 
 	return feed.mediaItems;
 });
