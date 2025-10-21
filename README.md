@@ -77,6 +77,10 @@
 - https://martinfowler.com/feed.atom
 - https://news.ycombinator.com/rss
 - https://cydstumpel.nl/feed
+- https://css-tip.com/feed/feed.xml
+- https://www.reddit.com/r/deutschephotovoltaik/new.rss
+- https://api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?filter=posts_no_replies&actor=did:plc:fmwrdogxjglnbwalvoe6jdam&limit=100
+- https://feeds.libsyn.com/582135/rss
 
 ## Technical References & Libs
 
@@ -85,6 +89,11 @@
 - https://www.ietf.org/rfc/rfc5013.txt
 - https://www.data2type.de/xml-xslt-xslfo/newsfeeds-rss-atom/referenz-atom-elemente
 - https://github.com/mozilla/readability
+- https://developers.cloudflare.com/email-routing/email-workers/
+- Bluesky API: https://github.com/bluesky-social/atproto/tree/main/packages/xrpc
+- Bluesky Search: https://api.bsky.app/xrpc/app.bsky.actor.searchActors?q=readii
+- Bluesky Docs: https://docs.bsky.app/docs/api/app-bsky-feed-get-feed
+- Youtube Search: https://www.youtube.com/results?sp=EgIQAg%3D%3D&search_query=veritasium
 
 ## Competition
 
