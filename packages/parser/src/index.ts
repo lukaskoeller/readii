@@ -1,9 +1,8 @@
-import { $MediaItem } from "@readii/schemas/zod";
 import {
   getParsedAtProtoData,
   getParsedRssData,
-  TGetParsedAtProtoDataOptions,
-  TGetParsedRssDataOptions,
+  type TGetParsedAtProtoDataOptions,
+  type TGetParsedRssDataOptions,
 } from "./utils/parsers";
 
 const DEFAULT_SOURCE = "rss" as const satisfies TMediaSourceType;
