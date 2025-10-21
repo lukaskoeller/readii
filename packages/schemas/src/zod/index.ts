@@ -64,9 +64,9 @@ export const $MediaItem = z.object({
 export const $MediaItemPartial = z.partial($MediaItem);
 
 /**
- * Tailored to media items from social media like Bluesky or Mastodon
+ * Media Item schema for AT Proto (Bluesky) posts
  */
-export const $MediaItemSocial = z.object({
+export const $MediaItemAtProto = z.object({
   ...$MediaItem.shape,
-  title: z.nullable(z.string()),
-});
+  title: z.nullable(z.string()), // Posts from e.g. Bluesky may not have a title
+})
