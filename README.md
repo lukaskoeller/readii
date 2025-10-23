@@ -16,11 +16,17 @@
 - [x] FIX: Video source retrieval
 - [x] FEAT: Add interaction to **Buttons**
 - [x] FEAT: Handle after submit behavior
+- [ ] FEAT: Add simple Profile page
+- [ ] FEAT: Delete button for folders
 - [ ] FEAT: Add wait list via google forms
 - [ ] FEAT: Add feed suggestions
+- [ ] FEAT: Fetch og data / favicon etc.
 - [x] FEAT: Implement `onRefresh` handling
 - [ ] FEAT: Add Payment handling
-- [ ] FEAT: Add Folders / Collections
+- [x] FEAT: Add Folders / Collections
+- [ ] FEAT: Open web links in webview
+- [ ] FEAT: Fully support bluesky
+- [ ] FEAT: Add support for Reddit
 - [ ] FEAT: Add support for Newsletter
   - https://orm.drizzle.team/docs/get-started/sqlite-new#step-6---applying-changes-to-the-database
   - https://hono.dev/docs/getting-started/nodejs

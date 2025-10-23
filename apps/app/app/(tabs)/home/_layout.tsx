@@ -1,7 +1,7 @@
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Stack } from "expo-router";
 
-export default function FeedStackLayout() {
+export default function HomeStackLayout() {
   const backgroundColor = useThemeColor({}, "background");
 
   return (
