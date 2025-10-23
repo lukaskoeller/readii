@@ -2,12 +2,10 @@ import { Link, LinkProps } from "expo-router";
 import { ListItem, ListItemProps } from "./ListItem";
 import { ThemedView } from "./ThemedView";
 import { FlatList, ViewProps } from "react-native";
-import * as schema from "@/core/schema";
 
 export type LinkListProps = {
   data: (Omit<ListItemProps, "isLastItem"> & {
     id: string;
-    mediaSourceId: NonNullable<schema.TMediaSource["id"]>;
     href: LinkProps["href"];
   })[];
   style?: ViewProps["style"];
