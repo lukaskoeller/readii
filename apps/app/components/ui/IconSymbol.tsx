@@ -39,6 +39,7 @@ const MAPPING = {
   "arrow.up.forward.app": "open-in-new",
   "xmark": "clear",
   "folder": "folder",
+  "info.square": "info-outline",
 } as IconMapping;
 
 /**
