@@ -150,7 +150,7 @@ export default function Feed() {
                   </ThemedView>
 
                   <ThemedText
-                    numberOfLines={5}
+                    numberOfLines={3}
                     style={{ ...styles.text, color: colorText2 }}
                   >
                     {previewText}
