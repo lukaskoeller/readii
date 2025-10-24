@@ -114,7 +114,7 @@ export const FolderButton: FC<FolderButtonProps> = (props) => {
                     styles.thumbnailCount,
                     {
                       backgroundColor: colorBackground,
-                      outlineColor: colorBackground,
+                      outlineColor: colorBackground3,
                     },
                   ]}
                 >
