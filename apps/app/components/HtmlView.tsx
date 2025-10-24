@@ -14,14 +14,17 @@ import {
   View,
 } from "react-native";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { FontWeight, Radius, Spacing } from "@/constants/Sizes";
+import { Radius, Spacing } from "@/constants/Sizes";
 import {
+  BOLD_STYLE,
   H1_STYLE,
   H2_STYLE,
   H3_STYLE,
   H4_STYLE,
   H5_STYLE,
   H6_STYLE,
+  ITALIC_STYLE,
+  UNDERLINE_STYLE,
 } from "@/constants/Styles";
 import { useTextColor } from "@/hooks/useTextColor";
 import { DefaultTreeAdapterTypes } from "parse5";
@@ -29,10 +32,6 @@ import { Image } from "expo-image";
 import { z } from "zod/mini";
 import { Video } from "./Video";
 import { getNodeValue } from "@/core/utils";
-
-const BOLD_STYLE = { fontWeight: FontWeight.bold } as const;
-const ITALIC_STYLE = { fontStyle: "italic" } as const;
-const UNDERLINE_STYLE = { textDecorationLine: "underline" } as const;
 
 const htmlInlineElements = [
   "a",
