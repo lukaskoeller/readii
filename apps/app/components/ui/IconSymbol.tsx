@@ -40,6 +40,11 @@ const MAPPING = {
   "xmark": "clear",
   "folder": "folder",
   "info.square": "info-outline",
+  "globe": "language",
+  "person.bubble": "person-pin",
+  "message": "chat",
+  "star.square": "stars",
+  "checkmark.circle": "check-circle-outline",
 } as IconMapping;
 
 /**
