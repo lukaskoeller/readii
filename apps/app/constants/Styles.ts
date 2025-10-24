@@ -46,3 +46,7 @@ export const TEXT_DEFAULT_STYLE = {
   fontSize: FontSize.size3,
   lineHeight: LineHeight.size3,
 } as const;
+
+export const BOLD_STYLE = { fontWeight: FontWeight.bold } as const;
+export const ITALIC_STYLE = { fontStyle: "italic" } as const;
+export const UNDERLINE_STYLE = { textDecorationLine: "underline" } as const;
