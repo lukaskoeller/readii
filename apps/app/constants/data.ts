@@ -135,7 +135,7 @@ export const FEEDS_BY_CATEGORY = {
       title: "New York Times: Top Stories",
       url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
       description: "Follow top stories from The New York Times.",
-      imgUrl: "https://static01.nyt.com/images/misc/NYT_logo_rss_250x40.png",
+      imgUrl: "https://www.nytimes.com/vi-assets/static-assets/apple-touch-icon-dark-f74e69bf6dae735169854a4126cebf8c.png",
     },
     {
       title: "The Guardian",
@@ -143,7 +143,7 @@ export const FEEDS_BY_CATEGORY = {
       description:
         "Latest news, sport, business, comment, analysis and reviews from the Guardian, the world's leading liberal voice",
       imgUrl:
-        "https://assets.guim.co.uk/images/guardian-logo-rss.c45beb1bafa34b347ac333af2e6fe23f.png",
+        "https://assets.guim.co.uk/static/frontend/icons/homescreen/apple-touch-icon-120.png",
     },
     {
       title:
@@ -154,8 +154,57 @@ export const FEEDS_BY_CATEGORY = {
       imgUrl:
         "https://www.tagesschau.de/resources/assets/image/favicon/favicon.svg",
     },
+    {
+      title:
+        "DIE ZEIT | Nachrichten, News, Hintergründe und Debatten",
+      url: "https://newsfeed.zeit.de/index",
+      description:
+        "Aktuelle Nachrichten, Kommentare, Analysen und Hintergrundberichte aus Politik, Wirtschaft, Gesellschaft, Wissen, Kultur und Sport lesen Sie bei der ZEIT.",
+      imgUrl:
+        "https://static.zeit.de/p/zeit.web/icons/rss-feed-icon-96x96.png",
+    },
+    {
+      title:
+        "Süddeutsche Zeitung",
+      url: "https://rss.sueddeutsche.de/rss/Alles",
+      description:
+        "Alle Meldungen von SZ.de",
+      imgUrl:
+        "https://www.sueddeutsche.de/assets/img/favicon.ico",
+    },
+    {
+      title:
+        "FAZ - Frankfurter Allgemeine Zeitung",
+      url: "https://www.faz.net/rss/aktuell",
+      description:
+        "News, Nachrichten und aktuelle Meldungen aus allen Ressorts. Politik, Wirtschaft, Sport, Feuilleton und Finanzen im Überblick.",
+      imgUrl:
+        "https://www.faz.net/favicon.png",
+    },
   ],
-  entertainment: [],
+  entertainment: [
+    {
+      title: "/Film",
+      url: "https://www.slashfilm.com/feed/",
+      description:
+        "The latest movie and television news, reviews, film trailers, exclusive interviews, and opinions - since 2005.",
+      imgUrl: "https://www.slashfilm.com/img/slashfilm-favicon.png",
+    },
+    {
+      title: "Ain't It Cool News CoolNews",
+      url: "https://www.aintitcool.com/node/feed/coolnews/",
+      description:
+        "The best in movie, TV, DVD and comic book news.",
+      imgUrl: "https://media.aintitcool.com/static/social/defaultsquarelogo.png",
+    },
+    {
+      title: "ScreenCrush",
+      url: "https://screencrush.com/feed/",
+      description:
+        "Read movie reviews, TV recaps and celebrity news, plus watch the latest movie trailers.",
+      imgUrl: "https://townsquare.media/wp-content/uploads/2019/05/screencrush.png?w=72&h=72",
+    },
+  ],
   sports: [
     {
       title: "kicker News",
