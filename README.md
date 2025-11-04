@@ -16,8 +16,8 @@
 - [x] FIX: Video source retrieval
 - [x] FEAT: Add interaction to **Buttons**
 - [x] FEAT: Handle after submit behavior
-- [ ] FEAT: Add simple Profile page
-- [ ] FEAT: Delete button for folders
+- [x] FEAT: Delete button for folders
+- [-] FEAT: Add simple Profile page
 - [ ] FEAT: Add wait list via google forms
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Fetch og data / favicon etc.

@@ -333,9 +333,27 @@ export const useFolder = () => {
     });
   };
 
+  const deleteFolder = (
+    folderId: NonNullable<schema.TFolder["id"]>
+  ) => {
+    db.withTransactionSync(() => {
+      const deleteFolder = drizzleDb
+        .delete(schema.folder)
+        .where(eq(schema.folder.id, folderId));
+
+      const deleteMediaSourcesToFolders = drizzleDb
+        .delete(schema.mediaSourceToFolders)
+        .where(eq(schema.mediaSourceToFolders.folderId, folderId));
+
+      deleteFolder.run();
+      deleteMediaSourcesToFolders.run();
+    });
+  };
+
   const api = {
     createFolder,
     readFolders,
+    deleteFolder,
   };
 
   return api;

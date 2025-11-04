@@ -74,8 +74,8 @@ export default function Feed() {
             backgroundColor,
           },
           headerShadowVisible: false,
-          headerRight: mediaSourceId
-            ? () => <HeaderActions mediaSourceId={mediaSourceId} />
+          headerRight: mediaSourceId || hasFolderId
+            ? () => <HeaderActions mediaSourceId={mediaSourceId} folderId={folderId} />
             : undefined,
         }}
       />

@@ -3,18 +3,22 @@ import { IconSymbol } from "../ui/IconSymbol";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Spacing } from "@/constants/Sizes";
 import { Pressable } from "react-native";
-import { useMediaSource } from "@/hooks/queries";
+import { useFolder, useMediaSource } from "@/hooks/queries";
 import { useRouter } from "expo-router";
+import * as schema from "@/core/schema";
 
 export type HeaderActionsProps = {
-  mediaSourceId: number;
+  mediaSourceId?: NonNullable<schema.TMediaSource["id"]>;
+  folderId?: NonNullable<schema.TFolder["id"]>;
 };
 
 export function HeaderActions({
   mediaSourceId,
+  folderId,
 }: HeaderActionsProps) {
   const router = useRouter();
   const { deleteMediaSource } = useMediaSource();
+  const { deleteFolder } = useFolder();
   const primaryColor = useThemeColor({}, "primary");
 
   return (
@@ -30,9 +34,14 @@ export function HeaderActions({
           paddingBlock: Spacing.size1,
           paddingInline: Spacing.size3,
         }}
-        aria-label="Delete Feed"
+        aria-label={mediaSourceId ? "Delete Feed" : "Delete Folder"}
         onPress={async () => {
-          deleteMediaSource(mediaSourceId)
+          if (mediaSourceId) {
+            deleteMediaSource(mediaSourceId)
+          }
+          if (folderId) {
+            deleteFolder(folderId)
+          }
           router.replace("/home");
         }}
       >
