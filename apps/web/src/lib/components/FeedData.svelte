@@ -42,6 +42,8 @@
 	}
 
 	.meta {
+		font-family: var(--font-family-default);
+		font-size: var(--font-size-small);
 		color: var(--color-text-subtle);
 		text-box: trim-both cap text;
 	}

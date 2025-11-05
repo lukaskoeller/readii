@@ -6,9 +6,8 @@
 	"form_waitlist_submit_label": "Join the Waitlist",
 	"form_waitlist_email_input": "E-Mail",
 	"waitlist_paragraph": "Sign up for our waiting list with your email address and we will let you know as soon as our product goes live. No spam, just good news – we promise.",
-	"feed_heading": "What's New",
-	"feed_intro": "Stay updated with the latest news on readii.",
 	"feed_loading": "Loading feed…",
+	"join_waitlist_btn": "Join waitlist",
 	"feed_rss_btn": "Subscribe to RSS",
 	"feed_bluesky_btn": "Follow on Bluesky",
 	"feed_item_link": "See Original Post"
