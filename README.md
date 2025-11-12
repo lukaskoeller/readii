@@ -18,7 +18,7 @@
 - [x] FEAT: Handle after submit behavior
 - [x] FEAT: Delete button for folders
 - [-] FEAT: Add simple Profile page
-- [ ] FEAT: Add wait list via google forms
+- [x] FEAT: Add wait list via google forms
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Fetch og data / favicon etc.
 - [x] FEAT: Implement `onRefresh` handling

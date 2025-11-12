@@ -204,6 +204,12 @@ export const FEEDS_BY_CATEGORY = {
         "Read movie reviews, TV recaps and celebrity news, plus watch the latest movie trailers.",
       imgUrl: "https://townsquare.media/wp-content/uploads/2019/05/screencrush.png?w=72&h=72",
     },
+    {
+      title: "Deutschlandfunk Kultur - Film & Serie",
+      url: "https://www.deutschlandfunkkultur.de/film-serie-100.rss",
+      description: "Neuigkeiten, Hintergründe und Berichte zu Filmen und Serien.",
+      imgUrl: "https://bilder.deutschlandfunk.de/db/bf/da/fa/dbbfdafa-35e3-426b-8170-f7a0bff13ac4/film-108-768x768.jpg",
+    }
   ],
   sports: [
     {
@@ -213,6 +219,30 @@ export const FEEDS_BY_CATEGORY = {
       imgUrl:
         "https://static.kicker.de/content/b2ea4d70/img/favicon/appicon48x48.png",
     },
+    {
+      title: "Sportschau",
+      url: "https://www.sportschau.de/index~rss2.xml",
+      description: "Die aktuellen Beiträge der Seite https://www.sportschau.de/",
+      imgUrl: "https://www.sportschau.de/resources/assets/image/favicon/favicon.svg",
+    },
+    {
+      title: "Formel1.de News",
+      url: "https://www.formel1.de/rss/news/feed.xml",
+      description: "Verpasse keine Formel-1-News mehr mit dem F1-Feed von Formel1.de.",
+      imgUrl: "https://www.formel1.de/public/img/formel1.png",
+    },
+    {
+      title: "Sportschau Formel 1",
+      url: "https://www.sportschau.de/motorsport/formel1/index~rss2.xml",
+      description: "Die aktuellen Beiträge der Seite https://www.sportschau.de/motorsport/formel1",
+      imgUrl: "https://www.sportschau.de/resources/assets/image/favicon/favicon.svg",
+    },
+    {
+      title: "ESPN Top News",
+      url: "https://www.espn.com/espn/rss/news",
+      description: "Latest TOP news from www.espn.com",
+      imgUrl: "https://a.espncdn.com/i/espn/teamlogos/lrg/trans/espn_dotcom_black.gif",
+    }
   ],
   "startups-innovation": [
     {
