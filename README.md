@@ -113,6 +113,7 @@
 
 - https://kraa.io/kraa/examples/echolibrary
 - https://rune.demo.luxethemes.com/
+- https://insights.tryspecter.com/
 
 ## Fonts
 
