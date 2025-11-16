@@ -6,7 +6,7 @@ import {
 } from "@readii/schemas/zod";
 import { z } from "zod/mini";
 import { XMLParser } from "fast-xml-parser";
-import { getFavicon, getIsMediaTypeImage, getUrl } from "./index";
+import { getFavicon, getIsMediaTypeImage, getUrl, transformAtProtoToHtml } from "./index";
 
 export type TGetParsedRssDataOptions = {
   /**
@@ -164,6 +164,8 @@ export const getParsedAtProtoData = async (
   options: TGetParsedAtProtoDataOptions
 ) => {
   const jsonData = options?.atProtoObject ?? (await (await fetch(url)).json());
+  console.log(jsonData);
+  
 
   const feed = Array.isArray(jsonData?.feed) ? jsonData?.feed : [];
   const handle = feed[0]?.post?.author?.handle;
@@ -220,7 +222,10 @@ export const getParsedAtProtoData = async (
         ? `https://bsky.app/profile/${handle}/post/${postId}`
         : null;
 
-      const content = record?.text ?? "";
+      let content = record?.text ?? "";
+      if (content) {
+        content = transformAtProtoToHtml(content, record?.facets ?? []);
+      }
 
       return {
         title: null,

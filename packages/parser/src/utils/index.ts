@@ -1,3 +1,6 @@
+import { Facet } from '@atproto/api';
+import { isLink, isMention, isTag } from '@atproto/api/dist/client/types/app/bsky/richtext/facet';
+
 /**
  * Checks if the given media type is an image.
  * @param mediaType The media type string (e.g., "image/png", "video/mp4").
@@ -57,3 +60,33 @@ export const getUrl = (url: string | null, baseUrl: string | null) => {
     return null;
   }
 };
+
+export const transformAtProtoToHtml = (text: string, facets: Facet[]) => {
+  let htmlString = text;
+  const replaceMap: Map<string, string> = new Map();
+  for (const facet of facets) {
+    const { index, features } = facet;
+    const feature = features[0];
+    const { byteStart, byteEnd } = index;
+    const subString = text.slice(byteStart, byteEnd);
+
+    if (isLink(feature)) {
+      replaceMap.set(subString, `<a href="${feature.uri}">${subString}</a>`);
+      continue;
+    }
+
+    if (isMention(feature)) {
+      replaceMap.set(subString, `<a href="https://bsky.app/profile/${feature.did}">${subString}</a>`);
+      continue;
+    }
+
+    if (isTag(feature)) {
+      replaceMap.set(subString, `<a href="https://bsky.app/hashtag/${feature.tag}">${subString}</a>`);
+    }
+  }
+
+  for (const [text, textWithHtml] of replaceMap) {
+    htmlString = htmlString.replace(text, textWithHtml);
+  }
+  return htmlString;
+}
