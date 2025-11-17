@@ -256,6 +256,36 @@ export const FEEDS_BY_CATEGORY = {
       url: "https://www.sovereign.tech/feed.rss",
       description: "The Sovereign Tech Agency is dedicated to protecting and strengthening the open source backbone of our digital future.",
       imgUrl: "https://www.sovereign.tech/static/images/favicons/favicon-32x32.png",
+    },
+    {
+      title: "TechCrunch",
+      url: "https://techcrunch.com/feed/",
+      description: "Startup and Technology News",
+      imgUrl: "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=32",
+    },
+    {
+      title: "deutsche-startups.de",
+      url: "https://www.deutsche-startups.de/feed/",
+      description: "Startups - Venture Capital - Jobs",
+      imgUrl: "https://www.deutsche-startups.de/app/themes/ds2013/apple-touch-icon.png",
+    },
+    {
+      title: "EU-Startups",
+      url: "https://feeds.feedburner.com/eu-startups",
+      description: "Spotlight on European startups",
+      imgUrl: "https://www.eu-startups.com/wp-content/themes/Newspaperimages/favicon.ico",
+    },
+    {
+      title: "Startups - GeekWire",
+      url: "https://www.geekwire.com/startups/feed/",
+      description: "Breaking News in Technology & Business",
+      imgUrl: "https://www.geekwire.com/wp-content/themes/geekwire/dist/images/geekwire-logo-rss.png",
+    },
+    {
+      title: "Crunchbase News",
+      url: "https://news.crunchbase.com/feed/",
+      description: "Data-driven reporting on private markets, startups, founders, and investors",
+      imgUrl: "https://news.crunchbase.com/wp-content/uploads/cb_news_favicon-150x150.png",
     }
   ],
   "money-business": [],
