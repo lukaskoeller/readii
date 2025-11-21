@@ -214,8 +214,15 @@ export const FEEDS_BY_CATEGORY = {
   sports: [
     {
       title: "kicker News",
-      url: "https://www.espn.com/espn/rss/news",
+      url: "https://newsfeed.kicker.de/news/aktuell",
       description: "Topaktuelle News bei kicker",
+      imgUrl:
+        "https://static.kicker.de/content/b2ea4d70/img/favicon/appicon48x48.png",
+    },
+    {
+      title: "kicker Fußball News",
+      url: "https://newsfeed.kicker.de/news/fussball",
+      description: "Topaktuelle News bei kicker (Fußball)",
       imgUrl:
         "https://static.kicker.de/content/b2ea4d70/img/favicon/appicon48x48.png",
     },
