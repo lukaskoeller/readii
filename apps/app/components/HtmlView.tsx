@@ -580,8 +580,6 @@ const RenderNode: FC<TRenderNodeProps> = ({
       );
     }
     case "video": {
-      console.log(node);
-
       let videoSrcAttr = (node.attrs ?? []).find(
         (attr) => attr.name === "src"
       )?.value;
@@ -762,7 +760,6 @@ export const HtmlViewer: FC<HtmlViewerProps> = ({ ast, url }) => {
   // parse5 AST root is usually 'document', so render its children
   if (!ast) return null;
   const { childNodes } = ast;
-  console.log(childNodes);
 
   return (
     <FlatList
