@@ -6,7 +6,12 @@ import {
 } from "@readii/schemas/zod";
 import { z } from "zod/mini";
 import { XMLParser } from "fast-xml-parser";
-import { getFavicon, getIsMediaTypeImage, getUrl, transformAtProtoToHtml } from "./index";
+import {
+  getFavicon,
+  getIsMediaTypeImage,
+  getUrl,
+  transformAtProtoToHtml,
+} from "./index";
 
 export type TGetParsedRssDataOptions = {
   /**
@@ -90,6 +95,17 @@ export const getParsedRssData = async (
 
   const mediaItems = z.array($MediaItem).safeParse(
     (mediaItemsData ?? []).map((item: Record<string, any>) => {
+      const content =
+        item?.["content:encoded"]?.["#text"] ??
+        item?.content?.["#text"] ??
+        item?.description?.["#text"] ??
+        "";
+      const description = item?.description?.["#text"] ?? "";
+      
+      
+      const imgRegex = /<img\b(?![^>]*?(?:width|height)=["']1["'])[^>]*?src=["'](.*?)["']/i;
+      const imgMatch = imgRegex.exec(content) ?? imgRegex.exec(description);
+      const mediaThumbnailUrlFallback = imgMatch ? imgMatch[1] : null;
       const mediaThumbnailUrl =
         item?.["media:thumbnail"]?.["@_url"] ??
         (getIsMediaTypeImage(item?.enclosure?.["@_type"])
@@ -100,7 +116,8 @@ export const getParsedRssData = async (
             const mediaType = link?.["@_type"] as string | undefined;
             return getIsMediaTypeImage(mediaType);
           }
-        )?.["@_href"];
+        )?.["@_href"] ??
+        mediaThumbnailUrlFallback;
 
       const itemUrl =
         item?.link?.["#text"] ??
@@ -109,12 +126,6 @@ export const getParsedRssData = async (
           (link: Record<string, unknown>) => link?.["@_rel"] == undefined
         )?.["@_href"];
       const enclosureUrl = item?.enclosure?.["@_url"] ?? null;
-
-      const content =
-        item?.["content:encoded"]?.["#text"] ??
-        item?.content?.["#text"] ??
-        item?.description?.["#text"] ??
-        "";
 
       return {
         title: item?.title?.["#text"] ?? null,
@@ -164,8 +175,6 @@ export const getParsedAtProtoData = async (
   options: TGetParsedAtProtoDataOptions
 ) => {
   const jsonData = options?.atProtoObject ?? (await (await fetch(url)).json());
-  console.log(jsonData);
-  
 
   const feed = Array.isArray(jsonData?.feed) ? jsonData?.feed : [];
   const handle = feed[0]?.post?.author?.handle;

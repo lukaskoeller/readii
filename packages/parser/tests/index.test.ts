@@ -4,15 +4,15 @@ import { transformAtProtoToHtml } from "../src/utils";
 import { Facet } from "@atproto/api";
 
 const rssFeeds: Array<[string, TMediaSourceType, string]> = [
-  // ["Adam Argyle", "rss", "https://nerdy.dev/rss"],
-  // ["Contrario by Victor Matekole", "rss", "https://matekole.com/rss.xml"],
-  // [
-  //   "NYT Top Stories",
-  //   "rss",
-  //   "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-  // ],
-  // ["Jake Archibald", "rss", "https://jakearchibald.com/posts.rss"],
-  // ["Smashing Magazine", "rss", "https://www.smashingmagazine.com/feed/"],
+  ["Adam Argyle", "rss", "https://nerdy.dev/rss"],
+  ["Contrario by Victor Matekole", "rss", "https://matekole.com/rss.xml"],
+  [
+    "NYT Top Stories",
+    "rss",
+    "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+  ],
+  ["Jake Archibald", "rss", "https://jakearchibald.com/posts.rss"],
+  ["Smashing Magazine", "rss", "https://www.smashingmagazine.com/feed/"],
   [
     "readii.bsky.social",
     "atproto",
