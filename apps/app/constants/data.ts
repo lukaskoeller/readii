@@ -295,7 +295,20 @@ export const FEEDS_BY_CATEGORY = {
       imgUrl: "https://news.crunchbase.com/wp-content/uploads/cb_news_favicon-150x150.png",
     }
   ],
-  "money-business": [],
+  "money-business": [
+    {
+      title: "Reddit /r/investing",
+      url: "https://www.reddit.com/r/investing/new.rss",
+      description: "Discussion and news about investing",
+      imgUrl: "https://www.redditstatic.com/shreddit/assets/favicon/64x64.png",
+    },
+    {
+      title: "WSJ.com: Markets",
+      url: "https://feeds.content.dowjones.io/public/rss/RSSMarketsMain",
+      description: "Latest news on markets from WSJ.com.",
+      imgUrl: "https://www.wsj.com/favicon.ico",
+    }
+  ],
   "software-development": [
     {
       title: "Smashing Magazine",
