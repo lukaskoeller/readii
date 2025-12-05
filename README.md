@@ -20,6 +20,7 @@
 - [-] FEAT: Add simple Profile page
 - [x] FEAT: Add wait list via google forms
 - [ ] FEAT: Add feed suggestions
+- [ ] FEAT: Add option to mark all as read
 - [ ] FEAT: Fetch og data / favicon etc.
 - [x] FEAT: Implement `onRefresh` handling
 - [ ] FEAT: Add Payment handling
