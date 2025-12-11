@@ -1,5 +1,6 @@
 <script lang="ts">
 	import favicon from '@readii/assets/icons/favicon/svg';
+	import ogimage from '@readii/assets/images/ogimage';
 	import '$lib/styles/theme.css';
 	// import "@nordcode/ui/utils/media"
 	import '@nordcode/ui/bundle';
@@ -17,6 +18,8 @@
 <svelte:head>
 	<title>readii - RSS Reader</title>
 	<link rel="icon" href={favicon} />
+	<meta name="description" content="A cross-platform app that allows you to follow content from across the internet in one place. Whether it's your favorite blogs, websites, or newsletters. Filter and customize your content according to your personal interests.">
+	<meta property="og:image" content={ogimage}/>
 </svelte:head>
 
 <div class="wrapper">

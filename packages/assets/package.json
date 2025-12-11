@@ -8,7 +8,8 @@
     "./icons/app/svg": "./icons/app/readii-app-icon.svg",
     "./icons/app/1024/png": "./icons/app/readii-app-icon-1024.png",
     "./icons/app/1024@2/png": "./icons/app/readii-app-icon-1024@2.png",
-    "./logos/svg": "./logos/readii-logo.svg"
+    "./logos/svg": "./logos/readii-logo.svg",
+    "./images/ogimage": "./images/readii-ogimage.png"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
