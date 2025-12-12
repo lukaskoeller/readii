@@ -1,3 +1,11 @@
+import { LinkProps } from "expo-router";
+
+export type TFeedSuggestionCategoryItem = {
+  key: string;
+  label: string;
+  href: LinkProps["href"];
+};
+
 export const CATEGORIES = [
   {
     href: {
@@ -46,6 +54,14 @@ export const CATEGORIES = [
     },
     key: "software-development",
     label: "Software Development",
+  },
+  {
+    href: {
+      pathname: "/add/[category]",
+      params: { category: "design" },
+    },
+    key: "design",
+    label: "Design",
   },
   {
     href: {
@@ -127,7 +143,16 @@ export const CATEGORIES = [
     key: "kids-parenting",
     label: "Kids & Parenting",
   },
-] as const;
+] as const satisfies TFeedSuggestionCategoryItem[];
+
+export type TFeedSuggestionCategory = (typeof CATEGORIES)[number]["key"];
+
+export type TFeedSuggestionEntry = {
+  title: string;
+  url: string;
+  description: string;
+  imgUrl: string | null;
+};
 
 export const FEEDS_BY_CATEGORY = {
   "news-politics": [
@@ -398,6 +423,20 @@ export const FEEDS_BY_CATEGORY = {
       url: "https://www.lorenstew.art/rss.xml",
       description: "A blog exploring web development and AI",
       imgUrl: "https://www.lorenstew.art/favicon-32x32.png",
+    },
+    {
+      title: "Nic Chan",
+      url: "https://www.nicchan.me/feed.xml",
+      description: "The personal blog of Nic Chan, a front-end web developer.",
+      imgUrl: "https://www.nicchan.me/favicon.svg",
+    },
+  ],
+  design: [
+    {
+      title: "PJ Onori’s blog",
+      url: "https://pjonori.blog/rss.xml",
+      description: "All things about Design Systems",
+      imgUrl: null,
     },
   ],
   "style-beauty": [
@@ -750,4 +789,4 @@ export const FEEDS_BY_CATEGORY = {
   hobbies: [],
   outdoors: [],
   "kids-parenting": [],
-} as const;
+} as const satisfies Record<TFeedSuggestionCategory, TFeedSuggestionEntry[]>;
