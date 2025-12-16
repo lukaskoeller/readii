@@ -64,6 +64,22 @@ const feedSuggestionsEntries = Object.entries(feedSuggestions);
             JavaScript, and modern frameworks. Join the community of developers
             and designers to enhance your front-end expertise.
           </p>
+          <button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg
+            >
+            Subscribe
+          </button>
         </div>
       </article>
     </div>
@@ -126,7 +142,7 @@ const feedSuggestionsEntries = Object.entries(feedSuggestions);
   }
 
   .cover {
-	min-block-size: 0;
+    min-block-size: 0;
     grid-area: cover;
     inline-size: 100%;
     block-size: 100%;
@@ -154,8 +170,8 @@ const feedSuggestionsEntries = Object.entries(feedSuggestions);
   }
 
   .featured-image {
-	flex: 30vw 0 1;
-	min-inline-size: 0;
+    flex: 30vw 0 1;
+    min-inline-size: 0;
     border-radius: calc(var(--border-radius-lg));
     corner-shape: squircle;
     max-block-size: 100%;
@@ -165,12 +181,13 @@ const feedSuggestionsEntries = Object.entries(feedSuggestions);
 
   .article {
     padding-block: var(--spacing-far);
+    margin-inline: auto;
     display: flex;
     gap: var(--spacing-far);
   }
 
   .text {
-	flex: 40ch 0 1;
+    flex: 40ch 0 1;
     max-inline-size: 40ch;
 
     & > h2 {
