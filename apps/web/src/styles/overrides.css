@@ -1,0 +1,126 @@
+/* dm-serif-display-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "STIX Two Text", serif;
+  font-style: normal;
+  font-weight: 600;
+  src: url("../assets/STIXTwoText-SemiBold.ttf") format("ttf");
+}
+
+html {
+  font-family: var(--font-family-sans);
+  background-color: var(--color-surface-base);
+}
+
+:root {
+  --max-content-width: 1400px;
+  --dynamic-content-width: min(var(--max-content-width), 100%);
+  --page-padding: var(--spacing-far);
+  --font-family-serif: Georgia, serif;
+  --font-family-heading: "DM Serif Text", serif;
+
+  --color-brand-primary-gradient: oklch(0.6225 0.1826 43.52);
+
+  --border-radius-xs: 6px;
+  --border-radius-sm: 12px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --border-radius-xl: 48px;
+
+  --shadow-near: 0px 0.5px 0.7px
+      color-mix(in oklch, var(--shadow-color), transparent 9%),
+    0px 0.9px 1.2px -0.4px color-mix(in oklch, var(--shadow-color), transparent
+          23%),
+    0px 1.9px 2.6px -0.8px color-mix(in oklch, var(--shadow-color), transparent
+          36%);
+  --shadow-medium: 0px 0.5px 0.6px
+      color-mix(in oklch, var(--shadow-color), transparent 31%),
+    0px 1.6px 1.8px -0.8px color-mix(in oklch, var(--shadow-color), transparent
+          31%),
+    0px 3.9px 4.4px -1.7px color-mix(in oklch, var(--shadow-color), transparent
+          31%),
+    0px 9.5px 10.7px -2.5px color-mix(in oklch, var(--shadow-color), transparent
+          31%);
+  --shadow-far: 0px 0.5px 0.6px
+      color-mix(in oklch, var(--shadow-color), transparent 29%),
+    0px 2.6px 2.9px -0.4px color-mix(in oklch, var(--shadow-color), transparent
+          29%),
+    0px 4.8px 5.4px -0.7px color-mix(in oklch, var(--shadow-color), transparent
+          29%),
+    0px 7.9px 8.9px -1.1px color-mix(in oklch, var(--shadow-color), transparent
+          29%),
+    0px 12.6px 14.2px -1.4px color-mix(in oklch, var(--shadow-color), transparent
+          29%),
+    -0.1px 19.6px 22.1px -1.8px
+      color-mix(in oklch, var(--shadow-color), transparent 29%),
+    -0.1px 29.8px 33.5px -2.1px
+      color-mix(in oklch, var(--shadow-color), transparent 29%),
+    -0.2px 43.8px 49.3px -2.5px
+      color-mix(in oklch, var(--shadow-color), transparent 29%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 600;
+}
+
+p,
+p * {
+  font-family: var(--font-family-sans);
+}
+
+.nc-card {
+  box-shadow: none;
+  box-shadow: inset 0px -2px 6px -2px var(--color-border-muted);
+  background-color: var(--color-surface-muted);
+  border-radius: var(--border-radius-md);
+  corner-shape: squircle;
+  border-width: 0px;
+  /* box-shadow: var(--shadow-near); */
+  box-shadow: none;
+}
+
+.nc-button {
+  --control-spacing-near: var(--spacing-base);
+  --color-button-hover: color-mix(
+    in oklch,
+    var(--color-brand-primary-base) 80%,
+    white 20%
+  );
+
+  transition: 0.3s ease background-color;
+  font-weight: var(--font-weight-strong);
+  border: 0;
+  border-radius: var(--border-radius-round);
+
+  &.-primary {
+    --button-border-color: var(--color-button-hover);
+
+    /* background: linear-gradient(var(--color-brand-primary-base), var(--color-brand-primary-gradient)); */
+
+    &:hover {
+      background-color: var(--color-button-hover);
+      color: var(--_button-color);
+    }
+
+    &:active {
+      background-color: var(--color-button-hover);
+      color: var(--_button-color);
+    }
+  }
+}
+
+.section {
+  inline-size: var(--dynamic-content-width);
+  margin-inline: auto;
+  padding-inline: var(--spacing-base);
+
+  &.-padding {
+    padding-inline: var(--spacing-far);
+  }
+}

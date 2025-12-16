@@ -102,6 +102,7 @@
 - Bluesky Search: https://api.bsky.app/xrpc/app.bsky.actor.searchActors?q=readii
 - Bluesky Docs: https://docs.bsky.app/docs/api/app-bsky-feed-get-feed
 - Youtube Search: https://www.youtube.com/results?sp=EgIQAg%3D%3D&search_query=veritasium
+- Signal Link Preview: https://github.com/signalapp/Signal-Desktop/tree/ce0fb220411b97722e1e080c14faa65d23165784/ts/linkPreviews
 
 ## Competition
 

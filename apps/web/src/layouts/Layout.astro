@@ -1,0 +1,42 @@
+---
+import favicon from "@readii/assets/icons/favicon/svg";
+import ogimage from "@readii/assets/images/ogimage";
+import "../styles/theme.css";
+// import "@nordcode/ui/utils/media"
+import "@nordcode/ui/bundle";
+import "@nordcode/ui/utils/layouts";
+import "@nordcode/ui/components/card";
+import "@nordcode/ui/components/forms";
+import "@nordcode/ui/components/inputs";
+import "@nordcode/ui/components/buttons";
+import "@nordcode/ui/components/gallery";
+import "../styles/overrides.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>readii - RSS Reader</title>
+    <meta
+      name="description"
+      content="A cross-platform app that allows you to follow content from across the internet in one place. Whether it's your favorite blogs, websites, or newsletters. Filter and customize your content according to your personal interests."
+    />
+    <meta property="og:image" content={ogimage} />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

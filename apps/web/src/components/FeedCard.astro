@@ -1,0 +1,186 @@
+---
+interface Props {
+  title: string;
+  categories: string[];
+}
+
+const { title, categories } = Astro.props;
+---
+
+<article class="nc-card main-card">
+  <div class="images">
+    <div class="image">
+      <slot name="image"
+        ><div class="image-fallback"><slot name="icon" /></div></slot
+      >
+    </div>
+    <div class="icon"><slot name="icon" /></div>
+  </div>
+  <h2>{title}</h2>
+  <!-- <div class="tags">{categories.map((cat) => (
+    <div class="tag">{cat}</div>
+  ))}</div> -->
+  <button class="button">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+        d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg
+    >
+    Subscribe
+  </button>
+</article>
+
+<style>
+  .main-card {
+    --card-padding-inline: var(--spacing-near);
+    --card-padding-block: var(--spacing-near);
+
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    inline-size: min(100%, clamp(140px, 20vw, 320px));
+  }
+
+  .images {
+    display: grid;
+    justify-items: end;
+    align-items: end;
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: var(--color-surface-muted);
+    border-radius: var(--border-radius-sm);
+    corner-shape: squircle;
+
+    &:has(.image-fallback) {
+      place-items: center;
+
+      & .icon {
+        inline-size: 25%;
+      }
+    }
+  }
+
+  .image {
+    grid-area: 1 / 1;
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 0;
+
+    & :global(> *) {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .icon {
+    z-index: 1;
+    grid-area: 1 / 1;
+    aspect-ratio: 1 / 1;
+    inline-size: 10%;
+    margin: var(--spacing-nearest);
+    overflow: hidden;
+    border-radius: var(--border-radius-sm);
+    corner-shape: squircle;
+    background-color: var(--color-surface-base);
+
+    & :global(> *) {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .image-fallback {
+    grid-area: 1 / 1;
+    min-block-size: 0;
+    filter: blur(40px);
+    background-color: color-mix(
+      in oklch,
+      var(--color-surface-subtle),
+      transparent 50%
+    );
+
+    & :global(> *) {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+    }
+  }
+
+  h2 {
+    display: inline-block;
+    min-block-size: 4lh;
+    font-family: var(--font-family-sans);
+    margin-block-start: var(--spacing-near);
+    font-size: var(--font-size-base);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .tags {
+    display: flex;
+    gap: var(--spacing-nearest);
+    flex-wrap: wrap;
+    margin-block-start: var(--spacing-base);
+  }
+
+  .tag {
+    padding-block: var(--spacing-tiny);
+    padding-inline: var(--spacing-near);
+    background-color: var(--color-surface-subtle);
+    border-radius: var(--border-radius-xs);
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-smallest);
+    font-weight: bold;
+  }
+
+  .button {
+    --button-color-hover: var(--_button-color);
+    --font-size: var(--font-size-small);
+
+    margin-inline-start: auto;
+    margin-inline-end: 0;
+    margin-block-start: var(--spacing-base);
+    /* background-color: var(--color-brand-primary-base); */
+    /* background-color: var(--color-surface-base); */
+    background-color: transparent;
+    color: var(--color-brand-primary-base);
+    box-shadow: none;
+    border: 0px solid;
+    /* border-color: color-mix(in oklch, var(--color-border-base), transparent 6%); */
+    border-color: var(--color-border-base);
+    transition: var(--transition-duration-moderate-1) var(--ease-3);
+    border-radius: var(--border-radius-sm);
+    corner-shape: squircle;
+
+    font-weight: bold;
+    font-size: var(--font-size);
+
+    &:hover {
+      border-color: color-mix(
+        in oklch,
+        var(--color-border-base),
+        transparent 26%
+      );
+      background-color: var(--color-surface-base);
+      /* background-color: color-mix(in oklch, var(--color-brand-primary-base), white 10%); */
+    }
+
+    & svg {
+      inline-size: var(--font-size);
+      block-size: var(--font-size);
+    }
+  }
+</style>

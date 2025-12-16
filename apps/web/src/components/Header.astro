@@ -1,0 +1,44 @@
+---
+import Logo from "./Logo.astro";
+---
+
+<header>
+  <div class="inner">
+    <Logo />
+    <nav class="nav">
+      <a class="link" href="/news">News</a>
+      <a class="link" href="/categories">Categories</a>
+      <a class="link" href="/search">Search</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    inline-size: 100%;
+    background: linear-gradient(
+      to bottom,
+      var(--color-surface-base),
+      transparent
+    );
+  }
+
+  .inner {
+    inline-size: var(--dynamic-content-width);
+    margin-inline: auto;
+    padding-inline: var(--spacing-far);
+    padding-block: var(--spacing-far);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav {
+    display: flex;
+    gap: var(--spacing-far);
+  }
+
+  .link {
+    text-decoration: none;
+  }
+</style>
