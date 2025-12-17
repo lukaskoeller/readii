@@ -23,6 +23,7 @@ const feedSuggestions = defineCollection({
       id: z.string(),
       title: z.string(),
       url: z.string(),
+      feedUrl: z.string(),
       description: z.string(),
       iconUrl: image().nullable(),
       ogImageUrl: image().nullable(),

@@ -20,6 +20,7 @@ export const suggestionSchema = z.object({
   title: string(),
   id: $HttpsUrl,
   url: $HttpsUrl,
+  feedUrl: $HttpsUrl,
   description: optional(string()),
   iconUrl: $HttpsUrl,
   ogImageUrl: $HttpsUrl,

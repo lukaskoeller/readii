@@ -2,6 +2,7 @@
 interface Props {
   title: string;
   categories: string[];
+  feedUrl: string;
 }
 
 const { title, categories } = Astro.props;
@@ -20,7 +21,10 @@ const { title, categories } = Astro.props;
   <!-- <div class="tags">{categories.map((cat) => (
     <div class="tag">{cat}</div>
   ))}</div> -->
-  <button class="button">
+  <a
+    class="nc-button button"
+    href=`readii://add?feedUrl=${encodeURI(Astro.props.feedUrl)}`
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -35,7 +39,7 @@ const { title, categories } = Astro.props;
         d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg
     >
     Subscribe
-  </button>
+  </a>
 </article>
 
 <style>

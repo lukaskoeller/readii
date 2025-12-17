@@ -49,6 +49,7 @@ const feedSuggestionsEntries = Object.entries(feedSuggestions);
             <FeedCard
               title={suggestion.title}
               categories={suggestion.categories}
+              feedUrl={suggestion.feedUrl}
             >
               {suggestion.iconUrl && (
                 <Image
