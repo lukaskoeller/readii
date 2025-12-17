@@ -1,15 +1,12 @@
 ---
 import { Image } from "astro:assets";
-import Logo from "../components/Logo.astro";
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { FEED_CATEGORY_TO_LABEL } from "@readii/data";
 import GallerySection from "../components/GallerySection.astro";
 import FeedCard from "../components/FeedCard.astro";
-import Header from "../components/Header.astro";
-
-const COVER_SRC = "https://piccalil.li/images/social-share.png";
+import InfoHero from "../components/InfoHero.astro";
 
 const data = await getCollection("feedSuggestions");
 const feedSuggestionsMap = new Map<
@@ -35,55 +32,7 @@ const feedSuggestionsEntries = Object.entries(feedSuggestions);
 ---
 
 <Layout>
-  <section class="hero">
-    <Image
-      class="cover"
-      src={COVER_SRC}
-      alt="Piccalilli Featured Image"
-      width={1400}
-      height={750}
-    />
-    <div class="overlay">
-      <Header />
-      <article class="section article">
-        <Image
-          class="featured-image"
-          src={COVER_SRC}
-          alt="Piccalilli Featured Image"
-          width={1400}
-          height={750}
-        />
-        <div class="text nc-flow">
-          <h1>Piccalilli</h1>
-          <h2>
-            We are Piccalilli. A publication dedicated to providing high quality
-            educational content to level up your front-end skills.
-          </h2>
-          <p>
-            Discover articles, tutorials, and resources on HTML, CSS,
-            JavaScript, and modern frameworks. Join the community of developers
-            and designers to enhance your front-end expertise.
-          </p>
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-                d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg
-            >
-            Subscribe
-          </button>
-        </div>
-      </article>
-    </div>
-  </section>
+  <InfoHero />
   {
     feedSuggestionsEntries.map(([category, suggestions]) => (
       <GallerySection
@@ -128,74 +77,6 @@ const feedSuggestionsEntries = Object.entries(feedSuggestions);
 </Layout>
 
 <style>
-  .hero {
-    display: grid;
-    grid: [cover] 1fr / [cover] 1fr;
-    max-block-size: 60dvh;
-    inline-size: 100%;
-    border-radius: var(--border-radius-xl);
-    border-start-start-radius: 0;
-    border-start-end-radius: 0;
-    corner-shape: squircle;
-    background-color: var(--color-surface-subtle);
-    overflow: clip;
-  }
-
-  .cover {
-    min-block-size: 0;
-    grid-area: cover;
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-    filter: blur(120px);
-  }
-
-  .overlay {
-    display: grid;
-    align-content: start;
-    position: relative;
-    grid-area: cover;
-    inline-size: 100%;
-    block-size: 100%;
-    background: linear-gradient(
-      to bottom,
-      color-mix(in oklch, var(--color-surface-base), transparent 10%),
-      color-mix(in oklch, var(--color-surface-base), transparent 70%),
-      color-mix(in oklch, var(--color-surface-base), transparent 90%)
-    );
-
-    & :global(> *) {
-      min-block-size: 0;
-    }
-  }
-
-  .featured-image {
-    flex: 30vw 0 1;
-    min-inline-size: 0;
-    border-radius: calc(var(--border-radius-lg));
-    corner-shape: squircle;
-    max-block-size: 100%;
-    /* block-size: 100%; */
-    object-fit: contain;
-  }
-
-  .article {
-    padding-block: var(--spacing-far);
-    margin-inline: auto;
-    display: flex;
-    gap: var(--spacing-far);
-  }
-
-  .text {
-    flex: 40ch 0 1;
-    max-inline-size: 40ch;
-
-    & > h2 {
-      font-weight: bold;
-      font-size: var(--font-size-base);
-    }
-  }
-
   .category-gallery {
     margin-block-start: var(--spacing-far);
     display: grid;

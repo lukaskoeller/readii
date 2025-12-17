@@ -1,0 +1,67 @@
+<section class="hero">
+  <div class="background">
+    <slot name="background" />
+  </div>
+  <div class="overlay">
+    <slot name="header" />
+    <article class="section article">
+      <slot name="content" />
+    </article>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid: [cover] 1fr / [cover] 1fr;
+    min-block-size: 50dvh;
+    max-block-size: 60dvh;
+    inline-size: 100%;
+    border-radius: var(--border-radius-xl);
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
+    corner-shape: squircle;
+    background-color: var(--color-surface-subtle);
+    overflow: clip;
+  }
+
+  .background {
+    inline-size: 100%;
+    block-size: 100%;
+    grid-area: cover;
+    min-block-size: 0;
+
+    & :global(> *) {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      filter: blur(120px);
+    }
+  }
+
+  .overlay {
+    grid-area: cover;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    inline-size: 100%;
+    block-size: 100%;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in oklch, var(--color-surface-base), transparent 10%),
+      color-mix(in oklch, var(--color-surface-base), transparent 70%),
+      color-mix(in oklch, var(--color-surface-base), transparent 90%)
+    );
+
+    & :global(> *) {
+      min-block-size: 0;
+    }
+  }
+
+  .article {
+    padding-block: var(--spacing-far);
+    margin-inline: auto;
+    display: flex;
+    gap: var(--spacing-far);
+  }
+</style>

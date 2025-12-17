@@ -1,0 +1,53 @@
+---
+import Hero from "./Hero.astro";
+import { GOOGLE_FORM_WAITLIST_URL } from "../constants";
+import Header from "./Header.astro";
+---
+
+<Hero>
+  <Header slot="header" />
+  <div slot="content" class="content">
+    <p class="text">
+      Mit readii kannst du Inhalte aus dem Internet in einer einzigen App
+      verfolgen. Egal, ob es sich um deine Lieblingsblogs, Websites oder
+      Newsletter handelt. Filtere und individualisiere deine Inhalte nach deinen
+      persönlichen Interessen.
+    </p>
+    <div class="actions">
+      <a
+        class="nc-button -primary -small"
+        href={GOOGLE_FORM_WAITLIST_URL}
+        target="_blank"
+        rel="noopener noreferrer">Auf die Warteliste</a
+      >
+      <a
+        class="nc-button -stealth -small"
+        href="https://bsky.app/profile/readii.bsky.social"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Auf Bluesky folgen
+      </a>
+    </div>
+</div>
+</Hero>
+
+<style>
+    .content {
+        max-inline-size: 60ch;
+        block-size: 100%;
+        margin-inline: auto;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        gap: var(--spacing-far);
+    }
+
+    .text {
+        text-align: center;
+    }
+    
+    .actions {
+        margin-inline: auto;
+    }
+</style>
