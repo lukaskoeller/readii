@@ -1,0 +1,55 @@
+---
+import favicon from "@readii/assets/icons/favicon/svg";
+import ogImagePath from "@readii/assets/images/ogimage";
+
+export interface Props {
+  title: string;
+  description?: string;
+  structuredData?: Record<string, unknown>[];
+  canonical?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title = "RSS Reader",
+  description = "A cross-platform app that allows you to follow content from across the internet in one place. Whether it's your favorite blogs, websites, or newsletters. Filter and customize your content according to your personal interests.",
+  structuredData = [],
+  canonical = Astro.url.toString(),
+  noIndex = false,
+} = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>{title} - readii</title>
+<meta name="description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImagePath} />
+<meta property="og:image:url" content={ogImagePath} />
+<meta property="og:site_name" content="readii" />
+<link rel="icon" type="image/svg+xml" href={favicon} />
+<meta name="generator" content={Astro.generator} />
+<link rel="canonical" href={canonical} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonical} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta property="twitter:image" content={ogImagePath} />
+
+{noIndex ? <meta name="robots" content="nofollow, noindex" /> : ""}
+
+{
+  structuredData?.map((data) => (
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(data)}
+    />
+  ))
+}
