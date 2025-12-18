@@ -31,10 +31,10 @@ const feedSuggestionsEntries = Object.entries(feedSuggestions);
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
+<Layout title="RSS Reader">
   <InfoHero />
   {
-    feedSuggestionsEntries.map(([category, suggestions]) => (
+    feedSuggestionsEntries.filter(([category]) => category === "featured").map(([category, suggestions]) => (
       <GallerySection
         title={
           category in FEED_CATEGORY_TO_LABEL
@@ -45,7 +45,7 @@ const feedSuggestionsEntries = Object.entries(feedSuggestions);
         }
       >
         <Fragment slot="items">
-          {suggestions.map((suggestion) => (
+          {suggestions.sort((a, b) => a.title.localeCompare(b.title)).map((suggestion) => (
             <FeedCard
               title={suggestion.title}
               categories={suggestion.categories}

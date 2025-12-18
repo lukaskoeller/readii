@@ -1,6 +1,4 @@
 ---
-import favicon from "@readii/assets/icons/favicon/svg";
-import ogimage from "@readii/assets/images/ogimage";
 import "../styles/theme.css";
 // import "@nordcode/ui/utils/media"
 import "@nordcode/ui/bundle";
@@ -11,21 +9,23 @@ import "@nordcode/ui/components/inputs";
 import "@nordcode/ui/components/buttons";
 import "@nordcode/ui/components/gallery";
 import "../styles/overrides.css";
+import Head from "../components/Head.astro";
+
+export interface Props {
+  title: string;
+  description?: string;
+  structuredData?: Record<string, unknown>[];
+  canonical?: string;
+  noIndex?: boolean;
+}
+
+const props = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>readii - RSS Reader</title>
-    <meta
-      name="description"
-      content="A cross-platform app that allows you to follow content from across the internet in one place. Whether it's your favorite blogs, websites, or newsletters. Filter and customize your content according to your personal interests."
-    />
-    <meta property="og:image" content={ogimage} />
-    <link rel="icon" type="image/svg+xml" href={favicon} />
-    <meta name="generator" content={Astro.generator} />
+    <Head {...props} />
   </head>
   <body>
     <slot />
@@ -36,7 +36,7 @@ import "../styles/overrides.css";
   html,
   body {
     margin: 0;
-    width: 100%;
-    height: 100%;
+    inline-size: 100%;
+    block-size: 100%;
   }
 </style>
