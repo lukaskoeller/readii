@@ -19,6 +19,7 @@ export const FEED_CATEGORY_TO_LABEL = {
   hobbies: "Hobbies",
   outdoors: "Outdoors",
   sports: "Sports",
+  featured: "Featured",
 } as const satisfies Record<TFeedCategory, string>;
 
 export type TFeedCategoryLabel = typeof FEED_CATEGORY_TO_LABEL[TFeedCategory];

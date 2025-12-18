@@ -19,6 +19,7 @@ export const feedCategory = z.enum([
   "startups-innovation",
   "style-beauty",
   "travel-regional",
+  "featured",
 ]);
 
 export type TFeedCategory = z.infer<typeof feedCategory>;

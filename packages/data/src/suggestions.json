@@ -20,10 +20,20 @@
     "categories": ["news-politics"]
   },
   {
-    "title": "tagesschau.de - die erste Adresse für Nachrichten und Information",
+    "title": "faktenfinder - Fakten-Checks und Hintergründe",
     "id": "https://www.tagesschau.de/index~rss2.xml",
-    "url": "https://www.tagesschau.de",
+    "url": "https://www.tagesschau.de/faktenfinder",
     "feedUrl": "https://www.tagesschau.de/index~rss2.xml",
+    "description": "Die aktuellen Beiträge der Seite https://www.tagesschau.de/faktenfinder",
+    "iconUrl": "https://www.tagesschau.de/resources/assets/image/favicon/favicon.svg",
+    "ogImageUrl": "https://images.tagesschau.de/image/89045d82-5cd5-46ad-8f91-73911add30ee/AAABlpITK5s/AAABmt42H9g/16x9-big/tagesschau-logo-100.jpg?width=1280",
+    "categories": ["news-politics", "featured"]
+  },
+  {
+    "title": "tagesschau.de - die erste Adresse für Nachrichten und Information",
+    "id": "https://www.tagesschau.de/faktenfinder/index~rss2.xml",
+    "url": "https://www.tagesschau.de",
+    "feedUrl": "https://www.tagesschau.de/faktenfinder/index~rss2.xml",
     "description": "Die aktuellen Beiträge der Seite https://www.tagesschau.de/",
     "iconUrl": "https://www.tagesschau.de/resources/assets/image/favicon/favicon.svg",
     "ogImageUrl": "https://images.tagesschau.de/image/89045d82-5cd5-46ad-8f91-73911add30ee/AAABlpITK5s/AAABmt42H9g/16x9-big/tagesschau-logo-100.jpg?width=1280",
@@ -177,7 +187,7 @@
     "description": "The Sovereign Tech Agency is dedicated to protecting and strengthening the open source backbone of our digital future.",
     "iconUrl": "https://www.sovereign.tech/static/images/favicons/favicon-32x32.png",
     "ogImageUrl": "https://www.sovereign.tech/public/_1200x630_crop_center-center_82_none_ns/STA-Opengraph-Image.png?mtime=1730664693",
-    "categories": ["startups-innovation"]
+    "categories": ["startups-innovation", "featured"]
   },
   {
     "title": "TechCrunch",
@@ -227,7 +237,7 @@
     "description": "Data-driven reporting on private markets, startups, founders, and investors",
     "iconUrl": "https://news.crunchbase.com/wp-content/uploads/cb_news_favicon-150x150.png",
     "ogImageUrl": null,
-    "categories": ["startups-innovation"]
+    "categories": ["startups-innovation", "featured"]
   },
   {
     "title": "Reddit /r/investing",
@@ -257,7 +267,7 @@
     "description": "Recent content in Articles on Smashing Magazine — For Web Designers And Developers",
     "iconUrl": "https://www.smashingmagazine.com/images/favicon/app-icon-512x512.png",
     "ogImageUrl": "https://smashingmagazine.com/images/smashing-homepage.png",
-    "categories": ["software-development"]
+    "categories": ["software-development", "featured"]
   },
   {
     "title": "Adam Argyle",
@@ -267,7 +277,7 @@
     "description": "RSS Feed for Adam Argyle: Web design & development tips & tricks: CSS, JS, HTML, Design, & UX.",
     "iconUrl": "https://nerdy.dev/rss-icon.png",
     "ogImageUrl": "https://nerdy.dev/media/skull-card.png",
-    "categories": ["software-development"]
+    "categories": ["software-development", "featured"]
   },
   {
     "title": "The Index by Piccalilli",
@@ -277,7 +287,7 @@
     "description": "High quality, curated design, dev and tech links. Twice a week.",
     "iconUrl": "https://piccalil.li/favicons/favicon-32x32.png",
     "ogImageUrl": "https://piccalil.li/images/social-share.png",
-    "categories": ["software-development"]
+    "categories": ["software-development", "featured"]
   },
   {
     "title": "CSS Weekly",
@@ -377,7 +387,7 @@
     "description": "All things about Design Systems",
     "iconUrl": null,
     "ogImageUrl": null,
-    "categories": ["design"]
+    "categories": ["design", "featured"]
   },
   {
     "title": "Refinery29",
@@ -547,7 +557,7 @@
     "description": "The New York Times Cooking - Recipes",
     "iconUrl": "https://static01.nyt.com/applications/cooking/bed7145/assets/apple-touch-icon-72x72-precomposed.png",
     "ogImageUrl": "https://static01.nyt.com/applications/cooking/cad3c48/assets/hp-og-image.jpg",
-    "categories": ["food"]
+    "categories": ["food", "featured"]
   },
   {
     "title": "smitten kitchen",
@@ -647,7 +657,7 @@
     "description": "Der Food Blog für einfache französische Rezepte",
     "iconUrl": "https://www.franzoesischkochen.de/wp-content/uploads/2025/04/cropped-favicon-bleu-32x32.png",
     "ogImageUrl": "https://www.franzoesischkochen.de/moi2.jpg",
-    "categories": ["food"]
+    "categories": ["food", "featured"]
   },
   {
     "title": "Löffelgenuss Foodblog",
@@ -677,7 +687,7 @@
     "description": "Food Blog von Lena. Hausgemachte Leckereien und viele Rezeptideen zum Nachmachen",
     "iconUrl": "https://i0.wp.com/meinleckeresleben.com/wp-content/uploads/2016/07/cropped-Lena_Fuchs-Favicon-Farbe-RGB-ohneClaim-Wordpress-1.png?fit=32%2C32&#038;ssl=1",
     "ogImageUrl": "https://i0.wp.com/meinleckeresleben.com/wp-content/uploads/2016/07/cropped-Lena_Fuchs-Favicon-Farbe-RGB-ohneClaim-Wordpress-1.png?fit=512%2C512&ssl=1",
-    "categories": ["food"]
+    "categories": ["food", "featured"]
   },
   {
     "title": "Kochkarussell",
@@ -687,7 +697,7 @@
     "description": "Der Foodblog für schnelle und einfache Feierabendküche. Über 450 frische, gesunde Rezepte für jeden Tag.",
     "iconUrl": "https://kochkarussell.com/wp-content/uploads/2021/04/cropped-Favicon-32x32.png",
     "ogImageUrl": "https://kochkarussell.com/wp-content/uploads/2018/06/15-Minuten-Gnocchi-mit-geschmolzenen-Tomaten-und-Basilikum-1.jpg",
-    "categories": ["food"]
+    "categories": ["food", "featured"]
   },
   {
     "title": "food with love",
@@ -697,7 +707,7 @@
     "description": "Rezepte mit und ohne Thermomix",
     "iconUrl": "https://www.foodwithlove.de/wp-content/uploads/2021/05/logo_fwl_round.svg",
     "ogImageUrl": null,
-    "categories": ["food"]
+    "categories": ["food", "featured"]
   },
   {
     "title": "Madame Cuisine",
@@ -840,16 +850,6 @@
     "categories": ["science-tech"]
   },
   {
-    "title": "SciTechDaily",
-    "id": "https://scitechdaily.com/feed/",
-    "url": "https://scitechdaily.com/",
-    "feedUrl": "https://scitechdaily.com/feed/",
-    "description": "Science, Space and Technology News",
-    "iconUrl": "https://scitechdaily.com/favicon.ico",
-    "ogImageUrl": null,
-    "categories": ["science-tech"]
-  },
-  {
     "title": "MIT Technology Review",
     "id": "https://www.technologyreview.com/feed/",
     "url": "https://www.technologyreview.com/",
@@ -857,7 +857,7 @@
     "description": "MIT Technology Review’s insight and analysis explain the newest technologies and their commercial, social, and political impacts.",
     "iconUrl": "https://wp.technologyreview.com/wp-content/uploads/2024/09/cropped-TR-Logo-Block-Centered-R.png?w=180",
     "ogImageUrl": "https://wp.technologyreview.com/wp-content/uploads/2023/03/MIT-TR-Social-Share.png",
-    "categories": ["science-tech"]
+    "categories": ["science-tech", "featured"]
   },
   {
     "title": "heise online News",
@@ -898,6 +898,26 @@
     "iconUrl": "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/apple-touch-icon-114x114.png",
     "ogImageUrl": "https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/organ_chip/Organ_Chip_FeatureBPS_alt.jpg",
     "categories": ["science-tech"]
+  },
+  {
+    "title": "NASA Image of the Day",
+    "id": "https://www.nasa.gov/feeds/iotd-feed/",
+    "url": "https://www.nasa.gov/",
+    "feedUrl": "https://www.nasa.gov/feeds/iotd-feed/",
+    "description": "The latest NASA \"Image of the Day\" image.",
+    "iconUrl": "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/apple-touch-icon-114x114.png",
+    "ogImageUrl": "https://www.nasa.gov/wp-content/uploads/2019/08/589552main_as11-40-5875_full.jpg",
+    "categories": ["science-tech", "featured"]
+  },
+  {
+    "title": "NASA",
+    "id": "https://www.nasa.gov/feed/",
+    "url": "https://www.nasa.gov/",
+    "feedUrl": "https://www.nasa.gov/feed/",
+    "description": "Official National Aeronautics and Space Administration Website",
+    "iconUrl": "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/apple-touch-icon-114x114.png",
+    "ogImageUrl": "https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/organ_chip/Organ_Chip_FeatureBPS_alt.jpg",
+    "categories": ["science-tech", "featured"]
   },
   {
     "title": "The Verge",
