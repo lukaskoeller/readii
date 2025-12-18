@@ -10,6 +10,8 @@ import { file } from "astro/loaders";
 // 3. Import Zod
 import { z } from "astro/zod";
 import feedSuggestionsJson from "@readii/data/suggestions/json?url";
+import { FEED_URL } from "./constants";
+import { getFeedData } from "@readii/parser";
 
 const dataURL = feedSuggestionsJson.replace("/@fs", "");
 const baseUrl = new URL(".", import.meta.url);
@@ -31,8 +33,36 @@ const feedSuggestions = defineCollection({
     }),
 });
 
+const blueskyPosts = defineCollection({
+  loader: async () => {
+    const URL = FEED_URL;
+    const feed = await getFeedData(URL, { source: "atproto" });
+
+    const data = feed.mediaItems.map((item) => ({
+      ...item,
+      id: item.url,
+    }));
+    
+    return data;
+  },
+  schema: ({ image }) =>
+    z.object({
+      title: z.string().nullable(),
+      type: z.enum(["text", "audio", "video"]),
+      url: z.string(),
+      content: z.string(), // most important field
+      contentSnippet: z.string().nullable(),
+      contentTldr: z.string().nullable(),
+      creator: z.string().nullable(),
+      publishedAt: z.string(),
+      thumbnailUrl: image().nullable(),
+      enclosure: z.string().nullable(),
+      mediaSourceId: z.number().optional(),
+    }),
+});
+
 // 5. Export a single `collections` object to register your collection(s)
-export const collections = { feedSuggestions };
+export const collections = { feedSuggestions, blueskyPosts };
 
 async function parseSuggestions(text: string) {
   emptyDir(iconsDir);
