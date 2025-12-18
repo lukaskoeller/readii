@@ -1,16 +1,23 @@
-import { optional, string, z } from "zod/mini";
+import { nullable, string, z } from "zod/mini";
 import { $HttpsUrl } from "@readii/schemas/zod";
 
 export const feedCategory = z.enum([
-  "news-politics",
+  "cars",
+  "design",
   "entertainment",
+  "food",
+  "health",
+  "hobbies",
+  "home-garden",
+  "kids-parenting",
+  "money-business",
+  "news-politics",
+  "outdoors",
+  "science-tech",
+  "software-development",
   "sports",
   "startups-innovation",
-  "money-business",
-  "software-development",
-  "design",
   "style-beauty",
-  "food",
   "travel-regional",
 ]);
 
@@ -21,8 +28,10 @@ export const suggestionSchema = z.object({
   id: $HttpsUrl,
   url: $HttpsUrl,
   feedUrl: $HttpsUrl,
-  description: optional(string()),
+  description: nullable(string()),
   iconUrl: $HttpsUrl,
   ogImageUrl: $HttpsUrl,
   categories: z.array(feedCategory),
 });
+
+export type TFeedSuggestion = z.infer<typeof suggestionSchema>;

@@ -828,5 +828,85 @@
     "iconUrl": "https://www.classetouriste.be/wp-content/uploads/favicon.ico",
     "ogImageUrl": null,
     "categories": ["travel-regional"]
+  },
+  {
+    "title": "SciTechDaily",
+    "id": "https://scitechdaily.com/feed/",
+    "url": "https://scitechdaily.com/",
+    "feedUrl": "https://scitechdaily.com/feed/",
+    "description": "Science, Space and Technology News",
+    "iconUrl": "https://scitechdaily.com/favicon.ico",
+    "ogImageUrl": null,
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "SciTechDaily",
+    "id": "https://scitechdaily.com/feed/",
+    "url": "https://scitechdaily.com/",
+    "feedUrl": "https://scitechdaily.com/feed/",
+    "description": "Science, Space and Technology News",
+    "iconUrl": "https://scitechdaily.com/favicon.ico",
+    "ogImageUrl": null,
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "MIT Technology Review",
+    "id": "https://www.technologyreview.com/feed/",
+    "url": "https://www.technologyreview.com/",
+    "feedUrl": "https://www.technologyreview.com/feed/",
+    "description": "MIT Technology Review’s insight and analysis explain the newest technologies and their commercial, social, and political impacts.",
+    "iconUrl": "https://wp.technologyreview.com/wp-content/uploads/2024/09/cropped-TR-Logo-Block-Centered-R.png?w=180",
+    "ogImageUrl": "https://wp.technologyreview.com/wp-content/uploads/2023/03/MIT-TR-Social-Share.png",
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "heise online News",
+    "id": "https://www.heise.de/rss/heise-atom.xml",
+    "url": "https://www.heise.de",
+    "feedUrl": "https://www.heise.de/rss/heise-atom.xml",
+    "description": "Nachrichten nicht nur aus der Welt der Computer",
+    "iconUrl": "https://www.heise.de/icons/ho/touch-icons/safari-pinned-tab.svg",
+    "ogImageUrl": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/icons/ho/opengraph/opengraph.png",
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "Leibniz-Gemeinschaft",
+    "id": "https://www.leibniz-gemeinschaft.de/rss.xml",
+    "url": "https://www.leibniz-gemeinschaft.de/",
+    "feedUrl": "https://www.leibniz-gemeinschaft.de/rss.xml",
+    "description": "TOP-Meldungen von der Leibniz-Gemeinschaft",
+    "iconUrl": "https://www.leibniz-gemeinschaft.de/typo3conf/ext/mkleibniz/Resources/Public/Images/favicon.ico",
+    "ogImageUrl": null,
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "Max Planck Society - Research.",
+    "id": "https://www.mpg.de/en/research.rss",
+    "url": "https://www.mpg.de/",
+    "feedUrl": "https://www.mpg.de/en/research.rss",
+    "description": "Max Planck Society - Research News.",
+    "iconUrl": "https://www.mpg.de/assets/touch-icon-180x180-a3e396f9294afe6618861344bef35fc0075f9631fe80702eb259befcd682a42c.png",
+    "ogImageUrl": "https://www.mpg.de/assets/og-logo-281c44f14f2114ed3fe50e666618ff96341055a2f8ce31aa0fd70471a30ca9ed.jpg",
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "NASA Science",
+    "id": "https://science.nasa.gov/feed/",
+    "url": "https://science.nasa.gov/",
+    "feedUrl": "https://science.nasa.gov/feed/",
+    "description": "Discovering the secrets of the universe, searching for life elsewhere, and protecting and improving life on Earth and in space.",
+    "iconUrl": "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/apple-touch-icon-114x114.png",
+    "ogImageUrl": "https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/organ_chip/Organ_Chip_FeatureBPS_alt.jpg",
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "The Verge",
+    "id": "https://www.theverge.com/rss/index.xml",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "description": "The Verge is about technology and how it makes us feel. Founded in 2011, we offer our audience everything from breaking news to reviews to award-winning features and investigations, on our site, in video, and in podcasts.",
+    "iconUrl": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/01/verge-rss-large_80b47e.png?w=150&h=150&crop=1",
+    "ogImageUrl": "https://platform.theverge.com/wp-content/uploads/sites/2/2024/10/the_verge_social_share.png",
+    "categories": ["science-tech"]
   }
 ]

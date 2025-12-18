@@ -11,10 +11,10 @@
     },
     "./suggestions/zod": {
       "import": "./src/suggestions.schema.ts"
-    }    
+    }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
   "packageManager": "pnpm@10.22.0",
   "dependencies": {
     "@readii/schemas": "workspace:^",
+    "vitest": "^3.2.4",
     "zod": "^4.1.13"
   }
 }
