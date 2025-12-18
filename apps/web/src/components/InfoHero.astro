@@ -29,25 +29,33 @@ import Header from "./Header.astro";
         Auf Bluesky folgen
       </a>
     </div>
-</div>
+  </div>
 </Hero>
 
 <style>
-    .content {
-        max-inline-size: 60ch;
-        block-size: 100%;
-        margin-inline: auto;
-        display: grid;
-        justify-content: center;
-        align-content: center;
-        gap: var(--spacing-far);
-    }
+  .content {
+    max-inline-size: 60ch;
+    block-size: 100%;
+    margin-inline: auto;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: var(--spacing-far);
+  }
 
-    .text {
-        text-align: center;
+  .text {
+    text-align: center;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-near);
+    justify-content: center;
+    margin-inline: auto;
+
+    & :global(> *) {
+      flex-shrink: 0;
     }
-    
-    .actions {
-        margin-inline: auto;
-    }
+  }
 </style>

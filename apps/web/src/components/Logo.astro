@@ -58,10 +58,16 @@
 </svg>
 
 <style>
+	@custom-media --md-n-above (width >= 768px);
+
 	.svg {
-		--size: 180px;
+		--size: 140px;
 
 		inline-size: var(--size);
+
+		@media (--md-n-above) {
+			--size: 180px;
+		}
 	}
 
 	.text {
