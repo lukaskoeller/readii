@@ -3,7 +3,7 @@ import { Spacing } from "@/constants/Sizes";
 import { FlatList, StyleSheet, View } from "react-native";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { CATEGORIES, FEEDS_BY_CATEGORY } from "@/constants/data";
+import { CATEGORIES } from "@/constants/data";
 import { FeedPreview } from "@/components/FeedPreview";
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button/Button";
@@ -11,6 +11,8 @@ import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { useFeed, useMediaSource } from "@/hooks/queries";
 import { getFeedData } from "@readii/parser";
 import { TMediaSource } from "@/core/schema";
+import { suggestionsByCategory } from "@readii/data";
+import { TFeedCategory } from "@readii/data/suggestions/zod";
 
 const getTitle = (category: string) => {
   return CATEGORIES.find((c) => c.key === category)?.label ?? category;
@@ -47,8 +49,8 @@ export default function Category() {
       <FlatList
         style={{ padding: Spacing.container }}
         data={
-          FEEDS_BY_CATEGORY[
-            params.category as keyof typeof FEEDS_BY_CATEGORY
+          suggestionsByCategory[
+            params.category as TFeedCategory
           ] ?? []
         }
         keyExtractor={(item) => item.url}
@@ -64,7 +66,7 @@ export default function Category() {
               <FeedPreview
                 name={item.title}
                 description={item.description}
-                iconUrl={item.imgUrl}
+                iconUrl={item.iconUrl}
               />
               <ThemedView style={styles.actions}>
                 <Button
