@@ -2,6 +2,12 @@
 import favicon from "@readii/assets/icons/favicon/svg";
 import ogImagePath from "@readii/assets/images/ogimage";
 
+console.log({
+    favicon,
+    ogImagePath,
+});
+
+
 export interface Props {
   title: string;
   description?: string;
@@ -26,10 +32,10 @@ const {
 <meta property="og:type" content="website" />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
-<meta property="og:image" content={ogImagePath} />
-<meta property="og:image:url" content={ogImagePath} />
+<meta property="og:image" content={ogImagePath.src} />
+<meta property="og:image:url" content={ogImagePath.src} />
 <meta property="og:site_name" content="readii" />
-<link rel="icon" type="image/svg+xml" href={favicon} />
+<link rel="icon" type="image/svg+xml" href={favicon.src} />
 <meta name="generator" content={Astro.generator} />
 <link rel="canonical" href={canonical} />
 

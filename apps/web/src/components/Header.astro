@@ -5,12 +5,14 @@ import Logo from "./Logo.astro";
 
 <header>
   <div class="inner">
-    <Logo />
+    <a href="/" aria-label="Back to readii homepage">
+      <Logo />
+    </a>
     <nav class="nav">
       <a class="link" href="/news">News</a>
-      <a class="link" href={GOOGLE_FORM_WAITLIST_URL} target="_blank"
-        >Auf die Warteliste</a
-      >
+      <a class="link" href={GOOGLE_FORM_WAITLIST_URL} target="_blank">
+        Auf die Warteliste
+      </a>
     </nav>
   </div>
 </header>
