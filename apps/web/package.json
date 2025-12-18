@@ -12,6 +12,7 @@
     "@nordcode/ui": "^2.1.6",
     "@readii/assets": "workspace:^",
     "@readii/data": "workspace:^",
-    "astro": "^5.16.5"
+    "@readii/parser": "workspace:^",
+    "astro": "^5.16.6"
   }
 }
