@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.6.0",
     "@nordcode/ui": "^2.1.6",
     "@readii/assets": "workspace:^",
     "@readii/data": "workspace:^",
