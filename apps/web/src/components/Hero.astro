@@ -1,16 +1,24 @@
-<section class="hero">
-  <div class="background">
-    <slot name="background" />
-  </div>
-  <div class="overlay">
-    <slot name="header" />
-    <article class="section article">
-      <slot name="content" />
-    </article>
-  </div>
-</section>
+<div class="temp-wrapper">
+  <section class="hero">
+    <div class="background">
+      <slot name="background" />
+    </div>
+    <div class="overlay">
+      <slot name="header" />
+      <article class="section article">
+        <slot name="content" />
+      </article>
+    </div>
+  </section>
+</div>
 
 <style>
+  /* @todo TEMPORARY Remove when <AllGalleries /> is implemented */
+  .temp-wrapper {
+    inline-size: 100%;
+    padding-inline: var(--spacing-base);
+    padding-block: var(--spacing-far);
+  }
   .hero {
     display: grid;
     grid: [cover] 1fr / [cover] 1fr;
