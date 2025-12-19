@@ -15,6 +15,7 @@
     "@readii/data": "workspace:^",
     "@readii/parser": "workspace:^",
     "astro": "^5.16.6",
-    "lightningcss": "^1.30.2"
+    "lightningcss": "^1.30.2",
+    "sharp": "^0.34.5"
   }
 }
