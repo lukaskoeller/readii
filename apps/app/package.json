@@ -20,6 +20,7 @@
     "@react-navigation/bottom-tabs": "^7.8.4",
     "@react-navigation/elements": "^2.8.1",
     "@react-navigation/native": "^7.1.19",
+    "@readii/data": "workspace:^",
     "@readii/parser": "workspace:^",
     "@readii/schemas": "workspace:^",
     "@stripe/stripe-react-native": "0.50.3",

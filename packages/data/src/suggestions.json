@@ -1,0 +1,932 @@
+[
+  {
+    "title": "New York Times: Top Stories",
+    "id": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+    "url": "https://www.nytimes.com/",
+    "feedUrl": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+    "description": "Follow top stories from The New York Times.",
+    "iconUrl": "https://www.nytimes.com/vi-assets/static-assets/apple-touch-icon-dark-f74e69bf6dae735169854a4126cebf8c.png",
+    "ogImageUrl": "https://static01.nyt.com/newsgraphics/images/icons/defaultPromoCrop.png",
+    "categories": ["news-politics"]
+  },
+  {
+    "title": "The Guardian",
+    "id": "https://www.theguardian.com/europe/rss",
+    "url": "https://www.theguardian.com",
+    "feedUrl": "https://www.theguardian.com/europe/rss",
+    "description": "Latest news, sport, business, comment, analysis and reviews from the Guardian, the world's leading liberal voice",
+    "iconUrl": "https://assets.guim.co.uk/static/frontend/icons/homescreen/apple-touch-icon-120.png",
+    "ogImageUrl": null,
+    "categories": ["news-politics"]
+  },
+  {
+    "title": "faktenfinder - Fakten-Checks und Hintergründe",
+    "id": "https://www.tagesschau.de/index~rss2.xml",
+    "url": "https://www.tagesschau.de/faktenfinder",
+    "feedUrl": "https://www.tagesschau.de/index~rss2.xml",
+    "description": "Die aktuellen Beiträge der Seite https://www.tagesschau.de/faktenfinder",
+    "iconUrl": "https://www.tagesschau.de/resources/assets/image/favicon/favicon.svg",
+    "ogImageUrl": "https://images.tagesschau.de/image/89045d82-5cd5-46ad-8f91-73911add30ee/AAABlpITK5s/AAABmt42H9g/16x9-big/tagesschau-logo-100.jpg?width=1280",
+    "categories": ["news-politics", "featured"]
+  },
+  {
+    "title": "tagesschau.de - die erste Adresse für Nachrichten und Information",
+    "id": "https://www.tagesschau.de/faktenfinder/index~rss2.xml",
+    "url": "https://www.tagesschau.de",
+    "feedUrl": "https://www.tagesschau.de/faktenfinder/index~rss2.xml",
+    "description": "Die aktuellen Beiträge der Seite https://www.tagesschau.de/",
+    "iconUrl": "https://www.tagesschau.de/resources/assets/image/favicon/favicon.svg",
+    "ogImageUrl": "https://images.tagesschau.de/image/89045d82-5cd5-46ad-8f91-73911add30ee/AAABlpITK5s/AAABmt42H9g/16x9-big/tagesschau-logo-100.jpg?width=1280",
+    "categories": ["news-politics"]
+  },
+  {
+    "title": "DIE ZEIT | Nachrichten, News, Hintergründe und Debatten",
+    "id": "https://newsfeed.zeit.de/index",
+    "url": "https://zeit.de",
+    "feedUrl": "https://newsfeed.zeit.de/index",
+    "description": "Aktuelle Nachrichten, Kommentare, Analysen und Hintergrundberichte aus Politik, Wirtschaft, Gesellschaft, Wissen, Kultur und Sport lesen Sie bei der ZEIT.",
+    "iconUrl": "https://static.zeit.de/p/zeit.web/icons/rss-feed-icon-96x96.png",
+    "ogImageUrl": "https://img.zeit.de/administratives/sharing/fallback-image-die-zeit/wide__1300x731",
+    "categories": ["news-politics"]
+  },
+  {
+    "title": "Süddeutsche Zeitung",
+    "id": "https://rss.sueddeutsche.de/rss/Alles",
+    "url": "https://sueddeutsche.de",
+    "feedUrl": "https://rss.sueddeutsche.de/rss/Alles",
+    "description": "Alle Meldungen von SZ.de",
+    "iconUrl": "https://www.sueddeutsche.de/assets/img/favicon.ico",
+    "ogImageUrl": "https://www.sueddeutsche.de/pagelayout/assets/img/sz-share-graphic.png?v=20190219",
+    "categories": ["news-politics"]
+  },
+  {
+    "title": "FAZ - Frankfurter Allgemeine Zeitung",
+    "id": "https://www.faz.net/rss/aktuell",
+    "url": "https://www.faz.net",
+    "feedUrl": "https://www.faz.net/rss/aktuell",
+    "description": "News, Nachrichten und aktuelle Meldungen aus allen Ressorts. Politik, Wirtschaft, Sport, Feuilleton und Finanzen im Überblick.",
+    "iconUrl": "https://www.faz.net/favicon.png",
+    "ogImageUrl": "https://www.faz.net/faz-share-logo.jpg",
+    "categories": ["news-politics"]
+  },
+  {
+    "title": "/Film",
+    "id": "https://www.slashfilm.com/feed/",
+    "url": "https://www.slashfilm.com",
+    "feedUrl": "https://www.slashfilm.com/feed/",
+    "description": "The latest movie and television news, reviews, film trailers, exclusive interviews, and opinions - since 2005.",
+    "iconUrl": "https://www.slashfilm.com/img/slashfilm-favicon.png",
+    "ogImageUrl": "https://www.slashfilm.com/img/slashfilm-meta-image-1280x720.png",
+    "categories": ["entertainment"]
+  },
+  {
+    "title": "Ain't It Cool News CoolNews",
+    "id": "https://www.aintitcool.com/node/feed/coolnews/",
+    "url": "https://www.aintitcool.com",
+    "feedUrl": "https://www.aintitcool.com/node/feed/coolnews/",
+    "description": "The best in movie, TV, DVD and comic book news.",
+    "iconUrl": "https://media.aintitcool.com/static/social/defaultsquarelogo.png",
+    "ogImageUrl": "https://media.aintitcool.com/static/social/facebook-wide-dannie.png",
+    "categories": ["entertainment"]
+  },
+  {
+    "title": "ScreenCrush",
+    "id": "https://screencrush.com/feed/",
+    "url": "https://screencrush.com",
+    "feedUrl": "https://screencrush.com/feed/",
+    "description": "Read movie reviews, TV recaps and celebrity news, plus watch the latest movie trailers.",
+    "iconUrl": "https://townsquare.media/wp-content/uploads/2019/05/screencrush.png?w=72&h=72",
+    "ogImageUrl": "https://townsquare.media/site/442/files/2014/11/250-v2.png?format=natural",
+    "categories": ["entertainment"]
+  },
+  {
+    "title": "Deutschlandfunk Kultur - Film & Serie",
+    "id": "https://www.deutschlandfunkkultur.de/film-serie-100.rss",
+    "url": "https://www.deutschlandfunkkultur.de",
+    "feedUrl": "https://www.deutschlandfunkkultur.de/film-serie-100.rss",
+    "description": "Neuigkeiten, Hintergründe und Berichte zu Filmen und Serien.",
+    "iconUrl": "https://bilder.deutschlandfunk.de/db/bf/da/fa/dbbfdafa-35e3-426b-8170-f7a0bff13ac4/film-108-768x768.jpg",
+    "ogImageUrl": null,
+    "categories": ["entertainment"]
+  },
+  {
+    "title": "kicker News",
+    "id": "https://newsfeed.kicker.de/news/aktuell",
+    "url": "https://kicker.de",
+    "feedUrl": "https://newsfeed.kicker.de/news/aktuell",
+    "description": "Topaktuelle News bei kicker",
+    "iconUrl": "https://static.kicker.de/content/b2ea4d70/img/favicon/appicon48x48.png",
+    "ogImageUrl": "https://mediadb.kicker.de/special/facebook/images/logo-kicker.png",
+    "categories": ["sports"]
+  },
+  {
+    "title": "kicker Fußball News",
+    "id": "https://newsfeed.kicker.de/news/fussball",
+    "url": "https://kicker.de",
+    "feedUrl": "https://newsfeed.kicker.de/news/fussball",
+    "description": "Topaktuelle News bei kicker (Fußball)",
+    "iconUrl": "https://static.kicker.de/content/b2ea4d70/img/favicon/appicon48x48.png",
+    "ogImageUrl": "https://mediadb.kicker.de/special/facebook/images/logo-kicker.png",
+    "categories": ["sports"]
+  },
+  {
+    "title": "Sportschau",
+    "id": "https://www.sportschau.de/index~rss2.xml",
+    "url": "https://www.sportschau.de",
+    "feedUrl": "https://www.sportschau.de/index~rss2.xml",
+    "description": "Die aktuellen Beiträge der Seite https://www.sportschau.de/",
+    "iconUrl": "https://www.sportschau.de/resources/assets/image/favicon/favicon.svg",
+    "ogImageUrl": "https://images.sportschau.de/image/80041de3-f096-423f-9884-a227122f0ddf/AAABlapg-D4/AAABmt42H9g/16x9-big/logo-sportschau-100.jpg?width=1280",
+    "categories": ["sports"]
+  },
+  {
+    "title": "Formel1.de News",
+    "id": "https://www.formel1.de/rss/news/feed.xml",
+    "url": "https://www.formel1.de",
+    "feedUrl": "https://www.formel1.de/rss/news/feed.xml",
+    "description": "Verpasse keine Formel-1-News mehr mit dem F1-Feed von Formel1.de.",
+    "iconUrl": "https://www.formel1.de/public/img/formel1.png",
+    "ogImageUrl": "https://www.formel1.de/formel1-de-og.png",
+    "categories": ["sports"]
+  },
+  {
+    "title": "Sportschau Formel 1",
+    "id": "https://www.sportschau.de/motorsport/formel1/index~rss2.xml",
+    "url": "https://www.sportschau.de",
+    "feedUrl": "https://www.sportschau.de/motorsport/formel1/index~rss2.xml",
+    "description": "Die aktuellen Beiträge der Seite https://www.sportschau.de/motorsport/formel1",
+    "iconUrl": "https://www.sportschau.de/resources/assets/image/favicon/favicon.svg",
+    "ogImageUrl": "https://images.sportschau.de/image/f33d9b85-dcdf-4f78-be05-78ba13f17508/AAABlcS1-vA/AAABmt42H9g/16x9-big/formel-eins-abu-dhabi-106.jpg?width=1280",
+    "categories": ["sports"]
+  },
+  {
+    "title": "ESPN Top News",
+    "id": "https://www.espn.com/espn/rss/news",
+    "url": "https://www.espn.com",
+    "feedUrl": "https://www.espn.com/espn/rss/news",
+    "description": "Latest TOP news from www.espn.com",
+    "iconUrl": "https://a.espncdn.com/i/espn/teamlogos/lrg/trans/espn_dotcom_black.gif",
+    "ogImageUrl": "https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fespn_logos%2Fespn_red.png",
+    "categories": ["sports"]
+  },
+  {
+    "title": "Business Insider",
+    "id": "https://www.businessinsider.de/gruenderszene/feed/",
+    "url": "https://www.businessinsider.de",
+    "feedUrl": "https://www.businessinsider.de/gruenderszene/feed/",
+    "description": "Aktuelle Wirtschafts-News von Business Insider aus Deutschland.",
+    "iconUrl": "https://www.businessinsider.de/wp-content/themes/business-insider/public/favicons/apple-touch-icon-gs.png",
+    "ogImageUrl": null,
+    "categories": ["startups-innovation"]
+  },
+  {
+    "title": "Sovereign Tech Agency",
+    "id": "https://www.sovereign.tech/feed.rss",
+    "url": "https://www.sovereign.tech",
+    "feedUrl": "https://www.sovereign.tech/feed.rss",
+    "description": "The Sovereign Tech Agency is dedicated to protecting and strengthening the open source backbone of our digital future.",
+    "iconUrl": "https://www.sovereign.tech/static/images/favicons/favicon-32x32.png",
+    "ogImageUrl": "https://www.sovereign.tech/public/_1200x630_crop_center-center_82_none_ns/STA-Opengraph-Image.png?mtime=1730664693",
+    "categories": ["startups-innovation", "featured"]
+  },
+  {
+    "title": "TechCrunch",
+    "id": "https://techcrunch.com/feed/",
+    "url": "https://techcrunch.com",
+    "feedUrl": "https://techcrunch.com/feed/",
+    "description": "Startup and Technology News",
+    "iconUrl": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=32",
+    "ogImageUrl": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png",
+    "categories": ["startups-innovation"]
+  },
+  {
+    "title": "deutsche-startups.de",
+    "id": "https://www.deutsche-startups.de/feed/",
+    "url": "https://www.deutsche-startups.de",
+    "feedUrl": "https://www.deutsche-startups.de/feed/",
+    "description": "Startups - Venture Capital - Jobs",
+    "iconUrl": "https://www.deutsche-startups.de/wp-content/themes/ds2013/apple-touch-icon.png",
+    "ogImageUrl": "https://www.deutsche-startups.de/wp-content/themes/ds2013/assets/img/logo@2.png",
+    "categories": ["startups-innovation"]
+  },
+  {
+    "title": "EU-Startups",
+    "id": "https://feeds.feedburner.com/eu-startups",
+    "url": "https://www.eu-startups.com",
+    "feedUrl": "https://feeds.feedburner.com/eu-startups",
+    "description": "Spotlight on European startups",
+    "iconUrl": "https://www.eu-startups.com/wp-content/themes/Newspaperimages/favicon.ico",
+    "ogImageUrl": null,
+    "categories": ["startups-innovation"]
+  },
+  {
+    "title": "Startups - GeekWire",
+    "id": "https://www.geekwire.com/startups/feed/",
+    "url": "https://www.geekwire.com",
+    "feedUrl": "https://www.geekwire.com/startups/feed/",
+    "description": "Breaking News in Technology & Business",
+    "iconUrl": "https://www.geekwire.com/wp-content/themes/geekwire/dist/images/geekwire-logo-rss.png",
+    "ogImageUrl": "https://cdn.geekwire.com/wp-content/uploads/2022/05/geekwire-default-logo-social.png",
+    "categories": ["startups-innovation"]
+  },
+  {
+    "title": "Crunchbase News",
+    "id": "https://news.crunchbase.com/feed/",
+    "url": "https://news.crunchbase.com",
+    "feedUrl": "https://news.crunchbase.com/feed/",
+    "description": "Data-driven reporting on private markets, startups, founders, and investors",
+    "iconUrl": "https://news.crunchbase.com/wp-content/uploads/cb_news_favicon-150x150.png",
+    "ogImageUrl": null,
+    "categories": ["startups-innovation", "featured"]
+  },
+  {
+    "title": "Reddit /r/investing",
+    "id": "https://www.reddit.com/r/investing/new.rss",
+    "url": "https://www.reddit.com/r/investing",
+    "feedUrl": "https://www.reddit.com/r/investing/new.rss",
+    "description": "Discussion and news about investing",
+    "iconUrl": "https://www.redditstatic.com/shreddit/assets/favicon/64x64.png",
+    "ogImageUrl": null,
+    "categories": ["money-business"]
+  },
+  {
+    "title": "WSJ.com: Markets",
+    "id": "https://feeds.content.dowjones.io/public/rss/RSSMarketsMain",
+    "url": "https://www.wsj.com/finance",
+    "feedUrl": "https://feeds.content.dowjones.io/public/rss/RSSMarketsMain",
+    "description": "Latest news on markets from WSJ.com.",
+    "iconUrl": "https://www.wsj.com/favicon.ico",
+    "ogImageUrl": "https://s.wsj.net/img/meta/wsj-social-share.png",
+    "categories": ["money-business"]
+  },
+  {
+    "title": "Smashing Magazine",
+    "id": "https://www.smashingmagazine.com/feed/",
+    "url": "https://www.smashingmagazine.com",
+    "feedUrl": "https://www.smashingmagazine.com/feed/",
+    "description": "Recent content in Articles on Smashing Magazine — For Web Designers And Developers",
+    "iconUrl": "https://www.smashingmagazine.com/images/favicon/app-icon-512x512.png",
+    "ogImageUrl": "https://smashingmagazine.com/images/smashing-homepage.png",
+    "categories": ["software-development", "featured"]
+  },
+  {
+    "title": "Adam Argyle",
+    "id": "https://nerdy.dev/rss.xml",
+    "url": "https://nerdy.dev",
+    "feedUrl": "https://nerdy.dev/rss.xml",
+    "description": "RSS Feed for Adam Argyle: Web design & development tips & tricks: CSS, JS, HTML, Design, & UX.",
+    "iconUrl": "https://nerdy.dev/rss-icon.png",
+    "ogImageUrl": "https://nerdy.dev/media/skull-card.png",
+    "categories": ["software-development", "featured"]
+  },
+  {
+    "title": "The Index by Piccalilli",
+    "id": "https://piccalil.li/the-index/feed.xml",
+    "url": "https://piccalil.li",
+    "feedUrl": "https://piccalil.li/the-index/feed.xml",
+    "description": "High quality, curated design, dev and tech links. Twice a week.",
+    "iconUrl": "https://piccalil.li/favicons/favicon-32x32.png",
+    "ogImageUrl": "https://piccalil.li/images/social-share.png",
+    "categories": ["software-development", "featured"]
+  },
+  {
+    "title": "CSS Weekly",
+    "id": "https://feedpress.me/cssweekly",
+    "url": "https://css-weekly.com",
+    "feedUrl": "https://feedpress.me/cssweekly",
+    "description": "Weekly e-mail roundup of latest CSS articles, tutorials, tools and experiments",
+    "iconUrl": "https://css-weekly.com/favicon.svg",
+    "ogImageUrl": "https://css-weekly.com/css-weekly-open-graph.jpg",
+    "categories": ["software-development"]
+  },
+  {
+    "title": "overreacted — A blog by Dan Abramov",
+    "id": "https://overreacted.io/rss.xml",
+    "url": "https://overreacted.io",
+    "feedUrl": "https://overreacted.io/rss.xml",
+    "description": "A blog by Dan Abramov",
+    "iconUrl": "https://github.com/gaearon.png",
+    "ogImageUrl": "https://overreacted.io/opengraph-image?7c3850b1702447d4",
+    "categories": ["software-development"]
+  },
+  {
+    "title": "Ahmad Shadeed",
+    "id": "https://ishadeed.com/feed.xml",
+    "url": "https://ishadeed.com",
+    "feedUrl": "https://ishadeed.com/feed.xml",
+    "description": "Deep-dive CSS articles, modern CSS and visual CSS explanations.",
+    "iconUrl": "https://ishadeed.com/assets/favicon-32x32.png",
+    "ogImageUrl": "https://ishadeed.com/assets/social/card-generic.jpg",
+    "categories": ["software-development"]
+  },
+  {
+    "title": "Josh Comeau's blog",
+    "id": "https://www.joshwcomeau.com/rss.xml",
+    "url": "https://www.joshwcomeau.com",
+    "feedUrl": "https://www.joshwcomeau.com/rss.xml",
+    "description": "Friendly tutorials for developers. Focus on React, CSS, animation, and careers.",
+    "iconUrl": "https://www.joshwcomeau.com/favicon.png",
+    "ogImageUrl": "https://www.joshwcomeau.com/opengraph-image.png?cac0cc658da9fd03",
+    "categories": ["software-development"]
+  },
+  {
+    "title": "Lea Verou’s blog",
+    "id": "https://lea.verou.me/feed.xml",
+    "url": "https://lea.verou.me",
+    "feedUrl": "https://lea.verou.me/feed.xml",
+    "description": "Web standards, Software Engineering, Product, Usability, and more",
+    "iconUrl": "https://lea.verou.me/mark.svg",
+    "ogImageUrl": null,
+    "categories": ["software-development"]
+  },
+  {
+    "title": "Developer Way",
+    "id": "https://www.developerway.com/rss.xml",
+    "url": "https://www.developerway.com",
+    "feedUrl": "https://www.developerway.com/rss.xml",
+    "description": "Improve your technical skills with in-depth explanations, practical advices and useful tips and tricks. Techstack: React, Typescript, node, monorepos, yarn, webpack, etc.",
+    "iconUrl": "https://www.developerway.com/assets/favicon.png",
+    "ogImageUrl": "https://www.developerway.com/intro1.png",
+    "categories": ["software-development"]
+  },
+  {
+    "title": "Miriam Eric Suzanne",
+    "id": "https://www.miriamsuzanne.com/feed.xml",
+    "url": "https://www.miriamsuzanne.com",
+    "feedUrl": "https://www.miriamsuzanne.com/feed.xml",
+    "description": "Art, writing, and code from Miriam Suzanne",
+    "iconUrl": "https://www.miriamsuzanne.com/images/headshots/eLIPAqMo4S-144.jpeg",
+    "ogImageUrl": "https://www.miriamsuzanne.com/images/headshots/GBoSaie2zL-1600.jpeg",
+    "categories": ["software-development"]
+  },
+  {
+    "title": "Loren Stewart",
+    "id": "https://www.lorenstew.art/rss.xml",
+    "url": "https://www.lorenstew.art",
+    "feedUrl": "https://www.lorenstew.art/rss.xml",
+    "description": "A blog exploring web development and AI",
+    "iconUrl": "https://www.lorenstew.art/favicon-32x32.png",
+    "ogImageUrl": "https://www.lorenstew.art/og-image.png",
+    "categories": ["software-development"]
+  },
+  {
+    "title": "Nic Chan",
+    "id": "https://www.nicchan.me/feed.xml",
+    "url": "https://www.nicchan.me",
+    "feedUrl": "https://www.nicchan.me/feed.xml",
+    "description": "The personal blog of Nic Chan, a front-end web developer.",
+    "iconUrl": "https://www.nicchan.me/favicon.svg",
+    "ogImageUrl": null,
+    "categories": ["software-development"]
+  },
+  {
+    "title": "PJ Onori’s blog",
+    "id": "https://pjonori.blog/rss.xml",
+    "url": "https://pjonori.blog",
+    "feedUrl": "https://pjonori.blog/rss.xml",
+    "description": "All things about Design Systems",
+    "iconUrl": null,
+    "ogImageUrl": null,
+    "categories": ["design", "featured"]
+  },
+  {
+    "title": "Refinery29",
+    "id": "https://www.refinery29.com/rss.xml",
+    "url": "https://www.refinery29.com",
+    "feedUrl": "https://www.refinery29.com/rss.xml",
+    "description": "Fashion news, shopping, beauty news and how-tos",
+    "iconUrl": "https://www.refinery29.com/assets/08c2e62e7d1f514259af92204bc9c284.ico",
+    "ogImageUrl": "https://www.refinery29.com/assets/ceca07ea31bccaf0dc283e59c247e70d.jpg",
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "Honestly WTF",
+    "id": "https://feeds.feedburner.com/honestlywtf",
+    "url": "https://honestlywtf.com",
+    "feedUrl": "https://feeds.feedburner.com/honestlywtf",
+    "description": "Lifestyle blog featuring curated content on fashion, art, travel, interior design, and DIY, founded by Erica Chan Coffman.",
+    "iconUrl": "https://honestlywtf.com/wp-content/uploads/2018/04/favicon512_480-45x45.png",
+    "ogImageUrl": null,
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "College Fashion",
+    "id": "https://www.collegefashion.net/feed/",
+    "url": "https://www.collegefashion.net",
+    "feedUrl": "https://www.collegefashion.net/feed/",
+    "description": "Fashion and beauty blog written by college students for college students",
+    "iconUrl": "https://www.collegefashion.net/wp-content/uploads/2022/03/fav.png",
+    "ogImageUrl": "https://www.collegefashion.net/wp-content/uploads/2022/03/ig2-1.png",
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "Extra Petite",
+    "id": "https://www.extrapetite.com/feed",
+    "url": "https://www.extrapetite.com",
+    "feedUrl": "https://www.extrapetite.com/feed",
+    "description": "Fashion, style tips, and outfit ideas; Based in Boston",
+    "iconUrl": "https://www.extrapetite.com/wp-content/uploads/2023/04/favicon.png",
+    "ogImageUrl": null,
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "Teen Vogue",
+    "id": "https://www.teenvogue.com/feed/rss",
+    "url": "https://www.teenvogue.com",
+    "feedUrl": "https://www.teenvogue.com/feed/rss",
+    "description": "The latest from www.teenvogue.com",
+    "iconUrl": "https://www.teenvogue.com/verso/static/teenvogue-us/assets/favicon.ico",
+    "ogImageUrl": "https://assets.teenvogue.com/photos/558da6d2426bdbf2308a335e/16:9/w_1280,c_limit/r7nd1ba67-TV_Default.png",
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "Atlantic-Pacific",
+    "id": "https://www.the-atlantic-pacific.com/feed/",
+    "url": "https://www.the-atlantic-pacific.com",
+    "feedUrl": "https://www.the-atlantic-pacific.com/feed/",
+    "description": "A fashion and personal style site by Blair Eadie",
+    "iconUrl": "https://www.the-atlantic-pacific.com/wp-content/uploads/2016/11/ms-icon-310x310-100x100.png",
+    "ogImageUrl": null,
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "Who What Wear",
+    "id": "https://www.whowhatwear.com/feeds.xml",
+    "url": "https://www.whowhatwear.com",
+    "feedUrl": "https://www.whowhatwear.com/feeds.xml",
+    "description": "DAll the latest content from the Who What Wear tea",
+    "iconUrl": "https://cdn.mos.cms.futurecdn.net/flexiimages/qzgqdurjen1667467717.png",
+    "ogImageUrl": null,
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "Stylescrapbook",
+    "id": "https://stylescrapbook.com/feed/",
+    "url": "https://stylescrapbook.com",
+    "feedUrl": "https://stylescrapbook.com/feed/",
+    "description": "Fashion blog by Andy Torres",
+    "iconUrl": "https://i0.wp.com/static.stylescrapbook.com/uploads/2020/10/12140935/cropped-favicon-1.jpg",
+    "ogImageUrl": null,
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "Nancy Marie Mangano Style",
+    "id": "https://nancymariemangano.com/feed/",
+    "url": "https://nancymariemangano.com",
+    "feedUrl": "https://nancymariemangano.com/feed/",
+    "description": "Beauty, fashion, style and so much more!",
+    "iconUrl": "https://nancymariemangano.com/wp-content/uploads/2016/05/nan-cover1-150x150.jpeg",
+    "ogImageUrl": null,
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "Southern Curls & Pearls",
+    "id": "https://www.southerncurlsandpearls.com/feed/",
+    "url": "https://www.southerncurlsandpearls.com",
+    "feedUrl": "https://www.southerncurlsandpearls.com/feed/",
+    "description": "Fashion, Travel, Beauty & Lifestyle by Caitlin Covington",
+    "iconUrl": "https://www.southerncurlsandpearls.com/wp-content/uploads/2018/09/cropped-favicon-@512-updated-32x32.jpg",
+    "ogImageUrl": null,
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "The Cereal Aisle by Leandra Medine Cohen",
+    "id": "https://leandramcohen.substack.com/feed",
+    "url": "https://leandramcohen.substack.com",
+    "feedUrl": "https://leandramcohen.substack.com/feed",
+    "description": "A newsletter about how to get dressed (mostly).",
+    "iconUrl": "https://substackcdn.com/image/fetch/$s_!B7T7!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F02c735bf-a37e-40ce-a019-05fbb0c2882d_852x852.png",
+    "ogImageUrl": "https://substackcdn.com/image/fetch/$s_!Ke78!,f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fleandramcohen.substack.com%2Ftwitter%2Fsubscribe-card.jpg%3Fv%3D1636709415%26version%3D9",
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "Un-Fancy",
+    "id": "https://www.un-fancy.com/feed/",
+    "url": "https://www.un-fancy.com",
+    "feedUrl": "https://www.un-fancy.com/feed/",
+    "description": "a minimalist fashion blog & capsule wardrobe guide",
+    "iconUrl": "https://www.un-fancy.com/wp-content/themes/unfancy/images/favicon.ico",
+    "ogImageUrl": "https://s0.wp.com/i/blank.jpg",
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "The Allison Bornstein Newsletter",
+    "id": "https://allisonbornstein.substack.com/feed",
+    "url": "https://allisonbornstein.substack.com",
+    "feedUrl": "https://allisonbornstein.substack.com/feed",
+    "description": "A monthly deep dive into all things personal style. Rediscover the joy of getting dressed with fashion stylist and “closet therapist” Allison Bornstein.",
+    "iconUrl": "https://substackcdn.com/image/fetch/$s_!8tcu!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbb6c925a-5c94-4455-9609-193f7ec18e27_501x501.png",
+    "ogImageUrl": "https://substackcdn.com/image/fetch/$s_!r82l!,f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fallisonbornstein.substack.com%2Ftwitter%2Fsubscribe-card.jpg%3Fv%3D1879526396%26version%3D9",
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "Carrie’s Substack",
+    "id": "https://carinanicklas.substack.com/feed",
+    "url": "https://carinanicklas.substack.com",
+    "feedUrl": "https://carinanicklas.substack.com/feed",
+    "description": "I'm a former tailor, currently working as a creative consultant & content creator. Sharing everything that's on my mind, galleries, interiors, wishlists & looks that I wear on repeat. I have a thing for vintage treasures.",
+    "iconUrl": "https://substackcdn.com/image/fetch/$s_!AXt4!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F31621c8e-b52e-445e-a21d-e51d7201eb36_1280x1280.png",
+    "ogImageUrl": "https://substackcdn.com/image/fetch/$s_!fCCu!,f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fcarinanicklas.substack.com%2Ftwitter%2Fsubscribe-card.jpg%3Fv%3D-75598110%26version%3D9",
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "Erin Walsh on The Art of Intentional Dressing",
+    "id": "https://erinwalshstyle.substack.com/feed",
+    "url": "https://erinwalshstyle.substack.com",
+    "feedUrl": "https://erinwalshstyle.substack.com/feed",
+    "description": "Let’s get intentional about what we wear. Using fashion as our most powerful tool for self improvement and manifestation. Uplevel your life by changing your relationship to what you wear and why.",
+    "iconUrl": "https://substackcdn.com/image/fetch/$s_!BWE0!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0aefd37b-0397-46d9-9b06-a9d2b84646e4_1280x1280.png",
+    "ogImageUrl": "https://substackcdn.com/image/fetch/$s_!fREZ!,f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Ferinwalshstyle.substack.com%2Ftwitter%2Fsubscribe-card.jpg%3Fv%3D420501859%26version%3D9",
+    "categories": ["style-beauty"]
+  },
+  {
+    "title": "RecipeTin Eats",
+    "id": "https://www.recipetineats.com/feed/",
+    "url": "https://www.recipetineats.com",
+    "feedUrl": "https://www.recipetineats.com/feed/",
+    "description": "Fast Prep, Big Flavours",
+    "iconUrl": "https://www.recipetineats.com/tachyon/2018/12/cropped-favicon%402x.png?fit=32%2C32",
+    "ogImageUrl": null,
+    "categories": ["food"]
+  },
+  {
+    "title": "NYT Cooking: Latest Recipes",
+    "id": "https://cooking.nytimes.com/next/api/v1/rss/recipes",
+    "url": "https://cooking.nytimes.com",
+    "feedUrl": "https://cooking.nytimes.com/next/api/v1/rss/recipes",
+    "description": "The New York Times Cooking - Recipes",
+    "iconUrl": "https://static01.nyt.com/applications/cooking/bed7145/assets/apple-touch-icon-72x72-precomposed.png",
+    "ogImageUrl": "https://static01.nyt.com/applications/cooking/cad3c48/assets/hp-og-image.jpg",
+    "categories": ["food", "featured"]
+  },
+  {
+    "title": "smitten kitchen",
+    "id": "https://feeds.feedburner.com/smittenkitchen",
+    "url": "https://smittenkitchen.com/",
+    "feedUrl": "https://feeds.feedburner.com/smittenkitchen",
+    "description": "Fearless cooking from a tiny NYC kitchen.",
+    "iconUrl": "https://i0.wp.com/smittenkitchen.com/wp-content/uploads//2017/09/cropped-smitten-kitchen-logo_no_text.jpg?fit=32%2C32&ssl=1",
+    "ogImageUrl": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zbWl0dGVua2l0Y2hlbi5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcL1wvMjAxN1wvMDlcL2Nyb3BwZWQtc21pdHRlbi1raXRjaGVuLWxvZ29fbm9fdGV4dC5qcGc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6InNtaXR0ZW4ga2l0Y2hlbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxNzIwNTI1Nzd9.8iKzn0nlbpOG3QajKMnGrhzdWnbF488eqdCY6A8_3OwMQ",
+    "categories": ["food"]
+  },
+  {
+    "title": "Sally's Baking",
+    "id": "https://sallysbakingaddiction.com/feed/",
+    "url": "https://sallysbakingaddiction.com",
+    "feedUrl": "https://sallysbakingaddiction.com/feed/",
+    "description": "Trusted Recipes from a Self-Taught Baker",
+    "iconUrl": "https://sallysbakingaddiction.com/wp-content/themes/sallysbaking/assets/images/favicon.svg",
+    "ogImageUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2025/09/logo-color-favicon.jpg",
+    "categories": ["food"]
+  },
+  {
+    "title": "Omas Lieblingsrezepte",
+    "id": "https://www.rettet-omas-lieblingsrezepte.de/feed/",
+    "url": "https://www.rettet-omas-lieblingsrezepte.de",
+    "feedUrl": "https://www.rettet-omas-lieblingsrezepte.de/feed/",
+    "description": "In unserer Rezeptdatenbank findest du Omas Lieblingsrezepte. Mit ganz viel Tradition und Liebe.",
+    "iconUrl": "https://www.rettet-omas-lieblingsrezepte.de/wp-content/uploads/2022/08/cropped-logo_mobile-32x32.png",
+    "ogImageUrl": "http://www.rettet-omas-lieblingsrezepte.de/wp-content/uploads/2023/02/edenpix_100-2-kulihood100-6-2-scaled.jpg ",
+    "categories": ["food"]
+  },
+  {
+    "title": "Malteskitchen",
+    "id": "https://www.malteskitchen.de/feed/",
+    "url": "https://www.malteskitchen.de",
+    "feedUrl": "https://www.malteskitchen.de/feed/",
+    "description": "erprobte & einfache Rezepte",
+    "iconUrl": "https://www.malteskitchen.de/wp-content/uploads/2022/08/cropped-malteskitchen-website-icon-32x32.png",
+    "ogImageUrl": null,
+    "categories": ["food"]
+  },
+  {
+    "title": "Tinastausendschön",
+    "id": "https://www.tinastausendschoen.de/feed/",
+    "url": "https://www.tinastausendschoen.de",
+    "feedUrl": "https://www.tinastausendschoen.de/feed/",
+    "description": "Food von seiner schönsten Seite",
+    "iconUrl": "https://www.tinastausendschoen.de/wp-content/uploads/2016/04/favicon.png",
+    "ogImageUrl": null,
+    "categories": ["food"]
+  },
+  {
+    "title": "Herr Grün kocht",
+    "id": "https://www.herrgruenkocht.de/feed/",
+    "url": "https://www.herrgruenkocht.de",
+    "feedUrl": "https://www.herrgruenkocht.de/feed/",
+    "description": "err Grün kocht. Natürlich. Vegetarisch und vegan.",
+    "iconUrl": "https://www.herrgruenkocht.de/wordpress/wp-content/uploads/2019/11/apple-icon-180x180-150x150.png",
+    "ogImageUrl": "https://www.herrgruenkocht.de/wordpress/wp-content/uploads/2024/12/HerrGruenkocht.jpg",
+    "categories": ["food"]
+  },
+  {
+    "title": "HighFoodality",
+    "id": "https://www.highfoodality.de/feed/",
+    "url": "https://www.highfoodality.de",
+    "feedUrl": "https://www.highfoodality.de/feed/",
+    "description": "Foodblog mit leckeren Rezepten zum Nachkochen",
+    "iconUrl": "https://www.highfoodality.de/wp-content/uploads/2018/09/favicon-32x32.png",
+    "ogImageUrl": "https://www.highfoodality.de/wp-content/uploads/2016/01/2016-01_logo_website_tm.png",
+    "categories": ["food"]
+  },
+  {
+    "title": "Familienkost",
+    "id": "https://www.familienkost.de/rss-feed.rss",
+    "url": "https://www.familienkost.de",
+    "feedUrl": "https://www.familienkost.de/rss-feed.rss",
+    "description": "Familienkost - Rezepte für Kinder und Familie",
+    "iconUrl": "https://www.familienkost.de/favicon-64x64.png",
+    "ogImageUrl": "https://www.familienkost.de/images/familienkost-og-image.jpg",
+    "categories": ["food"]
+  },
+  {
+    "title": "Serious Eats",
+    "id": "https://feeds-api.dotdashmeredith.com/v1/rss/google/ad57d421-0ff5-41e7-a5da-f2167b6d7f7a",
+    "url": "https://www.seriouseats.com",
+    "feedUrl": "https://feeds-api.dotdashmeredith.com/v1/rss/google/ad57d421-0ff5-41e7-a5da-f2167b6d7f7a",
+    "description": "Latest Recipes and Articles from Serious Eats",
+    "iconUrl": "https://www.seriouseats.com/apple-touch-icon-76x76.png",
+    "ogImageUrl": "https://www.seriouseats.com/thmb/2eDheo2F1-nYEbQxZLGUiPjqhRs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Serious_Eats_Social_Default-72cf0bc11b434461b62c6ffc85b4298f.jpg",
+    "categories": ["food"]
+  },
+  {
+    "title": "Französisch Kochen",
+    "id": "https://www.franzoesischkochen.de/feed/",
+    "url": "https://www.franzoesischkochen.de",
+    "feedUrl": "https://www.franzoesischkochen.de/feed/",
+    "description": "Der Food Blog für einfache französische Rezepte",
+    "iconUrl": "https://www.franzoesischkochen.de/wp-content/uploads/2025/04/cropped-favicon-bleu-32x32.png",
+    "ogImageUrl": "https://www.franzoesischkochen.de/moi2.jpg",
+    "categories": ["food", "featured"]
+  },
+  {
+    "title": "Löffelgenuss Foodblog",
+    "id": "https://feeds.feedburner.com/http/loeffelgenussde/feed",
+    "url": "https://loeffelgenuss.de",
+    "feedUrl": "https://feeds.feedburner.com/http/loeffelgenussde/feed",
+    "description": "Raffinierte und kreative Rezepte für besondere Genussmomente jenseits der Alltagsküche",
+    "iconUrl": "https://loeffelgenuss.de/wp-content/uploads/2023/02/cropped-favicon_LG_ws-32x32.jpg",
+    "ogImageUrl": "https://loeffelgenuss.de/wp-content/uploads/2023/02/cropped-favicon_LG_ws-32x32.jpg",
+    "categories": ["food"]
+  },
+  {
+    "title": "Emmi kocht einfach",
+    "id": "https://emmikochteinfach.de/tag/gaeste-rezepte/feed/",
+    "url": "https://emmikochteinfach.de",
+    "feedUrl": "https://emmikochteinfach.de/tag/gaeste-rezepte/feed/",
+    "description": "Der Foodblog für einfache Rezepte, die gelingen",
+    "iconUrl": "https://emmikochteinfach.de/wp-content/uploads/2021/08/cropped-Emmi_Favicon-1-1-32x32.png",
+    "ogImageUrl": "https://loeffelgenuss.de/wp-content/uploads/2022/12/header_Loeffelgenuss.png",
+    "categories": ["food"]
+  },
+  {
+    "title": "meinleckeresleben.com",
+    "id": "https://meinleckeresleben.com/feed/",
+    "url": "https://meinleckeresleben.com",
+    "feedUrl": "https://meinleckeresleben.com/feed/",
+    "description": "Food Blog von Lena. Hausgemachte Leckereien und viele Rezeptideen zum Nachmachen",
+    "iconUrl": "https://i0.wp.com/meinleckeresleben.com/wp-content/uploads/2016/07/cropped-Lena_Fuchs-Favicon-Farbe-RGB-ohneClaim-Wordpress-1.png?fit=32%2C32&#038;ssl=1",
+    "ogImageUrl": "https://i0.wp.com/meinleckeresleben.com/wp-content/uploads/2016/07/cropped-Lena_Fuchs-Favicon-Farbe-RGB-ohneClaim-Wordpress-1.png?fit=512%2C512&ssl=1",
+    "categories": ["food", "featured"]
+  },
+  {
+    "title": "Kochkarussell",
+    "id": "https://kochkarussell.com/feed/",
+    "url": "https://kochkarussell.com",
+    "feedUrl": "https://kochkarussell.com/feed/",
+    "description": "Der Foodblog für schnelle und einfache Feierabendküche. Über 450 frische, gesunde Rezepte für jeden Tag.",
+    "iconUrl": "https://kochkarussell.com/wp-content/uploads/2021/04/cropped-Favicon-32x32.png",
+    "ogImageUrl": "https://kochkarussell.com/wp-content/uploads/2018/06/15-Minuten-Gnocchi-mit-geschmolzenen-Tomaten-und-Basilikum-1.jpg",
+    "categories": ["food", "featured"]
+  },
+  {
+    "title": "food with love",
+    "id": "https://www.foodwithlove.de/feed",
+    "url": "https://www.foodwithlove.de",
+    "feedUrl": "https://www.foodwithlove.de/feed",
+    "description": "Rezepte mit und ohne Thermomix",
+    "iconUrl": "https://www.foodwithlove.de/wp-content/uploads/2021/05/logo_fwl_round.svg",
+    "ogImageUrl": null,
+    "categories": ["food", "featured"]
+  },
+  {
+    "title": "Madame Cuisine",
+    "id": "https://www.madamecuisine.de/feed/",
+    "url": "https://www.madamecuisine.de",
+    "feedUrl": "https://www.madamecuisine.de/feed/",
+    "description": "Einfach gute Rezepte",
+    "iconUrl": "https://www.madamecuisine.de/wp-content/uploads/2018/05/cropped-favicon-1-1-32x32.png",
+    "ogImageUrl": "https://www.madamecuisine.de/wp-content/uploads/2022/10/kartoffelpfanne-mit-pilzen-bohnen-featured-1.jpg",
+    "categories": ["food"]
+  },
+  {
+    "title": "RICE / POTATO",
+    "id": "https://ricepotato.co/feed/",
+    "url": "https://ricepotato.co",
+    "feedUrl": "https://ricepotato.co/feed/",
+    "description": "Follow a Dutch / Taiwanese travel blogger couple on their path to explore Bangkok and beyond with a focus on boutique hotels, art, design and culture.",
+    "iconUrl": "https://i0.wp.com/ricepotato.co/wp-content/uploads/2017/04/cropped-icon.png",
+    "ogImageUrl": "https://ricepotato.co/wp-content/uploads/2017/04/sharingheaderimage.png",
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "I am Aileen",
+    "id": "https://iamaileen.com/feed/",
+    "url": "https://iamaileen.com",
+    "feedUrl": "https://iamaileen.com/feed/",
+    "description": "Award-winning solo female travel blog of Aileen Adalid from the Philippines featuring travel guides, tips and videos from all over the world.",
+    "iconUrl": "https://iamaileen.com/wp-content/uploads/2021/02/cropped-favicon-travel-blog-iaa-192x192.png",
+    "ogImageUrl": "https://iamaileen.com/wp-content/uploads/2021/02/default-featured-image-fb-2.jpg",
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "The World Travel Guy",
+    "id": "https://theworldtravelguy.com/feed/",
+    "url": "https://theworldtravelguy.com",
+    "feedUrl": "https://theworldtravelguy.com/feed/",
+    "description": "This is an archive of my recent posts & all my past world travel blog posts from countries I've visited around the world. Start exploring!",
+    "iconUrl": "https://theworldtravelguy.com/wp-content/uploads/2022/12/favicon_512.png",
+    "ogImageUrl": "https://theworldtravelguy.com/wp-content/uploads/2023/03/DSCF0663_gal1.jpg",
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "Blog-posts - Florian Kriechbaumer",
+    "id": "https://feeds.feedburner.com/MyNotesFromTravelPhotographyAndTechnology-FlorianKriechbaumer",
+    "url": "https://theflore.com/blog",
+    "feedUrl": "https://feeds.feedburner.com/MyNotesFromTravelPhotographyAndTechnology-FlorianKriechbaumer",
+    "description": "This blog contains some stories centred around travel, photography and exploration of new countries and cities around the world",
+    "iconUrl": "https://images.squarespace-cdn.com/content/v1/5558cd14e4b0251d92d46db6/1434895846434-S33KVJ6L9M3J53PMAJQ5/favicon.ico?format=100w",
+    "ogImageUrl": "http://static1.squarespace.com/static/5558cd14e4b0251d92d46db6/t/687a0529e7d6026c60df6903/1752827177568/Screenshot+2025-07-18+at+10.26.03.jpg?format=1500w",
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "Camels & Chocolate",
+    "id": "https://www.camelsandchocolate.com/feed/",
+    "url": "https://www.camelsandchocolate.com",
+    "feedUrl": "https://www.camelsandchocolate.com/feed/",
+    "description": "Camels & Chocolate is the award-winning blog and professional portfolio of travel writer and journalist Kristin Luna.",
+    "iconUrl": "https://www.camelsandchocolate.com/wp-content/uploads/2015/09/favicon-2.png",
+    "ogImageUrl": "https://www.camelsandchocolate.com/wp-content/uploads/2015/09/default-graphic.jpg",
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "Jil Elileen",
+    "id": "https://jileileen.de/feed/",
+    "url": "https://jileileen.de/",
+    "feedUrl": "https://jileileen.de/feed/",
+    "description": "Reiseberichte und günstiges Reisen weltweit",
+    "iconUrl": "https://jileileen.de/wp-content/uploads/2020/04/cropped-Logo-Jilo-WhereToNext-Welt-hoch-32x32.png",
+    "ogImageUrl": null,
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "Anywhere We Roam",
+    "id": "https://anywhereweroam.com/feed/",
+    "url": "https://anywhereweroam.com/",
+    "feedUrl": "https://anywhereweroam.com/feed/",
+    "description": "Independent travel blog featuring comprehensive destination guides, detailed itineraries and practical tips.",
+    "iconUrl": "https://anywhereweroam.com/wp-content/uploads/2024/04/cropped-black-favicon-32x32.png",
+    "ogImageUrl": "https://anywhereweroam.com/wp-content/uploads/2024/08/anywhere-we-roam-cover.jpg",
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "Wander-Lush",
+    "id": "https://wander-lush.org/feed/",
+    "url": "https://wander-lush.org",
+    "feedUrl": "https://wander-lush.org/feed/",
+    "description": "Travels in colour, culture & creativity",
+    "iconUrl": "https://wander-lush.org/wp-content/uploads/2018/10/cropped-av2-32x32.png",
+    "ogImageUrl": "https://wander-lush.org/wp-content/uploads/2018/03/cropped-emilylush.headshots5of22-2.jpg",
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "Notes from the Road",
+    "id": "https://feeds.feedburner.com/nftr",
+    "url": "https://www.notesfromtheroad.com",
+    "feedUrl": "https://feeds.feedburner.com/nftr",
+    "description": "Handcrafted travel blog featuring vivid photography, illustrations and long-form travel notes. Follow Erik Gauger's award-winning and critically acclaimed journey.",
+    "iconUrl": "https://www.notesfromtheroad.com/favicon.svg",
+    "ogImageUrl": "https://www.notesfromtheroad.com/files/notes-from-the-road-banner.webp",
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "Roads & Kingdoms",
+    "id": "https://roadsandkingdoms.com/feed/",
+    "url": "https://roadsandkingdoms.com",
+    "feedUrl": "https://roadsandkingdoms.com/feed/",
+    "description": "Extraordinary culinary journeys through some of our favorite places on earth.",
+    "iconUrl": "https://roadsandkingdoms.com/favicon.ico",
+    "ogImageUrl": "https://cdn.roadsandkingdoms.com/uploads/2018/03/roads-and-kingdoms-accra1.jpg?width=2400&quality=85&sharpen=1",
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "Indie Traveller",
+    "id": "https://www.indietraveller.co/feed/",
+    "url": "https://www.indietraveller.co",
+    "feedUrl": "https://www.indietraveller.co/feed/",
+    "description": "Dig into our down-to-Earth travel guides from around the world. From must-do journeys to tucked-away treasures, we'll share everything you need to know.",
+    "iconUrl": "https://www.indietraveller.co/wp-content/uploads/2025/05/cropped-indie-traveller-favicon-feet-slanted-32x32.png",
+    "ogImageUrl": null,
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "classe touriste",
+    "id": "https://www.classetouriste.be/feed/",
+    "url": "https://www.classetouriste.be",
+    "feedUrl": "https://www.classetouriste.be/feed/",
+    "description": "A briefing bringing opinionated & personal insider tips for the sophisticated frequent traveller that goes beyond the hedonistic cliches.",
+    "iconUrl": "https://www.classetouriste.be/wp-content/uploads/favicon.ico",
+    "ogImageUrl": null,
+    "categories": ["travel-regional"]
+  },
+  {
+    "title": "SciTechDaily",
+    "id": "https://scitechdaily.com/feed/",
+    "url": "https://scitechdaily.com/",
+    "feedUrl": "https://scitechdaily.com/feed/",
+    "description": "Science, Space and Technology News",
+    "iconUrl": "https://scitechdaily.com/favicon.ico",
+    "ogImageUrl": null,
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "MIT Technology Review",
+    "id": "https://www.technologyreview.com/feed/",
+    "url": "https://www.technologyreview.com/",
+    "feedUrl": "https://www.technologyreview.com/feed/",
+    "description": "MIT Technology Review’s insight and analysis explain the newest technologies and their commercial, social, and political impacts.",
+    "iconUrl": "https://wp.technologyreview.com/wp-content/uploads/2024/09/cropped-TR-Logo-Block-Centered-R.png?w=180",
+    "ogImageUrl": "https://wp.technologyreview.com/wp-content/uploads/2023/03/MIT-TR-Social-Share.png",
+    "categories": ["science-tech", "featured"]
+  },
+  {
+    "title": "heise online News",
+    "id": "https://www.heise.de/rss/heise-atom.xml",
+    "url": "https://www.heise.de",
+    "feedUrl": "https://www.heise.de/rss/heise-atom.xml",
+    "description": "Nachrichten nicht nur aus der Welt der Computer",
+    "iconUrl": "https://www.heise.de/icons/ho/touch-icons/safari-pinned-tab.svg",
+    "ogImageUrl": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/icons/ho/opengraph/opengraph.png",
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "Leibniz-Gemeinschaft",
+    "id": "https://www.leibniz-gemeinschaft.de/rss.xml",
+    "url": "https://www.leibniz-gemeinschaft.de/",
+    "feedUrl": "https://www.leibniz-gemeinschaft.de/rss.xml",
+    "description": "TOP-Meldungen von der Leibniz-Gemeinschaft",
+    "iconUrl": "https://www.leibniz-gemeinschaft.de/typo3conf/ext/mkleibniz/Resources/Public/Images/favicon.ico",
+    "ogImageUrl": null,
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "Max Planck Society - Research.",
+    "id": "https://www.mpg.de/en/research.rss",
+    "url": "https://www.mpg.de/",
+    "feedUrl": "https://www.mpg.de/en/research.rss",
+    "description": "Max Planck Society - Research News.",
+    "iconUrl": "https://www.mpg.de/assets/touch-icon-180x180-a3e396f9294afe6618861344bef35fc0075f9631fe80702eb259befcd682a42c.png",
+    "ogImageUrl": "https://www.mpg.de/assets/og-logo-281c44f14f2114ed3fe50e666618ff96341055a2f8ce31aa0fd70471a30ca9ed.jpg",
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "NASA Science",
+    "id": "https://science.nasa.gov/feed/",
+    "url": "https://science.nasa.gov/",
+    "feedUrl": "https://science.nasa.gov/feed/",
+    "description": "Discovering the secrets of the universe, searching for life elsewhere, and protecting and improving life on Earth and in space.",
+    "iconUrl": "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/apple-touch-icon-114x114.png",
+    "ogImageUrl": "https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/organ_chip/Organ_Chip_FeatureBPS_alt.jpg",
+    "categories": ["science-tech"]
+  },
+  {
+    "title": "NASA Image of the Day",
+    "id": "https://www.nasa.gov/feeds/iotd-feed/",
+    "url": "https://www.nasa.gov/",
+    "feedUrl": "https://www.nasa.gov/feeds/iotd-feed/",
+    "description": "The latest NASA \"Image of the Day\" image.",
+    "iconUrl": "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/apple-touch-icon-114x114.png",
+    "ogImageUrl": "https://www.nasa.gov/wp-content/uploads/2019/08/589552main_as11-40-5875_full.jpg",
+    "categories": ["science-tech", "featured"]
+  },
+  {
+    "title": "NASA",
+    "id": "https://www.nasa.gov/feed/",
+    "url": "https://www.nasa.gov/",
+    "feedUrl": "https://www.nasa.gov/feed/",
+    "description": "Official National Aeronautics and Space Administration Website",
+    "iconUrl": "https://science.nasa.gov/wp-content/plugins/nasa-hds-core-setup/assets/favicons/apple-touch-icon-114x114.png",
+    "ogImageUrl": "https://assets.science.nasa.gov/dynamicimage/assets/science/bps/bps_investigations/organ_chip/Organ_Chip_FeatureBPS_alt.jpg",
+    "categories": ["science-tech", "featured"]
+  },
+  {
+    "title": "The Verge",
+    "id": "https://www.theverge.com/rss/index.xml",
+    "url": "https://www.theverge.com/",
+    "feedUrl": "https://www.theverge.com/rss/index.xml",
+    "description": "The Verge is about technology and how it makes us feel. Founded in 2011, we offer our audience everything from breaking news to reviews to award-winning features and investigations, on our site, in video, and in podcasts.",
+    "iconUrl": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/01/verge-rss-large_80b47e.png?w=150&h=150&crop=1",
+    "ogImageUrl": "https://platform.theverge.com/wp-content/uploads/sites/2/2024/10/the_verge_social_share.png",
+    "categories": ["science-tech"]
+  }
+]

@@ -1,0 +1,59 @@
+---
+import Hero from "./Hero.astro";
+import { GOOGLE_FORM_WAITLIST_URL } from "../constants";
+import Header from "./Header.astro";
+import { m } from "../utils";
+---
+
+<Hero>
+  <Header slot="header" />
+  <div slot="content" class="content">
+    <p class="text">
+      {m("intro", Astro.currentLocale)}
+    </p>
+    <div class="actions">
+      <a
+        class="nc-button -primary -small"
+        href={GOOGLE_FORM_WAITLIST_URL}
+        target="_blank"
+        rel="noopener noreferrer">{m("join_waitlist_btn", Astro.currentLocale)}</a
+      >
+      <a
+        class="nc-button -stealth -small"
+        href="https://bsky.app/profile/readii.bsky.social"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {m("feed_bluesky_btn", Astro.currentLocale)}
+      </a>
+    </div>
+  </div>
+</Hero>
+
+<style>
+  .content {
+    max-inline-size: 60ch;
+    block-size: 100%;
+    margin-inline: auto;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: var(--spacing-far);
+  }
+
+  .text {
+    text-align: center;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-near);
+    justify-content: center;
+    margin-inline: auto;
+
+    & :global(> *) {
+      flex-shrink: 0;
+    }
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<section class="container">
+  <header class="header">
+    <h2>{title}</h2>
+  </header>
+  <div class="nc-gallery gallery">
+    <slot name="items" />
+  </div>
+</section>
+
+<style>
+  .container {
+    margin-block-start: var(--spacing-far);
+    display: grid;
+    gap: var(--spacing-near);
+  }
+
+  .header {
+    padding-inline: var(--page-padding);
+  }
+
+  h2 {
+    font-family: var(--font-family-sans);
+  }
+
+  .gallery {
+    --padding: var(--spacing-far);
+    --gallery-scroll-padding-inline: var(--padding);
+
+    padding-inline: var(--padding);
+  }
+</style>

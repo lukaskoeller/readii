@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { FEED_CATEGORY_TO_LABEL } from "@readii/data";
+import GallerySection from "../components/GallerySection.astro";
+import FeedCard from "../components/FeedCard.astro";
+
+const data = await getCollection("feedSuggestions");
+const feedSuggestionsMap = new Map<
+  string,
+  CollectionEntry<"feedSuggestions">["data"][]
+>();
+
+for (const { data: feedSuggestion } of data) {
+  for (const category of feedSuggestion.categories) {
+    if (!feedSuggestionsMap.has(category)) {
+      feedSuggestionsMap.set(category, []);
+    }
+    const currentValue = feedSuggestionsMap.get(category) ?? [];
+    feedSuggestionsMap.set(category, [...currentValue, feedSuggestion]);
+  }
+}
+
+const feedSuggestions = Object.fromEntries(feedSuggestionsMap);
+const feedSuggestionsEntries = Object.entries(feedSuggestions);
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Fragment>
+{
+    feedSuggestionsEntries.filter(([category]) => category === "featured").map(([category, suggestions]) => (
+      <GallerySection
+        title={
+          category in FEED_CATEGORY_TO_LABEL
+            ? FEED_CATEGORY_TO_LABEL[
+                category as keyof typeof FEED_CATEGORY_TO_LABEL
+              ]
+            : ""
+        }
+      >
+        <Fragment slot="items">
+          {suggestions.sort((a, b) => a.title.localeCompare(b.title)).map((suggestion) => (
+            <FeedCard
+              title={suggestion.title}
+              categories={suggestion.categories}
+              feedUrl={suggestion.feedUrl}
+            >
+              {suggestion.iconUrl && (
+                <Image
+                  src={suggestion.iconUrl}
+                  slot="icon"
+                  alt={suggestion.title + " icon"}
+                  width={48}
+                  height={48}
+                />
+              )}
+              {suggestion.ogImageUrl && (
+                <Image
+                  src={suggestion?.ogImageUrl}
+                  slot={suggestion?.ogImageUrl && "image"}
+                  alt={suggestion.title + " image"}
+                  width={600}
+                  height={400}
+                />
+              )}
+            </FeedCard>
+          ))}
+        </Fragment>
+      </GallerySection>
+    ))
+  }
+  </Fragment>

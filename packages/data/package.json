@@ -1,0 +1,28 @@
+{
+  "name": "@readii/data",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    },
+    "./suggestions/json": {
+      "import": "./src/suggestions.json"
+    },
+    "./suggestions/zod": {
+      "import": "./src/suggestions.schema.ts"
+    }
+  },
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.22.0",
+  "dependencies": {
+    "@readii/schemas": "workspace:^",
+    "vitest": "^3.2.4",
+    "zod": "^4.1.13"
+  }
+}

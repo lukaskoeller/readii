@@ -1,0 +1,113 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { GOOGLE_FORM_WAITLIST_URL, LOCALES } from "../constants";
+import { m } from "../utils";
+import Logo from "./Logo.astro";
+
+const newsURL = getRelativeLocaleUrl(Astro.currentLocale, "news");
+const startURL = getRelativeLocaleUrl(Astro.currentLocale, "");
+---
+
+<header>
+  <div class="inner">
+    <a href={startURL} aria-label={m("header_home_aria", Astro.currentLocale)}>
+      <Logo />
+    </a>
+    <nav class="nav">
+      <a class="link" href={newsURL}
+        >{m("header_nav_news", Astro.currentLocale)}</a
+      >
+      <a class="link" href={GOOGLE_FORM_WAITLIST_URL} target="_blank">
+        {m("join_waitlist_btn", Astro.currentLocale)}
+      </a>
+      <select name="language" id="language">
+        <option
+          value={LOCALES[0]}
+          selected={Astro.currentLocale === LOCALES[0]}
+        >
+          English
+        </option>
+        <option
+          value={LOCALES[1]}
+          selected={Astro.currentLocale === LOCALES[1]}
+        >
+          Deutsch
+        </option>
+      </select>
+      <script>
+        import { getRelativeLocaleUrl } from "astro:i18n";
+        import { LOCALES } from "../constants";
+
+        const languageSelect = document.querySelector(
+          "select[name='language']"
+        ) as HTMLSelectElement;
+
+        languageSelect.addEventListener("change", (event) => {
+          const selectedLocale = (event.target as HTMLSelectElement).value;
+          const currentPath = window.location.pathname;
+          const unlocalizedPath =
+            currentPath.replace(new RegExp(`^/(${LOCALES.join("|")})`), "") ||
+            "/";
+          const targetUrl = getRelativeLocaleUrl(
+            selectedLocale,
+            unlocalizedPath
+          );
+
+          window.location.href = targetUrl;
+        });
+      </script>
+    </nav>
+  </div>
+</header>
+
+<style>
+  @custom-media --md-n-above (width >= 768px);
+
+  header {
+    inline-size: 100%;
+    background: linear-gradient(
+      to bottom,
+      var(--color-surface-base),
+      transparent
+    );
+  }
+
+  .inner {
+    display: flex;
+    gap: var(--spacing-base);
+    flex-direction: column;
+    align-items: center;
+    inline-size: var(--dynamic-content-width);
+    margin-inline: auto;
+    padding-inline: var(--spacing-far);
+    padding-block: var(--spacing-far);
+
+    @media (--md-n-above) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-far);
+    flex-shrink: 0;
+  }
+
+  .link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  select {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-small);
+    border-radius: var(--border-radius-xs);
+    padding-inline: var(--spacing-tiny);
+    padding-block: var(--spacing-tiny);
+  }
+</style>

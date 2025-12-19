@@ -1,0 +1,41 @@
+---
+import "../styles/theme.css";
+// import "@nordcode/ui/utils/media"
+import "@nordcode/ui/bundle";
+import "@nordcode/ui/utils/layouts";
+import "@nordcode/ui/components/card";
+import "@nordcode/ui/components/forms";
+import "@nordcode/ui/components/buttons";
+import "@nordcode/ui/components/gallery";
+import "../styles/overrides.css";
+import Head from "../components/Head.astro";
+
+export interface Props {
+  title: string;
+  description?: string;
+  structuredData?: Record<string, unknown>[];
+  canonical?: string;
+  noIndex?: boolean;
+}
+
+const props = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head {...props} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+</style>

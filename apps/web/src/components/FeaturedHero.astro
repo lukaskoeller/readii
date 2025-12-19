@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import Hero from "./Hero.astro";
+import Header from "./Header.astro";
+
+const COVER_SRC = "https://piccalil.li/images/social-share.png";
+---
+
+<Hero>
+  <Header slot="header" />
+  <Image
+    slot="background"
+    class="cover"
+    src={COVER_SRC}
+    alt="Piccalilli Featured Image"
+    width={1400}
+    height={750}
+  />
+  <Fragment slot="content">
+    <Image
+      class="featured-image"
+      src={COVER_SRC}
+      alt="Piccalilli Featured Image"
+      width={1400}
+      height={750}
+    />
+    <div class="text nc-flow">
+      <h1>Piccalilli</h1>
+      <h2>
+        We are Piccalilli. A publication dedicated to providing high quality
+        educational content to level up your front-end skills.
+      </h2>
+      <p>
+        Discover articles, tutorials, and resources on HTML, CSS, JavaScript,
+        and modern frameworks. Join the community of developers and designers to
+        enhance your front-end expertise.
+      </p>
+      <button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg
+        >
+        Subscribe
+      </button>
+    </div>
+  </Fragment>
+</Hero>
+
+<style>
+  .featured-image {
+    flex: 30vw 0 1;
+    min-inline-size: 0;
+    border-radius: calc(var(--border-radius-lg));
+    corner-shape: squircle;
+    max-block-size: 100%;
+    /* block-size: 100%; */
+    object-fit: contain;
+  }
+
+  .text {
+    flex: 40ch 0 1;
+    max-inline-size: 40ch;
+
+    & > h2 {
+      font-weight: bold;
+      font-size: var(--font-size-base);
+    }
+  }
+</style>
