@@ -2,23 +2,21 @@
 import Hero from "./Hero.astro";
 import { GOOGLE_FORM_WAITLIST_URL } from "../constants";
 import Header from "./Header.astro";
+import { m } from "../utils";
 ---
 
 <Hero>
   <Header slot="header" />
   <div slot="content" class="content">
     <p class="text">
-      Mit readii kannst du Inhalte aus dem Internet in einer einzigen App
-      verfolgen. Egal, ob es sich um deine Lieblingsblogs, Websites oder
-      Newsletter handelt. Filtere und individualisiere deine Inhalte nach deinen
-      persönlichen Interessen.
+      {m("intro", Astro.currentLocale)}
     </p>
     <div class="actions">
       <a
         class="nc-button -primary -small"
         href={GOOGLE_FORM_WAITLIST_URL}
         target="_blank"
-        rel="noopener noreferrer">Auf die Warteliste</a
+        rel="noopener noreferrer">{m("join_waitlist_btn", Astro.currentLocale)}</a
       >
       <a
         class="nc-button -stealth -small"
@@ -26,7 +24,7 @@ import Header from "./Header.astro";
         target="_blank"
         rel="noopener noreferrer"
       >
-        Auf Bluesky folgen
+        {m("feed_bluesky_btn", Astro.currentLocale)}
       </a>
     </div>
   </div>

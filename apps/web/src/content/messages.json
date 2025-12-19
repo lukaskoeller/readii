@@ -1,0 +1,54 @@
+{
+    "header_nav_news": {
+        "de-de": "Neuigkeiten",
+        "en-us": "News"
+    },
+    "header_home_aria": {
+        "de-de": "Zurück zur readii Startseite",
+        "en-us": "Back to readii homepage"
+    },
+    "head_title_index": {
+        "de-de": "Folge den Inhalten, die du liebst",
+        "en-us": "Follow the content you love"
+    },
+    "head_title_news": {
+        "de-de": "Neuigkeiten",
+        "en-us": "News"
+    },
+    "intro": {
+        "de-de": "Mit readii kannst du Inhalte aus dem Internet in einer einzigen App verfolgen. Egal, ob es sich um deine Lieblingsblogs, Websites, Newsletter oder einfach einem RSS Feed handelt. Filtere und individualisiere deine Inhalte nach deinen persönlichen Interessen.",
+        "en-us": "With readii, you can follow content from the internet in a single app. Whether it's your favorite blogs, websites, newsletters, or just an RSS feed. Filter and customize your content according to your personal interests."
+    },
+    "language": {
+        "de-de": "Sprache",
+        "en-us": "Language"
+    },
+    "form_waitlist_submit_label": {
+        "de-de": "Auf die Warteliste",
+        "en-us": "Join the Waitlist"
+    },
+    "form_waitlist_email_input": {
+        "de-de": "E-Mail",
+        "en-us": "E-Mail"
+    },
+    "waitlist_paragraph": {
+        "de-de": "Trag dich mit deiner E-Mail in unsere Warteliste ein und wir informieren dich, sobald unser Produkt live geht. Keine Spam, nur gute Nachrichten – versprochen.",
+        "en-us": "Sign up for our waiting list with your email address and we will let you know as soon as our product goes live. No spam, just good news – we promise."
+    },
+    "join_waitlist_btn": {
+        "de-de": "Auf die Warteliste",
+        "en-us": "Join the Waitlist"
+    },
+    "feed_rss_btn": {
+        "de-de": "RSS abonnieren",
+        "en-us": "Subscribe to RSS"
+    },
+    "feed_bluesky_btn": {
+        "de-de": "Auf Bluesky folgen",
+        "en-us": "Follow on Bluesky"
+    },
+    "feed_item_link": {
+        "de-de": "Post anzeigen",
+        "en-us": "See Original Post"
+    }
+}

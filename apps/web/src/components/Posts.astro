@@ -1,12 +1,10 @@
 ---
 import logo from "@readii/assets/icons/app/svg";
 import { getCollection } from "astro:content";
-import { dayMonthYearTimeFormat } from "../utils";
+import { dayMonthYearTimeFormat, m } from "../utils";
 import { Image } from "astro:assets";
 
 const data = await getCollection("blueskyPosts");
-console.log(logo);
-
 ---
 
 <div class="container">
@@ -33,7 +31,7 @@ console.log(logo);
                 rel="noopener noreferrer"
                 class="link"
               >
-                Post anzeigen
+                {m("feed_item_link", Astro.currentLocale)}
               </a>
             </div>
           </div>

@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
+import { DEFAULT_LOCALE, LOCALES } from "./src/constants";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,4 +17,8 @@ export default defineConfig({
       },
     },
   },
+  i18n: {
+    locales: [...LOCALES],
+    defaultLocale: DEFAULT_LOCALE,
+  }
 });

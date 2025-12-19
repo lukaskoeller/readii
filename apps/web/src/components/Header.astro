@@ -1,18 +1,61 @@
 ---
-import { GOOGLE_FORM_WAITLIST_URL } from "../constants";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { GOOGLE_FORM_WAITLIST_URL, LOCALES } from "../constants";
+import { m } from "../utils";
 import Logo from "./Logo.astro";
+
+const newsURL = getRelativeLocaleUrl(Astro.currentLocale, "news");
+const startURL = getRelativeLocaleUrl(Astro.currentLocale, "");
 ---
 
 <header>
   <div class="inner">
-    <a href="/" aria-label="Back to readii homepage">
+    <a href={startURL} aria-label={m("header_home_aria", Astro.currentLocale)}>
       <Logo />
     </a>
     <nav class="nav">
-      <a class="link" href="/news">News</a>
+      <a class="link" href={newsURL}
+        >{m("header_nav_news", Astro.currentLocale)}</a
+      >
       <a class="link" href={GOOGLE_FORM_WAITLIST_URL} target="_blank">
-        Auf die Warteliste
+        {m("join_waitlist_btn", Astro.currentLocale)}
       </a>
+      <select name="language" id="language">
+        <option
+          value={LOCALES[0]}
+          selected={Astro.currentLocale === LOCALES[0]}
+        >
+          English
+        </option>
+        <option
+          value={LOCALES[1]}
+          selected={Astro.currentLocale === LOCALES[1]}
+        >
+          Deutsch
+        </option>
+      </select>
+      <script>
+        import { getRelativeLocaleUrl } from "astro:i18n";
+        import { LOCALES } from "../constants";
+
+        const languageSelect = document.querySelector(
+          "select[name='language']"
+        ) as HTMLSelectElement;
+
+        languageSelect.addEventListener("change", (event) => {
+          const selectedLocale = (event.target as HTMLSelectElement).value;
+          const currentPath = window.location.pathname;
+          const unlocalizedPath =
+            currentPath.replace(new RegExp(`^/(${LOCALES.join("|")})`), "") ||
+            "/";
+          const targetUrl = getRelativeLocaleUrl(
+            selectedLocale,
+            unlocalizedPath
+          );
+
+          window.location.href = targetUrl;
+        });
+      </script>
     </nav>
   </div>
 </header>
@@ -46,7 +89,8 @@ import Logo from "./Logo.astro";
   }
 
   .nav {
-    display: flex;    
+    display: flex;
+    align-items: center;
     gap: var(--spacing-far);
     flex-shrink: 0;
   }
@@ -57,5 +101,13 @@ import Logo from "./Logo.astro";
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  select {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-small);
+    border-radius: var(--border-radius-xs);
+    padding-inline: var(--spacing-tiny);
+    padding-block: var(--spacing-tiny);
   }
 </style>
