@@ -8,6 +8,9 @@ import { DEFAULT_LOCALE, LOCALES } from "./src/constants";
 export default defineConfig({
   integrations: [sitemap()],
   vite: {
+    ssr: {
+      noExternal: ['@nordcode/ui'],
+    },
     css: {
       transformer: "lightningcss",
       lightningcss: {
