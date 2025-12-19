@@ -20,7 +20,11 @@ const startURL = getRelativeLocaleUrl(Astro.currentLocale, "");
       <a class="link" href={GOOGLE_FORM_WAITLIST_URL} target="_blank">
         {m("join_waitlist_btn", Astro.currentLocale)}
       </a>
-      <select name="language" id="language">
+      <select
+        name="language"
+        id="language"
+        aria-label={m("select_language", Astro.currentLocale)}
+      >
         <option
           value={LOCALES[0]}
           selected={Astro.currentLocale === LOCALES[0]}

@@ -19,9 +19,9 @@
         "de-de": "Mit readii kannst du Inhalte aus dem Internet in einer einzigen App verfolgen. Egal, ob es sich um deine Lieblingsblogs, Websites, Newsletter oder einfach einem RSS Feed handelt. Filtere und individualisiere deine Inhalte nach deinen persönlichen Interessen.",
         "en-us": "With readii, you can follow content from the internet in a single app. Whether it's your favorite blogs, websites, newsletters, or just an RSS feed. Filter and customize your content according to your personal interests."
     },
-    "language": {
-        "de-de": "Sprache",
-        "en-us": "Language"
+    "select_language": {
+        "de-de": "Sprache wählen",
+        "en-us": "Select Language"
     },
     "form_waitlist_submit_label": {
         "de-de": "Auf die Warteliste",
