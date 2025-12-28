@@ -65,6 +65,7 @@
 - Reddit Feedback
 - Handpicked OPML on website
 - Use hashtag #buildinpublic
+- Post on https://www.reddit.com/r/rss/
 
 ## Helpful
 

@@ -34,6 +34,7 @@ const { title } = Astro.props;
     --padding: var(--spacing-far);
     --gallery-scroll-padding-inline: var(--padding);
 
+    overscroll-behavior-inline: none; /* avoid browser's built in back page behavior. */
     padding-inline: var(--padding);
   }
 </style>
