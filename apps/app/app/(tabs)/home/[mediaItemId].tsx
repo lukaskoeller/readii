@@ -28,6 +28,7 @@ export default function Article() {
         <Stack.Header.Title></Stack.Header.Title>
         <Stack.Header.Right>
           <Stack.Header.Button
+            onPress={async () => updateMediaItem({ isReadLater: !isReadLater })}
             icon={isReadLater ? "clock.badge.fill" : "clock.badge"}
           />
           <Stack.Header.Menu icon="ellipsis">
