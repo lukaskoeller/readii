@@ -27,7 +27,7 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>readiiapp</string>
+          <string>readii</string>
           <string>com.anonymous.readiiapp</string>
         </array>
       </dict>

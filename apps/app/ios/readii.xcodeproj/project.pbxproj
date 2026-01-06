@@ -7,31 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		096EF642E7D14042B7AB778F /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6324EC8E690B47919BCBAB7B /* noop-file.swift */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		16829FC2B8B1D6276C50DD63 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 989D1968EAE08C16C2468271 /* PrivacyInfo.xcprivacy */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		4D1874D286E23542B2708FB3 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA7DB7B64924A706A283D04 /* ExpoModulesProvider.swift */; };
-		B4ED6DA2222E94D392506DBE /* libPods-readiiapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2E14284E7CB3D6D9111AB4 /* libPods-readiiapp.a */; };
+		422ABBD839269E16BED12F28 /* libPods-readii.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E525A8BCAA94EF50B88C93 /* libPods-readii.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		CA219EC97ED2444C9EFDA358 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61DBC066BCA4331BDDA8DDE /* noop-file.swift */; };
+		D3B9D711A5BE1FCBED0482AC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 445ED1E74F57ED543204A2F7 /* PrivacyInfo.xcprivacy */; };
+		DFAF99F162F39D65254C35BC /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB5FECC3186631F8ED2FF0C /* ExpoModulesProvider.swift */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* readiiapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = readiiapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = readiiapp/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = readiiapp/Info.plist; sourceTree = "<group>"; };
-		6324EC8E690B47919BCBAB7B /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "readiiapp/noop-file.swift"; sourceTree = "<group>"; };
-		64080CABEC30EFC0A952597B /* Pods-readiiapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-readiiapp.debug.xcconfig"; path = "Target Support Files/Pods-readiiapp/Pods-readiiapp.debug.xcconfig"; sourceTree = "<group>"; };
-		7FA7DB7B64924A706A283D04 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-readiiapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		989D1968EAE08C16C2468271 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = readiiapp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = readiiapp/SplashScreen.storyboard; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* readii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = readii.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = readii/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = readii/Info.plist; sourceTree = "<group>"; };
+		3AB5FECC3186631F8ED2FF0C /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-readii/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		3B4805AE22BA55EB322D818D /* Pods-readii.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-readii.release.xcconfig"; path = "Target Support Files/Pods-readii/Pods-readii.release.xcconfig"; sourceTree = "<group>"; };
+		445ED1E74F57ED543204A2F7 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = readii/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		498EE87A2133D51BC061B5CB /* Pods-readii.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-readii.debug.xcconfig"; path = "Target Support Files/Pods-readii/Pods-readii.debug.xcconfig"; sourceTree = "<group>"; };
+		A2E525A8BCAA94EF50B88C93 /* libPods-readii.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-readii.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = readii/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		E5D254BC9AF400712B389FF1 /* Pods-readiiapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-readiiapp.release.xcconfig"; path = "Target Support Files/Pods-readiiapp/Pods-readiiapp.release.xcconfig"; sourceTree = "<group>"; };
-		EB2E14284E7CB3D6D9111AB4 /* libPods-readiiapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-readiiapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = readiiapp/AppDelegate.swift; sourceTree = "<group>"; };
-		F11748442D0722820044C1D9 /* readiiapp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "readiiapp-Bridging-Header.h"; path = "readiiapp/readiiapp-Bridging-Header.h"; sourceTree = "<group>"; };
+		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = readii/AppDelegate.swift; sourceTree = "<group>"; };
+		F11748442D0722820044C1D9 /* readii-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "readii-Bridging-Header.h"; path = "readii/readii-Bridging-Header.h"; sourceTree = "<group>"; };
+		F61DBC066BCA4331BDDA8DDE /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "readii/noop-file.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,53 +39,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4ED6DA2222E94D392506DBE /* libPods-readiiapp.a in Frameworks */,
+				422ABBD839269E16BED12F28 /* libPods-readii.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0FCF5E005F11F2227D275A97 /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				CE75DB558A37B935AF8D542E /* readiiapp */,
-			);
-			name = ExpoModulesProviders;
-			sourceTree = "<group>";
-		};
-		13B07FAE1A68108700A75B9A /* readiiapp */ = {
+		13B07FAE1A68108700A75B9A /* readii */ = {
 			isa = PBXGroup;
 			children = (
 				F11748412D0307B40044C1D9 /* AppDelegate.swift */,
-				F11748442D0722820044C1D9 /* readiiapp-Bridging-Header.h */,
+				F11748442D0722820044C1D9 /* readii-Bridging-Header.h */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				989D1968EAE08C16C2468271 /* PrivacyInfo.xcprivacy */,
-				6324EC8E690B47919BCBAB7B /* noop-file.swift */,
+				F61DBC066BCA4331BDDA8DDE /* noop-file.swift */,
+				445ED1E74F57ED543204A2F7 /* PrivacyInfo.xcprivacy */,
 			);
-			name = readiiapp;
+			name = readii;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				EB2E14284E7CB3D6D9111AB4 /* libPods-readiiapp.a */,
+				A2E525A8BCAA94EF50B88C93 /* libPods-readii.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		44AB1E57C2B143A7510F6F75 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				64080CABEC30EFC0A952597B /* Pods-readiiapp.debug.xcconfig */,
-				E5D254BC9AF400712B389FF1 /* Pods-readiiapp.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -98,12 +80,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* readiiapp */,
+				13B07FAE1A68108700A75B9A /* readii */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				44AB1E57C2B143A7510F6F75 /* Pods */,
-				0FCF5E005F11F2227D275A97 /* ExpoModulesProviders */,
+				A1A9857755EA78D0D1837ACD /* Pods */,
+				B6B6E675D8D73CE8A3837A00 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -113,9 +95,27 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* readiiapp.app */,
+				13B07F961A680F5B00A75B9A /* readii.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A1A9857755EA78D0D1837ACD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				498EE87A2133D51BC061B5CB /* Pods-readii.debug.xcconfig */,
+				3B4805AE22BA55EB322D818D /* Pods-readii.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B6B6E675D8D73CE8A3837A00 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				FB3152869CB98D1E1B77A3B1 /* readii */,
+			);
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
@@ -124,40 +124,40 @@
 				BB2F792C24A3F905000567C9 /* Expo.plist */,
 			);
 			name = Supporting;
-			path = readiiapp/Supporting;
+			path = readii/Supporting;
 			sourceTree = "<group>";
 		};
-		CE75DB558A37B935AF8D542E /* readiiapp */ = {
+		FB3152869CB98D1E1B77A3B1 /* readii */ = {
 			isa = PBXGroup;
 			children = (
-				7FA7DB7B64924A706A283D04 /* ExpoModulesProvider.swift */,
+				3AB5FECC3186631F8ED2FF0C /* ExpoModulesProvider.swift */,
 			);
-			name = readiiapp;
+			name = readii;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* readiiapp */ = {
+		13B07F861A680F5B00A75B9A /* readii */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "readiiapp" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "readii" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				A2327F891C1EFDBBD1BDA203 /* [Expo] Configure project */,
+				3161AD0092411F126DDAA9EB /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				C3BE2B14C925FD27928D2561 /* [CP] Embed Pods Frameworks */,
+				E0E21D665FC7256686B732DA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = readiiapp;
-			productName = readiiapp;
-			productReference = 13B07F961A680F5B00A75B9A /* readiiapp.app */;
+			name = readii;
+			productName = readii;
+			productReference = 13B07F961A680F5B00A75B9A /* readii.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +173,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "readiiapp" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "readii" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -186,7 +186,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* readiiapp */,
+				13B07F861A680F5B00A75B9A /* readii */,
 			);
 		};
 /* End PBXProject section */
@@ -199,7 +199,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				16829FC2B8B1D6276C50DD63 /* PrivacyInfo.xcprivacy in Resources */,
+				D3B9D711A5BE1FCBED0482AC /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,12 +238,36 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-readiiapp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-readii-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		3161AD0092411F126DDAA9EB /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/readii/readii.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-readii/expo-configure-project.sh",
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Pods/Target Support Files/Pods-readii/ExpoModulesProvider.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-readii/expo-configure-project.sh\"\n";
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -251,7 +275,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-readiiapp/Pods-readiiapp-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-readii/Pods-readii-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
@@ -288,53 +312,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-readiiapp/Pods-readiiapp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-readii/Pods-readii-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A2327F891C1EFDBBD1BDA203 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/.xcode.env",
-				"$(SRCROOT)/.xcode.env.local",
-				"$(SRCROOT)/readiiapp/readiiapp.entitlements",
-				"$(SRCROOT)/Pods/Target Support Files/Pods-readiiapp/expo-configure-project.sh",
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/Pods/Target Support Files/Pods-readiiapp/ExpoModulesProvider.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-readiiapp/expo-configure-project.sh\"\n";
-		};
-		C3BE2B14C925FD27928D2561 /* [CP] Embed Pods Frameworks */ = {
+		E0E21D665FC7256686B732DA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-readiiapp/Pods-readiiapp-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-readii/Pods-readii-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermesvm.framework/hermesvm",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactNativeDependencies.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermesvm.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-readiiapp/Pods-readiiapp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-readii/Pods-readii-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -345,8 +345,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				4D1874D286E23542B2708FB3 /* ExpoModulesProvider.swift in Sources */,
-				096EF642E7D14042B7AB778F /* noop-file.swift in Sources */,
+				CA219EC97ED2444C9EFDA358 /* noop-file.swift in Sources */,
+				DFAF99F162F39D65254C35BC /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,18 +355,18 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64080CABEC30EFC0A952597B /* Pods-readiiapp.debug.xcconfig */;
+			baseConfigurationReference = 498EE87A2133D51BC061B5CB /* Pods-readii.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = readiiapp/readiiapp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = readii/readii.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = readiiapp/Info.plist;
+				INFOPLIST_FILE = readii/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -380,8 +380,8 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.readiiapp;
-				PRODUCT_NAME = "readii";
-				SWIFT_OBJC_BRIDGING_HEADER = "readiiapp/readiiapp-Bridging-Header.h";
+				PRODUCT_NAME = readii;
+				SWIFT_OBJC_BRIDGING_HEADER = "readii/readii-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -391,13 +391,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5D254BC9AF400712B389FF1 /* Pods-readiiapp.release.xcconfig */;
+			baseConfigurationReference = 3B4805AE22BA55EB322D818D /* Pods-readii.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = readiiapp/readiiapp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = readii/readii.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = readiiapp/Info.plist;
+				INFOPLIST_FILE = readii/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -411,8 +411,8 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.readiiapp;
-				PRODUCT_NAME = "readii";
-				SWIFT_OBJC_BRIDGING_HEADER = "readiiapp/readiiapp-Bridging-Header.h";
+				PRODUCT_NAME = readii;
+				SWIFT_OBJC_BRIDGING_HEADER = "readii/readii-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -474,7 +474,9 @@
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				REACT_NATIVE_PATH = "${PODS_ROOT}/../../../../node_modules/.pnpm/react-native@0.81.4_@babel+core@7.28.4_@types+react@19.1.13_react@19.1.0/node_modules/react-native";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../../../node_modules/.pnpm/react-native@0.83.1_@babel+core@7.28.5_@types+react@19.1.17_react@19.2.0/node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
@@ -529,7 +531,9 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				REACT_NATIVE_PATH = "${PODS_ROOT}/../../../../node_modules/.pnpm/react-native@0.81.4_@babel+core@7.28.4_@types+react@19.1.13_react@19.1.0/node_modules/react-native";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../../../node_modules/.pnpm/react-native@0.83.1_@babel+core@7.28.5_@types+react@19.1.17_react@19.2.0/node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				USE_HERMES = true;
@@ -540,7 +544,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "readiiapp" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "readii" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -549,7 +553,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "readiiapp" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "readii" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
