@@ -23,7 +23,9 @@ export default function FeedStackLayout() {
             backgroundColor,
           },
           headerShadowVisible: false,
-          presentation: "modal",
+          presentation: "formSheet",
+          sheetGrabberVisible: true,
+          sheetAllowedDetents: [0.52],
         }}
       />
       <Stack.Screen
@@ -34,7 +36,12 @@ export default function FeedStackLayout() {
             backgroundColor,
           },
           headerShadowVisible: false,
-          presentation: "modal",
+          presentation: "formSheet",
+          sheetGrabberVisible: true,
+          sheetAllowedDetents: [0.52, 1],
+          contentStyle: {
+            backgroundColor,
+          }
         }}
       />
       <Stack.Screen

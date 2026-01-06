@@ -59,6 +59,7 @@ export default function AddFolder() {
 
   return (
     <ScrollView
+      contentInsetAdjustmentBehavior="automatic"
       style={{
         paddingBlockStart: Spacing.size4,
         backgroundColor: colorBackground,
