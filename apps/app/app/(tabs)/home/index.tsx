@@ -155,7 +155,7 @@ export default function HomeScreen() {
           </Section>
         </ThemedView>
         <ThemedView padding={Spacing.size4}>
-          <Section title="All Feeds">
+          <Section title={`All Feeds (${data.length})`}>
             <MediaSourceListCard
               data={data.map((item) => ({
                 href: {
