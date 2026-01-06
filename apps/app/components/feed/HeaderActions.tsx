@@ -12,6 +12,9 @@ export type HeaderActionsProps = {
   folderId?: NonNullable<schema.TFolder["id"]>;
 };
 
+/**
+ * @deprecated Replaced by Stack.Header.MenuAction in feed.tsx
+ */
 export function HeaderActions({
   mediaSourceId,
   folderId,

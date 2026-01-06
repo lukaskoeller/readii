@@ -11,6 +11,9 @@ export type ArticleActionsProps = {
   updateMediaItem: (data: { isRead: boolean }) => SQLiteRunResult;
 };
 
+/**
+ * @deprecated Replaced by Stack.Header.MenuAction in [mediaItemId].tsx
+ */
 export const ArticleActions: FC<ArticleActionsProps> = ({
   isRead,
   url,

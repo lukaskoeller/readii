@@ -14,6 +14,9 @@ export type HeaderActionsProps = {
   }) => SQLiteRunResult;
 };
 
+/**
+ * @deprecated Use Stack.Header buttons and menu instead
+ */
 export function HeaderActions({
   isReadLater,
   isStarred,
