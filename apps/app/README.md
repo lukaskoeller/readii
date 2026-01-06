@@ -92,3 +92,9 @@ npx drizzle-kit generate
 ## Docs
 
 - Expo and SQLite: https://orm.drizzle.team/docs/get-started/expo-new
+
+## Helpful Links
+
+- Expo Router v7
+   - https://www.linkedin.com/posts/betomoedano_the-new-expo-router-v7-header-api-is-so-elegant-activity-7407389196727914496-p-Dh/
+   - http://youtube.com/post/UgkxJSwtBkJ5bpMscZmQrDrOXYDsEvcutdo6?si=gAtOS7pfq6xgE3oZ

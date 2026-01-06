@@ -133,10 +133,12 @@ export default function HomeScreen() {
                 <ThemedView style={{ height: Spacing.size3 }} />
               )}
               renderItem={({ item: folder }) => {
-                const mediaSources = folder.mediaSources.map(({ mediaSource }) => ({
-                  thumbnailUrl: mediaSource.icon?.url,
-                  id: mediaSource.id,
-                }));
+                const mediaSources = folder.mediaSources.map(
+                  ({ mediaSource }) => ({
+                    thumbnailUrl: mediaSource.icon?.url,
+                    id: mediaSource.id,
+                  })
+                );
                 const folderId = folder.id;
                 return (
                   <FolderButton
