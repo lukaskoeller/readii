@@ -2,11 +2,23 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
-import { useFeed, useMediaItem } from "@/hooks/queries";
+import {
+  useFeed,
+  useFolder,
+  useMediaItem,
+  useMediaSource,
+} from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Image } from "expo-image";
-import { Link, Stack, useLocalSearchParams } from "expo-router";
+import {
+  Icon,
+  Label,
+  Link,
+  Stack,
+  useLocalSearchParams,
+  useRouter,
+} from "expo-router";
 import { dayMonthYearFormat, getPreviewText } from "@/core/utils";
 import { parse } from "parse5";
 import { IconSymbol } from "@/components/ui/IconSymbol";
@@ -18,7 +30,6 @@ import {
   DateArg,
 } from "date-fns";
 import { useRefresh } from "@/hooks/useRefresh";
-import { HeaderActions } from "@/components/feed/HeaderActions";
 import { getFeedData } from "@readii/parser";
 
 function formatShortRelative(date: DateArg<Date>) {
@@ -35,6 +46,9 @@ function formatShortRelative(date: DateArg<Date>) {
 }
 
 export default function Feed() {
+  const router = useRouter();
+  const { deleteMediaSource } = useMediaSource();
+  const { deleteFolder } = useFolder();
   const { updateFeed } = useFeed();
   const { readMediaItems, readMediaItemsFromFolderId } = useMediaItem();
   const params = useLocalSearchParams<{
@@ -67,18 +81,29 @@ export default function Feed() {
 
   return (
     <>
-      <Stack.Screen
-        options={{
-          title: params.feedTitle ?? "All Feeds",
-          headerStyle: {
-            backgroundColor,
-          },
-          headerShadowVisible: false,
-          headerRight: mediaSourceId || hasFolderId
-            ? () => <HeaderActions mediaSourceId={mediaSourceId} folderId={folderId} />
-            : undefined,
-        }}
-      />
+      <Stack.Header style={{ backgroundColor }}>
+        <Stack.Header.Title>
+          {params.feedTitle ?? `All Feeds (${data?.length ?? 0})`}
+        </Stack.Header.Title>
+        <Stack.Header.Right>
+          <Stack.Header.Menu icon="ellipsis">
+            <Stack.Header.MenuAction
+              onPress={async () => {
+                if (mediaSourceId) {
+                  deleteMediaSource(mediaSourceId);
+                }
+                if (folderId) {
+                  deleteFolder(folderId);
+                }
+                router.replace("/home");
+              }}
+            >
+              <Label>{mediaSourceId ? "Delete Feed" : "Delete Folder"}</Label>
+              <Icon sf="trash" />
+            </Stack.Header.MenuAction>
+          </Stack.Header.Menu>
+        </Stack.Header.Right>
+      </Stack.Header>
       <FlatList
         style={[styles.list, { backgroundColor }]}
         contentContainerStyle={{ paddingBottom: Spacing.navigation }}

@@ -3,12 +3,10 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Spacing } from "@/constants/Sizes";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
-import { ScrollView, StyleSheet, Dimensions } from "react-native";
+import { ScrollView, StyleSheet, Dimensions, Linking } from "react-native";
 import { parseFragment } from "parse5";
-import { Stack } from "expo-router";
+import { Icon, Label, Stack } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { HeaderActions } from "@/components/mediaItemId/HeaderActions";
-import { ArticleActions } from "@/components/mediaItemId/ArticleActions";
 
 export default function Article() {
   const data = useReadMediaItem();
@@ -26,29 +24,48 @@ export default function Article() {
 
   return (
     <ThemedView style={{ backgroundColor, minHeight: "100%" }}>
-      <Stack.Screen
-        options={{
-          headerStyle: {
-            backgroundColor,
-          },
-          headerShadowVisible: false,
-          headerTitle: "",
-          headerRight: () => (
-            <HeaderActions
-              isReadLater={isReadLater}
-              isStarred={isStarred}
-              updateMediaItem={updateMediaItem}
-            />
-          ),
-        }}
-      />
+      <Stack.Header style={{ backgroundColor }}>
+        <Stack.Header.Title></Stack.Header.Title>
+        <Stack.Header.Right>
+          <Stack.Header.Button
+            icon={isReadLater ? "clock.badge.fill" : "clock.badge"}
+          />
+          <Stack.Header.Menu icon="ellipsis">
+            <Stack.Header.MenuAction
+              onPress={async () => updateMediaItem({ isStarred: !isStarred })}
+            >
+              <Label>{isStarred ? "Unstar" : "Star"}</Label>
+              <Icon sf={isStarred ? "star.fill" : "star"} />
+            </Stack.Header.MenuAction>
+            <Stack.Header.MenuAction
+              onPress={() => updateMediaItem({ isRead: !isRead })}
+            >
+              <Label>{isRead ? "Mark Unread" : "Mark Read"}</Label>
+              <Icon sf="app.badge" />
+            </Stack.Header.MenuAction>
+            <Stack.Header.MenuAction
+              onPress={() => {
+                if (!url) return;
+                Linking.openURL(url);
+              }}
+            >
+              <Label>Open Original</Label>
+              <Icon sf="arrow.up.forward.app" />
+            </Stack.Header.MenuAction>
+          </Stack.Header.Menu>
+        </Stack.Header.Right>
+      </Stack.Header>
       <ThemedView style={styles.flow}>
         <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
           style={{ padding: Spacing.size4 }}
           contentContainerStyle={{ paddingBlockEnd: Spacing.navigation }}
           onLayout={({ nativeEvent }) => {
             const thresholdMultiplier = 1.3;
-            if (nativeEvent.layout.height <= deviceHeight * thresholdMultiplier) {
+            if (
+              nativeEvent.layout.height <=
+              deviceHeight * thresholdMultiplier
+            ) {
               updateMediaItem({ isRead: true });
             }
           }}
@@ -75,11 +92,6 @@ export default function Article() {
             <ThemedText type="h1" style={{ marginBlockStart: 0 }}>
               {data?.title}
             </ThemedText>
-            <ArticleActions
-              isRead={isRead}
-              url={url}
-              updateMediaItem={updateMediaItem}
-            />
             <HtmlViewer ast={contentAst} url={data?.mediaSource.url} />
           </ThemedView>
         </ScrollView>
