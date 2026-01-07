@@ -1,18 +1,15 @@
 import { ThemedView } from "@/components/ThemedView";
 import { Spacing } from "@/constants/Sizes";
-import { FlatList, StyleSheet, View } from "react-native";
-import { Stack, useLocalSearchParams, useRouter } from "expo-router";
+import { FlatList, View } from "react-native";
+import { Stack, useLocalSearchParams } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { CATEGORIES } from "@/constants/data";
-import { FeedPreview } from "@/components/FeedPreview";
-import { Card } from "@/components/Card";
-import { Button } from "@/components/Button/Button";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
-import { useFeed, useMediaSource } from "@/hooks/queries";
-import { getFeedData } from "@readii/parser";
+import { useMediaSource } from "@/hooks/queries";
 import { TMediaSource } from "@/core/schema";
 import { suggestionsByCategory } from "@readii/data";
 import { TFeedCategory } from "@readii/data/suggestions/zod";
+import { SuggestionCard } from "@/components/SuggestionCard";
 
 const getTitle = (category: string) => {
   return CATEGORIES.find((c) => c.key === category)?.label ?? category;
@@ -27,9 +24,6 @@ const getMediaSourceId = (mediaSources: TMediaSource[], feedUrl: string) => {
 };
 
 export default function Category() {
-  const router = useRouter();
-  const { createFeed } = useFeed();
-  const { deleteMediaSource } = useMediaSource()
   const { readMediaSources } = useMediaSource();
   const { data: mediaSources } = useLiveQuery(readMediaSources());
   const backgroundColor = useThemeColor({}, "background");
@@ -58,39 +52,16 @@ export default function Category() {
           <View style={{ height: Spacing.size2 }} />
         )}
         renderItem={({ item }) => {
-          const mediaSourceId = getMediaSourceId(mediaSources, item.url);
-          const isAdded = getHasFeedUrl(mediaSourcesRssUrls, item.url);
-          const feedUrl = item.url;
+          const mediaSourceId = getMediaSourceId(mediaSources, item.feedUrl);
+          const isAdded = getHasFeedUrl(mediaSourcesRssUrls, item.feedUrl);
+          const feedUrl = item.feedUrl;
           return (
-            <Card>
-              <FeedPreview
-                name={item.title}
-                description={item.description}
-                iconUrl={item.iconUrl}
-              />
-              <ThemedView style={styles.actions}>
-                <Button
-                  onPress={async () => {
-                    if (isAdded && mediaSourceId) {
-                      deleteMediaSource(mediaSourceId);
-                      return;
-                    }
-
-                    try {
-                      const args = await getFeedData(feedUrl);
-                      await createFeed(args);
-                      router.replace("/home");
-                    } catch (error) {
-                      console.error(error);
-                    }
-                  }}
-                  startIcon={isAdded ? "checkmark" : "plus"}
-                  variant={isAdded ? "primary" : "text"}
-                >
-                  {isAdded ? "Added" : "Add"}
-                </Button>
-              </ThemedView>
-            </Card>
+            <SuggestionCard
+              item={item}
+              mediaSourceId={mediaSourceId}
+              isAdded={isAdded}
+              feedUrl={feedUrl}
+            />
           );
         }}
         contentContainerStyle={{ paddingBottom: Spacing.navigation }}
@@ -98,11 +69,3 @@ export default function Category() {
     </ThemedView>
   );
 }
-
-export const styles = StyleSheet.create({
-  actions: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-end",
-  },
-});
