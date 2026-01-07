@@ -25,7 +25,7 @@ export default function Article() {
   return (
     <ThemedView style={{ backgroundColor, minHeight: "100%" }}>
       <Stack.Header style={{ backgroundColor }}>
-        <Stack.Header.Title></Stack.Header.Title>
+        <Stack.Header.Title>{""}</Stack.Header.Title>
         <Stack.Header.Right>
           <Stack.Header.Button
             onPress={async () => updateMediaItem({ isReadLater: !isReadLater })}
