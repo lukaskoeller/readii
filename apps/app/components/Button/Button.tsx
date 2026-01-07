@@ -124,7 +124,7 @@ export const Button: FC<ButtonProps> = ({
         sizes[size].button,
       ]}
     >
-      {startIcon && (
+      {startIcon && !loading && (
         <IconSymbol
           name={startIcon}
           size={sizes[size].text.fontSize}
