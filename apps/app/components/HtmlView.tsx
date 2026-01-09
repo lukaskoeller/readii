@@ -132,28 +132,31 @@ const RenderNode: FC<TRenderNodeProps> = ({
 
   switch (nodeName) {
     case "#text": {
+      if (preserveWhitespace) {
+        return value;
+      }
       if (value === "\n") return null;
+      if (/^[\n\t]+$/.test(value)) return null;
       if (isView) {
         const trimmedValue = value.trim();
         if (!trimmedValue) return null;
         return (
           <ThemedText style={inheritStyles}>
-            {trimmedValue.replaceAll("\n", " ")}
+            {trimmedValue.replaceAll(/[\n\t]/g, " ")}
           </ThemedText>
         );
       }
       if (parentNode?.nodeName === "#document-fragment") {
         return null;
       }
-      if (preserveWhitespace) {
-        return value;
-      }
       if (shouldAddSingleWhitespace) {
-        return `${value.trim().replaceAll("\n", " ")} `;
+        return `${value.trim().replaceAll(/[\n\t]/g, " ")} `;
       }
 
-      return value.trim().replaceAll("\n", "");
+      return value.trim().replaceAll(/[\n\t]/g, "");
     }
+    case "#comment":
+      return null;
     case "p":
       if (childNodes.length === 0) return null;
       return (
@@ -426,7 +429,10 @@ const RenderNode: FC<TRenderNodeProps> = ({
           ))}
         </ThemedText>
       );
+    case "svg": 
+      return null;
     case "div":
+      if (childNodes.length === 0) return null;
       return (
         <ThemedView>
           {childNodes.map((child: any, i: number) => (
@@ -760,6 +766,9 @@ export const HtmlViewer: FC<HtmlViewerProps> = ({ ast, url }) => {
   // parse5 AST root is usually 'document', so render its children
   if (!ast) return null;
   const { childNodes } = ast;
+
+  console.log(childNodes);
+  
 
   return (
     <FlatList
