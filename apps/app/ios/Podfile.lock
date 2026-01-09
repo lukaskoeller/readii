@@ -84,6 +84,8 @@ PODS:
   - ExpoRouter (7.0.0-canary-20260105-6b962e6):
     - ExpoModulesCore
     - RNScreens
+  - ExpoSharing (14.0.9-canary-20260105-6b962e6):
+    - ExpoModulesCore
   - ExpoSplashScreen (31.0.14-canary-20260105-6b962e6):
     - ExpoModulesCore
   - ExpoSQLite (16.1.0-canary-20260105-6b962e6):
@@ -2316,6 +2318,7 @@ DEPENDENCIES:
   - "ExpoModulesCore (from `../../../node_modules/.pnpm/expo-modules-core@4.0.0-canary-20260105-6b962e6_react-native@0.83.1_@babel+core@7.28.5__92d45d5b2f1f370ed35dec3f21cc6771/node_modules/expo-modules-core`)"
   - "ExpoModulesJSI (from `../../../node_modules/.pnpm/expo-modules-core@4.0.0-canary-20260105-6b962e6_react-native@0.83.1_@babel+core@7.28.5__92d45d5b2f1f370ed35dec3f21cc6771/node_modules/expo-modules-core`)"
   - "ExpoRouter (from `../../../node_modules/.pnpm/expo-router@7.0.0-canary-20260105-6b962e6_e87b4ee71b11d1144e5f9dc4c0ebff0c/node_modules/expo-router/ios`)"
+  - "ExpoSharing (from `../../../node_modules/.pnpm/expo-sharing@14.0.9-canary-20260105-6b962e6_expo@55.0.0-canary-20260105-6b962e6/node_modules/expo-sharing/ios`)"
   - "ExpoSplashScreen (from `../../../node_modules/.pnpm/expo-splash-screen@31.0.14-canary-20260105-6b962e6_expo@55.0.0-canary-20260105-6b962e6/node_modules/expo-splash-screen/ios`)"
   - "ExpoSQLite (from `../../../node_modules/.pnpm/expo-sqlite@16.1.0-canary-20260105-6b962e6_expo@55.0.0-canary-20260105-6b962e6_react-na_f5a1249f61879572f47a6236a02d4482/node_modules/expo-sqlite/ios`)"
   - "ExpoSymbols (from `../../../node_modules/.pnpm/expo-symbols@1.1.0-canary-20260105-6b962e6_expo-font@14.1.0-canary-20260105-6b962e6_exp_57c259724fb5f2e629d9874124929345/node_modules/expo-symbols/ios`)"
@@ -2456,6 +2459,8 @@ EXTERNAL SOURCES:
     :path: "../../../node_modules/.pnpm/expo-modules-core@4.0.0-canary-20260105-6b962e6_react-native@0.83.1_@babel+core@7.28.5__92d45d5b2f1f370ed35dec3f21cc6771/node_modules/expo-modules-core"
   ExpoRouter:
     :path: "../../../node_modules/.pnpm/expo-router@7.0.0-canary-20260105-6b962e6_e87b4ee71b11d1144e5f9dc4c0ebff0c/node_modules/expo-router/ios"
+  ExpoSharing:
+    :path: "../../../node_modules/.pnpm/expo-sharing@14.0.9-canary-20260105-6b962e6_expo@55.0.0-canary-20260105-6b962e6/node_modules/expo-sharing/ios"
   ExpoSplashScreen:
     :path: "../../../node_modules/.pnpm/expo-splash-screen@31.0.14-canary-20260105-6b962e6_expo@55.0.0-canary-20260105-6b962e6/node_modules/expo-splash-screen/ios"
   ExpoSQLite:
@@ -2649,6 +2654,7 @@ SPEC CHECKSUMS:
   ExpoModulesCore: 4a2a6373dbc5ded52ee77fab5ebc045b85e4cdcd
   ExpoModulesJSI: de404956f001badf937d661b79bba81ce47f2b12
   ExpoRouter: 932002771cf6fca32b2195dcf999e5710381273e
+  ExpoSharing: eb3d0b1385dcbf414f954006fb31c2bf986f08a8
   ExpoSplashScreen: 7564c329c2e80cca7f7df676bbc03bcaf7709eac
   ExpoSQLite: 208062034c874fafe3d4c00ec69b51f59e159270
   ExpoSymbols: dfa7c8ee66125aab8d2cb3809893b13b5e819d94

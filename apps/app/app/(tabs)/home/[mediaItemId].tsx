@@ -3,7 +3,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Spacing } from "@/constants/Sizes";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
-import { ScrollView, StyleSheet, Dimensions, Linking } from "react-native";
+import { ScrollView, StyleSheet, Dimensions, Linking, Share } from "react-native";
 import { parseFragment } from "parse5";
 import { Icon, Label, Stack } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
@@ -28,8 +28,14 @@ export default function Article() {
         <Stack.Header.Title>{""}</Stack.Header.Title>
         <Stack.Header.Right>
           <Stack.Header.Button
-            onPress={async () => updateMediaItem({ isReadLater: !isReadLater })}
-            icon={isReadLater ? "clock.badge.fill" : "clock.badge"}
+            onPress={async () => {
+              if (!url) return;
+              await Share.share({
+                message: `I found this article interesting:\n${url}\n\nFound via readii app!\nhttps://readii.de`,
+                url: url,
+            });
+            }}
+            icon={"square.and.arrow.up"}
           />
           <Stack.Header.Menu icon="ellipsis">
             <Stack.Header.MenuAction
@@ -37,6 +43,12 @@ export default function Article() {
             >
               <Label>{isStarred ? "Unstar" : "Star"}</Label>
               <Icon sf={isStarred ? "star.fill" : "star"} />
+            </Stack.Header.MenuAction>
+            <Stack.Header.MenuAction
+              onPress={async () => updateMediaItem({ isReadLater: !isReadLater })}
+            >
+              <Label>{isReadLater ? "Remove from Read Later" : "Add to Read Later"}</Label>
+              <Icon sf={isReadLater ? "clock.badge.fill" : "clock.badge"} />
             </Stack.Header.MenuAction>
             <Stack.Header.MenuAction
               onPress={() => updateMediaItem({ isRead: !isRead })}
