@@ -300,6 +300,16 @@
     "categories": ["software-development"]
   },
   {
+    "title": "CSS Weekly",
+    "id": "https://buttondown.com/local-first/rss",
+    "url": "https://www.localfirstconf.com/",
+    "feedUrl": "https://buttondown.com/local-first/rss",
+    "description": "Official news from Local-First Conf and Sync Conf.",
+    "iconUrl": "https://cdn.prod.website-files.com/65c4b96cc580c963770bc27c/65d70d463d75a49a672a16b0_fav-icon%20(1).png",
+    "ogImageUrl": "https://cdn.prod.website-files.com/65c4b96cc580c963770bc27c/67866d99169e9065b191a2d8_open-graph.avif",
+    "categories": ["software-development"]
+  },
+  {
     "title": "overreacted — A blog by Dan Abramov",
     "id": "https://overreacted.io/rss.xml",
     "url": "https://overreacted.io",
