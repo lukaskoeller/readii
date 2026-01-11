@@ -1,12 +1,12 @@
 import { Card } from "@/components/Card";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ActivityIndicator, Alert, StyleSheet } from "react-native";
 import { $HttpsUrl } from "@readii/schemas/zod";
 import { getFeedData } from "@readii/parser";
 import { useFeed } from "@/hooks/queries";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { Radius, Spacing } from "@/constants/Sizes";
 import * as Clipboard from "expo-clipboard";
 import { TextInputField } from "@/components/TextInputField";
@@ -14,6 +14,7 @@ import { Button } from "@/components/Button/Button";
 import { FeedPreview } from "@/components/FeedPreview";
 import { useForm } from "@tanstack/react-form";
 import { z } from "zod/mini";
+import { useThemeColor } from "@/hooks/useThemeColor";
 
 const schema = z.object({
   feedUrl: $HttpsUrl,
@@ -37,14 +38,16 @@ export type TFeedPreview = {
 
 export default function AddFeed() {
   const router = useRouter();
+  const { url } = useLocalSearchParams<{ url?: string }>();
   const { createFeed } = useFeed();
+  const colorBackground = useThemeColor({}, "background");
   const [feedPreviewStatus, setFeedPreviewStatus] =
     useState<TPreviewStatus>("INITIAL");
   const [feedPreview, setFeedPreview] = useState<TFeedPreview | null>(null);
 
   const form = useForm({
     defaultValues: {
-      feedUrl: "https://",
+      feedUrl: url ?? "https://",
     },
     validators: {
       onBlur: schema,
@@ -89,8 +92,15 @@ export default function AddFeed() {
     }
   };
 
+  useEffect(() => {
+    // Fetch preview if `url` is provided via params
+    if (url) {
+      handleOnChangeText(url);
+    }
+  }, [url]);
+
   return (
-    <ThemedView container>
+    <ThemedView container style={{ backgroundColor: colorBackground }}>
       <Card>
         <ThemedView style={[styles.previewContainer]}>
           <ThemedView style={[styles.preview]}>
