@@ -21,9 +21,10 @@ const { title, categories } = Astro.props;
   <!-- <div class="tags">{categories.map((cat) => (
     <div class="tag">{cat}</div>
   ))}</div> -->
+  <!-- Can be tested via zsh: `npx uri-scheme open 'readii://add/feed?url=https%3A%2F%2Fnerdy.dev%2Frss.xml' --ios` -->
   <a
     class="nc-button button"
-    href=`readii://add?feedUrl=${encodeURI(Astro.props.feedUrl)}`
+    href=`readii://add/feed?url=${encodeURIComponent(Astro.props.feedUrl)}`
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
