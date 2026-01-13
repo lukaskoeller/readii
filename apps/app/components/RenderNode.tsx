@@ -4,6 +4,7 @@ import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 import {
   Alert,
+  Dimensions,
   Linking,
   ScrollView,
   StyleProp,
@@ -107,6 +108,7 @@ export const RenderNode: FC<TRenderNodeProps> = ({
   isView,
   hasTextNodeSibling,
 }) => {
+  const containerWidth = Dimensions.get("window").width - 2 * Spacing.size4;
   const colorBackground2 = useThemeColor({}, "background2");
   const colorPrimary = useThemeColor({}, "primary");
   const colorBorder = useThemeColor({}, "border");
@@ -139,7 +141,7 @@ export const RenderNode: FC<TRenderNodeProps> = ({
   switch (nodeName) {
     case "#text": {
       if (preserveWhitespace) {
-        return value;
+        return value
       }
 
       if (value === "\n") return null;
@@ -161,10 +163,14 @@ export const RenderNode: FC<TRenderNodeProps> = ({
       }
 
       if (shouldAddSingleWhitespace) {
-        return `${value.trim().replaceAll(/[\n\t]/g, " ")} `;
+        return (
+          `${value
+            .trim()
+            .replaceAll(/[\n\t]/g, " ")} `
+        );
       }
 
-      return value.trim().replaceAll(/[\n\t]/g, "");
+      return value.trim().replaceAll(/[\n\t]/g, "")
     }
     case "#comment":
       return null;
@@ -195,6 +201,23 @@ export const RenderNode: FC<TRenderNodeProps> = ({
         </ThemedText>
       );
     case "a":
+        // const hasNoTextNodes = childNodes.every((n) => n.nodeName !== "#text");
+        // if (hasNoTextNodes) {
+        //   return (
+        //     <ThemedView
+        //       accessibilityRole="link"
+        //       // onPress={handlePress}
+        //     >
+        //       <RenderNodes
+        //         nodes={childNodes}
+        //         url={url}
+        //         preserveWhitespace={preserveWhitespace}
+        //         inheritStyles={[inheritStyles, BOLD_STYLE, { color: colorPrimary }]}
+        //       />
+        //       {suffix}
+        //     </ThemedView>
+        //   );
+        // }
       return (
         <ThemedText
           style={[inheritStyles, BOLD_STYLE, { color: colorPrimary }]}
@@ -496,24 +519,26 @@ export const RenderNode: FC<TRenderNodeProps> = ({
           : undefined;
       const isSmallImage = Number(imgWidth) && Number(imgWidth) < 100;
 
-      if (hasTextNodeSibling) {
-        // Treat as inline image
-        return (
-          <>
-            <ThemedText> </ThemedText>
-            <Image
-              style={{
-                width: TEXT_DEFAULT_STYLE.lineHeight,
-                height: TEXT_DEFAULT_STYLE.lineHeight,
-              }}
-              source={src}
-              alt={altText}
-              contentFit="contain"
-            />
-            <ThemedText> </ThemedText>
-          </>
-        );
-      }
+        if (hasTextNodeSibling) {
+          // Treat as inline image
+          return (
+            <>
+              <ThemedText> </ThemedText>
+              <Image
+                style={{
+                  width: TEXT_DEFAULT_STYLE.lineHeight,
+                  height: TEXT_DEFAULT_STYLE.lineHeight,
+                }}
+                source={src}
+                alt={altText}
+                contentFit="contain"
+              />
+              <ThemedText> </ThemedText>
+            </>
+          );
+        }
+
+      // index 27 for meinleckeresleben.com
 
       return (
         <ThemedView>
@@ -522,6 +547,10 @@ export const RenderNode: FC<TRenderNodeProps> = ({
               styles.image,
               {
                 width: isSmallImage ? Number(imgWidth) : "100%",
+                maxWidth: "100%",
+                maxHeight: isSmallImage
+                  ? Number(imgHeight)
+                  : containerWidth / (aspectRatio ?? 4 / 3),
                 aspectRatio: aspectRatio ?? 4 / 3,
                 backgroundColor: colorBackground2,
                 borderColor: colorBorder,
