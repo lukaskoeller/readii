@@ -25,7 +25,7 @@ export default function FeedStackLayout() {
           headerShadowVisible: false,
           presentation: "formSheet",
           sheetGrabberVisible: true,
-          sheetAllowedDetents: [0.52],
+          sheetAllowedDetents: [0.481],
         }}
       />
       <Stack.Screen
