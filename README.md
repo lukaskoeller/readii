@@ -90,6 +90,7 @@
 - https://www.reddit.com/r/deutschephotovoltaik/new.rss
 - https://api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?filter=posts_no_replies&actor=did:plc:fmwrdogxjglnbwalvoe6jdam&limit=100
 - https://feeds.libsyn.com/582135/rss
+- https://feeds.acast.com/public/shows/tabletoday
 
 ## Technical References & Libs
 
