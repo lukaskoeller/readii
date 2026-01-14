@@ -94,16 +94,21 @@ export default function Article() {
                     <title>${data?.title}</title>
                     <link rel="canonical" href="${data?.url}">
                     <style>
+                      * {
+                        box-sizing: border-box;
+                      }
+
                       html {
                         font-family: system-ui;
                         overflow-x: hidden;
                         inline-size: 100%;
-                        box-sizing: border-box;
+                        padding-inline: ${Spacing.size4}px;
                         background: ${backgroundColor};
                       }
   
   
                       body {
+                        margin: 0;
                         inline-size: 100%;
                       }
   
@@ -111,7 +116,7 @@ export default function Article() {
                         color: ${primaryColor};
                       }
   
-                      :is(img,svg,video) {
+                      :is(img,svg,video,iframe) {
                         max-inline-size: 100%;
                         block-size: auto;
                       }
