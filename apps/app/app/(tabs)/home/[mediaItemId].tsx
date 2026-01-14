@@ -81,38 +81,43 @@ export default function Article() {
         <WebView
           cacheEnabled
           originWhitelist={["*"]}
-          textZoom={1.0}
-          ui
+          textZoom={100.0}
+          webviewDebuggingEnabled
           source={{
             baseUrl: data?.url,
             html: `
                 <html>
                   <head>
-                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <base href="${data?.url}">
+                    <title>${data?.title}</title>
                     <link rel="canonical" href="${data?.url}">
-                  </head>
-                  <body>
                     <style>
                       html {
                         font-family: system-ui;
                         overflow-x: hidden;
                         inline-size: 100%;
                         box-sizing: border-box;
+                        background: ${backgroundColor};
                       }
-
+  
+  
                       body {
                         inline-size: 100%;
                       }
-
+  
                       a {
                         color: ${primaryColor};
                       }
-
+  
                       :is(img,svg,video) {
                         max-inline-size: 100%;
                         block-size: auto;
                       }
                     </style>
+                  </head>
+                  <body>
                     <h1>${data?.title}</h1>
                     ${data?.content}
                   </body>
