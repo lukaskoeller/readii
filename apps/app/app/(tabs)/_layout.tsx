@@ -11,6 +11,7 @@ export const unstable_settings = {
 
 export default function TabLayout() {
   const backgroundColor = useThemeColor({}, "background");
+  const backgroundColor2 = useThemeColor({}, "background2");
   const dbContext = useSQLiteContext();
   useDrizzleStudio(dbContext);
   const tabSelectedColor = useThemeColor({}, "tabIconSelected");
@@ -21,6 +22,8 @@ export default function TabLayout() {
       labelStyle={{ color: tabDefaultColor }}
       backgroundColor={backgroundColor}
       tintColor={backgroundColor}
+      indicatorColor={backgroundColor2}
+      rippleColor={tabSelectedColor}
     >
       <NativeTabs.Trigger name="home">
         <Label
@@ -30,7 +33,7 @@ export default function TabLayout() {
         >
           Home
         </Label>
-        <Icon sf="house" selectedColor={tabSelectedColor} />
+        <Icon sf="house" md="home" selectedColor={tabSelectedColor} />
       </NativeTabs.Trigger>
 
       <NativeTabs.Trigger name="add">
@@ -41,7 +44,7 @@ export default function TabLayout() {
         >
           Add
         </Label>
-        <Icon sf="plus" selectedColor={tabSelectedColor} />
+        <Icon sf="plus" md="add" selectedColor={tabSelectedColor} />
       </NativeTabs.Trigger>
 
       <NativeTabs.Trigger name="index" hidden={true} />
@@ -54,7 +57,7 @@ export default function TabLayout() {
         >
           Profile
         </Label>
-        <Icon sf="person.crop.circle" selectedColor={tabSelectedColor} />
+        <Icon sf="person.crop.circle" md="person" selectedColor={tabSelectedColor} />
       </NativeTabs.Trigger>
     </NativeTabs>
   );
