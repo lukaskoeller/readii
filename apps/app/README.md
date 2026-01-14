@@ -99,3 +99,4 @@ npx drizzle-kit generate
    - https://www.linkedin.com/posts/betomoedano_the-new-expo-router-v7-header-api-is-so-elegant-activity-7407389196727914496-p-Dh/
    - http://youtube.com/post/UgkxJSwtBkJ5bpMscZmQrDrOXYDsEvcutdo6?si=gAtOS7pfq6xgE3oZ
 - Android SDK Location: `/Users/lukas/Library/Android/sdk`
+- Debugging Webviews: https://github.com/react-native-webview/react-native-webview/blob/master/docs/Debugging.md
