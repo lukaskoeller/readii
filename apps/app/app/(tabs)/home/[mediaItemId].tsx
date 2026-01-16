@@ -1,10 +1,7 @@
 import { ThemedView } from "@/components/ThemedView";
 import { Spacing } from "@/constants/Sizes";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
-import {
-  Linking,
-  Share,
-} from "react-native";
+import { Linking, Share } from "react-native";
 import { Icon, Label, Stack } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import WebView from "react-native-webview";
@@ -102,7 +99,7 @@ export default function Article() {
                         font-family: system-ui;
                         overflow-x: hidden;
                         inline-size: 100%;
-                        padding-inline: ${Spacing.size4}px;
+                        padding: ${Spacing.size4}px;
                         background: ${backgroundColor};
                       }
   
