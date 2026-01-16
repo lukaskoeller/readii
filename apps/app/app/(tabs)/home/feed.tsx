@@ -88,6 +88,7 @@ export default function Feed() {
         <Stack.Header.Right>
           <Stack.Header.Menu icon="ellipsis">
             <Stack.Header.MenuAction
+              destructive
               onPress={async () => {
                 if (mediaSourceId) {
                   deleteMediaSource(mediaSourceId);
