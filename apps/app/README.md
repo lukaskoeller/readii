@@ -100,3 +100,4 @@ npx drizzle-kit generate
    - http://youtube.com/post/UgkxJSwtBkJ5bpMscZmQrDrOXYDsEvcutdo6?si=gAtOS7pfq6xgE3oZ
 - Android SDK Location: `/Users/lukas/Library/Android/sdk`
 - Debugging Webviews: https://github.com/react-native-webview/react-native-webview/blob/master/docs/Debugging.md
+- Expo UI Playground: https://github.com/betomoedano/expo-ui-playground
