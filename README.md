@@ -24,6 +24,15 @@
 - [ ] FEAT: Fetch og data / favicon etc.
 - [x] FEAT: Implement `onRefresh` handling
 - [ ] FEAT: Add Payment handling
+```json
+[
+  "@stripe/stripe-react-native", {
+    "merchantIdentifier": "merchant.com.anonymous.readiiapp",
+    "publishableKey": "pk_test_51SC2ksQVrVh1kP5IzIa9JOUuyzygWQ1jyqYErW4bvK4E0cqOCrXr4sLxu634ROmqv6upvuFvt80menpoehqE1NOk00rUeyxUgl",
+    "enableGooglePay": true
+  }
+],
+```
 - [x] FEAT: Add Folders / Collections
 - [ ] FEAT: Open web links in webview
 - [ ] FEAT: Fully support bluesky
