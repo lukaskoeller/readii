@@ -6,15 +6,16 @@ export default function FeedStackLayout() {
   const textColor = useThemeColor({}, "text");
 
   return (
-    <Stack>
+    <Stack screenOptions={{
+      headerTitleStyle: {
+        color: textColor,
+      },
+      contentStyle: {
+        backgroundColor,
+      },
+    }}>
       <Stack.Screen
         name="index"
-        options={{
-          // headerShown: false,
-          headerStyle: {
-            backgroundColor,
-          },
-        }}
       />
       <Stack.Screen
         name="feed"
@@ -27,12 +28,6 @@ export default function FeedStackLayout() {
           presentation: "formSheet",
           sheetGrabberVisible: true,
           sheetAllowedDetents: "fitToContents",
-          headerTitleStyle: {
-            color: textColor,
-          },
-          contentStyle: {
-            backgroundColor,
-          },
         }}
       />
       <Stack.Screen
@@ -46,12 +41,6 @@ export default function FeedStackLayout() {
           presentation: "formSheet",
           sheetGrabberVisible: true,
           sheetAllowedDetents: "fitToContents",
-          headerTitleStyle: {
-            color: textColor,
-          },
-          contentStyle: {
-            backgroundColor,
-          }
         }}
       />
       <Stack.Screen
