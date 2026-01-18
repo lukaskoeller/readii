@@ -6,10 +6,13 @@ import { Icon, Label, Stack } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import WebView from "react-native-webview";
 import { Fragment, useEffect } from "react";
+import { HeaderHeightContext, useHeaderHeight } from "@react-navigation/elements";
 
 export default function Article() {
   const data = useReadMediaItem();
   const { updateMediaItem } = useUpdateMediaItem();
+
+  const headerHeight = useHeaderHeight();
 
   const backgroundColor = useThemeColor({}, "background");
   const backgroundColor2 = useThemeColor({}, "background2");
@@ -27,7 +30,7 @@ export default function Article() {
 
   return (
     <Fragment>
-      <Stack.Header style={{ backgroundColor }}>
+      <Stack.Header>
         <Stack.Header.Title>{""}</Stack.Header.Title>
         <Stack.Header.Right>
           <Stack.Header.Button
@@ -102,6 +105,7 @@ export default function Article() {
                         overflow-x: hidden;
                         inline-size: 100%;
                         padding: 0px;
+                        padding-block-start: ${headerHeight}px;
                         background: ${backgroundColor};
                         color: ${textColor};
                       }

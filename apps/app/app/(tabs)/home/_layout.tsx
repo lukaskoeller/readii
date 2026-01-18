@@ -25,6 +25,14 @@ export default function HomeStackLayout() {
           headerTitle: "Home",
         }}
       />
+      <Stack.Screen
+        name="[mediaItemId]"
+        options={{
+          headerTransparent: true,
+          headerBlurEffect: "regular",
+          headerShown: true,
+        }}
+      />
     </Stack>
   );
 }
