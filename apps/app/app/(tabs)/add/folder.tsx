@@ -58,13 +58,7 @@ export default function AddFolder() {
   });
 
   return (
-    <ScrollView
-      contentInsetAdjustmentBehavior="automatic"
-      style={{
-        paddingBlockStart: Spacing.size4,
-        backgroundColor: colorBackground,
-      }}
-    >
+    <ScrollView contentInsetAdjustmentBehavior="automatic">
       <ThemedView container style={styles.stack}>
         <Card style={styles.stack}>
           <ThemedText color="text3">
@@ -153,8 +147,6 @@ export default function AddFolder() {
         </Card>
         <ThemedView
           style={{
-            marginBlockStart: Spacing.size4,
-            marginBlockEnd: Spacing.size9,
             marginInline: "auto",
           }}
         >

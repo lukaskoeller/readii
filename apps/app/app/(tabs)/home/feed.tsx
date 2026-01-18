@@ -77,12 +77,13 @@ export default function Feed() {
   );
   const backgroundColor = useThemeColor({}, "background");
   const colorBackground3 = useThemeColor({}, "background3");
+  const colorText = useThemeColor({}, "text");
   const colorText2 = useThemeColor({}, "text2");
 
   return (
     <>
       <Stack.Header style={{ backgroundColor }}>
-        <Stack.Header.Title>
+        <Stack.Header.Title style={{ color: colorText }}>
           {params.feedTitle ?? `All Feeds (${data?.length ?? 0})`}
         </Stack.Header.Title>
         <Stack.Header.Right>

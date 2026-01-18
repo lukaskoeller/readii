@@ -3,13 +3,14 @@ import { Stack } from "expo-router";
 
 export default function FeedStackLayout() {
   const backgroundColor = useThemeColor({}, "background");
+  const textColor = useThemeColor({}, "text");
 
   return (
     <Stack>
       <Stack.Screen
         name="index"
         options={{
-          headerShown: false,
+          // headerShown: false,
           headerStyle: {
             backgroundColor,
           },
@@ -25,7 +26,13 @@ export default function FeedStackLayout() {
           headerShadowVisible: false,
           presentation: "formSheet",
           sheetGrabberVisible: true,
-          sheetAllowedDetents: [0.481],
+          sheetAllowedDetents: "fitToContents",
+          headerTitleStyle: {
+            color: textColor,
+          },
+          contentStyle: {
+            backgroundColor,
+          },
         }}
       />
       <Stack.Screen
@@ -38,7 +45,10 @@ export default function FeedStackLayout() {
           headerShadowVisible: false,
           presentation: "formSheet",
           sheetGrabberVisible: true,
-          sheetAllowedDetents: [0.52, 1],
+          sheetAllowedDetents: "fitToContents",
+          headerTitleStyle: {
+            color: textColor,
+          },
           contentStyle: {
             backgroundColor,
           }

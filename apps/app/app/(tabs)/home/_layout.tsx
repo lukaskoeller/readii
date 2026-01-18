@@ -2,6 +2,7 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { Stack } from "expo-router";
 
 export default function HomeStackLayout() {
+  const textColor = useThemeColor({}, "text");
   const backgroundColor = useThemeColor({}, "background");
 
   return (
@@ -13,6 +14,9 @@ export default function HomeStackLayout() {
           headerStyle: {
             backgroundColor,
           },
+          headerTitleStyle: {
+            color: textColor,
+          }
         }}
       />
     </Stack>
