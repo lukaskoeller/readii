@@ -6,14 +6,19 @@ export default function HomeStackLayout() {
   const backgroundColor = useThemeColor({}, "background");
 
   return (
-    <Stack screenOptions={{
-      headerTitleStyle: {
-        color: textColor,
-      },
-      contentStyle: {
-        backgroundColor,
-      },
-    }}>
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor,
+        },
+        headerTitleStyle: {
+          color: textColor,
+        },
+        contentStyle: {
+          backgroundColor,
+        },
+      }}
+    >
       <Stack.Screen
         name="index"
         options={{

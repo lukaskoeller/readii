@@ -6,17 +6,20 @@ export default function FeedStackLayout() {
   const textColor = useThemeColor({}, "text");
 
   return (
-    <Stack screenOptions={{
-      headerTitleStyle: {
-        color: textColor,
-      },
-      contentStyle: {
-        backgroundColor,
-      },
-    }}>
-      <Stack.Screen
-        name="index"
-      />
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor,
+        },
+        headerTitleStyle: {
+          color: textColor,
+        },
+        contentStyle: {
+          backgroundColor,
+        },
+      }}
+    >
+      <Stack.Screen name="index" />
       <Stack.Screen
         name="feed"
         options={{

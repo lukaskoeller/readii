@@ -8,6 +8,9 @@ export default function ProfileStackLayout() {
   return (
     <Stack
       screenOptions={{
+        headerStyle: {
+          backgroundColor,
+        },
         headerTitleStyle: {
           color: textColor,
         },
