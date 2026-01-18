@@ -81,6 +81,7 @@ export default function Article() {
           originWhitelist={["*"]}
           textZoom={100.0}
           webviewDebuggingEnabled
+          decelerationRate="normal"
           source={{
             baseUrl: data?.url,
             html: `
@@ -104,8 +105,7 @@ export default function Article() {
                         background: ${backgroundColor};
                         color: ${textColor};
                       }
-  
-  
+
                       body {
                         margin: 0;
                         inline-size: 100%;
