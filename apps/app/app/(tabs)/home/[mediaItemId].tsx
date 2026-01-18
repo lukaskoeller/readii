@@ -1,5 +1,5 @@
 import { ThemedView } from "@/components/ThemedView";
-import { Spacing } from "@/constants/Sizes";
+import { Radius, Spacing } from "@/constants/Sizes";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
 import { Linking, Share } from "react-native";
 import { Icon, Label, Stack } from "expo-router";
@@ -10,10 +10,11 @@ import { Fragment, useEffect } from "react";
 export default function Article() {
   const data = useReadMediaItem();
   const { updateMediaItem } = useUpdateMediaItem();
-  // const contentAst = parseFragment(data?.content || "");
 
   const backgroundColor = useThemeColor({}, "background");
+  const backgroundColor2 = useThemeColor({}, "background2");
   const primaryColor = useThemeColor({}, "primary");
+  const textColor = useThemeColor({}, "text");
 
   const isStarred = Boolean(data?.isStarred);
   const isReadLater = Boolean(data?.isReadLater);
@@ -99,8 +100,9 @@ export default function Article() {
                         font-family: system-ui;
                         overflow-x: hidden;
                         inline-size: 100%;
-                        padding: ${Spacing.size4}px;
+                        padding: 0px;
                         background: ${backgroundColor};
+                        color: ${textColor};
                       }
   
   
@@ -116,6 +118,15 @@ export default function Article() {
                       :is(img,svg,video,iframe) {
                         max-inline-size: 100%;
                         block-size: auto;
+                      }
+
+                      pre {
+                        background: ${backgroundColor2};
+                        border-radius: ${Radius.size3}px;
+                        padding: ${Spacing.size1}px;
+                        max-inline-size: 100%;
+                        block-size: auto;
+                        overflow-x: auto;
                       }
                     </style>
                   </head>
