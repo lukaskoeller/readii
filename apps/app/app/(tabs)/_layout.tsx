@@ -24,6 +24,7 @@ export default function TabLayout() {
       tintColor={backgroundColor}
       indicatorColor={backgroundColor2}
       rippleColor={tabSelectedColor}
+      shadowColor={backgroundColor2}
     >
       <NativeTabs.Trigger name="home">
         <Label
