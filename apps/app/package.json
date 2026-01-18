@@ -7,9 +7,12 @@
     "update": "expo install --fix",
     "update:expo": "expo install expo@latest",
     "prebuild": "pnpx expo prebuild",
+    "prebuild:clean": "pnpx expo prebuild --clean",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo run:android",
+    "android:device": "expo run:android --no-build-cache --device",
     "ios": "expo run:ios",
+    "ios:device": "expo run:ios --no-build-cache --device",
     "web": "expo start --web",
     "lint": "expo lint"
   },
@@ -23,7 +26,6 @@
     "@readii/data": "workspace:^",
     "@readii/parser": "workspace:^",
     "@readii/schemas": "workspace:^",
-    "@stripe/stripe-react-native": "0.50.3",
     "@tanstack/react-form": "^1.23.8",
     "@tanstack/react-query": "^5.90.7",
     "babel-plugin-inline-import": "^3.0.0",
@@ -48,6 +50,7 @@
     "expo-web-browser": "15.0.11-canary-20260105-6b962e6",
     "fast-xml-parser": "^5.3.1",
     "parse5": "^7.3.0",
+    "pressto": "^0.6.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-native": "0.83.1",
@@ -70,5 +73,5 @@
     "typescript": "~5.9.3"
   },
   "private": true,
-  "packageManager": "pnpm@10.27.0+sha512.72d699da16b1179c14ba9e64dc71c9a40988cbdc65c264cb0e489db7de917f20dcf4d64d8723625f2969ba52d4b7e2a1170682d9ac2a5dcaeaab732b7e16f04a"
+  "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48"
 }

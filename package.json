@@ -11,7 +11,9 @@
     "webapp": "pnpm --filter @readii/webapp dev",
     "app": "pnpm --filter @readii/app dev",
     "app:ios": "pnpm --filter @readii/app ios",
+    "app:ios:device": "pnpm --filter @readii/app ios:device",
     "app:android": "pnpm --filter @readii/app android",
+    "app:android:device": "pnpm --filter @readii/app android:device",
     "api": "pnpm --filter @readii/api dev",
     "extension": "pnpm --filter @readii/extension dev"
   },
