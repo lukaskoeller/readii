@@ -21,6 +21,10 @@
 - [x] FEAT: Add wait list via google forms
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add option to mark all as read
+- [ ] FEAT: Add feed settings
+  - [ ] FEAT: add view options (Open with: Default / Viewer / In-App-Browser / Reader View)
+  - [ ] FEAT: Add Feed URL & option to share link
+  - [ ] FEAT: Manage Folder participation
 - [ ] FEAT: Fetch og data / favicon etc.
 - [x] FEAT: Implement `onRefresh` handling
 - [ ] FEAT: Add Payment handling
@@ -46,13 +50,13 @@
   - https://github.com/mozilla/readability
 - [ ] FEAT: Add Onboarding Flow!
 - [ ] FEAT: Add empty feed UI
-- [ ] FEAT: Allow deep linking (e.g. suggest cool content on social media and deep link)
-  - [ ] FEAT: add url param to /add/feed to allow prefill RSS Feeds
-- [ ] FEAT: Add "Mark all as Read/Unread"
+- [x] FEAT: Allow deep linking (e.g. suggest cool content on social media and deep link)
+  - [x] FEAT: add url param to /add/feed to allow prefill RSS Feeds
 - [ ] FEAT: Add "All feeds" tab
 - [ ] FEAT: Add support for Podcasts
   - [ ] FEAT: Transcribe Podcast to make it searchable
 - [ ] FEAT: Add support for Google Alert
+- [ ] FEAT: Add support for YouTube
 - [ ] FEAT: Add "Weekly Digest", an AI generated summary of the week's news
   - https://www.youtube.com/watch?v=zReFsPgUdMs&list=WL&index=2
 
