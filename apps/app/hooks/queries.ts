@@ -1,11 +1,11 @@
 import * as schema from "@/core/schema";
-import { parseQueryParams } from "@/core/utils";
-import { $MediaItemBase, $MediaItemPartial } from "@readii/schemas/zod";
-import { and, count, eq, or, SQL } from "drizzle-orm";
+import { $MediaItemBase } from "@readii/schemas/zod";
+import { and, count, eq, or } from "drizzle-orm";
 import { drizzle, useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { useLocalSearchParams } from "expo-router";
 import { useSQLiteContext } from "expo-sqlite";
 import { useCallback } from "react";
+import { parseFiltersToConditions } from "./queries.utils";
 
 export type TCreateMediaSourceArgs = {
   mediaSourceIcon: schema.TMediaSourceIcon;
@@ -113,7 +113,7 @@ export const useMediaSource = () => {
     });
 
   const deleteMediaSource = (
-    mediaSourceId: NonNullable<schema.TMediaSource["id"]>
+    mediaSourceId: NonNullable<schema.TMediaSource["id"]>,
   ) => {
     db.withTransactionSync(() => {
       const mediaSource = drizzleDb
@@ -135,8 +135,8 @@ export const useMediaSource = () => {
   };
 
   return {
-    readMediaSources,
     deleteMediaSource,
+    readMediaSources,
   };
 };
 
@@ -145,7 +145,7 @@ export const useMediaItem = () => {
   const drizzleDb = drizzle(db, { schema });
 
   const readMediaItemsFromFolderId = (
-    folderId: NonNullable<schema.TFolder["id"]>
+    folderId: NonNullable<schema.TFolder["id"]>,
   ) => {
     const mediaSourceIds = drizzleDb.query.mediaSourceToFolders
       .findMany({
@@ -170,29 +170,9 @@ export const useMediaItem = () => {
   };
 
   const readMediaItems = (
-    filters?: Record<string, string | number | (string | number)[]>
+    filters?: Record<string, string | number | (string | number)[]>,
   ) => {
-    const parsedFilters = parseQueryParams(filters);
-    const result = $MediaItemPartial.safeParse(parsedFilters);
-    const params = result.success ? result.data : null;
-
-    const conditions = params
-      ? Object.entries(params).flatMap(([field, value]) => {
-          if (
-            value === undefined ||
-            value === null ||
-            !(field in schema.mediaItem)
-          )
-            return [];
-          return [
-            eq(
-              schema.mediaItem[field as keyof schema.TMediaItem],
-              value
-            ) as SQL<schema.TMediaItem>,
-          ];
-        })
-      : [];
-    const hasConditions = conditions && conditions.length > 0;
+    const { conditions, hasConditions } = parseFiltersToConditions(filters);
 
     return drizzleDb.query.mediaItem.findMany({
       with: {
@@ -221,7 +201,7 @@ export const useMediaItem = () => {
 
   const updateMediaItem = (
     id: NonNullable<schema.TMediaItem["id"]>,
-    mediaItem: Partial<schema.TMediaItem>
+    mediaItem: Partial<schema.TMediaItem>,
   ) =>
     drizzleDb
       .update(schema.mediaItem)
@@ -242,7 +222,7 @@ export const useMediaItem = () => {
       .from(schema.mediaItem)
       .where(eq(schema.mediaItem.isReadLater, true));
   const readMediaItemsIsUnreadCount = (
-    mediaSourceIds?: NonNullable<schema.TMediaItem["mediaSourceId"]>[]
+    mediaSourceIds?: NonNullable<schema.TMediaItem["mediaSourceId"]>[],
   ) =>
     drizzleDb
       .select({ count: count() })
@@ -253,11 +233,11 @@ export const useMediaItem = () => {
               ...mediaSourceIds.map((id) =>
                 and(
                   eq(schema.mediaItem.mediaSourceId, id),
-                  eq(schema.mediaItem.isRead, false)
-                )
-              )
+                  eq(schema.mediaItem.isRead, false),
+                ),
+              ),
             )
-          : eq(schema.mediaItem.isRead, false)
+          : eq(schema.mediaItem.isRead, false),
       );
 
   const api = {
@@ -290,7 +270,7 @@ export const useUpdateMediaItem = () => {
     (mediaItem: Partial<schema.TMediaItem>) => {
       return updateMediaItem(Number(mediaItemId), mediaItem);
     },
-    [mediaItemId, updateMediaItem]
+    [mediaItemId, updateMediaItem],
   );
 
   return { updateMediaItem: updateFn };
@@ -333,9 +313,7 @@ export const useFolder = () => {
     });
   };
 
-  const deleteFolder = (
-    folderId: NonNullable<schema.TFolder["id"]>
-  ) => {
+  const deleteFolder = (folderId: NonNullable<schema.TFolder["id"]>) => {
     db.withTransactionSync(() => {
       const deleteFolder = drizzleDb
         .delete(schema.folder)
