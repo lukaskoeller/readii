@@ -1,7 +1,7 @@
 import { ThemedView } from "@/components/ThemedView";
 import { Radius, Spacing } from "@/constants/Sizes";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
-import { Linking, Share } from "react-native";
+import { ActivityIndicator, Dimensions, Linking, Share } from "react-native";
 import { Icon, Label, Stack } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import WebView from "react-native-webview";
@@ -12,6 +12,7 @@ export default function Article() {
   const data = useReadMediaItem();
   const { updateMediaItem } = useUpdateMediaItem();
 
+  const windowHeight = Dimensions.get('window').height;
   const headerHeight = useHeaderHeight();
 
   const backgroundColor = useThemeColor({}, "background");
@@ -91,6 +92,21 @@ export default function Article() {
             backgroundColor,
             paddingInline: Spacing.size4,
           }}
+          startInLoadingState={true}
+          renderLoading={() => (
+            <ThemedView
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+                height: windowHeight,
+              }}
+            >
+              <ActivityIndicator size="large" color={textColor} />
+            </ThemedView>
+          )}
+          setSupportMultipleWindows={false}
           source={{
             baseUrl: data?.url,
             html: `
@@ -115,6 +131,7 @@ export default function Article() {
                         padding-block-end: ${Spacing.size12}px;
                         background: ${backgroundColor};
                         color: ${textColor};
+                        line-height: 1.6;
                       }
 
                       body {
