@@ -80,6 +80,16 @@
     "categories": ["entertainment"]
   },
   {
+    "title": "TV Spielfilm.de - Aktuelle Kino-News",
+    "id": "https://www.tvspielfilm.de/news/rss.xml",
+    "url": "https://www.tvspielfilm.de/news",
+    "feedUrl": "https://www.tvspielfilm.de/news/rss.xml",
+    "description": "Alle aktuellen News aus TV, Film und Fernsehen. In unserer News-Übersicht finden Sie Nachrichten und News rund um die Stars, Serien, Spielfilme und Reportagen",
+    "iconUrl": "https://www.tvspielfilm.de/dark-favicon.ico",
+    "ogImageUrl": "https://a2.tvspielfilm.de/images/mobile/tvs/default_og.png",
+    "categories": ["entertainment"]
+  },
+  {
     "title": "Ain't It Cool News CoolNews",
     "id": "https://www.aintitcool.com/node/feed/coolnews/",
     "url": "https://www.aintitcool.com",
