@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, Share, StyleSheet, Text, View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
@@ -73,7 +73,7 @@ export default function Feed() {
     ? Number(params.mediaSourceId)
     : undefined;
   const { data } = useLiveQuery(
-    hasFolderId ? readMediaItemsFromFolderId(folderId) : readMediaItems(params)
+    hasFolderId ? readMediaItemsFromFolderId(folderId) : readMediaItems(params),
   );
   const backgroundColor = useThemeColor({}, "background");
   const colorBackground3 = useThemeColor({}, "background3");
@@ -89,6 +89,19 @@ export default function Feed() {
         <Stack.Header.Right>
           <Stack.Header.Menu icon="ellipsis">
             <Stack.Header.MenuAction
+              onPress={async () => {
+                if (!params.feedUrl) return;
+                await Share.share({
+                  // message: `Check out this feed I found on readii:\n${params.feedUrl}\n\nGet the app here:\nhttps://readii.de`,
+                  url: params.feedUrl,
+                });
+              }}
+            >
+              <Label>Share Feed</Label>
+              <Icon sf="square.and.arrow.up" md="ios_share" />
+            </Stack.Header.MenuAction>
+            <Stack.Header.Spacer width={100} />
+            <Stack.Header.MenuAction
               destructive
               onPress={async () => {
                 if (mediaSourceId) {
@@ -101,7 +114,7 @@ export default function Feed() {
               }}
             >
               <Label>{mediaSourceId ? "Delete Feed" : "Delete Folder"}</Label>
-              <Icon sf="trash" />
+              <Icon sf="trash" md="delete" />
             </Stack.Header.MenuAction>
           </Stack.Header.Menu>
         </Stack.Header.Right>
