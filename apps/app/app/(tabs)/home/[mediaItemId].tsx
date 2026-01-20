@@ -1,18 +1,19 @@
 import { ThemedView } from "@/components/ThemedView";
 import { Radius, Spacing } from "@/constants/Sizes";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
-import { ActivityIndicator, Dimensions, Linking, Share } from "react-native";
+import { ActivityIndicator, Dimensions, Share } from "react-native";
 import { Icon, Label, Stack } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import WebView from "react-native-webview";
 import { Fragment, useEffect } from "react";
 import { useHeaderHeight } from "@react-navigation/elements";
+import { openBrowserAsync } from "expo-web-browser";
 
 export default function Article() {
   const data = useReadMediaItem();
   const { updateMediaItem } = useUpdateMediaItem();
 
-  const windowHeight = Dimensions.get('window').height;
+  const windowHeight = Dimensions.get("window").height;
   const headerHeight = useHeaderHeight();
 
   const backgroundColor = useThemeColor({}, "background");
@@ -65,16 +66,16 @@ export default function Article() {
               onPress={() => updateMediaItem({ isRead: !isRead })}
             >
               <Label>{isRead ? "Mark Unread" : "Mark Read"}</Label>
-              <Icon sf="app.badge" />
+              <Icon sf="app.badge" md="mark_chat_unread" />
             </Stack.Header.MenuAction>
             <Stack.Header.MenuAction
-              onPress={() => {
+              onPress={async () => {
                 if (!url) return;
-                Linking.openURL(url);
+                await openBrowserAsync(url);
               }}
             >
               <Label>Open Original</Label>
-              <Icon sf="arrow.up.forward.app" />
+              <Icon sf="arrow.up.forward.app" md="open_in_new" />
             </Stack.Header.MenuAction>
           </Stack.Header.Menu>
         </Stack.Header.Right>
@@ -107,6 +108,17 @@ export default function Article() {
             </ThemedView>
           )}
           setSupportMultipleWindows={false}
+          onShouldStartLoadWithRequest={(event) => {
+            // Only intercept navigation for anchor clicks (not initial load)
+            if (
+              event.navigationType === "click" || // iOS only
+              (event.url !== data?.url && event.url !== "about:blank")
+            ) {
+              void openBrowserAsync(event.url);
+              return false; // Prevent WebView navigation
+            }
+            return true; // Allow WebView navigation for initial load
+          }}
           source={{
             baseUrl: data?.url,
             html: `
