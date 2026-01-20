@@ -19,10 +19,11 @@
 - [x] FEAT: Delete button for folders
 - [-] FEAT: Add simple Profile page
 - [x] FEAT: Add wait list via google forms
-- [ ] FIX: Webview internal links must open in separate browser
+- [x] FIX: Webview internal links must open in separate browser
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add language support to suggestions
 - [ ] FEAT: Add option to mark all as read
+- [ ] FIX: Over-swipe color
 - [ ] FEAT: Add background updates and notifications
 - [ ] FEAT: Add feed settings
   - [ ] FEAT: add view options (Open with: Default / Viewer / In-App-Browser / Reader View)
