@@ -6,7 +6,7 @@ import { Icon, Label, Stack } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import WebView from "react-native-webview";
 import { Fragment, useEffect } from "react";
-import { HeaderHeightContext, useHeaderHeight } from "@react-navigation/elements";
+import { useHeaderHeight } from "@react-navigation/elements";
 
 export default function Article() {
   const data = useReadMediaItem();
@@ -85,6 +85,13 @@ export default function Article() {
           textZoom={100.0}
           webviewDebuggingEnabled
           decelerationRate="normal"
+          style={{
+            marginBlockEnd: Spacing.size8,
+            width: "100%",
+            height: "100%",
+            backgroundColor,
+            paddingInline: Spacing.size4,
+          }}
           source={{
             baseUrl: data?.url,
             html: `
@@ -140,12 +147,6 @@ export default function Article() {
                   </body>
                 </html>
               `,
-          }}
-          style={{
-            width: "100%",
-            height: "100%",
-            backgroundColor,
-            paddingInline: Spacing.size4,
           }}
         />
       </ThemedView>
