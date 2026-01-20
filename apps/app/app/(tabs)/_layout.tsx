@@ -26,6 +26,7 @@ export default function TabLayout() {
       rippleColor={tabSelectedColor}
       shadowColor={backgroundColor2}
       iconColor={tabDefaultColor}
+      minimizeBehavior="onScrollDown"
     >
       <NativeTabs.Trigger name="home">
         <Label
