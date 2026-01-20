@@ -21,6 +21,7 @@
 - [x] FEAT: Add wait list via google forms
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add option to mark all as read
+- [ ] FEAT: Add background updates and notifications
 - [ ] FEAT: Add feed settings
   - [ ] FEAT: add view options (Open with: Default / Viewer / In-App-Browser / Reader View)
   - [ ] FEAT: Add Feed URL & option to share link
