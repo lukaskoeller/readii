@@ -86,7 +86,6 @@ export default function Article() {
           webviewDebuggingEnabled
           decelerationRate="normal"
           style={{
-            marginBlockEnd: Spacing.size8,
             width: "100%",
             height: "100%",
             backgroundColor,
@@ -113,6 +112,7 @@ export default function Article() {
                         inline-size: 100%;
                         padding: 0px;
                         padding-block-start: ${headerHeight}px;
+                        padding-block-end: ${Spacing.size12}px;
                         background: ${backgroundColor};
                         color: ${textColor};
                       }
