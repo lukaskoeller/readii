@@ -20,9 +20,9 @@
 - [-] FEAT: Add simple Profile page
 - [x] FEAT: Add wait list via google forms
 - [x] FIX: Webview internal links must open in separate browser
+- [ ] FEAT: Add option to mark all as read
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add language support to suggestions
-- [ ] FEAT: Add option to mark all as read
 - [ ] FIX: Over-swipe color
 - [ ] FEAT: Add background updates and notifications
 - [ ] FEAT: Add feed settings
