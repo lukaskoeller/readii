@@ -199,6 +199,14 @@ export const useMediaItem = () => {
       where: (item, { eq }) => eq(item.id, id),
     });
 
+  const updateIsReadMediaItems = (markAsRead: boolean, mediaSourceId: NonNullable<schema.TMediaItem["mediaSourceId"]>) => {
+    drizzleDb
+      .update(schema.mediaItem)
+      .set({ isRead: markAsRead })
+      .where(eq(schema.mediaItem.mediaSourceId, mediaSourceId))
+      .run();
+  };
+
   const updateMediaItem = (
     id: NonNullable<schema.TMediaItem["id"]>,
     mediaItem: Partial<schema.TMediaItem>,
@@ -248,6 +256,7 @@ export const useMediaItem = () => {
     readMediaItemsIsReadLaterCount,
     readMediaItemsIsStarredCount,
     readMediaItemsIsUnreadCount,
+    updateIsReadMediaItems,
     updateMediaItem,
   };
 
