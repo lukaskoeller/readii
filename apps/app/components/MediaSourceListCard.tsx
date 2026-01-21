@@ -11,6 +11,7 @@ import { useLiveQuery } from "drizzle-orm/expo-sqlite/query";
 import { useMediaItem } from "@/hooks/queries";
 import { IconSymbol } from "./ui/IconSymbol";
 import { Link } from "expo-router";
+import * as schema from "@/core/schema";
 
 export type MediaSourceListItemProps = ListItemProps & {
   mediaSourceId: number;
@@ -26,7 +27,7 @@ const MediaSourceListItem: FC<MediaSourceListItemProps> = ({
   const colorText2 = useThemeColor({}, "text2");
   const { readMediaItemsIsUnreadCount } = useMediaItem();
   const { data: itemsCountIsUnread } = useLiveQuery(
-    readMediaItemsIsUnreadCount([mediaSourceId])
+    readMediaItemsIsUnreadCount([mediaSourceId]),
   );
   const unreadCount = itemsCountIsUnread[0]?.count;
 
@@ -37,13 +38,13 @@ const MediaSourceListItem: FC<MediaSourceListItemProps> = ({
       isLastItem={isLastItem}
       slotRight={
         <ThemedView style={styles.right}>
-          {unreadCount && (
+          {unreadCount > 0 ? (
             <ThemedView
               style={[styles.unreadBadge, { backgroundColor: colorBackground }]}
             >
               <ThemedText type="small">{unreadCount}</ThemedText>
             </ThemedView>
-          )}
+          ) : null}
           <IconSymbol
             name="chevron.right"
             color={colorText2}
@@ -55,7 +56,11 @@ const MediaSourceListItem: FC<MediaSourceListItemProps> = ({
   );
 };
 
-export type LinkListCardProps = LinkListProps;
+export type LinkListCardProps = LinkListProps & {
+  data: (LinkListProps["data"] & {
+    mediaSourceId: schema.TMediaItem["mediaSourceId"];
+  })[];
+};
 
 export function MediaSourceListCard({ data }: LinkListCardProps) {
   const colorBackground3 = useThemeColor({}, "background3");
