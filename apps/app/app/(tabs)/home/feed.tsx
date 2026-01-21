@@ -50,7 +50,7 @@ export default function Feed() {
   const { deleteMediaSource } = useMediaSource();
   const { deleteFolder } = useFolder();
   const { updateFeed } = useFeed();
-  const { readMediaItems, readMediaItemsFromFolderId } = useMediaItem();
+  const { readMediaItems, readMediaItemsFromFolderId, updateIsReadMediaItems } = useMediaItem();
   const params = useLocalSearchParams<{
     isReadLater?: "true" | "false";
     isStarred?: "true" | "false";
@@ -89,6 +89,17 @@ export default function Feed() {
         <Stack.Header.Right>
           <Stack.Header.Menu icon="ellipsis">
             <Stack.Header.MenuAction
+              disabled={!mediaSourceId}
+              onPress={() => {
+                if (!mediaSourceId) return;
+                updateIsReadMediaItems(true, mediaSourceId);
+              }}
+            >
+              <Label>Mark as Read</Label>
+              <Icon sf="app.badge" md="mark_chat_unread" />
+            </Stack.Header.MenuAction>
+            <Stack.Header.MenuAction
+              disabled={!params.feedUrl}
               onPress={async () => {
                 if (!params.feedUrl) return;
                 await Share.share({
