@@ -4,7 +4,7 @@
     "slug": "readii",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/readii-icon.png",
+    "icon": "./assets/images/readii-app-icon.png",
     "scheme": "readii",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
