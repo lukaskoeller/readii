@@ -7,9 +7,13 @@
         "de-de": "Zurück zur readii Startseite",
         "en-us": "Back to readii homepage"
     },
+    "head_description": {
+        "de-de": "Deine Lieblingsblogs, RSS-Feeds und Newsletter in einer App. Inhalte zentral verfolgen, filtern und mit der readii App individuell anpassen.",
+        "en-us": "Your favorite blogs, RSS feeds, and newsletters in one app. Track and filter content centrally and customize it with the readii app."
+    },
     "head_title_index": {
-        "de-de": "Folge den Inhalten, die du liebst",
-        "en-us": "Follow the content you love"
+        "de-de": "readii - RSS Feed Reader App",
+        "en-us": "readii - RSS Feed Reader App"
     },
     "head_title_news": {
         "de-de": "Neuigkeiten",

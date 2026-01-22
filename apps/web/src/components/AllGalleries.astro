@@ -45,6 +45,7 @@ const feedSuggestionsEntries = Object.entries(feedSuggestions);
           {suggestions.sort((a, b) => a.title.localeCompare(b.title)).map((suggestion) => (
             <FeedCard
               title={suggestion.title}
+              desc={suggestion.description}
               categories={suggestion.categories}
               feedUrl={suggestion.feedUrl}
             >
