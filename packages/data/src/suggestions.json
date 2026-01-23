@@ -70,10 +70,50 @@
     "categories": ["news-politics"]
   },
   {
+    "title": "TV-Tipps | Filmdienst",
+    "id": "https://www.filmdienst.de/rss/tv-tipps",
+    "url": "https://www.filmdienst.de",
+    "feedUrl": "https://www.filmdienst.de/rss/tv-tipps",
+    "description": "Was sich heute Abend im Fernsehen lohnt",
+    "iconUrl": "https://www.filmdienst.de/public/img/logo.png",
+    "ogImageUrl": null,
+    "categories": ["entertainment"]
+  },
+  {
+    "title": "Mediatheken | Filmdienst",
+    "id": "https://www.filmdienst.de/rss/mediatheken",
+    "url": "https://www.filmdienst.de",
+    "feedUrl": "https://www.filmdienst.de/rss/mediatheken",
+    "description": "Die besten Filme zum Mitnehmen",
+    "iconUrl": "https://www.filmdienst.de/public/img/logo.png",
+    "ogImageUrl": null,
+    "categories": ["entertainment"]
+  },
+  {
+    "title": "Mediatheken | Filmdienst",
+    "id": "https://www.filmdienst.de/rss/vod-streaming",
+    "url": "https://www.filmdienst.de",
+    "feedUrl": "https://www.filmdienst.de/rss/vod-streaming",
+    "description": "Serien und neue Filme jeweils nur ein paar Klicks entfernt",
+    "iconUrl": "https://www.filmdienst.de/public/img/logo.png",
+    "ogImageUrl": null,
+    "categories": ["entertainment"]
+  },
+  {
+    "title": "mediathekviewweb",
+    "id": "https://mediathekviewweb.de/feed",
+    "url": "https://mediathekviewweb.de/",
+    "feedUrl": "https://mediathekviewweb.de/feed",
+    "description": "Schneller und einfacher Zugriff auf Sendungen der öffentlich-rechtlichen Mediatheken.",
+    "iconUrl": "https://mediathekviewweb.de/favicon.svg",
+    "ogImageUrl": null,
+    "categories": ["entertainment"]
+  },
+  {
     "title": "/Film",
-    "id": "https://www.slashfilm.com/feed/",
+    "id": "https://www.filmdienst.de/rss/kinotipp",
     "url": "https://www.slashfilm.com",
-    "feedUrl": "https://www.slashfilm.com/feed/",
+    "feedUrl": "https://www.filmdienst.de/rss/kinotipp",
     "description": "The latest movie and television news, reviews, film trailers, exclusive interviews, and opinions - since 2005.",
     "iconUrl": "https://www.slashfilm.com/img/slashfilm-favicon.png",
     "ogImageUrl": "https://www.slashfilm.com/img/slashfilm-meta-image-1280x720.png",
@@ -280,6 +320,16 @@
     "categories": ["software-development", "featured"]
   },
   {
+    "title": "CSSence",
+    "id": "https://cssence.com/all/rss.xml",
+    "url": "https://cssence.com",
+    "feedUrl": "https://cssence.com/all/rss.xml",
+    "description": "Articles about design, semantics and accessibility. And obviously CSS. By Matthias Zöchling from Vienna.",
+    "iconUrl": "https://cssence.com/assets/apple-touch-icon.png",
+    "ogImageUrl": "https://cssence.com/assets/og.jpg",
+    "categories": ["software-development"]
+  },
+  {
     "title": "Adam Argyle",
     "id": "https://nerdy.dev/rss.xml",
     "url": "https://nerdy.dev",
@@ -310,13 +360,23 @@
     "categories": ["software-development"]
   },
   {
-    "title": "CSS Weekly",
+    "title": "Local-First & Sync Conf",
     "id": "https://buttondown.com/local-first/rss",
     "url": "https://www.localfirstconf.com/",
     "feedUrl": "https://buttondown.com/local-first/rss",
     "description": "Official news from Local-First Conf and Sync Conf.",
     "iconUrl": "https://cdn.prod.website-files.com/65c4b96cc580c963770bc27c/65d70d463d75a49a672a16b0_fav-icon%20(1).png",
     "ogImageUrl": "https://cdn.prod.website-files.com/65c4b96cc580c963770bc27c/67866d99169e9065b191a2d8_open-graph.avif",
+    "categories": ["software-development"]
+  },
+  {
+    "title": "Stefan Judis Web Development",
+    "id": "https://www.stefanjudis.com/rss.xml",
+    "url": "https://www.stefanjudis.com",
+    "feedUrl": "https://www.stefanjudis.com/rss.xml",
+    "description": "Stefan Judis writing about web stuff",
+    "iconUrl": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧢</text></svg>",
+    "ogImageUrl": null,
     "categories": ["software-development"]
   },
   {
