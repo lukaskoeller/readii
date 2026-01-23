@@ -8,28 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		18AC95E3F7B5A528B901D0BB /* libPods-readii.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF282D0DC33449DC3104513 /* libPods-readii.a */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		82E0BA97A0BC9F2949C827C3 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008CF5F85DA63469ACB30308 /* ExpoModulesProvider.swift */; };
-		93888E3E99FDC5D2BDE7EF4B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 89D71DBDD17BE9CDEAFD67C7 /* PrivacyInfo.xcprivacy */; };
+		90BEFFF78E4B0CE415611E70 /* libPods-readii.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3026627E759BB3027C01F0D /* libPods-readii.a */; };
+		AAB6D232CAA7F4D3BE5665B0 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953F56FEAA1310F2E3238892 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		ECEEEBCD547732BC8B2247F3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 129DF57812F4140ACFCE6151 /* PrivacyInfo.xcprivacy */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		008CF5F85DA63469ACB30308 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-readii/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		0AF282D0DC33449DC3104513 /* libPods-readii.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-readii.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		129DF57812F4140ACFCE6151 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = readii/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* readii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = readii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = readii/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = readii/Info.plist; sourceTree = "<group>"; };
-		32A062850EEA9AD29395B61B /* Pods-readii.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-readii.release.xcconfig"; path = "Target Support Files/Pods-readii/Pods-readii.release.xcconfig"; sourceTree = "<group>"; };
-		89D71DBDD17BE9CDEAFD67C7 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = readii/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		5536924B395EF59C8452AA2F /* Pods-readii.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-readii.debug.xcconfig"; path = "Target Support Files/Pods-readii/Pods-readii.debug.xcconfig"; sourceTree = "<group>"; };
+		953F56FEAA1310F2E3238892 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-readii/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = readii/SplashScreen.storyboard; sourceTree = "<group>"; };
-		AC62A22D1CF6240BBC13AA6A /* Pods-readii.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-readii.debug.xcconfig"; path = "Target Support Files/Pods-readii/Pods-readii.debug.xcconfig"; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = readii/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* readii-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "readii-Bridging-Header.h"; path = "readii/readii-Bridging-Header.h"; sourceTree = "<group>"; };
+		F3026627E759BB3027C01F0D /* libPods-readii.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-readii.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFE250A2A895369826619145 /* Pods-readii.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-readii.release.xcconfig"; path = "Target Support Files/Pods-readii/Pods-readii.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18AC95E3F7B5A528B901D0BB /* libPods-readii.a in Frameworks */,
+				90BEFFF78E4B0CE415611E70 /* libPods-readii.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +53,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				89D71DBDD17BE9CDEAFD67C7 /* PrivacyInfo.xcprivacy */,
+				129DF57812F4140ACFCE6151 /* PrivacyInfo.xcprivacy */,
 			);
 			name = readii;
 			sourceTree = "<group>";
@@ -62,17 +62,17 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				0AF282D0DC33449DC3104513 /* libPods-readii.a */,
+				F3026627E759BB3027C01F0D /* libPods-readii.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		77BFB06F017A28191E33C9A0 /* ExpoModulesProviders */ = {
+		311B8AF8972A43C18BD033AC /* readii */ = {
 			isa = PBXGroup;
 			children = (
-				D6DDBE7EC1DF6152173C38DB /* readii */,
+				953F56FEAA1310F2E3238892 /* ExpoModulesProvider.swift */,
 			);
-			name = ExpoModulesProviders;
+			name = readii;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -89,8 +89,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				E1CFF623DBEB3CBF71A4429E /* Pods */,
-				77BFB06F017A28191E33C9A0 /* ExpoModulesProviders */,
+				E69C039BAA6E3D20E94FB5C6 /* Pods */,
+				FCD4312892C6E909B7BF7728 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -114,22 +114,22 @@
 			path = readii/Supporting;
 			sourceTree = "<group>";
 		};
-		D6DDBE7EC1DF6152173C38DB /* readii */ = {
+		E69C039BAA6E3D20E94FB5C6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				008CF5F85DA63469ACB30308 /* ExpoModulesProvider.swift */,
-			);
-			name = readii;
-			sourceTree = "<group>";
-		};
-		E1CFF623DBEB3CBF71A4429E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AC62A22D1CF6240BBC13AA6A /* Pods-readii.debug.xcconfig */,
-				32A062850EEA9AD29395B61B /* Pods-readii.release.xcconfig */,
+				5536924B395EF59C8452AA2F /* Pods-readii.debug.xcconfig */,
+				FFE250A2A895369826619145 /* Pods-readii.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FCD4312892C6E909B7BF7728 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				311B8AF8972A43C18BD033AC /* readii */,
+			);
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,13 +140,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "readii" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				791AA76FCE85D1C344ECEBBB /* [Expo] Configure project */,
+				F53DC0BA4C18DAAA8583608B /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				CBFB551902DFA6823B7E9B0A /* [CP] Embed Pods Frameworks */,
+				8AEF6805B9C8EA18087A66BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,7 +198,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				93888E3E99FDC5D2BDE7EF4B /* PrivacyInfo.xcprivacy in Resources */,
+				ECEEEBCD547732BC8B2247F3 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,30 +244,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		791AA76FCE85D1C344ECEBBB /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/.xcode.env",
-				"$(SRCROOT)/.xcode.env.local",
-				"$(SRCROOT)/readii/readii.entitlements",
-				"$(SRCROOT)/Pods/Target Support Files/Pods-readii/expo-configure-project.sh",
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/Pods/Target Support Files/Pods-readii/ExpoModulesProvider.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-readii/expo-configure-project.sh\"\n";
-		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -298,7 +274,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-readii/Pods-readii-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CBFB551902DFA6823B7E9B0A /* [CP] Embed Pods Frameworks */ = {
+		8AEF6805B9C8EA18087A66BD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -320,6 +296,30 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-readii/Pods-readii-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F53DC0BA4C18DAAA8583608B /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/readii/readii.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-readii/expo-configure-project.sh",
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Pods/Target Support Files/Pods-readii/ExpoModulesProvider.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-readii/expo-configure-project.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -328,7 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				82E0BA97A0BC9F2949C827C3 /* ExpoModulesProvider.swift in Sources */,
+				AAB6D232CAA7F4D3BE5665B0 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +337,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC62A22D1CF6240BBC13AA6A /* Pods-readii.debug.xcconfig */;
+			baseConfigurationReference = 5536924B395EF59C8452AA2F /* Pods-readii.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -376,7 +376,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32A062850EEA9AD29395B61B /* Pods-readii.release.xcconfig */;
+			baseConfigurationReference = FFE250A2A895369826619145 /* Pods-readii.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
