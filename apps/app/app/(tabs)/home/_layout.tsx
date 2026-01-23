@@ -29,8 +29,11 @@ export default function HomeStackLayout() {
         name="[mediaItemId]"
         options={{
           headerTransparent: true,
-          headerBlurEffect: "regular",
+          headerBlurEffect: "none",
           headerShown: true,
+          headerStyle: {
+            backgroundColor: "transparent",
+          },
         }}
       />
     </Stack>
