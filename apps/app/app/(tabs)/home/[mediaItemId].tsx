@@ -32,54 +32,50 @@ export default function Article() {
 
   return (
     <Fragment>
-      <Stack.Header>
-        <Stack.Header.Title>{""}</Stack.Header.Title>
-        <Stack.Header.Right>
-          <Stack.Header.Button
+      <Stack.Screen.Title>{""}</Stack.Screen.Title>
+      <Stack.Toolbar placement="right">
+        <Stack.Toolbar.Button
+          onPress={async () => {
+            if (!url) return;
+            await Share.share({
+              message: `I found this article interesting:\n${url}\n\nFound via readii app!\nhttps://readii.de`,
+              url: url,
+            });
+          }}
+          icon={"square.and.arrow.up"}
+        />
+        <Stack.Toolbar.Menu icon="ellipsis">
+          <Stack.Toolbar.MenuAction
+            onPress={async () => updateMediaItem({ isStarred: !isStarred })}
+          >
+            <Label>{isStarred ? "Unstar" : "Star"}</Label>
+            <Icon sf={isStarred ? "star.fill" : "star"} />
+          </Stack.Toolbar.MenuAction>
+          <Stack.Toolbar.MenuAction
+            onPress={async () => updateMediaItem({ isReadLater: !isReadLater })}
+          >
+            <Label>
+              {isReadLater ? "Remove from Read Later" : "Add to Read Later"}
+            </Label>
+            <Icon sf={isReadLater ? "clock.badge.fill" : "clock.badge"} />
+          </Stack.Toolbar.MenuAction>
+          <Stack.Toolbar.MenuAction
+            onPress={() => updateMediaItem({ isRead: !isRead })}
+          >
+            <Label>{isRead ? "Mark Unread" : "Mark Read"}</Label>
+            <Icon sf="app.badge" md="mark_chat_unread" />
+          </Stack.Toolbar.MenuAction>
+          <Stack.Toolbar.MenuAction
             onPress={async () => {
               if (!url) return;
-              await Share.share({
-                message: `I found this article interesting:\n${url}\n\nFound via readii app!\nhttps://readii.de`,
-                url: url,
-              });
+              await openBrowserAsync(url);
             }}
-            icon={"square.and.arrow.up"}
-          />
-          <Stack.Header.Menu icon="ellipsis">
-            <Stack.Header.MenuAction
-              onPress={async () => updateMediaItem({ isStarred: !isStarred })}
-            >
-              <Label>{isStarred ? "Unstar" : "Star"}</Label>
-              <Icon sf={isStarred ? "star.fill" : "star"} />
-            </Stack.Header.MenuAction>
-            <Stack.Header.MenuAction
-              onPress={async () =>
-                updateMediaItem({ isReadLater: !isReadLater })
-              }
-            >
-              <Label>
-                {isReadLater ? "Remove from Read Later" : "Add to Read Later"}
-              </Label>
-              <Icon sf={isReadLater ? "clock.badge.fill" : "clock.badge"} />
-            </Stack.Header.MenuAction>
-            <Stack.Header.MenuAction
-              onPress={() => updateMediaItem({ isRead: !isRead })}
-            >
-              <Label>{isRead ? "Mark Unread" : "Mark Read"}</Label>
-              <Icon sf="app.badge" md="mark_chat_unread" />
-            </Stack.Header.MenuAction>
-            <Stack.Header.MenuAction
-              onPress={async () => {
-                if (!url) return;
-                await openBrowserAsync(url);
-              }}
-            >
-              <Label>Open Original</Label>
-              <Icon sf="arrow.up.forward.app" md="open_in_new" />
-            </Stack.Header.MenuAction>
-          </Stack.Header.Menu>
-        </Stack.Header.Right>
-      </Stack.Header>
+          >
+            <Label>Open Original</Label>
+            <Icon sf="arrow.up.forward.app" md="open_in_new" />
+          </Stack.Toolbar.MenuAction>
+        </Stack.Toolbar.Menu>
+      </Stack.Toolbar>
       <ThemedView style={{ height: "100%" }}>
         <WebView
           cacheEnabled
