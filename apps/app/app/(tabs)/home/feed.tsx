@@ -1,7 +1,5 @@
-import { FlatList, Share, StyleSheet, Text, View } from "react-native";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
-import { FontSize, FontWeight, Radius, Spacing } from "@/constants/Sizes";
+import { FlatList, Share, StyleSheet } from "react-native";
+import { Spacing } from "@/constants/Sizes";
 import {
   useFeed,
   useFolder,
@@ -10,41 +8,19 @@ import {
 } from "@/hooks/queries";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
-import { Image } from "expo-image";
 import {
   Icon,
   Label,
-  Link,
   Stack,
   useLocalSearchParams,
   useRouter,
 } from "expo-router";
-import { dayMonthYearFormat, getPreviewText } from "@/core/utils";
+import { getPreviewText } from "@/core/utils";
 import { parse } from "parse5";
-import { IconSymbol } from "@/components/ui/IconSymbol";
-import {
-  differenceInMinutes,
-  differenceInHours,
-  differenceInDays,
-  differenceInYears,
-  DateArg,
-} from "date-fns";
 import { useRefresh } from "@/hooks/useRefresh";
 import { getFeedData } from "@readii/parser";
 import { Fragment } from "react";
-
-function formatShortRelative(date: DateArg<Date>) {
-  const now = new Date();
-  const years = differenceInYears(now, date);
-  if (years > 0) return dayMonthYearFormat.format(new Date(date));
-  const days = differenceInDays(now, date);
-  if (days > 0) return `${days}d`;
-  const hours = differenceInHours(now, date);
-  if (hours > 0) return `${hours}h`;
-  const minutes = differenceInMinutes(now, date);
-  if (minutes > 0) return `${minutes}m`;
-  return "now";
-}
+import { FeedItem } from "@/components/FeedItem";
 
 export default function Feed() {
   const router = useRouter();
@@ -78,9 +54,7 @@ export default function Feed() {
     hasFolderId ? readMediaItemsFromFolderId(folderId) : readMediaItems(params),
   );
   const backgroundColor = useThemeColor({}, "background");
-  const colorBackground3 = useThemeColor({}, "background3");
   const colorText = useThemeColor({}, "text");
-  const colorText2 = useThemeColor({}, "text2");
 
   return (
     <Fragment>
@@ -112,7 +86,6 @@ export default function Feed() {
             <Label>Share Feed</Label>
             <Icon sf="square.and.arrow.up" md="ios_share" />
           </Stack.Toolbar.MenuAction>
-          <Stack.Toolbar.Spacer width={100} />
           <Stack.Toolbar.MenuAction
             destructive
             onPress={async () => {
@@ -140,75 +113,15 @@ export default function Feed() {
           const contentAst = parse(item?.content || "");
           const previewText = getPreviewText(contentAst);
           return (
-            <Link
-              href={{
-                pathname: "/home/[mediaItemId]",
-                params: { mediaItemId: item.id },
-              }}
-            >
-              <ThemedView style={styles.item}>
-                <ThemedView>
-                  {item.thumbnailUrl ? (
-                    <Image
-                      style={styles.thumbnail}
-                      source={item.thumbnailUrl}
-                      contentFit="cover"
-                      transition={500}
-                    />
-                  ) : (
-                    <ThemedView
-                      style={[
-                        styles.thumbnail,
-                        {
-                          backgroundColor: colorBackground3,
-                        },
-                      ]}
-                    >
-                      <IconSymbol
-                        size={Spacing.size5}
-                        name="photo"
-                        color={colorText2}
-                      />
-                    </ThemedView>
-                  )}
-                </ThemedView>
-                <View style={styles.desc}>
-                  <ThemedView style={styles.titleBar}>
-                    <ThemedText color="text" style={styles.title}>
-                      {item.title}
-                    </ThemedText>
-                    <ThemedText type="small">
-                      {formatShortRelative(item.publishedAt)}
-                    </ThemedText>
-                  </ThemedView>
-
-                  <ThemedView style={styles.publisher}>
-                    {item.mediaSource.icon?.url && (
-                      <Image
-                        style={styles.publisherThumbnail}
-                        source={item.mediaSource.icon?.url}
-                        contentFit="cover"
-                        transition={1000}
-                      />
-                    )}
-                    <Text
-                      style={{ ...styles.publisherName, color: colorText2 }}
-                      numberOfLines={1}
-                      ellipsizeMode="tail"
-                    >
-                      {item.mediaSource.name}
-                    </Text>
-                  </ThemedView>
-
-                  <ThemedText
-                    numberOfLines={3}
-                    style={{ ...styles.text, color: colorText2 }}
-                  >
-                    {previewText}
-                  </ThemedText>
-                </View>
-              </ThemedView>
-            </Link>
+            <FeedItem
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              isRead={item.isRead}
+              publishedAt={item.publishedAt}
+              thumbnailUrl={item.thumbnailUrl}
+              previewText={previewText}
+            />
           );
         }}
         keyExtractor={(item) => String(item.id)}
@@ -220,70 +133,5 @@ export default function Feed() {
 const styles = StyleSheet.create({
   list: {
     padding: Spacing.size4,
-  },
-  item: {
-    display: "flex",
-    flexDirection: "row",
-    gap: Spacing.size4,
-    paddingBlock: Spacing.size4,
-  },
-  desc: {
-    flex: 1,
-    display: "flex",
-    flexDirection: "column",
-  },
-  titleBar: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "baseline",
-    gap: Spacing.size2,
-  },
-  title: {
-    flex: 1,
-    fontWeight: FontWeight.bold,
-    fontSize: FontSize.size3,
-    marginBlockEnd: Spacing.size1,
-  },
-  text: {
-    lineHeight: FontSize.size3 * 1.3,
-  },
-  header: {
-    marginBlockStart: Spacing.size4,
-    fontSize: FontSize.size1,
-    textAlign: "right",
-  },
-  thumbnail: {
-    width: Spacing.size9,
-    height: Spacing.size9,
-    borderRadius: Radius.size3,
-    marginBlockStart: Spacing.size1,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  publisher: {
-    width: "100%",
-    height: Spacing.size4,
-    marginBlockStart: Spacing.size1,
-    marginBlockEnd: Spacing.size2,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    gap: Spacing.size1,
-  },
-  publisherThumbnail: {
-    width: Spacing.size4,
-    height: Spacing.size4,
-    borderRadius: Radius.size2,
-  },
-  publisherName: {
-    flexShrink: 1,
-    fontWeight: FontWeight.medium,
-    fontSize: FontSize.size1,
-  },
-  publishedAt: {
-    fontWeight: FontWeight.medium,
-    fontSize: FontSize.size1,
   },
 });
