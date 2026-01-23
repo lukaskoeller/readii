@@ -1,5 +1,17 @@
 import { ThemedView } from "@/components/ThemedView";
 import { Radius, Spacing } from "@/constants/Sizes";
+import {
+  H1_STYLE,
+  H2_STYLE,
+  H3_STYLE,
+  H4_STYLE,
+  H5_STYLE,
+  H6_STYLE,
+  TEXT_DEFAULT_STYLE,
+  BOLD_STYLE,
+  ITALIC_STYLE,
+  UNDERLINE_STYLE,
+} from "@/constants/Styles";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
 import { ActivityIndicator, Dimensions, Share } from "react-native";
 import { Icon, Label, Stack } from "expo-router";
@@ -139,13 +151,74 @@ export default function Article() {
                         padding-block-end: ${Spacing.size12}px;
                         background: ${backgroundColor};
                         color: ${textColor};
-                        line-height: 1.6;
+                        font-size: ${TEXT_DEFAULT_STYLE.fontSize}px;
+                        line-height: ${TEXT_DEFAULT_STYLE.lineHeight}px;
                       }
 
                       body {
                         margin: 0;
                         inline-size: 100%;
                       }
+
+                      h1,.title {
+                        font-size: ${H1_STYLE.fontSize}px;
+                        font-weight: ${H1_STYLE.fontWeight};
+                        margin-block-start: ${H1_STYLE.marginBlockStart}px;
+                        margin-block-end: ${H1_STYLE.marginBlockEnd}px;
+                        line-height: ${H1_STYLE.lineHeight}px;
+                      }
+
+                      h2 {
+                        font-size: ${H2_STYLE.fontSize}px;
+                        font-weight: ${H2_STYLE.fontWeight};
+                        margin-block-start: ${H2_STYLE.marginBlockStart}px;
+                        margin-block-end: ${H2_STYLE.marginBlockEnd}px;
+                        line-height: ${H2_STYLE.lineHeight}px;
+                      }
+
+                      h3 {
+                        font-size: ${H3_STYLE.fontSize}px;
+                        font-weight: ${H3_STYLE.fontWeight};
+                        margin-block-start: ${H3_STYLE.marginBlockStart}px;
+                        margin-block-end: ${H3_STYLE.marginBlockEnd}px;
+                        line-height: ${H3_STYLE.lineHeight}px;
+                      }
+
+                      h4 {
+                        font-size: ${H4_STYLE.fontSize}px;
+                        font-weight: ${H4_STYLE.fontWeight};
+                        margin-block-start: ${H4_STYLE.marginBlockStart}px;
+                        margin-block-end: ${H4_STYLE.marginBlockEnd}px;
+                        line-height: ${H4_STYLE.lineHeight}px;
+                      }
+
+                      h5 {
+                        font-size: ${H5_STYLE.fontSize}px;
+                        font-weight: ${H5_STYLE.fontWeight};
+                        margin-block: ${H5_STYLE.marginBlock}px;
+                        line-height: ${H5_STYLE.lineHeight}px;
+                      }
+                      
+                      h6 {
+                        font-size: ${H6_STYLE.fontSize}px;
+                        font-weight: ${H6_STYLE.fontWeight};
+                        margin-block: ${H6_STYLE.marginBlock}px;
+                        line-height: ${H6_STYLE.lineHeight}px;
+                      }
+
+                      b, strong {
+                        font-weight: ${BOLD_STYLE.fontWeight};
+                      }
+
+                      i, em {
+                        font-style: ${ITALIC_STYLE.fontStyle};
+                      }
+
+                      u {
+                        text-decoration: ${UNDERLINE_STYLE.textDecorationLine};
+                      }
+
+
   
                       a {
                         color: ${primaryColor};
@@ -167,7 +240,7 @@ export default function Article() {
                     </style>
                   </head>
                   <body>
-                    <h1>${data?.title}</h1>
+                    <h1 class="title">${data?.title}</h1>
                     ${data?.content}
                   </body>
                 </html>
