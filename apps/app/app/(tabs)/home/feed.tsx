@@ -116,11 +116,13 @@ export default function Feed() {
             <FeedItem
               key={item.id}
               id={item.id}
-              title={item.title}
               isRead={item.isRead}
+              mediaSourceIconUrl={item.mediaSource.icon?.url}
+              mediaSourceName={item.mediaSource.name}
+              previewText={previewText}
               publishedAt={item.publishedAt}
               thumbnailUrl={item.thumbnailUrl}
-              previewText={previewText}
+              title={item.title}
             />
           );
         }}

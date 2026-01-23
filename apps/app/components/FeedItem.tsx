@@ -18,7 +18,7 @@ import {
 } from "date-fns";
 import { dayMonthYearFormat } from "@/core/utils";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { TMediaItem } from "@/core/schema";
+import { TMediaItem, TMediaSource, TMediaSourceIcon } from "@/core/schema";
 import { IconSymbol } from "./ui/IconSymbol";
 import { StyleSheet, View } from "react-native";
 import { ThemedText } from "./ThemedText";
@@ -38,20 +38,24 @@ function formatShortRelative(date: DateArg<Date>) {
 
 export type FeedItemProps = {
   id: NonNullable<TMediaItem["id"]>;
-  title: TMediaItem["title"];
   isRead: TMediaItem["isRead"];
+  mediaSourceIconUrl: TMediaSourceIcon["url"];
+  mediaSourceName: TMediaSource["name"];
+  previewText: string;
   publishedAt: TMediaItem["publishedAt"];
   thumbnailUrl: TMediaItem["thumbnailUrl"];
-  previewText: string;
+  title: TMediaItem["title"];
 };
 
 export const FeedItem: FC<FeedItemProps> = ({
   id,
-  title,
   isRead,
+  mediaSourceIconUrl,
+  mediaSourceName,
+  previewText,
   publishedAt,
   thumbnailUrl,
-  previewText,
+  title,
 }) => {
   const colorBackground3 = useThemeColor({}, "background3");
   const colorText2 = useThemeColor({}, "text2");
@@ -110,6 +114,24 @@ export const FeedItem: FC<FeedItemProps> = ({
             </ThemedView>
           </ThemedView>
 
+          <ThemedView style={styles.publisher}>
+            {mediaSourceIconUrl && (
+              <Image
+                style={styles.publisherThumbnail}
+                source={mediaSourceIconUrl}
+                contentFit="cover"
+                transition={1000}
+              />
+            )}
+            <ThemedText
+              style={{ ...styles.publisherName, color: colorText2 }}
+              numberOfLines={1}
+              ellipsizeMode="tail"
+            >
+              {mediaSourceName}
+            </ThemedText>
+          </ThemedView>
+
           <ThemedText
             numberOfLines={3}
             style={[styles.previewText, { color: colorText2 }]}
@@ -143,6 +165,24 @@ const styles = StyleSheet.create({
     flex: 1,
     fontWeight: FontWeight.bold,
     fontSize: FontSize.size3,
+  },
+  publisher: {
+    width: "100%",
+    marginBlockEnd: Spacing.size1,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: Spacing.size1,
+  },
+  publisherThumbnail: {
+    width: Spacing.size4,
+    height: Spacing.size4,
+    borderRadius: Radius.size2,
+  },
+  publisherName: {
+    flexShrink: 1,
+    fontWeight: FontWeight.medium,
+    fontSize: FontSize.size1,
   },
   text: {
     lineHeight: FontSize.size3 * 1.3,
