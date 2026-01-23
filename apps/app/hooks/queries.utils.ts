@@ -1,7 +1,7 @@
 import { parseQueryParams } from "@/core/utils";
 import { $MediaItemPartial } from "@readii/schemas/zod";
 import * as schema from "@/core/schema";
-import { eq, SQL } from "drizzle-orm";
+import { eq, inArray, SQL } from "drizzle-orm";
 
 /**
  * Parses filter parameters and converts them into SQL conditions for querying media items.
@@ -33,9 +33,16 @@ export const parseFiltersToConditions = (
           !(field in schema.mediaItem)
         )
           return [];
+
+        const column = schema.mediaItem[field as keyof schema.TMediaItem];
+        
+        if (Array.isArray(value)) {
+           return [inArray(column, value as (string | number)[]) as SQL<schema.TMediaItem>];
+        }
+
         return [
           eq(
-            schema.mediaItem[field as keyof schema.TMediaItem],
+            column,
             value,
           ) as SQL<schema.TMediaItem>,
         ];
