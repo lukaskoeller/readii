@@ -21,6 +21,7 @@
 - [x] FEAT: Add wait list via google forms
 - [x] FIX: Webview internal links must open in separate browser
 - [ ] FEAT: Add option to mark all as read
+- [ ] FEAT: Style read articles vs unread articles
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add language support to suggestions
 - [ ] FIX: Over-swipe color
