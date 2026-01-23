@@ -168,6 +168,10 @@ export default function Article() {
                         line-height: ${H1_STYLE.lineHeight}px;
                       }
 
+                      .title {
+                        margin-block-start: 0px;
+                      }
+
                       h2 {
                         font-size: ${H2_STYLE.fontSize}px;
                         font-weight: ${H2_STYLE.fontWeight};
