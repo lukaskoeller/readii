@@ -24,8 +24,8 @@
 - [x] FEAT: Style read articles vs unread articles
 - [ ] FEAT: Add feed suggestions
 - [ ] FEAT: Add language support to suggestions
-- [ ] FIX: Over-swipe color
 - [ ] FEAT: Add background updates and notifications
+- [ ] FIX: Over-swipe color
 - [ ] FEAT: Add feed settings
   - [ ] FEAT: add view options (Open with: Default / Viewer / In-App-Browser / Reader View)
   - [ ] FEAT: Add Feed URL & option to share link
