@@ -199,7 +199,10 @@ export const useMediaItem = () => {
       where: (item, { eq }) => eq(item.id, id),
     });
 
-  const updateIsReadMediaItems = (markAsRead: boolean, mediaSourceId: NonNullable<schema.TMediaItem["mediaSourceId"]>) => {
+  const updateIsReadMediaItems = (
+    markAsRead: boolean,
+    mediaSourceId: NonNullable<schema.TMediaItem["mediaSourceId"]>,
+  ) => {
     drizzleDb
       .update(schema.mediaItem)
       .set({ isRead: markAsRead })
