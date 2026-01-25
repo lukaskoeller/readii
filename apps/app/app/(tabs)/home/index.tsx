@@ -34,13 +34,13 @@ export default function HomeScreen() {
   const { data } = useLiveQuery(readMediaSources());
   const { data: itemsCount } = useLiveQuery(readMediaItemsCount());
   const { data: itemsCountIsStarred } = useLiveQuery(
-    readMediaItemsIsStarredCount()
+    readMediaItemsIsStarredCount(),
   );
   const { data: itemsCountIsReadLater } = useLiveQuery(
-    readMediaItemsIsReadLaterCount()
+    readMediaItemsIsReadLaterCount(),
   );
   const { data: itemsCountIsUnread } = useLiveQuery(
-    readMediaItemsIsUnreadCount()
+    readMediaItemsIsUnreadCount(),
   );
   const itemsCountAll = itemsCount[0]?.count ?? 0;
   const itemsCountStarred = itemsCountIsStarred[0]?.count ?? 0;
@@ -53,21 +53,19 @@ export default function HomeScreen() {
   // @todo Improve update on mount
   useEffect(() => {
     const updateFeeds = async (
-      mediaSourceFeedURLs: TMediaSource["feedUrl"][]
+      mediaSourceFeedURLs: TMediaSource["feedUrl"][],
     ) => {
       await Promise.all(
         mediaSourceFeedURLs.map(async (url) => {
           const args = await getFeedData(url);
           await updateFeed(args);
-        })
+        }),
       );
     };
     if (Array.isArray(data) && data.length > 0) {
       const mediaSourceFeedURLs = data.map((mediaSource) => {
         return mediaSource.feedUrl;
       });
-
-      console.log("UPDATE FEEDS", mediaSourceFeedURLs);
 
       updateFeeds(mediaSourceFeedURLs);
     }
@@ -128,16 +126,18 @@ export default function HomeScreen() {
           <Section title="Folders">
             <FlatList
               scrollEnabled={false}
-              data={folders}
+              data={folders ?? []}
               ItemSeparatorComponent={() => (
                 <ThemedView style={{ height: Spacing.size3 }} />
               )}
               renderItem={({ item: folder }) => {
                 const mediaSources = folder.mediaSources.map(
-                  ({ mediaSource }) => ({
-                    thumbnailUrl: mediaSource.icon?.url,
-                    id: mediaSource.id,
-                  })
+                  ({ mediaSource }) => {
+                    return {
+                      thumbnailUrl: mediaSource.icon?.url,
+                      id: mediaSource.id,
+                    };
+                  },
                 );
                 const folderId = folder.id;
                 return (
