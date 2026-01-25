@@ -128,9 +128,14 @@ export const useMediaSource = () => {
         .delete(schema.mediaSourceIcon)
         .where(eq(schema.mediaSourceIcon.mediaSourceId, mediaSourceId));
 
-      mediaSource.run();
-      mediaItem.run();
-      mediaSourceIcon.run();
+      const mediaSourceFolder = drizzleDb
+        .delete(schema.mediaSourceToFolders)
+        .where(eq(schema.mediaSourceToFolders.mediaSourceId, mediaSourceId));
+
+      mediaSource.execute();
+      mediaItem.execute();
+      mediaSourceIcon.execute();
+      mediaSourceFolder.execute();
     });
   };
 
@@ -207,18 +212,19 @@ export const useMediaItem = () => {
       .update(schema.mediaItem)
       .set({ isRead: markAsRead })
       .where(eq(schema.mediaItem.mediaSourceId, mediaSourceId))
-      .run();
+      .execute();
   };
 
   const updateMediaItem = (
     id: NonNullable<schema.TMediaItem["id"]>,
     mediaItem: Partial<schema.TMediaItem>,
-  ) =>
-    drizzleDb
+  ) => {
+    return drizzleDb
       .update(schema.mediaItem)
       .set(mediaItem)
       .where(eq(schema.mediaItem.id, id))
-      .run();
+      .execute();
+  };
 
   const readMediaItemsCount = () =>
     drizzleDb.select({ count: count() }).from(schema.mediaItem);
@@ -237,8 +243,8 @@ export const useMediaItem = () => {
 
   const readMediaItemsIsUnreadCount = (
     mediaSourceIds?: NonNullable<schema.TMediaItem["mediaSourceId"]>[],
-  ) =>
-    drizzleDb
+  ) => {
+    return drizzleDb
       .select({ count: count() })
       .from(schema.mediaItem)
       .where(
@@ -253,6 +259,7 @@ export const useMediaItem = () => {
             )
           : eq(schema.mediaItem.isRead, false),
       );
+  };
 
   const api = {
     readMediaItem,
@@ -338,8 +345,8 @@ export const useFolder = () => {
         .delete(schema.mediaSourceToFolders)
         .where(eq(schema.mediaSourceToFolders.folderId, folderId));
 
-      deleteFolder.run();
-      deleteMediaSourcesToFolders.run();
+      deleteFolder.execute();
+      deleteMediaSourcesToFolders.execute();
     });
   };
 
