@@ -37,10 +37,13 @@ export default function Article() {
   const isReadLater = Boolean(data?.isReadLater);
   const isRead = Boolean(data?.isRead);
   const url = data?.url;
+  const isDataAvailable = Boolean(data);
 
   useEffect(() => {
-    updateMediaItem({ isRead: true });
-  }, []);
+    if (isDataAvailable && !isRead) {
+      updateMediaItem({ isRead: true });
+    }
+  }, [isDataAvailable, isRead]);
 
   return (
     <Fragment>
