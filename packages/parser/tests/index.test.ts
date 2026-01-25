@@ -13,6 +13,7 @@ const rssFeeds: Array<[string, TMediaSourceType, string]> = [
   ],
   ["Jake Archibald", "rss", "https://jakearchibald.com/posts.rss"],
   ["Smashing Magazine", "rss", "https://www.smashingmagazine.com/feed/"],
+  ["NASA Image of the Day", "rss", "https://www.nasa.gov/feeds/iotd-feed/"],
   [
     "readii.bsky.social",
     "atproto",
@@ -28,7 +29,7 @@ test.each(rssFeeds)(
     expect("mediaSourceIcon" in parsedFeed).toBe(true);
     expect("mediaSource" in parsedFeed).toBe(true);
     expect("mediaItems" in parsedFeed).toBe(true);
-  }
+  },
 );
 
 const FACETS: Array<[string, Facet[], string]> = [
@@ -69,5 +70,5 @@ test.each(FACETS)(
   (text, facets, expected) => {
     const htmlString = transformAtProtoToHtml(text, facets);
     expect(htmlString).toBe(expected);
-  }
+  },
 );
