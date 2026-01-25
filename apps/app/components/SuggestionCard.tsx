@@ -4,7 +4,7 @@ import { FeedPreview } from "./FeedPreview";
 import { ThemedView } from "./ThemedView";
 import { Button } from "./Button/Button";
 import { TFeedSuggestion } from "@readii/data/suggestions/zod";
-import { StyleSheet } from "react-native";
+import { Alert, StyleSheet } from "react-native";
 import { useFeed, useMediaSource } from "@/hooks/queries";
 import { getFeedData } from "@readii/parser";
 import { useRouter } from "expo-router";
@@ -22,7 +22,7 @@ export const SuggestionCard: FC<SuggestionCardProps> = ({
   mediaSourceId,
   feedUrl,
 }) => {
-    const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { createFeed } = useFeed();
   const { deleteMediaSource } = useMediaSource();
@@ -49,6 +49,7 @@ export const SuggestionCard: FC<SuggestionCardProps> = ({
               router.replace("/home");
             } catch (error) {
               console.error(error);
+              Alert.alert("Failed to add feed", "Please try again later.");
             }
             setIsLoading(false);
           }}
