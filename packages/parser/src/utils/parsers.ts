@@ -22,7 +22,7 @@ export type TGetParsedRssDataOptions = {
 
 export const getParsedRssData = async (
   url: string,
-  options: TGetParsedRssDataOptions
+  options: TGetParsedRssDataOptions,
 ) => {
   const text = options?.rssString ?? (await (await fetch(url)).text());
 
@@ -50,15 +50,15 @@ export const getParsedRssData = async (
   if (!mediaSourceIcon.success) {
     throw new Error(
       `Invalid Media Source Icon: ${z.prettifyError(
-        mediaSourceIcon.error
-      )}\nURL: ${url}`
+        mediaSourceIcon.error,
+      )}\nURL: ${url}`,
     );
   }
 
   const baseUrl =
     channelData?.link?.["#text"] ??
     (Array.isArray(channelData?.link) ? channelData?.link : [])?.find(
-      (link: Record<string, unknown>) => link?.["@_rel"] !== "self"
+      (link: Record<string, unknown>) => link?.["@_rel"] !== "self",
     )?.["@_href"] ??
     channelData?.link?.["@_href"] ??
     null;
@@ -82,14 +82,14 @@ export const getParsedRssData = async (
     generator: channelData?.generator?.["#text"] ?? null,
     categories: Array.isArray(channelData?.category)
       ? channelData?.category?.map(
-          (cat: Record<string, unknown>) => cat?.["#text"] ?? cat
+          (cat: Record<string, unknown>) => cat?.["#text"] ?? cat,
         )
       : null,
   });
   if (!mediaSource.success) {
     console.error(mediaSource.error);
     throw new Error(
-      `Invalid Media Source: ${z.prettifyError(mediaSource.error)}\nURL: ${url}`
+      `Invalid Media Source: ${z.prettifyError(mediaSource.error)}\nURL: ${url}`,
     );
   }
 
@@ -101,9 +101,9 @@ export const getParsedRssData = async (
         item?.description?.["#text"] ??
         "";
       const description = item?.description?.["#text"] ?? "";
-      
-      
-      const imgRegex = /<img\b(?![^>]*?(?:width|height)=["']1["'])[^>]*?src=["'](.*?)["']/i;
+
+      const imgRegex =
+        /<img\b(?![^>]*?(?:width|height)=["']1["'])[^>]*?src=["'](.*?)["']/i;
       const imgMatch = imgRegex.exec(content) ?? imgRegex.exec(description);
       const mediaThumbnailUrlFallback = imgMatch ? imgMatch[1] : null;
       const mediaThumbnailUrl =
@@ -115,7 +115,7 @@ export const getParsedRssData = async (
           (link: Record<string, unknown>) => {
             const mediaType = link?.["@_type"] as string | undefined;
             return getIsMediaTypeImage(mediaType);
-          }
+          },
         )?.["@_href"] ??
         mediaThumbnailUrlFallback;
 
@@ -123,9 +123,12 @@ export const getParsedRssData = async (
         item?.link?.["#text"] ??
         item?.link?.["@_href"] ??
         (Array.isArray(item?.link) ? item?.link : [])?.find(
-          (link: Record<string, unknown>) => link?.["@_rel"] == undefined
+          (link: Record<string, unknown>) => link?.["@_rel"] == undefined,
         )?.["@_href"];
       const enclosureUrl = item?.enclosure?.["@_url"] ?? null;
+      const publishedAt = item?.pubDate?.["#text"] ?? item?.updated?.["#text"];
+      const publishedAtDate = publishedAt ? new Date(publishedAt) : null;
+      console.log(publishedAt, publishedAtDate);
 
       return {
         title: item?.title?.["#text"] ?? null,
@@ -139,20 +142,18 @@ export const getParsedRssData = async (
 
         creator: item?.["dc:creator"]?.["#text"] ?? null,
         publishedAt:
-          item?.pubDate?.["#text"] ?? item?.updated?.["#text"]
-            ? new Date(
-                item?.pubDate?.["#text"] ?? item?.updated?.["#text"]
-              ).toISOString()
+          publishedAtDate && publishedAtDate?.toString() !== "Invalid Date"
+            ? publishedAtDate.toISOString()
             : null,
         thumbnailUrl: getUrl(mediaThumbnailUrl, baseUrl),
         enclosure: getUrl(enclosureUrl, baseUrl),
       };
-    })
+    }),
   );
   if (!mediaItems.success) {
     console.error(mediaItems.error);
     throw new Error(
-      `Invalid Media Items: ${z.prettifyError(mediaItems.error)}\nURL: ${url}`
+      `Invalid Media Items: ${z.prettifyError(mediaItems.error)}\nURL: ${url}`,
     );
   }
 
@@ -172,7 +173,7 @@ export type TGetParsedAtProtoDataOptions = {
 
 export const getParsedAtProtoData = async (
   url: string,
-  options: TGetParsedAtProtoDataOptions
+  options: TGetParsedAtProtoDataOptions,
 ) => {
   const jsonData = options?.atProtoObject ?? (await (await fetch(url)).json());
 
@@ -188,8 +189,8 @@ export const getParsedAtProtoData = async (
   if (!mediaSourceIcon.success) {
     throw new Error(
       `Invalid Media Source Icon: ${z.prettifyError(
-        mediaSourceIcon.error
-      )}\nURL: ${url}`
+        mediaSourceIcon.error,
+      )}\nURL: ${url}`,
     );
   }
 
@@ -214,7 +215,7 @@ export const getParsedAtProtoData = async (
   if (!mediaSource.success) {
     console.error(mediaSource.error);
     throw new Error(
-      `Invalid Media Source: ${z.prettifyError(mediaSource.error)}\nURL: ${url}`
+      `Invalid Media Source: ${z.prettifyError(mediaSource.error)}\nURL: ${url}`,
     );
   }
 
@@ -248,12 +249,12 @@ export const getParsedAtProtoData = async (
         thumbnailUrl: mediaThumbnailUrl,
         enclosure: null,
       };
-    })
+    }),
   );
   if (!mediaItems.success) {
     console.error(mediaItems.error);
     throw new Error(
-      `Invalid Media Items: ${z.prettifyError(mediaItems.error)}\nURL: ${url}`
+      `Invalid Media Items: ${z.prettifyError(mediaItems.error)}\nURL: ${url}`,
     );
   }
 
