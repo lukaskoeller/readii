@@ -222,16 +222,19 @@ export const useMediaItem = () => {
 
   const readMediaItemsCount = () =>
     drizzleDb.select({ count: count() }).from(schema.mediaItem);
+
   const readMediaItemsIsStarredCount = () =>
     drizzleDb
       .select({ count: count() })
       .from(schema.mediaItem)
       .where(eq(schema.mediaItem.isStarred, true));
+
   const readMediaItemsIsReadLaterCount = () =>
     drizzleDb
       .select({ count: count() })
       .from(schema.mediaItem)
       .where(eq(schema.mediaItem.isReadLater, true));
+
   const readMediaItemsIsUnreadCount = (
     mediaSourceIds?: NonNullable<schema.TMediaItem["mediaSourceId"]>[],
   ) =>
