@@ -42,12 +42,8 @@ export default function Category() {
       />
       <FlatList
         style={{ padding: Spacing.container }}
-        data={
-          suggestionsByCategory[
-            params.category as TFeedCategory
-          ] ?? []
-        }
-        keyExtractor={(item) => item.url}
+        data={suggestionsByCategory[params.category as TFeedCategory] ?? []}
+        keyExtractor={(item) => item.id}
         ItemSeparatorComponent={() => (
           <View style={{ height: Spacing.size2 }} />
         )}
