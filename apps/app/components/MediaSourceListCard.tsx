@@ -10,8 +10,9 @@ import { ThemedText } from "./ThemedText";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite/query";
 import { useMediaItem } from "@/hooks/queries";
 import { IconSymbol } from "./ui/IconSymbol";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import * as schema from "@/core/schema";
+import { Button } from "./Button/Button";
 
 export type MediaSourceListItemProps = ListItemProps & {
   mediaSourceId: number;
@@ -64,6 +65,29 @@ export type LinkListCardProps = LinkListProps & {
 
 export function MediaSourceListCard({ data }: LinkListCardProps) {
   const colorBackground3 = useThemeColor({}, "background3");
+
+  if (data.length === 0) {
+    return (
+      <Card
+        style={{
+          height: 160,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: Spacing.size4,
+        }}
+      >
+        <ThemedText style={{ textAlign: "center" }}>You have no feeds yet.</ThemedText>
+        <Button
+          onPress={() => {
+            router.push("/add");
+          }}
+        >
+          Add Feed
+        </Button>
+      </Card>
+    );
+  }
 
   return (
     <Card
