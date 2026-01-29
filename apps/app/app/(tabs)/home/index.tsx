@@ -122,40 +122,42 @@ export default function HomeScreen() {
             )}
           />
         </ThemedView>
-        <ThemedView padding={Spacing.size4}>
-          <Section title="Folders">
-            <FlatList
-              scrollEnabled={false}
-              data={folders ?? []}
-              ItemSeparatorComponent={() => (
-                <ThemedView style={{ height: Spacing.size3 }} />
-              )}
-              renderItem={({ item: folder }) => {
-                const mediaSources = folder.mediaSources.map(
-                  ({ mediaSource }) => {
-                    return {
-                      thumbnailUrl: mediaSource.icon?.url,
-                      id: mediaSource.id,
-                    };
-                  },
-                );
-                const folderId = folder.id;
-                return (
-                  <FolderButton
-                    key={folder.id}
-                    href={{
-                      pathname: "/home/feed",
-                      params: { folderId: folderId, feedTitle: folder.name },
-                    }}
-                    label={folder.name}
-                    count={folder.mediaSources.length}
-                    mediaSources={mediaSources}
-                  />
-                );
-              }}
-            />
-          </Section>
-        </ThemedView>
+        {folders && folders.length !== 0 && (
+          <ThemedView padding={Spacing.size4}>
+            <Section title="Folders">
+              <FlatList
+                scrollEnabled={false}
+                data={folders ?? []}
+                ItemSeparatorComponent={() => (
+                  <ThemedView style={{ height: Spacing.size3 }} />
+                )}
+                renderItem={({ item: folder }) => {
+                  const mediaSources = folder.mediaSources.map(
+                    ({ mediaSource }) => {
+                      return {
+                        thumbnailUrl: mediaSource.icon?.url,
+                        id: mediaSource.id,
+                      };
+                    },
+                  );
+                  const folderId = folder.id;
+                  return (
+                    <FolderButton
+                      key={folder.id}
+                      href={{
+                        pathname: "/home/feed",
+                        params: { folderId: folderId, feedTitle: folder.name },
+                      }}
+                      label={folder.name}
+                      count={folder.mediaSources.length}
+                      mediaSources={mediaSources}
+                    />
+                  );
+                }}
+              />
+            </Section>
+          </ThemedView>
+        )}
         <ThemedView padding={Spacing.size4}>
           <Section title={`All Feeds (${data.length})`}>
             <MediaSourceListCard
