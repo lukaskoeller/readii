@@ -1008,5 +1008,115 @@
     "iconUrl": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/01/verge-rss-large_80b47e.png?w=150&h=150&crop=1",
     "ogImageUrl": "https://platform.theverge.com/wp-content/uploads/sites/2/2024/10/the_verge_social_share.png",
     "categories": ["science-tech"]
+  },
+  {
+    "title": "Health - Latest - Google News",
+    "id": "https://news.google.com/rss/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNR3QwTlRFU0FtVnVLQUFQAQ?hl=en-US&gl=US&ceid=US%3Aen&oc=11",
+    "url": "https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNR3QwTlRFU0FtVnVLQUFQAQ?hl=en-US&gl=US&ceid=US%3Aen",
+    "feedUrl": "https://news.google.com/rss/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNR3QwTlRFU0FtVnVLQUFQAQ?hl=en-US&gl=US&ceid=US%3Aen&oc=11",
+    "description": "Latest news on health from Google News",
+    "iconUrl": "https://lh3.googleusercontent.com/-DR60l-K8vnyi99NZovm9HlXyZwQ85GMDxiwJWzoasZYCUrPuUM_P_4Rb7ei03j-0nRs0c4F=w256",
+    "ogImageUrl": "https://lh3.ggpht.com/r4EKXwEo49BFQUa3OVZ8FC3j6teq_hUrmGcO4fI8BqoBgWSVJyu6D-vvXs9wGO7e_BKMbeqo4dk=rj-c-w300-h300-l95-c0x5677fc",
+    "categories": ["health"]
+  },
+  {
+    "title": "BBC News - Health",
+    "id": "https://feeds.bbci.co.uk/news/health/rss.xml",
+    "url": "https://www.bbc.com/news/health",
+    "feedUrl": "https://feeds.bbci.co.uk/news/health/rss.xml",
+    "description": "Get all the latest news, live updates and content about Health from across the BBC.",
+    "iconUrl": "https://static.files.bbci.co.uk/core/website/assets/static/icons/touch/news/touch-icon-120.73e20442a9.png",
+    "ogImageUrl": "https://static.files.bbci.co.uk/core/website/assets/static/news/images/metadata/poster-1024x576.5f404a8b8b.png",
+    "categories": ["health"]
+  },
+  {
+    "title": "NYT > Health",
+    "id": "https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/health/rss.xml",
+    "url": "https://www.nytimes.com/section/health",
+    "feedUrl": "https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/health/rss.xml",
+    "description": "The latest news on health and medicine, covid, vaccines, global health, mental health, Obamacare, health insurance, Medicare, Medicaid, opioids, cancer, heart disease and other topics.",
+    "iconUrl": "https://www.nytimes.com/vi-assets/static-assets/apple-touch-icon-dark-f74e69bf6dae735169854a4126cebf8c.png",
+    "ogImageUrl": "https://static01.nyt.com/newsgraphics/images/icons/defaultPromoCrop.png",
+    "categories": ["health"]
+  },
+  {
+    "title": "Health | The Guardian",
+    "id": "https://www.theguardian.com/society/health/rss",
+    "url": "https://www.theguardian.com/society/health",
+    "feedUrl": "https://www.theguardian.com/society/health/rss",
+    "description": "Latest news and features from theguardian.com, the world's leading liberal voice",
+    "iconUrl": "https://assets.guim.co.uk/static/frontend/icons/homescreen/apple-touch-icon-120.png",
+    "ogImageUrl": null,
+    "categories": ["health"]
+  },
+  {
+    "title": "Deutsches Ärzteblatt",
+    "id": "https://www.aerzteblatt.de/rss/news.asp",
+    "url": "https://www.aerzteblatt.de/news/",
+    "feedUrl": "https://www.aerzteblatt.de/rss/news.asp",
+    "description": "Die aktuellsten Meldungen aus Gesundheitspolitik und Medizin",
+    "iconUrl": "https://www.aerzteblatt.de/img/aerzteblatt/apple-touch-icon.png",
+    "ogImageUrl": null,
+    "categories": ["health"]
+  },
+  {
+    "title": "www.apotheken-umschau.de",
+    "id": "https://www.apotheken-umschau.de/rss/topthemen.xml",
+    "url": "https://www.apotheken-umschau.de",
+    "feedUrl": "https://www.apotheken-umschau.de/rss/topthemen.xml",
+    "description": "Die Apotheken Umschau im Internet",
+    "iconUrl": "https://www.apotheken-umschau.de/apple-touch-icon.png",
+    "ogImageUrl": "https://cdn.apotheken-umschau.de/v7/_auirp_/imgs/04/1/5/2/tok_7f6dd36c1b1d403121d03a19f4314e7e/w1200_h630_x600_y315_open_graph_facebook_default_logo-ec8e4d4b62a6cfc8.png",
+    "categories": ["health"]
+  },
+  {
+    "title": "Bundesministerium für Gesundheit (BMG)",
+    "id": "https://www.bundesgesundheitsministerium.de/meldungen.xml",
+    "url": "https://www.bundesgesundheitsministerium.de/ministerium/meldungen.html",
+    "feedUrl": "https://www.bundesgesundheitsministerium.de/meldungen.xml",
+    "description": "Aktuelle Meldungen des Bundesministeriums für Gesundheit",
+    "iconUrl": "https://www.bundesgesundheitsministerium.de/typo3conf/ext/bmg_sitepackage/Resources/Public/Frontend/Base/images/favicon/favicon.ico",
+    "ogImageUrl": null,
+    "categories": ["health"]
+  },
+  {
+    "title": "Deutschlandfunk - Gesundheit",
+    "id": "https://www.deutschlandfunk.de/gesundheit-112.rss",
+    "url": "https://www.deutschlandfunk.de/gesundheit-112.html",
+    "feedUrl": "https://www.deutschlandfunk.de/gesundheit-112.rss",
+    "description": "Berichte über körperliche und mentale Gesundheit, Krankheiten und Medizin, Bewegung und Ernährung, Prävention und Rehabilitation, Stress und Erholung.",
+    "iconUrl": "https://bilder.deutschlandfunk.de/6b/bf/fb/59/6bbffb59-140f-42e5-aec0-c853b4a64a35/gesundheit-illustration-100-1920x1920.jpg",
+    "ogImageUrl": "https://bilder.deutschlandfunk.de/6b/bf/fb/59/6bbffb59-140f-42e5-aec0-c853b4a64a35/gesundheit-illustration-100-1920x1080.jpg",
+    "categories": ["health"]
+  },
+  {
+    "title": "Queerbeet - Die Gartensendung",
+    "id": "https://www.br.de/br-fernsehen/sendungen/querbeet/querbeet-muster102~rss.xml",
+    "url": "https://www.br.de/br-fernsehen/sendungen/querbeet/index.html",
+    "feedUrl": "https://www.br.de/br-fernsehen/sendungen/querbeet/querbeet-muster102~rss.xml",
+    "description": "Ob im Garten, in der Wohnung, auf dem Balkon oder im Gewächshaus, \"Querbeet\" vermittelt das Wissen um Aussehen, Pflege und Verwendung der Pflanzen. \"Querbeet\" macht Lust, es selbst auszuprobieren und die Liebe zum Garten und zum Gärtnern zu entdecken.",
+    "iconUrl": "https://www.br.de/favicon.ico?version=2",
+    "ogImageUrl": "http://www.br.de/static/img/logo/logo_fb_thumb.png?version=2?version=9a4cf",
+    "categories": ["home-garden"]
+  },
+  {
+    "title": "SelfBio",
+    "id": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_r9BZ45Cxqs1sJCXJrK_lA",
+    "url": "http://www.youtube.com/feeds/videos.xml?channel_id=UC_r9BZ45Cxqs1sJCXJrK_lA",
+    "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_r9BZ45Cxqs1sJCXJrK_lA",
+    "description": "Profi-Tipps für die reiche Ernte im eigenen Garten. Von der Aussaat bis zur Selbstversorgung auf dem Balkon oder im Hochbeet – hier gibt es das Wissen für frisches, unbelastetes Obst und Gemüse.",
+    "iconUrl": "https://www.youtube.com/s/desktop/6cd492c3/img/favicon_144x144.png",
+    "ogImageUrl": "https://yt3.googleusercontent.com/ytc/AIdro_l9_JWHedvx11klMKEvlrZLNYXzjUisY1Lle-4T5AejFg=s900-c-k-c0x00ffffff-no-rj",
+    "categories": ["home-garden"]
+  },
+  {
+    "title": "Epic Gardening",
+    "id": "https://www.epicgardening.com/feed/",
+    "url": "https://www.epicgardening.com/",
+    "feedUrl": "https://www.epicgardening.com/feed/",
+    "description": "Practical gardening tips and advice",
+    "iconUrl": "https://www.epicgardening.com/wp-content/uploads/2024/04/cropped-EG-2024-Favicon-48x48.png",
+    "ogImageUrl": "https://www.epicgardening.com/wp-content/uploads/2024/04/cropped-EG-2024-Favicon.png",
+    "categories": ["home-garden"]
   }
 ]
