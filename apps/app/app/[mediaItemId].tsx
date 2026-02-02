@@ -23,6 +23,8 @@ import { openBrowserAsync } from "expo-web-browser";
 
 export default function Article() {
   const data = useReadMediaItem();
+  console.log("UPDATE", data?.isRead);
+
   const { updateMediaItem } = useUpdateMediaItem();
 
   const windowHeight = Dimensions.get("window").height;
@@ -40,45 +42,100 @@ export default function Article() {
   const isDataAvailable = Boolean(data);
 
   useEffect(() => {
+    console.log("USE_EFFECT");
     if (isDataAvailable && !isRead) {
+      console.log("USE_EFFECT:UPDATE!!!");
       updateMediaItem({ isRead: true });
     }
   }, [isDataAvailable, isRead]);
 
   return (
     <Fragment>
-      <Stack.Screen.Title>{""}</Stack.Screen.Title>
-      <Stack.Toolbar placement="right">
+      <Stack.Screen
+        options={{
+          headerTransparent: true,
+          headerBlurEffect: "none",
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: "transparent",
+          },
+          headerTitleStyle: {
+            color: textColor,
+          },
+          contentStyle: {
+            backgroundColor,
+          },
+        }}
+      >
+        <Stack.Screen.Title>{""}</Stack.Screen.Title>
+      </Stack.Screen>
+      <Stack.Toolbar placement="bottom">
         <Stack.Toolbar.Button
-          onPress={async () => {
-            if (!url) return;
-            await Share.share({
-              message: `I found this article interesting:\n${url}\n\nFound via readii app!\nhttps://readii.de`,
-              url: url,
-            });
-          }}
-          icon={"square.and.arrow.up"}
-        />
+          onPress={async () => updateMediaItem({ isStarred: !isStarred })}
+        >
+          <Label>{isStarred ? "Unstar" : "Star"}</Label>
+          <Icon sf={isStarred ? "star.fill" : "star"} />
+        </Stack.Toolbar.Button>
+        <Stack.Toolbar.Button
+          onPress={async () => updateMediaItem({ isReadLater: !isReadLater })}
+        >
+          <Label>
+            {isReadLater ? "Remove from Read Later" : "Add to Read Later"}
+          </Label>
+          <Icon sf={isReadLater ? "clock.badge.fill" : "clock.badge"} />
+        </Stack.Toolbar.Button>
+        <Stack.Toolbar.Menu icon="text.page" title="Choose the mode in which the article is displayed">
+          <Stack.Toolbar.MenuAction
+            isOn={true}
+            onPress={() => {
+              console.log("Default Mode selected");
+            }}
+          >
+            <Label>Default</Label>
+            <Icon sf="text.page" md="text_snippet" />
+          </Stack.Toolbar.MenuAction>
+          <Stack.Toolbar.MenuAction
+            isOn={false}
+            subtitle="Loads full article"
+            onPress={() => {
+              console.log("Reader View selected");
+            }}
+          >
+            <Label>Reader View</Label>
+            <Icon sf="newspaper" md="chrome_reader_mode" />
+          </Stack.Toolbar.MenuAction>
+          <Stack.Toolbar.MenuAction
+            isOn={false}
+            onPress={() => {
+              console.log("In App Browser selected");
+            }}
+          >
+            <Label>In-App Browser</Label>
+            <Icon sf="safari" md="language" />
+          </Stack.Toolbar.MenuAction>
+        </Stack.Toolbar.Menu>
+        <Stack.Toolbar.Spacer />
         <Stack.Toolbar.Menu icon="ellipsis">
-          <Stack.Toolbar.MenuAction
-            onPress={async () => updateMediaItem({ isStarred: !isStarred })}
-          >
-            <Label>{isStarred ? "Unstar" : "Star"}</Label>
-            <Icon sf={isStarred ? "star.fill" : "star"} />
-          </Stack.Toolbar.MenuAction>
-          <Stack.Toolbar.MenuAction
-            onPress={async () => updateMediaItem({ isReadLater: !isReadLater })}
-          >
-            <Label>
-              {isReadLater ? "Remove from Read Later" : "Add to Read Later"}
-            </Label>
-            <Icon sf={isReadLater ? "clock.badge.fill" : "clock.badge"} />
-          </Stack.Toolbar.MenuAction>
           <Stack.Toolbar.MenuAction
             onPress={() => updateMediaItem({ isRead: !isRead })}
           >
             <Label>{isRead ? "Mark Unread" : "Mark Read"}</Label>
-            <Icon sf="app.badge" md="mark_chat_unread" />
+            <Icon
+              sf={isRead ? "eyeglasses.slash" : "eyeglasses"}
+              md={isRead ? "mark_email_unread" : "mark_email_read"}
+            />
+          </Stack.Toolbar.MenuAction>
+          <Stack.Toolbar.MenuAction
+            onPress={async () => {
+              if (!url) return;
+              await Share.share({
+                message: `I found this article interesting:\n${url}\n\nFound via readii app!\nhttps://readii.de`,
+                url: url,
+              });
+            }}
+          >
+            <Label>Share</Label>
+            <Icon sf="square.and.arrow.up" />
           </Stack.Toolbar.MenuAction>
           <Stack.Toolbar.MenuAction
             onPress={async () => {
