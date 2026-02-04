@@ -17,11 +17,12 @@ import { ActivityIndicator, Dimensions, Share } from "react-native";
 import { Icon, Label, Stack } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import WebView from "react-native-webview";
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { openBrowserAsync } from "expo-web-browser";
 
 export default function Article() {
+  const [isReaderView, setIsReaderView] = useState(false);
   const data = useReadMediaItem();
   console.log("UPDATE", data?.isRead);
 
@@ -48,6 +49,127 @@ export default function Article() {
       updateMediaItem({ isRead: true });
     }
   }, [isDataAvailable, isRead]);
+
+  const setHTML = (html: string) =>
+    `
+      <html>
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <base href="${data?.url}">
+          <title>${data?.title}</title>
+          <link rel="canonical" href="${data?.url}">
+          <style>
+            * {
+              box-sizing: border-box;
+            }
+
+            html {
+              font-family: system-ui;
+              overflow-x: hidden;
+              inline-size: 100%;
+              padding: 0px;
+              padding-block-start: ${headerHeight}px;
+              padding-block-end: ${Spacing.size12}px;
+              background: ${backgroundColor};
+              color: ${textColor};
+              font-size: ${TEXT_DEFAULT_STYLE.fontSize}px;
+              line-height: ${TEXT_DEFAULT_STYLE.lineHeight}px;
+            }
+
+            body {
+              margin: 0;
+              inline-size: 100%;
+            }
+
+            h1,.title {
+              font-size: ${H1_STYLE.fontSize}px;
+              font-weight: ${H1_STYLE.fontWeight};
+              margin-block-start: ${H1_STYLE.marginBlockStart}px;
+              margin-block-end: ${H1_STYLE.marginBlockEnd}px;
+              line-height: ${H1_STYLE.lineHeight}px;
+            }
+
+            .title {
+              margin-block-start: 0px;
+            }
+
+            h2 {
+              font-size: ${H2_STYLE.fontSize}px;
+              font-weight: ${H2_STYLE.fontWeight};
+              margin-block-start: ${H2_STYLE.marginBlockStart}px;
+              margin-block-end: ${H2_STYLE.marginBlockEnd}px;
+              line-height: ${H2_STYLE.lineHeight}px;
+            }
+
+            h3 {
+              font-size: ${H3_STYLE.fontSize}px;
+              font-weight: ${H3_STYLE.fontWeight};
+              margin-block-start: ${H3_STYLE.marginBlockStart}px;
+              margin-block-end: ${H3_STYLE.marginBlockEnd}px;
+              line-height: ${H3_STYLE.lineHeight}px;
+            }
+
+            h4 {
+              font-size: ${H4_STYLE.fontSize}px;
+              font-weight: ${H4_STYLE.fontWeight};
+              margin-block-start: ${H4_STYLE.marginBlockStart}px;
+              margin-block-end: ${H4_STYLE.marginBlockEnd}px;
+              line-height: ${H4_STYLE.lineHeight}px;
+            }
+
+            h5 {
+              font-size: ${H5_STYLE.fontSize}px;
+              font-weight: ${H5_STYLE.fontWeight};
+              margin-block: ${H5_STYLE.marginBlock}px;
+              line-height: ${H5_STYLE.lineHeight}px;
+            }
+            
+            h6 {
+              font-size: ${H6_STYLE.fontSize}px;
+              font-weight: ${H6_STYLE.fontWeight};
+              margin-block: ${H6_STYLE.marginBlock}px;
+              line-height: ${H6_STYLE.lineHeight}px;
+            }
+
+            b, strong {
+              font-weight: ${BOLD_STYLE.fontWeight};
+            }
+
+            i, em {
+              font-style: ${ITALIC_STYLE.fontStyle};
+            }
+
+            u {
+              text-decoration: ${UNDERLINE_STYLE.textDecorationLine};
+            }
+
+
+
+            a {
+              color: ${primaryColor};
+            }
+
+            :is(img,svg,video,iframe) {
+              max-inline-size: 100%;
+              block-size: auto;
+            }
+
+            pre {
+              background: ${backgroundColor2};
+              border-radius: ${Radius.size3}px;
+              padding: ${Spacing.size1}px;
+              max-inline-size: 100%;
+              block-size: auto;
+              overflow-x: auto;
+            }
+          </style>
+        </head>
+        <body>
+          ${html}
+        </body>
+      </html>
+    `;
 
   return (
     <Fragment>
@@ -84,15 +206,26 @@ export default function Article() {
           </Label>
           <Icon sf={isReadLater ? "clock.badge.fill" : "clock.badge"} />
         </Stack.Toolbar.Button>
-        <Stack.Toolbar.Menu icon="text.page" title="Choose the mode in which the article is displayed">
+        <Stack.Toolbar.Button
+          onPress={async () => {
+            console.log("READER MODE");
+            setIsReaderView(!isReaderView);
+          }}
+        >
+          <Label>
+            {isReaderView ? "Hide Reader View" : "Show Reader View"}
+          </Label>
+          <Icon sf={isReaderView ? "text.page.slash" : "text.page"} />
+        </Stack.Toolbar.Button>
+        {/* <Stack.Toolbar.Menu icon="text.page" title="Choose the mode in which the article is displayed">
           <Stack.Toolbar.MenuAction
             isOn={true}
             onPress={() => {
               console.log("Default Mode selected");
             }}
           >
-            <Label>Default</Label>
-            <Icon sf="text.page" md="text_snippet" />
+            <Label>Default View</Label>
+            <Icon sf="text.justify.leading" md="text_snippet" />
           </Stack.Toolbar.MenuAction>
           <Stack.Toolbar.MenuAction
             isOn={false}
@@ -102,7 +235,7 @@ export default function Article() {
             }}
           >
             <Label>Reader View</Label>
-            <Icon sf="newspaper" md="chrome_reader_mode" />
+            <Icon sf="text.page" md="chrome_reader_mode" />
           </Stack.Toolbar.MenuAction>
           <Stack.Toolbar.MenuAction
             isOn={false}
@@ -110,10 +243,10 @@ export default function Article() {
               console.log("In App Browser selected");
             }}
           >
-            <Label>In-App Browser</Label>
+            <Label>Browser View</Label>
             <Icon sf="safari" md="language" />
           </Stack.Toolbar.MenuAction>
-        </Stack.Toolbar.Menu>
+        </Stack.Toolbar.Menu> */}
         <Stack.Toolbar.Spacer />
         <Stack.Toolbar.Menu icon="ellipsis">
           <Stack.Toolbar.MenuAction
@@ -143,8 +276,8 @@ export default function Article() {
               await openBrowserAsync(url);
             }}
           >
-            <Label>Open Original</Label>
-            <Icon sf="arrow.up.forward.app" md="open_in_new" />
+            <Label>Open in Browser</Label>
+            <Icon sf="safari" md="language" />
           </Stack.Toolbar.MenuAction>
         </Stack.Toolbar.Menu>
       </Stack.Toolbar>
@@ -161,6 +294,21 @@ export default function Article() {
             backgroundColor,
             paddingInline: Spacing.size4,
           }}
+          injectedJavaScriptBeforeContentLoaded={`
+            import { Readability } from "https://cdn.skypack.dev/@mozilla/readability";
+            try {
+              const res = fetch('${data?.url}')
+                .then((response) => response.text())
+                .then((data) => {
+                  const parser = new DOMParser();
+                  const doc = parser.parseFromString(data, "text/html");
+                  const article = new Readability(doc).parse();
+                  document.body.innerHTML = \`<h1>\${article.title}</h1>\${article.content}\`;
+                });
+            } catch (error) {
+              console.log(error);
+            }
+          `}
           startInLoadingState={true}
           renderLoading={() => (
             <ThemedView
@@ -189,126 +337,29 @@ export default function Article() {
           }}
           source={{
             baseUrl: data?.url,
-            html: `
-                <html>
-                  <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <base href="${data?.url}">
-                    <title>${data?.title}</title>
-                    <link rel="canonical" href="${data?.url}">
-                    <style>
-                      * {
-                        box-sizing: border-box;
-                      }
-
-                      html {
-                        font-family: system-ui;
-                        overflow-x: hidden;
-                        inline-size: 100%;
-                        padding: 0px;
-                        padding-block-start: ${headerHeight}px;
-                        padding-block-end: ${Spacing.size12}px;
-                        background: ${backgroundColor};
-                        color: ${textColor};
-                        font-size: ${TEXT_DEFAULT_STYLE.fontSize}px;
-                        line-height: ${TEXT_DEFAULT_STYLE.lineHeight}px;
-                      }
-
-                      body {
-                        margin: 0;
-                        inline-size: 100%;
-                      }
-
-                      h1,.title {
-                        font-size: ${H1_STYLE.fontSize}px;
-                        font-weight: ${H1_STYLE.fontWeight};
-                        margin-block-start: ${H1_STYLE.marginBlockStart}px;
-                        margin-block-end: ${H1_STYLE.marginBlockEnd}px;
-                        line-height: ${H1_STYLE.lineHeight}px;
-                      }
-
-                      .title {
-                        margin-block-start: 0px;
-                      }
-
-                      h2 {
-                        font-size: ${H2_STYLE.fontSize}px;
-                        font-weight: ${H2_STYLE.fontWeight};
-                        margin-block-start: ${H2_STYLE.marginBlockStart}px;
-                        margin-block-end: ${H2_STYLE.marginBlockEnd}px;
-                        line-height: ${H2_STYLE.lineHeight}px;
-                      }
-
-                      h3 {
-                        font-size: ${H3_STYLE.fontSize}px;
-                        font-weight: ${H3_STYLE.fontWeight};
-                        margin-block-start: ${H3_STYLE.marginBlockStart}px;
-                        margin-block-end: ${H3_STYLE.marginBlockEnd}px;
-                        line-height: ${H3_STYLE.lineHeight}px;
-                      }
-
-                      h4 {
-                        font-size: ${H4_STYLE.fontSize}px;
-                        font-weight: ${H4_STYLE.fontWeight};
-                        margin-block-start: ${H4_STYLE.marginBlockStart}px;
-                        margin-block-end: ${H4_STYLE.marginBlockEnd}px;
-                        line-height: ${H4_STYLE.lineHeight}px;
-                      }
-
-                      h5 {
-                        font-size: ${H5_STYLE.fontSize}px;
-                        font-weight: ${H5_STYLE.fontWeight};
-                        margin-block: ${H5_STYLE.marginBlock}px;
-                        line-height: ${H5_STYLE.lineHeight}px;
-                      }
-                      
-                      h6 {
-                        font-size: ${H6_STYLE.fontSize}px;
-                        font-weight: ${H6_STYLE.fontWeight};
-                        margin-block: ${H6_STYLE.marginBlock}px;
-                        line-height: ${H6_STYLE.lineHeight}px;
-                      }
-
-                      b, strong {
-                        font-weight: ${BOLD_STYLE.fontWeight};
-                      }
-
-                      i, em {
-                        font-style: ${ITALIC_STYLE.fontStyle};
-                      }
-
-                      u {
-                        text-decoration: ${UNDERLINE_STYLE.textDecorationLine};
-                      }
-
-
-  
-                      a {
-                        color: ${primaryColor};
-                      }
-  
-                      :is(img,svg,video,iframe) {
-                        max-inline-size: 100%;
-                        block-size: auto;
-                      }
-
-                      pre {
-                        background: ${backgroundColor2};
-                        border-radius: ${Radius.size3}px;
-                        padding: ${Spacing.size1}px;
-                        max-inline-size: 100%;
-                        block-size: auto;
-                        overflow-x: auto;
-                      }
-                    </style>
-                  </head>
-                  <body>
-                    <h1 class="title">${data?.title}</h1>
-                    ${data?.content}
-                  </body>
-                </html>
-              `,
+            html: setHTML(
+              isReaderView
+                ? `
+              <script type="module">
+              import { Readability } from "https://cdn.skypack.dev/@mozilla/readability";
+              try {
+                const res = fetch('${data?.url}')
+                  .then((response) => response.text())
+                  .then((data) => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, "text/html");
+                    const article = new Readability(doc).parse();
+                    document.body.innerHTML = \`<h1>\${article.title}</h1>\${article.content}\`;
+                  });
+              } catch (error) {
+                console.log(error);
+              }
+            </script>`
+                : `
+              <h1 class="title">${data?.title}</h1>
+            ${data?.content}
+            `,
+            ),
           }}
         />
       </ThemedView>
