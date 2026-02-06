@@ -8,8 +8,8 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Spacing } from "@/constants/Sizes";
 import { useFolder, useMediaSource } from "@/hooks/queries";
-import { useThemeColor } from "@/hooks/useThemeColor";
-import { useForm } from "@tanstack/react-form";
+import { useHeaderHeight } from "@react-navigation/elements";
+import { revalidateLogic, useForm } from "@tanstack/react-form";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
@@ -29,16 +29,16 @@ export default function AddFolder() {
   const { readMediaSources } = useMediaSource();
   const { createFolder } = useFolder();
   const { data } = useLiveQuery(readMediaSources());
-  const colorBackground = useThemeColor({}, "background");
+  const headerHeight = useHeaderHeight();
 
   const form = useForm({
     defaultValues: {
       name: "",
       mediaSources: [] as number[],
     },
+    validationLogic: revalidateLogic(),
     validators: {
       onDynamic: schema,
-      onBlur: schema,
       onSubmit: schema,
     },
     onSubmit: async ({ value }) => {
@@ -58,7 +58,7 @@ export default function AddFolder() {
   });
 
   return (
-    <ScrollView contentInsetAdjustmentBehavior="automatic">
+    <ScrollView>
       <ThemedView container style={styles.stack}>
         <Card style={styles.stack}>
           <ThemedText color="text3">
@@ -83,7 +83,13 @@ export default function AddFolder() {
           </form.Field>
         </Card>
         <Card>
-          <form.Field name="mediaSources" mode="array">
+          <form.Field
+            name="mediaSources"
+            mode="array"
+            validators={{
+              onBlur: schema.shape.mediaSources,
+            }}
+          >
             {(field) => {
               return (
                 <>
@@ -148,6 +154,7 @@ export default function AddFolder() {
         <ThemedView
           style={{
             marginInline: "auto",
+            marginBottom: headerHeight,
           }}
         >
           <form.Subscribe selector={(state) => [state.isSubmitting]}>
