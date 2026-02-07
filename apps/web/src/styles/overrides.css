@@ -17,7 +17,7 @@ html {
   --dynamic-content-width: min(var(--max-content-width), 100%);
   --page-padding: var(--spacing-far);
   --font-family-serif: Georgia, serif;
-  --font-family-heading: "DM Serif Text", serif;
+  --font-family-heading: system-ui, sans-serif;
 
   --color-brand-primary-gradient: oklch(0.6225 0.1826 43.52);
 
@@ -66,7 +66,11 @@ h4,
 h5,
 h6 {
   font-family: var(--font-family-heading);
-  font-weight: 600;
+  font-weight: 500;
+}
+
+h1 {
+  line-height: 1.2;
 }
 
 p,

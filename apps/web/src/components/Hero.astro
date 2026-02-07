@@ -1,8 +1,12 @@
-<div class="temp-wrapper">
-  <section class="hero">
-    <div class="background">
-      <slot name="background" />
-    </div>
+---
+
+interface Props {
+  backgroundSrc: string;
+}
+---
+
+<!-- <div class="temp-wrapper"> -->
+  <section class="hero" style={`background-image: url(${Astro.props.backgroundSrc})`}>
     <div class="overlay">
       <slot name="header" />
       <article class="section article">
@@ -10,7 +14,7 @@
       </article>
     </div>
   </section>
-</div>
+<!-- </div> -->
 
 <style>
   /* @todo TEMPORARY Remove when <AllGalleries /> is implemented */
@@ -23,13 +27,14 @@
   .hero {
     display: grid;
     grid: [cover] 1fr / [cover] 1fr;
-    min-block-size: 50dvh;
+    min-block-size: 60dvh;
     inline-size: 100%;
     border-radius: var(--border-radius-xl);
     border-start-start-radius: 0;
     border-start-end-radius: 0;
     corner-shape: squircle;
     background-color: var(--color-surface-subtle);
+    background-size: cover;
     overflow: clip;
   }
 
@@ -56,10 +61,11 @@
     block-size: 100%;
     background: linear-gradient(
       to bottom,
-      color-mix(in oklch, var(--color-surface-base), transparent 10%),
-      color-mix(in oklch, var(--color-surface-base), transparent 70%),
-      color-mix(in oklch, var(--color-surface-base), transparent 90%)
+      color-mix(in oklch, var(--color-surface-base), transparent 2%),
+      color-mix(in oklch, var(--color-surface-base), transparent 12%),
+      color-mix(in oklch, var(--color-surface-base), transparent 36%)
     );
+    backdrop-filter: blur(60px);
 
     & :global(> *) {
       min-block-size: 0;
@@ -67,9 +73,13 @@
   }
 
   .article {
+    inline-size: min(1200px, 100%);
     padding-block: var(--spacing-far);
     margin-inline: auto;
+    margin-block: auto;
     display: flex;
+    flex-wrap: wrap;
+    align-items: start;
     gap: var(--spacing-far);
   }
 </style>
