@@ -1,16 +1,14 @@
 import {
-  $MediaItem,
   $MediaItemAtProto,
   $MediaSource,
   $MediaSourceIcon,
 } from "@readii/schemas/zod";
 import { z } from "zod/mini";
-import { XMLParser } from "fast-xml-parser";
 import {
-  decodeHTMLEntities,
-  getFavicon,
-  getIsMediaTypeImage,
-  getUrl,
+  getMediaItems,
+  getMediaSource,
+  getMediaSourceIcon,
+  getRssBaseData,
   transformAtProtoToHtml,
 } from "./index";
 
@@ -23,144 +21,99 @@ export type TGetParsedRssDataOptions = {
 
 export const getParsedRssData = async (
   url: string,
-  options: TGetParsedRssDataOptions,
+  options?: TGetParsedRssDataOptions,
 ) => {
-  const text = options?.rssString ?? (await (await fetch(url)).text());
+  const { channelData, mediaItemsData } = await getRssBaseData(url, options);
 
-  const parser = new XMLParser({
-    ignoreAttributes: false,
-    trimValues: true,
-    alwaysCreateTextNode: true,
+  /** MEDIA SOURCE ICON */
+  const mediaSourceIcon = await getMediaSourceIcon({
+    url,
+    channelData,
   });
-  const rawData = parser.parse(text);
 
-  const baseData = rawData?.rss ?? rawData?.feed;
-  const channelData = baseData?.channel ?? baseData;
-  let mediaItemsData = channelData?.item ?? channelData?.entry ?? null;
-  if (mediaItemsData && !Array.isArray(mediaItemsData)) {
-    mediaItemsData = [mediaItemsData];
-  }
-
-  const mediaSourceIconTitle = channelData?.image?.title?.["#text"] ??
-      channelData?.webMaster?.["#text"] ??
-      channelData?.title?.["#text"]
-  const mediaSourceIcon = $MediaSourceIcon.safeParse({
-    title: decodeHTMLEntities<string>(mediaSourceIconTitle),
-    url: await getFavicon(url, channelData),
+  /** MEDIA SOURCE */
+  const mediaSource = await getMediaSource({
+    channelData,
+    url,
   });
-  if (!mediaSourceIcon.success) {
-    throw new Error(
-      `Invalid Media Source Icon: ${z.prettifyError(
-        mediaSourceIcon.error,
-      )}\nURL: ${url}`,
-    );
-  }
+  const baseUrl = mediaSource.url;
 
-  const baseUrl =
-    channelData?.link?.["#text"] ??
-    (Array.isArray(channelData?.link) ? channelData?.link : [])?.find(
-      (link: Record<string, unknown>) => link?.["@_rel"] !== "self",
-    )?.["@_href"] ??
-    channelData?.link?.["@_href"] ??
-    null;
-  const lastBuildAt =
-    channelData?.lastBuildDate?.["#text"] ??
-    channelData?.updated?.["#text"] ??
-    null;
-  const mediaSource = $MediaSource.safeParse({
-    name: decodeHTMLEntities<string | null>(channelData?.title?.["#text"] ?? null),
-    description: decodeHTMLEntities<string | null>(channelData?.description?.["#text"] ?? null),
-    url: baseUrl,
-    feedUrl: url,
-    logoUrl:
-      channelData?.logo?.["#text"] ??
-      channelData?.icon?.["#text"] ??
-      channelData?.image?.url?.["#text"] ??
-      null,
-    lastBuildAt: lastBuildAt ? new Date(lastBuildAt).toISOString() : null,
-    lastFetchedAt: new Date().toISOString(),
-    language: channelData?.language?.["#text"] ?? null,
-    generator: channelData?.generator?.["#text"] ?? null,
-    categories: Array.isArray(channelData?.category)
-      ? channelData?.category?.map(
-          (cat: Record<string, unknown>) => cat?.["#text"] ?? cat,
-        )
-      : null,
+  /** MEDIA ITEMS */
+  const mediaItems = getMediaItems({
+    mediaItemsData,
+    baseUrl,
+    url,
   });
-  if (!mediaSource.success) {
-    console.error(mediaSource.error);
-    throw new Error(
-      `Invalid Media Source: ${z.prettifyError(mediaSource.error)}\nURL: ${url}`,
-    );
-  }
-
-  const mediaItems = z.array($MediaItem).safeParse(
-    (mediaItemsData ?? []).map((item: Record<string, any>) => {
-      const content =
-        item?.["content:encoded"]?.["#text"] ??
-        item?.content?.["#text"] ??
-        item?.description?.["#text"] ??
-        "";
-      const description = decodeHTMLEntities<string>(item?.description?.["#text"] ?? "");
-
-      const imgRegex =
-        /<img\b(?![^>]*?(?:width|height)=["']1["'])[^>]*?src=["'](.*?)["']/i;
-      const imgMatch = imgRegex.exec(content) ?? imgRegex.exec(description);
-      const mediaThumbnailUrlFallback = imgMatch ? imgMatch[1] : null;
-      const mediaThumbnailUrl =
-        item?.["media:thumbnail"]?.["@_url"] ??
-        (getIsMediaTypeImage(item?.enclosure?.["@_type"])
-          ? item?.enclosure?.["@_url"]
-          : null) ??
-        (Array.isArray(item?.link) ? item?.link : [])?.find(
-          (link: Record<string, unknown>) => {
-            const mediaType = link?.["@_type"] as string | undefined;
-            return getIsMediaTypeImage(mediaType);
-          },
-        )?.["@_href"] ??
-        mediaThumbnailUrlFallback;
-
-      const itemUrl =
-        item?.link?.["#text"] ??
-        item?.link?.["@_href"] ??
-        (Array.isArray(item?.link) ? item?.link : [])?.find(
-          (link: Record<string, unknown>) => link?.["@_rel"] == undefined,
-        )?.["@_href"];
-      const enclosureUrl = item?.enclosure?.["@_url"] ?? null;
-      const publishedAt = item?.pubDate?.["#text"] ?? item?.updated?.["#text"];
-      const publishedAtDate = publishedAt ? new Date(publishedAt) : null;
-
-      return {
-        title: decodeHTMLEntities<string | null>(item?.title?.["#text"] ?? null),
-        url: getUrl(itemUrl, baseUrl),
-        type: "text", // @todo Make this dynamic based on content type
-
-        /** Main content of the media item (html, audio, video) */
-        content: content, // @todo NEXT: minify HTML
-        contentSnippet: null,
-        contentTldr: decodeHTMLEntities<string | null>(item?.summary?.["#text"] ?? null),
-
-        creator: decodeHTMLEntities<string | null>(item?.["dc:creator"]?.["#text"] ?? null),
-        publishedAt:
-          publishedAtDate && publishedAtDate?.toString() !== "Invalid Date"
-            ? publishedAtDate.toISOString()
-            : null,
-        thumbnailUrl: getUrl(mediaThumbnailUrl, baseUrl),
-        enclosure: getUrl(enclosureUrl, baseUrl),
-      };
-    }),
-  );
-  if (!mediaItems.success) {
-    console.error(mediaItems.error);
-    throw new Error(
-      `Invalid Media Items: ${z.prettifyError(mediaItems.error)}\nURL: ${url}`,
-    );
-  }
 
   return {
-    mediaSourceIcon: mediaSourceIcon.data,
-    mediaSource: mediaSource.data,
-    mediaItems: mediaItems.data,
+    mediaSourceIcon,
+    mediaSource,
+    mediaItems,
+  };
+};
+
+export type TGetParsedRedditDataArgs = {
+  /**
+   * The URL to the Subreddit
+   * @example https://www.reddit.com/r/Frontend/
+   */
+  url: string;
+  /**
+   * Defines the type of feed to fetch.
+   * @default "new"
+   */
+  type?: "best" | "new" | "hot" | "top" | "rising";
+};
+export type TGetParsedRedditDataOptions = TGetParsedRssDataOptions;
+
+export const getParsedRedditData = async (
+  args: TGetParsedRedditDataArgs,
+  options?: TGetParsedRedditDataOptions,
+) => {
+  const { url, type = "new" } = args;
+  /**
+   * Construct the RSS feed URL for the specified subreddit and type.
+   * `https://www.reddit.com/r/Frontend/` becomes `https://www.reddit.com/r/Frontend/new.rss` for the `new` type.
+   */
+  const rssUrl = `${url}/${type}.rss`.replace(/\/+$/, "/"); // ensure it ends with a single slash before "rss"
+  const { channelData, mediaItemsData } = await getRssBaseData(rssUrl, options);
+  const aboutData = (await fetch(`${url}/about.json`).then((res) => res.json())).data;
+  const title = aboutData?.display_name_prefixed ?? aboutData?.display_name ?? channelData?.title;
+  const iconUrl = aboutData?.community_icon;
+
+  /** MEDIA SOURCE ICON */
+  const mediaSourceIcon = await getMediaSourceIcon({
+    url: rssUrl,
+    channelData,
+    overwrites: {
+      title,
+      url: aboutData?.community_icon,
+    }
+  });
+
+  /** MEDIA SOURCE */
+  const mediaSource = await getMediaSource({
+    channelData,
+    url: rssUrl,
+    overwrites: {
+      description: aboutData?.public_description,
+      logoUrl: iconUrl,
+      name: title,
+    }
+  });
+  const baseUrl = mediaSource.url;
+
+  /** MEDIA ITEMS */
+  const mediaItems = getMediaItems({
+    mediaItemsData,
+    baseUrl,
+    url: rssUrl,
+  });
+
+  return {
+    mediaSourceIcon,
+    mediaSource,
+    mediaItems,
   };
 };
 
