@@ -3,7 +3,7 @@ import { getFeedData, TMediaSourceType } from "../src";
 import { transformAtProtoToHtml } from "../src/utils";
 import { Facet } from "@atproto/api";
 
-const rssFeeds: Array<[string, TMediaSourceType, string]> = [
+const rssFeeds: Array<[string, TMediaSourceType | null, string]> = [
   ["Adam Argyle", "rss", "https://nerdy.dev/rss"],
   ["Contrario by Victor Matekole", "rss", "https://matekole.com/rss.xml"],
   [
@@ -19,12 +19,13 @@ const rssFeeds: Array<[string, TMediaSourceType, string]> = [
     "atproto",
     "https://api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?filter=posts_no_replies&actor=did:plc:fmwrdogxjglnbwalvoe6jdam&limit=100",
   ],
-  ["r/investing", "reddit", "https://www.reddit.com/r/investing/new.rss"]
+  ["r/investing", "reddit", "https://www.reddit.com/r/investing/new.rss"],
+  ["r/Frontend", null, "https://www.reddit.com/r/Frontend/new.rss"],
 ];
 
 test.each(rssFeeds)(
   'should parse feed "%s" (%s) correctly',
-  async (title, source, url) => {
+  async (_, source, url) => {
     const parsedFeed = await getFeedData(url, { source });
     expect("mediaSourceIcon" in parsedFeed).toBe(true);
     expect("mediaSource" in parsedFeed).toBe(true);
