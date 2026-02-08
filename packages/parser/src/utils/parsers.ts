@@ -52,33 +52,47 @@ export const getParsedRssData = async (
   };
 };
 
-export type TGetParsedRedditDataArgs = {
-  /**
-   * The URL to the Subreddit
-   * @example https://www.reddit.com/r/Frontend/
-   */
-  url: string;
+export type TGetParsedRedditDataOptions = TGetParsedRssDataOptions & {
   /**
    * Defines the type of feed to fetch.
    * @default "new"
    */
   type?: "best" | "new" | "hot" | "top" | "rising";
 };
-export type TGetParsedRedditDataOptions = TGetParsedRssDataOptions;
 
 export const getParsedRedditData = async (
-  args: TGetParsedRedditDataArgs,
+  /**
+   * The URL to the Subreddit or Reddit feed
+   * @example https://www.reddit.com/r/Frontend/
+   * @example https://www.reddit.com/r/Frontend/new.rss
+   */
+  url: string,
   options?: TGetParsedRedditDataOptions,
 ) => {
-  const { url, type = "new" } = args;
+  const type = options?.type ?? "new";
+  const isRssUrl = url.endsWith(".rss");
   /**
    * Construct the RSS feed URL for the specified subreddit and type.
    * `https://www.reddit.com/r/Frontend/` becomes `https://www.reddit.com/r/Frontend/new.rss` for the `new` type.
    */
-  const rssUrl = `${url}/${type}.rss`.replace(/\/+$/, "/"); // ensure it ends with a single slash before "rss"
+  const rssUrl = isRssUrl ? url : `${url.replace(/\/+$/, "")}/${type}.rss`; // ensure it ends with a single slash before "rss"
+  const aboutUrl = isRssUrl
+    ? `${url.slice(0, url.lastIndexOf("/"))}/about.json`
+    : `${url.replace(/\/+$/, "")}/about.json`;
   const { channelData, mediaItemsData } = await getRssBaseData(rssUrl, options);
-  const aboutData = (await fetch(`${url}/about.json`).then((res) => res.json())).data;
-  const title = aboutData?.display_name_prefixed ?? aboutData?.display_name ?? channelData?.title;
+  const aboutData = (
+    await fetch(aboutUrl)
+      .then((res) => res.json())
+      .catch((e) => {
+        console.warn(`Failed to fetch about data from ${aboutUrl}:`, e);
+        return null;
+      })
+  )?.data;
+
+  const title =
+    aboutData?.display_name_prefixed ??
+    aboutData?.display_name ??
+    channelData?.title;
   const iconUrl = aboutData?.community_icon;
 
   /** MEDIA SOURCE ICON */
@@ -88,7 +102,7 @@ export const getParsedRedditData = async (
     overwrites: {
       title,
       url: aboutData?.community_icon,
-    }
+    },
   });
 
   /** MEDIA SOURCE */
@@ -99,7 +113,7 @@ export const getParsedRedditData = async (
       description: aboutData?.public_description,
       logoUrl: iconUrl,
       name: title,
-    }
+    },
   });
   const baseUrl = mediaSource.url;
 
