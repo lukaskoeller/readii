@@ -10,8 +10,8 @@ import {
 const SUPPORTED_SOURCES = [
   "rss",
   "atproto",
-  "podcast",
-  "youtube",
+  // "podcast",
+  // "youtube",
   "reddit",
 ] as const;
 
@@ -28,8 +28,11 @@ export type TGetFeedDataOptions =
       source: "reddit";
     } & TGetParsedRedditDataOptions)
   | {
-      source: "podcast" | "youtube";
-    };
+    source: null;
+  }
+  // | {
+  //     source: "podcast" | "youtube";
+  //   };
 /**
  * Fetch and parse an RSS or Atom feed and transform it into a structured format.
  * @param url The URL of the feed
