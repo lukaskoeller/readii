@@ -19,13 +19,13 @@ const rssFeeds: Array<[string, TMediaSourceType, string]> = [
     "atproto",
     "https://api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?filter=posts_no_replies&actor=did:plc:fmwrdogxjglnbwalvoe6jdam&limit=100",
   ],
+  ["r/investing", "reddit", "https://www.reddit.com/r/investing/new.rss"]
 ];
 
 test.each(rssFeeds)(
   'should parse feed "%s" (%s) correctly',
   async (title, source, url) => {
     const parsedFeed = await getFeedData(url, { source });
-    console.log(`[${title}] mediaSourceIcon:`, parsedFeed.mediaSourceIcon);
     expect("mediaSourceIcon" in parsedFeed).toBe(true);
     expect("mediaSource" in parsedFeed).toBe(true);
     expect("mediaItems" in parsedFeed).toBe(true);
