@@ -172,9 +172,10 @@ export const getMediaSourceIcon = async (args: TGetMediaSourceIconArgs) => {
     channelData?.webMaster?.["#text"] ??
     channelData?.title?.["#text"];
 
+    const iconUrl = overwrites?.url ?? (await getFavicon(url, channelData));
   const mediaSourceIcon = $MediaSourceIcon.safeParse({
     title: decodeHTMLEntities<string>(mediaSourceIconTitle),
-    url: overwrites?.url ?? (await getFavicon(url, channelData)),
+    url: iconUrl,
   });
   if (!mediaSourceIcon.success) {
     throw new Error(
