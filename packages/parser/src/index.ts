@@ -1,6 +1,8 @@
 import {
   getParsedAtProtoData,
+  getParsedRedditData,
   getParsedRssData,
+  TGetParsedRedditDataOptions,
   type TGetParsedAtProtoDataOptions,
   type TGetParsedRssDataOptions,
 } from "./utils/parsers";
@@ -16,6 +18,9 @@ export type TGetFeedDataOptions =
   | ({
       source: "atproto";
     } & TGetParsedAtProtoDataOptions)
+  | ({
+      source: "reddit";
+    } & TGetParsedRedditDataOptions)
   | {
       source: "podcast" | "youtube";
     };
@@ -28,7 +33,7 @@ export type TGetFeedDataOptions =
  */
 export const getFeedData = async (
   url: string,
-  options?: TGetFeedDataOptions
+  options?: TGetFeedDataOptions,
 ) => {
   const { source, ...restOptions } = options ?? { source: DEFAULT_SOURCE };
 
@@ -36,10 +41,17 @@ export const getFeedData = async (
     return getParsedRssData(url, restOptions as TGetParsedRssDataOptions);
   }
 
+  if (source === "reddit") {
+    return getParsedRedditData(
+      { url,  },
+      restOptions as TGetParsedRedditDataOptions,
+    );
+  }
+
   if (source === "atproto") {
     return getParsedAtProtoData(
       url,
-      restOptions as TGetParsedAtProtoDataOptions
+      restOptions as TGetParsedAtProtoDataOptions,
     );
   }
 
