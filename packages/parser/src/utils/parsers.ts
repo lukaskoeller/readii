@@ -52,6 +52,9 @@ export const getParsedRssData = async (
   };
 };
 
+const DEFAULT_REDDIT_ICON_DATA_URI =
+  "data:image/svg+xml;base64,PHN2ZyBycGw9IiIgY2xhc3M9ImZsZXggaXRlbXMtY2VudGVyIHNocmVkZGl0LXN1YnJlZGRpdC1pY29uX19pY29uIHJvdW5kZWQtZnVsbCBvdmVyZmxvdy1oaWRkZW4gbmQ6dmlzaWJsZSBuZDpiZy1zZWNvbmRhcnktYmFja2dyb3VuZCBiZy1uZXV0cmFsLWJhY2tncm91bmQgYm9yZGVyLW5ldXRyYWwtYmFja2dyb3VuZCBib3gtYm9yZGVyIGJvcmRlci1sZyBib3JkZXItc29saWQgZmxleAogICAgICAgICAgICAgICAgICAgIGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBzaGFkb3cteHMgeHM6c2hhZG93LW5vbmUgY29tbXVuaXR5LWljb24tdDVfMnNyMnkgdy1mdWxsIGgtZnVsbCIgZmlsbD0iY3VycmVudENvbG9yIiBoZWlnaHQ9IjQ4IiBpY29uLW5hbWU9ImNvbW11bml0eS1maWxsIiB2aWV3Qm94PSIwIDAgMjAgMjAiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHBhdGggZD0iTTExLjk3NyAxMy43OWgtMS45NTVsNC41NDktMTAuNzE1YS44MS44MSAwIDAwLS4zODEtMS4wMzJDMTIuNDQ3IDEuMTIgMTAuMzcuNzQ3IDguMTc5IDEuMThjLTMuNjEyLjcxNi02LjQ3MSAzLjY4LTcuMDU5IDcuMzE2YTkuMDEgOS4wMSAwIDAwMTAuNDA5IDEwLjM3N2MzLjczNS0uNjE2IDYuNzQxLTMuNjM1IDcuMzQ3LTcuMzcxLjQ1My0yLjgtLjM4OC01LjQwNS0yLjAxNy03LjMyMmEuNTA1LjUwNSAwIDAwLS44NTMuMTE5bC00LjAyOSA5LjQ5ek05Ljk4IDguMTE4YTEuNzUyIDEuNzUyIDAgMDAtMS4xNDguMTY3IDEuNjY0IDEuNjY0IDAgMDAtLjY1MS41OTYgMS43MDMgMS43MDMgMCAwMC0uMjU4Ljk0OHYzLjk2SDUuOTk4VjYuMzIyaDEuODc2djEuMDc0aC4wMzVjLjI1MS0uMzQ0LjU2Ny0uNjI4Ljk0OC0uODUxYTIuNTUgMi41NSAwIDAxMS4zMTEtLjMzNWMuMTcyIDAgLjMzNS4wMTQuNDg4LjA0Mi4xNTMuMDI4LjI2Ny4wNTguMzQyLjA5bC0uNzc0IDEuODQ5YS43NjYuNzY2IDAgMDAtLjI0NC0uMDczeiI+PC9wYXRoPgogICAgPC9zdmc+";
+
 export type TGetParsedRedditDataOptions = TGetParsedRssDataOptions & {
   /**
    * Defines the type of feed to fetch.
@@ -93,7 +96,10 @@ export const getParsedRedditData = async (
     aboutData?.display_name_prefixed ??
     aboutData?.display_name ??
     channelData?.title;
-  const iconUrl = aboutData?.community_icon;
+  const communityIcon = aboutData?.community_icon?.split("?")?.[0];
+  const iconUrl: string = communityIcon
+    ? communityIcon
+    : DEFAULT_REDDIT_ICON_DATA_URI;
 
   /** MEDIA SOURCE ICON */
   const mediaSourceIcon = await getMediaSourceIcon({
@@ -101,7 +107,7 @@ export const getParsedRedditData = async (
     channelData,
     overwrites: {
       title,
-      url: aboutData?.community_icon,
+      url: iconUrl,
     },
   });
 
