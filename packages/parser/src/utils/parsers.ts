@@ -7,6 +7,7 @@ import {
 import { z } from "zod/mini";
 import { XMLParser } from "fast-xml-parser";
 import {
+  decodeHTMLEntities,
   getFavicon,
   getIsMediaTypeImage,
   getUrl,
@@ -40,11 +41,11 @@ export const getParsedRssData = async (
     mediaItemsData = [mediaItemsData];
   }
 
-  const mediaSourceIcon = $MediaSourceIcon.safeParse({
-    title:
-      channelData?.image?.title?.["#text"] ??
+  const mediaSourceIconTitle = channelData?.image?.title?.["#text"] ??
       channelData?.webMaster?.["#text"] ??
-      channelData?.title?.["#text"],
+      channelData?.title?.["#text"]
+  const mediaSourceIcon = $MediaSourceIcon.safeParse({
+    title: decodeHTMLEntities<string>(mediaSourceIconTitle),
     url: await getFavicon(url, channelData),
   });
   if (!mediaSourceIcon.success) {
@@ -67,8 +68,8 @@ export const getParsedRssData = async (
     channelData?.updated?.["#text"] ??
     null;
   const mediaSource = $MediaSource.safeParse({
-    name: channelData?.title?.["#text"] ?? null,
-    description: channelData?.description?.["#text"] ?? null,
+    name: decodeHTMLEntities<string | null>(channelData?.title?.["#text"] ?? null),
+    description: decodeHTMLEntities<string | null>(channelData?.description?.["#text"] ?? null),
     url: baseUrl,
     feedUrl: url,
     logoUrl:
@@ -100,7 +101,7 @@ export const getParsedRssData = async (
         item?.content?.["#text"] ??
         item?.description?.["#text"] ??
         "";
-      const description = item?.description?.["#text"] ?? "";
+      const description = decodeHTMLEntities<string>(item?.description?.["#text"] ?? "");
 
       const imgRegex =
         /<img\b(?![^>]*?(?:width|height)=["']1["'])[^>]*?src=["'](.*?)["']/i;
@@ -128,19 +129,18 @@ export const getParsedRssData = async (
       const enclosureUrl = item?.enclosure?.["@_url"] ?? null;
       const publishedAt = item?.pubDate?.["#text"] ?? item?.updated?.["#text"];
       const publishedAtDate = publishedAt ? new Date(publishedAt) : null;
-      console.log(publishedAt, publishedAtDate);
 
       return {
-        title: item?.title?.["#text"] ?? null,
+        title: decodeHTMLEntities<string | null>(item?.title?.["#text"] ?? null),
         url: getUrl(itemUrl, baseUrl),
         type: "text", // @todo Make this dynamic based on content type
 
         /** Main content of the media item (html, audio, video) */
         content: content, // @todo NEXT: minify HTML
         contentSnippet: null,
-        contentTldr: item?.summary?.["#text"] ?? null,
+        contentTldr: decodeHTMLEntities<string | null>(item?.summary?.["#text"] ?? null),
 
-        creator: item?.["dc:creator"]?.["#text"] ?? null,
+        creator: decodeHTMLEntities<string | null>(item?.["dc:creator"]?.["#text"] ?? null),
         publishedAt:
           publishedAtDate && publishedAtDate?.toString() !== "Invalid Date"
             ? publishedAtDate.toISOString()

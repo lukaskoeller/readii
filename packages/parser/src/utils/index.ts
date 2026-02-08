@@ -1,5 +1,9 @@
-import { Facet } from '@atproto/api';
-import { isLink, isMention, isTag } from '@atproto/api/dist/client/types/app/bsky/richtext/facet';
+import { Facet } from "@atproto/api";
+import {
+  isLink,
+  isMention,
+  isTag,
+} from "@atproto/api/dist/client/types/app/bsky/richtext/facet";
 
 /**
  * Checks if the given media type is an image.
@@ -7,8 +11,8 @@ import { isLink, isMention, isTag } from '@atproto/api/dist/client/types/app/bsk
  * @returns True if the media type is an image, false otherwise.
  */
 export const getIsMediaTypeImage = (mediaType: string | undefined | null) => {
-    if (!mediaType) return false;
-    return mediaType.startsWith("image/");
+  if (!mediaType) return false;
+  return mediaType.startsWith("image/");
 };
 
 /**
@@ -76,12 +80,18 @@ export const transformAtProtoToHtml = (text: string, facets: Facet[]) => {
     }
 
     if (isMention(feature)) {
-      replaceMap.set(subString, `<a href="https://bsky.app/profile/${feature.did}">${subString}</a>`);
+      replaceMap.set(
+        subString,
+        `<a href="https://bsky.app/profile/${feature.did}">${subString}</a>`,
+      );
       continue;
     }
 
     if (isTag(feature)) {
-      replaceMap.set(subString, `<a href="https://bsky.app/hashtag/${feature.tag}">${subString}</a>`);
+      replaceMap.set(
+        subString,
+        `<a href="https://bsky.app/hashtag/${feature.tag}">${subString}</a>`,
+      );
     }
   }
 
@@ -89,4 +99,21 @@ export const transformAtProtoToHtml = (text: string, facets: Facet[]) => {
     htmlString = htmlString.replace(text, textWithHtml);
   }
   return htmlString;
-}
+};
+
+export const decodeHTMLEntities = <
+  T extends string | null | undefined = string,
+>(
+  text: T,
+) => {
+  if (typeof text !== "string") return text;
+  return text
+    .replace("&#8211;", "–")
+    .replace("&#8217;", "’")
+    .replace("&#8220;", "“")
+    .replace("&#8221;", "”")
+    .replace("&#8230;", "…")
+    .replace("&#038;", "&")
+    .replace("&#39;", "'")
+    .replace("&#34;", '"');
+};
