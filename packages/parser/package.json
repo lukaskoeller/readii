@@ -15,11 +15,11 @@
   "license": "ISC",
   "packageManager": "pnpm@10.12.1",
   "dependencies": {
-    "@atproto/api": "^0.18.0",
+    "@atproto/api": "^0.18.21",
     "@minify-html/deno": "jsr:^0.16.4",
     "@readii/schemas": "workspace:^",
-    "fast-xml-parser": "^5.2.5",
-    "zod": "^4.0.5"
+    "fast-xml-parser": "^5.3.5",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@biomejs/biome": "2.1.2",
