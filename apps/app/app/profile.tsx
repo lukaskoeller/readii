@@ -13,24 +13,29 @@ import { Stack } from "expo-router";
 import { ScrollView } from "react-native";
 
 export default function Profile() {
-  const colorBackground = useThemeColor({}, "background");
+  const backgroundColor = useThemeColor({}, "background");
+  const colorText = useThemeColor({}, "text");
 
   return (
     <ScrollView
       style={{
         padding: Spacing.container,
-        backgroundColor: colorBackground,
+        backgroundColor: backgroundColor,
       }}
     >
       <Stack.Screen
         options={{
-          headerTitle: "Profile",
-          headerStyle: {
-            backgroundColor: colorBackground,
+          contentStyle: {
+            backgroundColor,
           },
         }}
-      />
-
+      >
+        <Stack.Header style={{ backgroundColor }} />
+        <Stack.Screen.BackButton displayMode="minimal" />
+        <Stack.Screen.Title style={{ color: colorText }}>
+          Profile
+        </Stack.Screen.Title>
+      </Stack.Screen>
       <VStack style={{ marginBlockEnd: Spacing.navigation * 2 }}>
         <Section title="Subscriptions">
           <VStack gap={Spacing.size3}>

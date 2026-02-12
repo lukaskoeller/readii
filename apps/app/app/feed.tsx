@@ -54,13 +54,31 @@ export default function Feed() {
     hasFolderId ? readMediaItemsFromFolderId(folderId) : readMediaItems(params),
   );
   const backgroundColor = useThemeColor({}, "background");
-  const colorText = useThemeColor({}, "text");
+  const textColor = useThemeColor({}, "text");
 
   return (
     <Fragment>
-      <Stack.Screen.Title style={{ color: colorText }}>
-        {params.feedTitle ?? `All Feeds (${data?.length ?? 0})`}
-      </Stack.Screen.Title>
+      <Stack.Screen
+        options={{
+          headerTransparent: true,
+          headerBlurEffect: "none",
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: "transparent",
+          },
+          headerTitleStyle: {
+            color: textColor,
+          },
+          contentStyle: {
+            backgroundColor,
+          },
+        }}
+      >
+        <Stack.Screen.Title style={{ color: textColor }}>
+          {params.feedTitle ?? `All Feeds (${data?.length ?? 0})`}
+        </Stack.Screen.Title>
+        <Stack.Screen.BackButton displayMode="minimal" />
+      </Stack.Screen>
       <Stack.Toolbar placement="right">
         <Stack.Toolbar.Menu icon="ellipsis">
           <Stack.Toolbar.MenuAction

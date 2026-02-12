@@ -14,12 +14,14 @@ import {
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { Section } from "@/components/Section";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { getFeedData } from "@readii/parser";
 import { TMediaSource } from "@/core/schema";
 import { FolderButton } from "@/components/FolderButton";
+import { Icon, Label, Stack, useRouter } from "expo-router";
 
 export default function HomeScreen() {
+  const router = useRouter();
   const { updateFeed } = useFeed();
   const { readFolders } = useFolder();
   const { data: folders } = useLiveQuery(readFolders());
@@ -47,7 +49,8 @@ export default function HomeScreen() {
   const itemsCountReadLater = itemsCountIsReadLater[0]?.count ?? 0;
   const itemsCountUnread = itemsCountIsUnread[0]?.count ?? 0;
 
-  const colorBackground = useThemeColor({}, "background");
+  const backgroundColor = useThemeColor({}, "background");
+  const colorText = useThemeColor({}, "text");
   const colorText2 = useThemeColor({}, "text2");
 
   // @todo Improve update on mount
@@ -72,17 +75,37 @@ export default function HomeScreen() {
   }, [data.length]);
 
   return (
-    <>
+    <Fragment>
+      <Stack.Screen
+        options={{
+          contentStyle: {
+            backgroundColor,
+          },
+        }}
+      >
+        <Stack.Header style={{ backgroundColor }} />
+        <Stack.Screen.Title style={{ color: colorText }}>Home</Stack.Screen.Title>
+        <Stack.Toolbar placement="right">
+          <Stack.Toolbar.Button
+            onPress={() => {
+              router.navigate("/profile")
+            }}
+          >
+            <Label>Profile</Label>
+            <Icon sf="person.crop.circle" md="person" />
+          </Stack.Toolbar.Button>
+        </Stack.Toolbar>
+      </Stack.Screen>
       <ScrollView
         style={{
           paddingBlockStart: Spacing.size4,
-          backgroundColor: colorBackground,
+          backgroundColor: backgroundColor,
         }}
       >
         <ThemedView style={styles.quickFilters}>
           <QuickCardLink
             href={{
-              pathname: "/home/feed",
+              pathname: "/feed",
             }}
             label="All"
             count={itemsCountAll}
@@ -92,7 +115,7 @@ export default function HomeScreen() {
           />
           <QuickCardLink
             href={{
-              pathname: "/home/feed",
+              pathname: "/feed",
               params: { isRead: "false", feedTitle: "Unread" },
             }}
             label="Unread"
@@ -103,7 +126,7 @@ export default function HomeScreen() {
           />
           <QuickCardLink
             href={{
-              pathname: "/home/feed",
+              pathname: "/feed",
               params: { isStarred: "true", feedTitle: "Starred" },
             }}
             label="Starred"
@@ -112,7 +135,7 @@ export default function HomeScreen() {
           />
           <QuickCardLink
             href={{
-              pathname: "/home/feed",
+              pathname: "/feed",
               params: { isReadLater: "true", feedTitle: "Read Later" },
             }}
             label="Read Later"
@@ -145,7 +168,7 @@ export default function HomeScreen() {
                     <FolderButton
                       key={folder.id}
                       href={{
-                        pathname: "/home/feed",
+                        pathname: "/feed",
                         params: { folderId: folderId, feedTitle: folder.name },
                       }}
                       label={folder.name}
@@ -163,7 +186,7 @@ export default function HomeScreen() {
             <MediaSourceListCard
               data={data.map((item) => ({
                 href: {
-                  pathname: "/home/feed",
+                  pathname: "/feed",
                   params: {
                     mediaSourceId: item.id,
                     feedTitle: item.name,
@@ -186,7 +209,7 @@ export default function HomeScreen() {
           </Section>
         </ThemedView>
       </ScrollView>
-    </>
+    </Fragment>
   );
 }
 

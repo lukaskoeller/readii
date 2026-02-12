@@ -99,14 +99,6 @@ export default function AddFolder() {
                     <FlatList
                       scrollEnabled={false}
                       data={data.map((item) => ({
-                        href: {
-                          pathname: "/home/feed",
-                          params: {
-                            mediaSourceId: item.id,
-                            feedTitle: item.name,
-                            feedUrl: item.feedUrl,
-                          },
-                        },
                         id: item.id,
                         label: item.name,
                         icon: (

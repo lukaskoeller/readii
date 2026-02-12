@@ -50,17 +50,15 @@ export default function TabLayout() {
         <Icon sf="plus" md="add" selectedColor={tabSelectedColor} />
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="index" hidden={true} />
-
-      <NativeTabs.Trigger name="profile">
+      <NativeTabs.Trigger name="discover">
         <Label
           selectedStyle={{
             color: tabSelectedColor,
           }}
         >
-          Profile
+          Discover
         </Label>
-        <Icon sf="person.crop.circle" md="person" selectedColor={tabSelectedColor} />
+        <Icon sf="safari" md="explore" selectedColor={tabSelectedColor} />
       </NativeTabs.Trigger>
     </NativeTabs>
   );

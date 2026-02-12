@@ -289,6 +289,7 @@ export default function Article() {
           textZoom={100.0}
           webviewDebuggingEnabled
           decelerationRate="normal"
+          showsHorizontalScrollIndicator={false}
           style={{
             width: "100%",
             height: "100%",
@@ -325,17 +326,30 @@ export default function Article() {
             </ThemedView>
           )}
           setSupportMultipleWindows={false}
-          onShouldStartLoadWithRequest={(event) => {
-            // Only intercept navigation for anchor clicks (not initial load)
-            if (
-              event.navigationType === "click" || // iOS only
-              (event.url !== data?.url && event.url !== "about:blank")
-            ) {
-              void openBrowserAsync(event.url);
-              return false; // Prevent WebView navigation
-            }
-            return true; // Allow WebView navigation for initial load
+          onNavigationStateChange={(navState) => {
+            console.log("NAV_STATE_CHANGE", navState);
           }}
+          onShouldStartLoadWithRequest={(event) => {
+            console.log(event);
+            return true;
+            
+          }}
+          // onShouldStartLoadWithRequest={(event) => {
+          //   console.log(event);
+
+          //   // Only intercept navigation for anchor clicks (not initial load)
+          //   if (event?.navigationType) {
+
+          //   }
+          //   if (
+          //     event.navigationType === "click" || // iOS only
+          //     (event.url !== data?.url && event.url !== "about:blank")
+          //   ) {
+          //     void openBrowserAsync(event.url);
+          //     return false; // Prevent WebView navigation
+          //   }
+          //   return true; // Allow WebView navigation for initial load
+          // }}
           source={{
             baseUrl: data?.url,
             html: setHTML(
