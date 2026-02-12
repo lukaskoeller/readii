@@ -190,6 +190,7 @@ export default function Article() {
         }}
       >
         <Stack.Screen.Title>{""}</Stack.Screen.Title>
+        <Stack.Screen.BackButton displayMode="minimal" />
       </Stack.Screen>
       <Stack.Toolbar placement="bottom">
         <Stack.Toolbar.Button
