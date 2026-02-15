@@ -11,7 +11,7 @@ export type TFeedSuggestionCategoryItem = {
 export const CATEGORIES = [
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "news-politics" },
     },
     key: "news-politics",
@@ -19,7 +19,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "entertainment" },
     },
     key: "entertainment",
@@ -27,7 +27,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "sports" },
     },
     key: "sports",
@@ -35,7 +35,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "startups-innovation" },
     },
     key: "startups-innovation",
@@ -43,7 +43,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "money-business" },
     },
     key: "money-business",
@@ -51,7 +51,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "software-development" },
     },
     key: "software-development",
@@ -59,7 +59,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "design" },
     },
     key: "design",
@@ -67,7 +67,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "style-beauty" },
     },
     key: "style-beauty",
@@ -75,7 +75,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "food" },
     },
     key: "food",
@@ -83,7 +83,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "travel-regional" },
     },
     key: "travel-regional",
@@ -91,7 +91,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "health" },
     },
     key: "health",
@@ -99,7 +99,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "home-garden" },
     },
     key: "home-garden",
@@ -107,7 +107,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "science-tech" },
     },
     key: "science-tech",
@@ -115,7 +115,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "cars" },
     },
     key: "cars",
@@ -123,7 +123,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "hobbies" },
     },
     key: "hobbies",
@@ -131,7 +131,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "outdoors" },
     },
     key: "outdoors",
@@ -139,7 +139,7 @@ export const CATEGORIES = [
   },
   {
     href: {
-      pathname: "/add/[category]",
+      pathname: "/discover/[category]",
       params: { category: "kids-parenting" },
     },
     key: "kids-parenting",

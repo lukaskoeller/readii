@@ -32,7 +32,6 @@ export default function AddFeed() {
           },
         }}
       />
-      <StatusBar style={Platform.OS === "ios" ? "auto" : "auto"} />
       <LinkList
         style={{ margin: Spacing.container }}
         data={[
@@ -94,20 +93,6 @@ export default function AddFeed() {
           // },
         ]}
       />
-      <Section
-        title="Browse Categories"
-        // href="/add/categories"
-        headerPadding
-        bodyPadding
-      >
-        <TwoGrid
-          keyExtractor={(item) => item.key}
-          data={[...CATEGORIES]}
-          renderItem={(item) => (
-            <SimpleCardLink href={item.href} label={item.label} />
-          )}
-        />
-      </Section>
     </ScrollView>
   );
 }

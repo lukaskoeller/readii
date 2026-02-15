@@ -46,12 +46,6 @@ export default function FeedStackLayout() {
           sheetAllowedDetents: "fitToContents",
         }}
       />
-      <Stack.Screen
-        name="[category]"
-        options={{
-          presentation: "modal",
-        }}
-      />
     </Stack>
   );
 }

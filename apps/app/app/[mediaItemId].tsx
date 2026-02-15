@@ -71,6 +71,7 @@ export default function Article() {
               padding: 0px;
               padding-block-start: ${headerHeight}px;
               padding-block-end: ${Spacing.size12}px;
+              padding-inline: ${Spacing.size4}px;
               background: ${backgroundColor};
               color: ${textColor};
               font-size: ${TEXT_DEFAULT_STYLE.fontSize}px;
@@ -294,7 +295,6 @@ export default function Article() {
             width: "100%",
             height: "100%",
             backgroundColor,
-            paddingInline: Spacing.size4,
           }}
           injectedJavaScriptBeforeContentLoaded={`
             import { Readability } from "https://cdn.skypack.dev/@mozilla/readability";

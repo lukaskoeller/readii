@@ -16,8 +16,16 @@ export default function HomeStackLayout() {
         }}
       >
         <Stack.Header style={{ backgroundColor }} />
-        <Stack.Screen.Title style={{ color: colorText }}>Discover</Stack.Screen.Title>
+        <Stack.Screen.Title style={{ color: colorText }}>
+          Discover
+        </Stack.Screen.Title>
       </Stack.Screen>
+      <Stack.Screen
+        name="[category]"
+        options={{
+          presentation: "modal",
+        }}
+      />
     </Stack>
   );
 }
