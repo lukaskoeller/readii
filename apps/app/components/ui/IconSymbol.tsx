@@ -45,6 +45,7 @@ const MAPPING = {
   "message": "chat",
   "star.square": "stars",
   "checkmark.circle": "check-circle-outline",
+  "checkmark.circle.fill": "check-circle",
   "square.and.arrow.up": "ios-share",
 } as IconMapping;
 
