@@ -96,7 +96,7 @@ export default function Feed() {
           </Stack.Toolbar.MenuAction>
           <Stack.Toolbar.MenuAction
             onPress={() => {
-              router.navigate("/feed/settings");
+              router.navigate(`/feed/settings?mediaSourceId=${mediaSourceId}&feedTitle=${params.feedTitle}`);
             }}
           >
             <Label>Settings</Label>
