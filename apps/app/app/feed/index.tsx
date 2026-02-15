@@ -60,71 +60,65 @@ export default function Feed() {
 
   return (
     <Fragment>
-      <Stack.Screen
-        options={{
-          headerTransparent: true,
-          headerBlurEffect: "none",
-          headerShown: true,
-          headerStyle: {
-            backgroundColor: "transparent",
-          },
-          contentStyle: {
-            backgroundColor,
-          },
-        }}
-      >
-        {/* <Stack.Header
-          transparent={true}
-          blurEffect="none"
-          style={{ backgroundColor: backgroundColor }}
-        ></Stack.Header> @todo doesn't work yet */}
-        <Stack.Screen.BackButton displayMode="minimal" />
-        <Stack.Screen.Title style={{ color: textColor }}>
-          {params.feedTitle ?? `All Feeds (${data?.length ?? 0})`}
-        </Stack.Screen.Title>
-        <Stack.Toolbar placement="right">
-          <Stack.Toolbar.Menu icon="ellipsis">
-            <Stack.Toolbar.MenuAction
-              disabled={!mediaSourceId}
-              onPress={() => {
-                if (!mediaSourceId) return;
-                updateIsReadMediaItems(true, mediaSourceId);
-              }}
-            >
-              <Label>Mark All Read</Label>
-              <Icon sf="app.badge" md="mark_chat_unread" />
-            </Stack.Toolbar.MenuAction>
-            <Stack.Toolbar.MenuAction
-              disabled={!params.feedUrl}
-              onPress={async () => {
-                if (!params.feedUrl) return;
-                await Share.share({
-                  // message: `Check out this feed I found on readii:\n${params.feedUrl}\n\nGet the app here:\nhttps://readii.de`,
-                  url: params.feedUrl,
-                });
-              }}
-            >
-              <Label>Share Feed</Label>
-              <Icon sf="square.and.arrow.up" md="ios_share" />
-            </Stack.Toolbar.MenuAction>
-            <Stack.Toolbar.MenuAction
-              destructive
-              onPress={async () => {
-                if (mediaSourceId) {
-                  deleteMediaSource(mediaSourceId);
-                }
-                if (folderId) {
-                  deleteFolder(folderId);
-                }
-                router.replace("/home");
-              }}
-            >
-              <Label>{mediaSourceId ? "Delete Feed" : "Delete Folder"}</Label>
-              <Icon sf="trash" md="delete" />
-            </Stack.Toolbar.MenuAction>
-          </Stack.Toolbar.Menu>
-        </Stack.Toolbar>
-      </Stack.Screen>
+      <Stack.Screen.Title style={{ color: textColor }}>
+        {params.feedTitle ?? `All Feeds (${data?.length ?? 0})`}
+      </Stack.Screen.Title>
+      <Stack.Toolbar placement="left">
+        <Stack.Toolbar.Button onPress={() => router.back()}>
+          <Icon sf="chevron.left" md="arrow_back" />
+          <Label>Back</Label>
+        </Stack.Toolbar.Button>
+      </Stack.Toolbar>
+      <Stack.Toolbar placement="right">
+        <Stack.Toolbar.Menu icon="ellipsis">
+          <Stack.Toolbar.MenuAction
+            disabled={!mediaSourceId}
+            onPress={() => {
+              if (!mediaSourceId) return;
+              updateIsReadMediaItems(true, mediaSourceId);
+            }}
+          >
+            <Label>Mark All Read</Label>
+            <Icon sf="app.badge" md="mark_chat_unread" />
+          </Stack.Toolbar.MenuAction>
+          <Stack.Toolbar.MenuAction
+            disabled={!params.feedUrl}
+            onPress={async () => {
+              if (!params.feedUrl) return;
+              await Share.share({
+                // message: `Check out this feed I found on readii:\n${params.feedUrl}\n\nGet the app here:\nhttps://readii.de`,
+                url: params.feedUrl,
+              });
+            }}
+          >
+            <Label>Share Feed</Label>
+            <Icon sf="square.and.arrow.up" md="ios_share" />
+          </Stack.Toolbar.MenuAction>
+          <Stack.Toolbar.MenuAction
+            onPress={() => {
+              router.navigate("/feed/settings");
+            }}
+          >
+            <Label>Settings</Label>
+            <Icon sf="gearshape" md="settings" />
+          </Stack.Toolbar.MenuAction>
+          <Stack.Toolbar.MenuAction
+            destructive
+            onPress={async () => {
+              if (mediaSourceId) {
+                deleteMediaSource(mediaSourceId);
+              }
+              if (folderId) {
+                deleteFolder(folderId);
+              }
+              router.replace("/home");
+            }}
+          >
+            <Label>{mediaSourceId ? "Delete Feed" : "Delete Folder"}</Label>
+            <Icon sf="trash" md="delete" />
+          </Stack.Toolbar.MenuAction>
+        </Stack.Toolbar.Menu>
+      </Stack.Toolbar>
       <FlatList
         style={[
           styles.list,

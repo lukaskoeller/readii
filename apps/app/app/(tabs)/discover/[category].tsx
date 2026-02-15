@@ -27,19 +27,16 @@ export default function Category() {
   const { readMediaSources } = useMediaSource();
   const { data: mediaSources } = useLiveQuery(readMediaSources());
   const backgroundColor = useThemeColor({}, "background");
+  const textColor = useThemeColor({}, "text");
   const params = useLocalSearchParams<{ category: string }>();
   const mediaSourcesRssUrls = mediaSources.map((ms) => ms.feedUrl);
 
   return (
     <ThemedView style={{ backgroundColor, height: "100%" }}>
-      <Stack.Screen
-        options={{
-          headerStyle: {
-            backgroundColor,
-          },
-          headerTitle: getTitle(params.category),
-        }}
-      />
+      <Stack.Screen>
+        <Stack.Header style={{ backgroundColor }} />
+        <Stack.Screen.Title style={{ color: textColor }}>{getTitle(params.category)}</Stack.Screen.Title>
+      </Stack.Screen>
       <FlatList
         style={{ padding: Spacing.container }}
         data={suggestionsByCategory[params.category as TFeedCategory] ?? []}

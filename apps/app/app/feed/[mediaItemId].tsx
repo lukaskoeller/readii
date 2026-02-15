@@ -196,7 +196,7 @@ export default function Article() {
           style={{ backgroundColor: backgroundColor }}
         ></Stack.Header> @todo doesn't work yet */}
         <Stack.Screen.Title style={{ color: textColor }}>{""}</Stack.Screen.Title>
-        <Stack.Screen.BackButton displayMode="minimal" />
+        <Stack.Screen.BackButton />
       </Stack.Screen>
       <Stack.Toolbar placement="bottom">
         <Stack.Toolbar.Button

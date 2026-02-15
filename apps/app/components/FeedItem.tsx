@@ -64,7 +64,7 @@ export const FeedItem: FC<FeedItemProps> = ({
   return (
     <Link
       href={{
-        pathname: "/[mediaItemId]",
+        pathname: "/feed/[mediaItemId]",
         params: { mediaItemId: id },
       }}
     >
