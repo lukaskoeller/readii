@@ -82,8 +82,8 @@ export const Button: FC<ButtonProps> = ({
   const sizes = {
     small: {
       button: {
-        paddingBlock: 2,
-        paddingInline: 10,
+        paddingBlock: 6,
+        paddingInline: 16,
       },
       text: {
         fontWeight: FontWeight.medium,
