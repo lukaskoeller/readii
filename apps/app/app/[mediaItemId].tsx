@@ -190,7 +190,12 @@ export default function Article() {
           },
         }}
       >
-        <Stack.Screen.Title>{""}</Stack.Screen.Title>
+        {/* <Stack.Header
+          transparent={true}
+          blurEffect="none"
+          style={{ backgroundColor: backgroundColor }}
+        ></Stack.Header> @todo doesn't work yet */}
+        <Stack.Screen.Title style={{ color: textColor }}>{""}</Stack.Screen.Title>
         <Stack.Screen.BackButton displayMode="minimal" />
       </Stack.Screen>
       <Stack.Toolbar placement="bottom">

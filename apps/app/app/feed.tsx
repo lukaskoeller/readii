@@ -68,15 +68,16 @@ export default function Feed() {
           headerStyle: {
             backgroundColor: "transparent",
           },
-          headerTitleStyle: {
-            color: textColor,
-          },
           contentStyle: {
             backgroundColor,
           },
         }}
       >
-        <Stack.Header style={{ backgroundColor: "transparent" }} />
+        {/* <Stack.Header
+          transparent={true}
+          blurEffect="none"
+          style={{ backgroundColor: backgroundColor }}
+        ></Stack.Header> @todo doesn't work yet */}
         <Stack.Screen.BackButton displayMode="minimal" />
         <Stack.Screen.Title style={{ color: textColor }}>
           {params.feedTitle ?? `All Feeds (${data?.length ?? 0})`}
