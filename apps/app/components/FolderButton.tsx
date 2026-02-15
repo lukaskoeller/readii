@@ -65,7 +65,7 @@ export const FolderButton: FC<FolderButtonProps> = (props) => {
                     { backgroundColor: colorBackground },
                   ]}
                 >
-                  <ThemedText type="small">{mediaItemsUnreadCount}</ThemedText>
+                  <ThemedText type="smallStrong">{mediaItemsUnreadCount}</ThemedText>
                 </ThemedView>
               )}
               <IconSymbol
@@ -118,7 +118,7 @@ export const FolderButton: FC<FolderButtonProps> = (props) => {
                     },
                   ]}
                 >
-                  <ThemedText type="small">
+                  <ThemedText type="smallStrong">
                     {`+${additionalMediaSourcesCount}`}
                   </ThemedText>
                 </ThemedView>

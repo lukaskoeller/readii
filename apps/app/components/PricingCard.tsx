@@ -43,7 +43,7 @@ export const PricingCard: FC<PricingCardProps> = ({
               size={Spacing.size4}
               color={colorText3}
             />
-            <ThemedText type="small" style={{ color: colorText3 }}>
+            <ThemedText type="smallStrong" style={{ color: colorText3 }}>
               {feature}
             </ThemedText>
           </ThemedView>
@@ -62,7 +62,7 @@ export const PricingCard: FC<PricingCardProps> = ({
                   size={Spacing.size4}
                   color={colorText3}
                 />
-                <ThemedText type="small" style={{ color: colorText3 }}>
+                <ThemedText type="smallStrong" style={{ color: colorText3 }}>
                   {feature}
                 </ThemedText>
               </ThemedView>
@@ -82,14 +82,14 @@ export const PricingCard: FC<PricingCardProps> = ({
         <ThemedText noMargin type="h4" style={BOLD_STYLE}>
           {pricingMonthly}
         </ThemedText>
-        <ThemedText noMargin type="small">
+        <ThemedText noMargin type="smallStrong">
           /month
         </ThemedText>
       </ThemedView>
       {pricingAnnually && (
         <ThemedView style={{ marginInlineStart: "auto" }}>
           <ThemedText
-            type="small"
+            type="smallStrong"
             style={{ color: colorText3, fontWeight: FontWeight.normal }}
           >
             {pricingAnnually}/month billed annually

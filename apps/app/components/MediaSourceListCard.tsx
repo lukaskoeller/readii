@@ -43,7 +43,7 @@ const MediaSourceListItem: FC<MediaSourceListItemProps> = ({
             <ThemedView
               style={[styles.unreadBadge, { backgroundColor: colorBackground }]}
             >
-              <ThemedText type="small">{unreadCount}</ThemedText>
+              <ThemedText type="smallStrong">{unreadCount}</ThemedText>
             </ThemedView>
           ) : null}
           <IconSymbol

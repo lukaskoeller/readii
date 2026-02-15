@@ -119,7 +119,7 @@ export default function AddFeed() {
                 }}
               >
                 <ThemedText
-                  type="small"
+                  type="smallStrong"
                   color="text3"
                   noMargin
                   style={{ textAlign: "center" }}

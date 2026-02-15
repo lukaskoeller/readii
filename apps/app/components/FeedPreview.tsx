@@ -31,7 +31,7 @@ export const FeedPreview: FC<FeedPreviewProps> = ({
         <ThemedText type="h5" color="text2" noMargin>
           {name}
         </ThemedText>
-        <ThemedText type="small" color="text3" noMargin>
+        <ThemedText type="smallStrong" color="text3" noMargin>
           {description}
         </ThemedText>
       </ThemedView>

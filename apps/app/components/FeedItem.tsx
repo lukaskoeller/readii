@@ -108,7 +108,7 @@ export const FeedItem: FC<FeedItemProps> = ({
                   ]}
                 />
               )}
-              <ThemedText type="small">
+              <ThemedText type="smallStrong">
                 {formatShortRelative(publishedAt)}
               </ThemedText>
             </ThemedView>

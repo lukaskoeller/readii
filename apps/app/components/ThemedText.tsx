@@ -22,7 +22,8 @@ export type TThemedTextType =
   | "h5"
   | "h6"
   | "code"
-  | "small";
+  | "small"
+  | "smallStrong";
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
@@ -80,6 +81,10 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size2,
   },
   small: {
+    fontWeight: FontWeight.normal,
+    fontSize: FontSize.size1,
+  },
+  smallStrong: {
     fontWeight: FontWeight.medium,
     fontSize: FontSize.size1,
   },

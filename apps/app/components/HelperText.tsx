@@ -11,7 +11,7 @@ export type HelperTextProps = {
 export const HelperText: FC<HelperTextProps> = ({ text, status }) => {
   return (
     <ThemedText
-      type="small"
+      type="smallStrong"
       color={status}
       style={{ marginTop: Spacing.size1 }}
     >
