@@ -30,8 +30,7 @@ export default function FeedStackLayout() {
       <Stack.Screen
         name="settings"
         options={{
-          presentation: "formSheet",
-          sheetAllowedDetents: "fitToContents",
+          presentation: "modal",
           contentStyle: {
             backgroundColor,
           },
