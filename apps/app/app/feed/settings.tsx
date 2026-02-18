@@ -38,6 +38,9 @@ export default function FeedSettings() {
           <RadioField
             value={viewMode}
             onChange={(value) => setViewMode(value)}
+            labelProps={{
+              type: "h5",
+            }}
             options={[
               {
                 label: "Feed View",
