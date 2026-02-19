@@ -6,6 +6,8 @@ import {
   text,
 } from "drizzle-orm/sqlite-core";
 
+export const VIEW_MODES = ["feed-view", "reader-view", "browser-view"] as const;
+
 // Media Source table
 export const mediaSource = sqliteTable("media_source", {
   id: integer("id").primaryKey({ autoIncrement: true }),
@@ -18,6 +20,11 @@ export const mediaSource = sqliteTable("media_source", {
   lastFetchedAt: text("last_fetched_at").notNull(),
   language: text("language"),
   generator: text("generator"),
+  viewMode: text("view_mode", {
+    enum: VIEW_MODES,
+  })
+    .notNull()
+    .default("feed-view"),
   // categories
 });
 
@@ -34,7 +41,9 @@ export const mediaSourceIcon = sqliteTable("media_source_icon", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   url: text("url"),
   title: text("title").notNull(),
-  mediaSourceId: integer("media_source_id").references(() => mediaSource.id, { onDelete: "cascade" }),
+  mediaSourceId: integer("media_source_id").references(() => mediaSource.id, {
+    onDelete: "cascade",
+  }),
 });
 
 export const mediaSourceIconRelations = relations(
@@ -44,7 +53,7 @@ export const mediaSourceIconRelations = relations(
       fields: [mediaSourceIcon.mediaSourceId],
       references: [mediaSource.id],
     }),
-  })
+  }),
 );
 
 export type TMediaSourceIcon = typeof mediaSourceIcon.$inferInsert;
@@ -112,7 +121,7 @@ export const mediaItemsToCategories = sqliteTable(
       .notNull()
       .references(() => category.id, { onDelete: "cascade" }),
   },
-  (t) => [primaryKey({ columns: [t.mediaItemId, t.categoryId] })]
+  (t) => [primaryKey({ columns: [t.mediaItemId, t.categoryId] })],
 );
 
 export const folder = sqliteTable("folder", {
@@ -137,18 +146,21 @@ export const mediaSourceToFolders = sqliteTable(
       .notNull()
       .references(() => folder.id, { onDelete: "cascade" }),
   },
-  (t) => [primaryKey({ columns: [t.mediaSourceId, t.folderId] })]
+  (t) => [primaryKey({ columns: [t.mediaSourceId, t.folderId] })],
 );
 
-export const mediaSourceToFoldersRelations = relations(mediaSourceToFolders, ({ one }) => ({
-  mediaSource: one(mediaSource, {
-    fields: [mediaSourceToFolders.mediaSourceId],
-    references: [mediaSource.id],
+export const mediaSourceToFoldersRelations = relations(
+  mediaSourceToFolders,
+  ({ one }) => ({
+    mediaSource: one(mediaSource, {
+      fields: [mediaSourceToFolders.mediaSourceId],
+      references: [mediaSource.id],
+    }),
+    folder: one(folder, {
+      fields: [mediaSourceToFolders.folderId],
+      references: [folder.id],
+    }),
   }),
-  folder: one(folder, {
-    fields: [mediaSourceToFolders.folderId],
-    references: [folder.id],
-  }),
-}));
+);
 
 export type TMediaSourceToFolders = typeof mediaSourceToFolders.$inferInsert;

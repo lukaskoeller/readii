@@ -8,6 +8,7 @@ import m0003 from './0003_petite_ricochet.sql';
 import m0004 from './0004_shallow_dormammu.sql';
 import m0005 from './0005_sharp_skin.sql';
 import m0006 from './0006_bitter_rocket_racer.sql';
+import m0007 from './0007_open_mantis.sql';
 
   export default {
     journal,
@@ -18,7 +19,8 @@ m0002,
 m0003,
 m0004,
 m0005,
-m0006
+m0006,
+m0007
     }
   }
   

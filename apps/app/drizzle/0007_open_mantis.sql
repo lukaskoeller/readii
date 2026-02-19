@@ -1,0 +1,1 @@
+ALTER TABLE `media_source` ADD `view_mode` text DEFAULT 'feed-view' NOT NULL;
