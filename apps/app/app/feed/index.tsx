@@ -145,6 +145,7 @@ export default function Feed() {
               thumbnailUrl={item.thumbnailUrl}
               title={item.title}
               viewMode={item.mediaSource.viewMode}
+              url={item.url}
             />
           );
         }}
