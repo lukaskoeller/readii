@@ -60,7 +60,6 @@ export default function FeedSettings() {
               },
             ]}
           />
-          <ThemedText>{viewMode}</ThemedText>
         </Card>
         <Card
           style={{
