@@ -139,9 +139,21 @@ export const useMediaSource = () => {
     });
   };
 
+  const updateViewMode = (
+    mediaSourceId: NonNullable<schema.TMediaSource["id"]>,
+    viewMode: schema.TMediaSource["viewMode"],
+  ) => {
+    drizzleDb
+      .update(schema.mediaSource)
+      .set({ viewMode })
+      .where(eq(schema.mediaSource.id, mediaSourceId))
+      .execute();
+  };
+
   return {
     deleteMediaSource,
     readMediaSources,
+    updateViewMode,
   };
 };
 
