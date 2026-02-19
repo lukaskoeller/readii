@@ -54,6 +54,8 @@ export default function Feed() {
   const { data } = useLiveQuery(
     hasFolderId ? readMediaItemsFromFolderId(folderId) : readMediaItems(params),
   );
+  console.log(data[0]);
+  
   const headerHeight = useHeaderHeight();
   const backgroundColor = useThemeColor({}, "background");
   const textColor = useThemeColor({}, "text");
@@ -142,6 +144,7 @@ export default function Feed() {
               publishedAt={item.publishedAt}
               thumbnailUrl={item.thumbnailUrl}
               title={item.title}
+              viewMode={item.mediaSource.viewMode}
             />
           );
         }}

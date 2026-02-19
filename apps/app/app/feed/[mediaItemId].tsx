@@ -14,7 +14,7 @@ import {
 } from "@/constants/Styles";
 import { useReadMediaItem, useUpdateMediaItem } from "@/hooks/queries";
 import { ActivityIndicator, Dimensions, Share } from "react-native";
-import { Icon, Label, Stack } from "expo-router";
+import { Icon, Label, Stack, useLocalSearchParams } from "expo-router";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import WebView from "react-native-webview";
 import { Fragment, useEffect, useState } from "react";
@@ -22,7 +22,8 @@ import { useHeaderHeight } from "@react-navigation/elements";
 import { openBrowserAsync } from "expo-web-browser";
 
 export default function Article() {
-  const [isReaderView, setIsReaderView] = useState(false);
+  const { viewMode } = useLocalSearchParams();
+  const [isReaderView, setIsReaderView] = useState(viewMode === "reader-view");
   const data = useReadMediaItem();
   console.log("UPDATE", data?.isRead);
 
@@ -195,7 +196,9 @@ export default function Article() {
           blurEffect="none"
           style={{ backgroundColor: backgroundColor }}
         ></Stack.Header> @todo doesn't work yet */}
-        <Stack.Screen.Title style={{ color: textColor }}>{""}</Stack.Screen.Title>
+        <Stack.Screen.Title style={{ color: textColor }}>
+          {""}
+        </Stack.Screen.Title>
         <Stack.Screen.BackButton />
       </Stack.Screen>
       <Stack.Toolbar placement="bottom">
@@ -337,7 +340,6 @@ export default function Article() {
           onShouldStartLoadWithRequest={(event) => {
             console.log(event);
             return true;
-            
           }}
           // onShouldStartLoadWithRequest={(event) => {
           //   console.log(event);

@@ -1,3 +1,4 @@
+import * as schema from "@/core/schema";
 import { Button } from "@/components/Button/Button";
 import { Card } from "@/components/Card";
 import { RadioField } from "@/components/RadioField";
@@ -6,6 +7,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { VStack } from "@/components/VStack";
 import { Spacing } from "@/constants/Sizes";
+import { useMediaSource } from "@/hooks/queries";
 import { useLocalSearchParams } from "expo-router";
 import { useState } from "react";
 
@@ -15,6 +17,7 @@ export default function FeedSettings() {
     feedTitle: string;
   }>();
   const [viewMode, setViewMode] = useState<string>("feed-view");
+  const { updateViewMode } = useMediaSource();
   const mediaSourceId = Number(params.mediaSourceId);
   const feedTitle = params.feedTitle;
 
@@ -37,7 +40,13 @@ export default function FeedSettings() {
         <Card>
           <RadioField
             value={viewMode}
-            onChange={(value) => setViewMode(value)}
+            onChange={(value) => {
+              setViewMode(value);
+              updateViewMode(
+                mediaSourceId,
+                value as schema.TMediaSource["viewMode"],
+              );
+            }}
             labelProps={{
               type: "h5",
             }}
@@ -49,8 +58,7 @@ export default function FeedSettings() {
               },
               {
                 label: "Reader View",
-                description:
-                  "Shows full article in reader mode",
+                description: "Shows linked article in reader mode",
                 value: "reader-view",
               },
               {

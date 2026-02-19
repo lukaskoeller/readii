@@ -45,6 +45,7 @@ export type FeedItemProps = {
   publishedAt: TMediaItem["publishedAt"];
   thumbnailUrl: TMediaItem["thumbnailUrl"];
   title: TMediaItem["title"];
+  viewMode?: TMediaSource["viewMode"];
 };
 
 export const FeedItem: FC<FeedItemProps> = ({
@@ -56,6 +57,7 @@ export const FeedItem: FC<FeedItemProps> = ({
   publishedAt,
   thumbnailUrl,
   title,
+  viewMode,
 }) => {
   const colorBackground3 = useThemeColor({}, "background3");
   const colorText2 = useThemeColor({}, "text2");
@@ -65,7 +67,7 @@ export const FeedItem: FC<FeedItemProps> = ({
     <Link
       href={{
         pathname: "/feed/[mediaItemId]",
-        params: { mediaItemId: id },
+        params: { mediaItemId: id, viewMode },
       }}
     >
       <ThemedView style={[styles.item]}>
