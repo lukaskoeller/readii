@@ -1,5 +1,6 @@
 import { Section } from "@/components/Section";
 import { SimpleCardLink } from "@/components/SimpleCardLink";
+import { ThemedView } from "@/components/ThemedView";
 import { TwoGrid } from "@/components/TwoGrid";
 import { CATEGORIES } from "@/constants/data";
 import { Spacing } from "@/constants/Sizes";
@@ -15,20 +16,20 @@ export default function DiscoverScreen() {
         },
       ]}
     >
-      <Section
-        title="Browse Categories"
-        // href="/add/categories"
-        headerPadding
-        bodyPadding
-      >
-        <TwoGrid
-          keyExtractor={(item) => item.key}
-          data={[...CATEGORIES]}
-          renderItem={(item) => (
-            <SimpleCardLink href={item.href} label={item.label} />
-          )}
-        />
-      </Section>
+      <ThemedView container>
+        <Section
+          title="Browse Categories"
+          // href="/add/categories"
+        >
+          <TwoGrid
+            keyExtractor={(item) => item.key}
+            data={[...CATEGORIES]}
+            renderItem={(item) => (
+              <SimpleCardLink href={item.href} label={item.label} />
+            )}
+          />
+        </Section>
+      </ThemedView>
     </ScrollView>
   );
 }
