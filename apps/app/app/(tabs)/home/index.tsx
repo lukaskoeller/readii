@@ -19,6 +19,7 @@ import { getFeedData } from "@readii/parser";
 import { TMediaSource } from "@/core/schema";
 import { FolderButton } from "@/components/FolderButton";
 import { Icon, Label, Stack, useRouter } from "expo-router";
+import { Logo } from "@/components/Logo";
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -84,7 +85,9 @@ export default function HomeScreen() {
         }}
       >
         <Stack.Header style={{ backgroundColor }} />
-        <Stack.Screen.Title style={{ color: colorText }}>Home</Stack.Screen.Title>
+        <Stack.Screen.Title style={{ color: colorText }} asChild>
+          <Logo />
+        </Stack.Screen.Title>
         <Stack.Toolbar placement="right">
           <Stack.Toolbar.Button
             onPress={() => {
