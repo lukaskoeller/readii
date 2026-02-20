@@ -194,6 +194,7 @@ export default function HomeScreen() {
                     mediaSourceId: item.id,
                     feedTitle: item.name,
                     feedUrl: item.feedUrl,
+                    viewMode: item.viewMode,
                   },
                 },
                 id: String(item.id),

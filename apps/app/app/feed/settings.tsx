@@ -1,4 +1,4 @@
-import * as schema from "@/core/schema";
+import { TMediaSource } from "@/core/schema";
 import { Button } from "@/components/Button/Button";
 import { Card } from "@/components/Card";
 import { RadioField } from "@/components/RadioField";
@@ -15,8 +15,11 @@ export default function FeedSettings() {
   const params = useLocalSearchParams<{
     mediaSourceId: string;
     feedTitle: string;
+    viewMode: TMediaSource["viewMode"];
   }>();
-  const [viewMode, setViewMode] = useState<string>("feed-view");
+  const [viewMode, setViewMode] = useState<TMediaSource["viewMode"]>(
+    params.viewMode,
+  );
   const { updateViewMode } = useMediaSource();
   const mediaSourceId = Number(params.mediaSourceId);
   const feedTitle = params.feedTitle;

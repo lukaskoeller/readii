@@ -22,6 +22,7 @@ import { getFeedData } from "@readii/parser";
 import { Fragment } from "react";
 import { FeedItem } from "@/components/FeedItem";
 import { useHeaderHeight } from "@react-navigation/elements";
+import { TMediaSource } from "@/core/schema";
 
 export default function Feed() {
   const router = useRouter();
@@ -34,10 +35,11 @@ export default function Feed() {
     isReadLater?: "true" | "false";
     isStarred?: "true" | "false";
     isUnread?: "true" | "false";
-    feedTitle: string;
-    mediaSourceId?: `${number}`;
-    feedUrl?: string;
+    feedTitle: TMediaSource["name"];
+    mediaSourceId?: `${TMediaSource["id"]}`;
+    feedUrl?: TMediaSource["url"];
     folderId?: `${number}`;
+    viewMode: TMediaSource["viewMode"];
   }>();
   const folderId = params.folderId ? Number(params.folderId) : undefined;
   const hasFolderId = typeof folderId === "number";
@@ -54,8 +56,7 @@ export default function Feed() {
   const { data } = useLiveQuery(
     hasFolderId ? readMediaItemsFromFolderId(folderId) : readMediaItems(params),
   );
-  console.log(data[0]);
-  
+
   const headerHeight = useHeaderHeight();
   const backgroundColor = useThemeColor({}, "background");
   const textColor = useThemeColor({}, "text");
@@ -98,7 +99,9 @@ export default function Feed() {
           </Stack.Toolbar.MenuAction>
           <Stack.Toolbar.MenuAction
             onPress={() => {
-              router.navigate(`/feed/settings?mediaSourceId=${mediaSourceId}&feedTitle=${params.feedTitle}`);
+              router.navigate(
+                `/feed/settings?mediaSourceId=${mediaSourceId}&feedTitle=${params.feedTitle}&viewMode=${params.viewMode}`,
+              );
             }}
           >
             <Label>Settings</Label>

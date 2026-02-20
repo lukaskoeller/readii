@@ -34,7 +34,10 @@ export const mediaSourceRelations = relations(mediaSource, ({ one, many }) => ({
   folders: many(mediaSourceToFolders),
 }));
 
-export type TMediaSource = typeof mediaSource.$inferInsert;
+/** Use for inserts: columns with .default() are optional. */
+export type TMediaSourceInsert = typeof mediaSource.$inferInsert;
+/** Use for selected rows: .notNull() columns are required. */
+export type TMediaSource = typeof mediaSource.$inferSelect;
 
 // Media Source Icon table
 export const mediaSourceIcon = sqliteTable("media_source_icon", {
