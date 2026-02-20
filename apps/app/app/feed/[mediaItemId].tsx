@@ -25,7 +25,6 @@ export default function Article() {
   const { viewMode } = useLocalSearchParams();
   const [isReaderView, setIsReaderView] = useState(viewMode === "reader-view");
   const data = useReadMediaItem();
-  console.log("UPDATE", data?.isRead);
 
   const { updateMediaItem } = useUpdateMediaItem();
 
@@ -218,7 +217,6 @@ export default function Article() {
         </Stack.Toolbar.Button>
         <Stack.Toolbar.Button
           onPress={async () => {
-            console.log("READER MODE");
             setIsReaderView(!isReaderView);
           }}
         >

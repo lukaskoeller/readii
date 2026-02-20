@@ -10,13 +10,14 @@ export type HtmlViewerProps = {
   url: string | undefined;
 };
 
+/**
+ * 
+ * @deprecated
+ */
 export const HtmlViewer: FC<HtmlViewerProps> = ({ ast, url }) => {
   // parse5 AST root is usually 'document', so render its children
   if (!ast) return null;
   const { childNodes } = ast;
-
-  console.log(childNodes);
-  
 
   return (
     <FlatList
