@@ -22,7 +22,7 @@ export default function FeedSettings() {
   const feedTitle = params.feedTitle;
 
   return (
-    <ThemedView>
+    <ThemedView container>
       <VStack gap={Spacing.size3}>
         <Card>
           <TextInputField
